@@ -1,6 +1,8 @@
-﻿namespace Entities.Concrete;
+﻿using Core.Entities;
 
-public class OperatorIsEmirleri
+namespace Entities.Concrete;
+
+public class OperatorIsEmri:IEntity
 {
     public int Id { get; set; }
     public string MakineIsmi { get; set; }

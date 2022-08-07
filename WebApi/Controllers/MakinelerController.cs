@@ -29,7 +29,7 @@ namespace WebApi.Controllers
         public IActionResult Add(Makine makina)
         {
 
-            var result = _makinaService.add(makina);
+            var result = _makinaService.Add(makina);
             if (result.Success)
             {
                 return Ok(result);
@@ -43,6 +43,17 @@ namespace WebApi.Controllers
         public IActionResult GetById(int id)
         {
             var result = _makinaService.Get(x => x.Id == id);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+
+        }
+        [HttpGet("GetGunlukRaporlar")]
+        public IActionResult GetGunlukRaporlar(string makineIsmi,DateTime Tarih)
+        {
+            var result = _makinaService.GetGunlukRaporlar(makineIsmi,Tarih);
             if (result.Success)
             {
                 return Ok(result);

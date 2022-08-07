@@ -6,16 +6,17 @@ using System.Text;
 using System.Threading.Tasks;
 using Core.Utilities.Results;
 using Entities.Concrete;
+using Entities.DTO_s;
 
 namespace Business.Abstract
 {
     public interface IMakineService
     {
         IDataResult<List<Makine>> GetAll();
-        IResult add(Makine makineler);
-        IResult delete(Makine Makine);
-        IResult update(Makine Makine);
-
+        IResult Add(Makine makineler);
+        IResult Delete(Makine Makine);
+        IResult Update(Makine Makine);
+        IDataResult<List<MakineGunlukRaporDto>> GetGunlukRaporlar(string makineIsmi,DateTime tarih);
         IDataResult<Makine> Get(Expression<Func<Makine, bool>> filter);
     }
 }

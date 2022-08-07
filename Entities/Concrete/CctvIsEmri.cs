@@ -7,7 +7,7 @@ using Entities.Base;
 
 namespace Entities.Concrete
 {
-    public class CctvIsEmirleri:IsEmirleriBase
+    public class CctvIsEmri:IsEmirleriBase
     {
     }
 }

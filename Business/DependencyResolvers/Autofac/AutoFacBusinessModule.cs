@@ -29,11 +29,21 @@ namespace Business.DependencyResolvers.Autofac
             builder.RegisterType<KabloUretimManager>().As<IKabloUretimService>().SingleInstance();
             builder.RegisterType<EfKabloUretimDal>().As<IKabloUretimDal>().SingleInstance();
 
+            builder.RegisterType<OperatorIsEmriManager>().As<IOperatorIsEmriService>().SingleInstance();
+            builder.RegisterType<EfOperatorIsEmriDal>().As<IOperatorIsEmriDal>().SingleInstance();
+
             builder.RegisterType<CctvGenelDizaynManager>().As<ICctvGenelDizaynService>().SingleInstance();
             builder.RegisterType<EfCctvGenelDizaynDal>().As<ICctvGenelDizaynDal>().SingleInstance();
 
             builder.RegisterType<CctvDamarDizaynManager>().As<ICctvDamarDizaynService>().SingleInstance();
             builder.RegisterType<EfCctvDamarDizaynDal>().As<ICctvDamarDizaynDal>().SingleInstance();
+
+            builder.RegisterType<CctvIsEmriManager>().As<ICctvIsEmriService>().SingleInstance();
+            builder.RegisterType<EfCctvIsEmriDal>().As<ICctvIsEmriDal>().SingleInstance();
+
+            builder.RegisterType<KesitYapisiManager>().As<IKesitYapisiService>().SingleInstance();
+            builder.RegisterType<EfKesitYapisiDal>().As<IKesitYapisiDal>().SingleInstance();
+
 
             builder.RegisterType<AuthManager>().As<IAuthService>();
             builder.RegisterType<JwtHelper>().As<ITokenHelper>();

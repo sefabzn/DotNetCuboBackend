@@ -12,8 +12,8 @@ namespace Business.Validation.FluentValidation
     {
         public KullaniciValidator()
         {
-            RuleFor(x => x.Kullanici_Adi).MinimumLength(2);
-            RuleFor(x => x.Kullanici_Adi).NotEmpty();
+            RuleFor(x => x.KullaniciAdi).MinimumLength(2);
+            RuleFor(x => x.KullaniciAdi).NotEmpty();
 
         }
     }

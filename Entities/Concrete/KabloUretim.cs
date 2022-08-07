@@ -14,7 +14,7 @@ namespace Entities.Concrete
         public double GenelAriza { get; set; }
         public double HurdaPvc { get; set; }
         public double HurdaCu { get; set; }
-        public double CalismaSaati { get; set; }
+        public double CalismaSuresi { get; set; }
         public double KayipZaman { get; set; }
         public double Verimlilik { get; set; }
         public DateTime Tarih { get; set; }

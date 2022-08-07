@@ -59,7 +59,7 @@ namespace Core.Utilities.Security.JWT
         {
             var claims = new List<Claim>();
             claims.AddKullaniciIdentifier(kullanici.ID.ToString());
-            claims.AddKullaniciAdi(kullanici.Kullanici_Adi);
+            claims.AddKullaniciAdi(kullanici.KullaniciAdi);
             claims.AddRoles(operationClaims.Select(c=>c.Name).ToArray());
             
             return claims;

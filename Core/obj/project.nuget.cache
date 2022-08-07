@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "TXI1KJ2I1wIbL1nqEmN0DD4bHpTW21bHB45SWE4FQDWEjSS5CRqfablTrXeIbsokDJHmMOolAVfJk+9JpBvPxg==",
+  "dgSpecHash": "E6ybs+s/U+mVKwIU5b7JmOBIRyhk/KyMMC79XWpfOy3QQlnp/6rDRIQGITJvW1F8mVq4+H/5D0jU4m+o0nR1bA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\sefa_\\source\\repos\\CuboCodeFirst\\Core\\Core.csproj",
+  "projectFilePath": "C:\\Users\\sefa_\\source\\repos\\DotNetCuboBackend\\Core\\Core.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\sefa_\\.nuget\\packages\\autofac\\6.4.0\\autofac.6.4.0.nupkg.sha512",
     "C:\\Users\\sefa_\\.nuget\\packages\\autofac.extensions.dependencyinjection\\8.0.0\\autofac.extensions.dependencyinjection.8.0.0.nupkg.sha512",

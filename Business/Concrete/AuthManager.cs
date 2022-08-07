@@ -29,7 +29,7 @@ namespace Business.Concrete
             HashingHelper.CreatePasswordHash(password, out passwordHash, out passwordSalt);
             var kullanici = new Kullanici
             {
-                Kullanici_Adi = kullaniciForRegisterDto.KullaniciAdi,
+                KullaniciAdi = kullaniciForRegisterDto.KullaniciAdi,
                 PasswordHash = passwordHash,
                 PasswordSalt = passwordSalt,
                 Status = true,

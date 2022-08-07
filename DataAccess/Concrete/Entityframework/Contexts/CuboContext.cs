@@ -8,16 +8,16 @@ namespace DataAccess.Concrete.Entityframework.Contexts
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=LAPTOP-4RH52O70;Database=CuboDbFirst;Integrated Security=True;Trusted_Connection=true");
+            optionsBuilder.UseSqlServer(@"Server=EKMEKTEKNEM;Database=CuboDb;Integrated Security=True;Trusted_Connection=true");
         }
         public  DbSet<CctvDamarDizayn> CctvDamarDizayn { get; set; }
         public DbSet<CctvGenelDizayn> CctvGenelDizayn { get; set; }
-        public DbSet<CctvIsEmirleri> CctvIsEmirleri { get; set; }
+        public DbSet<CctvIsEmri> CctvIsEmirleri { get; set; }
         public DbSet<KabloUretim> KabloUretim { get; set; }
         public DbSet<KesitYapisi> KesitYapisi { get; set; }
         public DbSet<Makine> Makineler { get; set; }
         public DbSet<MakineKesitHizTablosu> MakineKesitHizTablosu { get; set; }
-        public DbSet<OperatorIsEmirleri> OperatorIsEmirleri { get; set; }
+        public DbSet<OperatorIsEmri> OperatorIsEmirleri { get; set; }
         public DbSet<Sarfiyat> Sarfiyat { get; set; }
         public DbSet<SatisPlanlama> SatisPlanlama { get; set; }
         public DbSet<TekDamarDizayn> TekDamarDizayn { get; set; }

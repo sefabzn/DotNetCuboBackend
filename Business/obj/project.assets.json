@@ -7142,24 +7142,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\sefa_\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\sefa_\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\sefa_\\source\\repos\\CuboCodeFirst\\Business\\Business.csproj",
+      "projectUniqueName": "C:\\Users\\sefa_\\source\\repos\\DotNetCuboBackend\\Business\\Business.csproj",
       "projectName": "Business",
-      "projectPath": "C:\\Users\\sefa_\\source\\repos\\CuboCodeFirst\\Business\\Business.csproj",
+      "projectPath": "C:\\Users\\sefa_\\source\\repos\\DotNetCuboBackend\\Business\\Business.csproj",
       "packagesPath": "C:\\Users\\sefa_\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\sefa_\\source\\repos\\CuboCodeFirst\\Business\\obj\\",
+      "outputPath": "C:\\Users\\sefa_\\Source\\Repos\\DotNetCuboBackend\\Business\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
         "C:\\Users\\sefa_\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -7173,14 +7168,14 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\sefa_\\source\\repos\\CuboCodeFirst\\Core\\Core.csproj": {
-              "projectPath": "C:\\Users\\sefa_\\source\\repos\\CuboCodeFirst\\Core\\Core.csproj"
+            "C:\\Users\\sefa_\\source\\repos\\DotNetCuboBackend\\Core\\Core.csproj": {
+              "projectPath": "C:\\Users\\sefa_\\source\\repos\\DotNetCuboBackend\\Core\\Core.csproj"
             },
-            "C:\\Users\\sefa_\\source\\repos\\CuboCodeFirst\\DataAccess\\DataAccess.csproj": {
-              "projectPath": "C:\\Users\\sefa_\\source\\repos\\CuboCodeFirst\\DataAccess\\DataAccess.csproj"
+            "C:\\Users\\sefa_\\source\\repos\\DotNetCuboBackend\\DataAccess\\DataAccess.csproj": {
+              "projectPath": "C:\\Users\\sefa_\\source\\repos\\DotNetCuboBackend\\DataAccess\\DataAccess.csproj"
             },
-            "C:\\Users\\sefa_\\source\\repos\\CuboCodeFirst\\Entities\\Entities.csproj": {
-              "projectPath": "C:\\Users\\sefa_\\source\\repos\\CuboCodeFirst\\Entities\\Entities.csproj"
+            "C:\\Users\\sefa_\\source\\repos\\DotNetCuboBackend\\Entities\\Entities.csproj": {
+              "projectPath": "C:\\Users\\sefa_\\source\\repos\\DotNetCuboBackend\\Entities\\Entities.csproj"
             }
           }
         }
@@ -7209,7 +7204,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
       }
     }
   }

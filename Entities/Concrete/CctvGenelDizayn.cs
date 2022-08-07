@@ -1,4 +1,4 @@
-﻿using Entities.Base;
+﻿    using Entities.Base;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +9,7 @@ namespace Entities.Concrete
 {
     public class CctvGenelDizayn:GenelDizaynBase
     {
-        public string Core { get; set; }
+        public string? Core { get; set; }
         public double  Hatve { get; set; }
     }
 }

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "BDqN6fK1dxN6nv+OuXsdmFieTWDPp/hWXTp4UJyrUVHhgwN1bByHU0peArYk+KgFJVL8ynNaPddWJUyfV/0X+w==",
+  "dgSpecHash": "Ihb/6cA0HqF9EuXDpeMByZdRoa6uFbmtHpYILfjXwXvVSyiRPH8E9ECY5+frmEjXJ4X4tNspqWro78dpma4S+g==",
   "success": true,
-  "projectFilePath": "C:\\Users\\sefa_\\source\\repos\\CuboCodeFirst\\WebApi\\WebApi.csproj",
+  "projectFilePath": "C:\\Users\\sefa_\\source\\repos\\DotNetCuboBackend\\WebApi\\WebApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\sefa_\\.nuget\\packages\\autofac\\6.4.0\\autofac.6.4.0.nupkg.sha512",
     "C:\\Users\\sefa_\\.nuget\\packages\\autofac.extensions.dependencyinjection\\8.0.0\\autofac.extensions.dependencyinjection.8.0.0.nupkg.sha512",

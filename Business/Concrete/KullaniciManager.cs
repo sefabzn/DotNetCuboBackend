@@ -24,7 +24,7 @@ namespace Business.Concrete
         public IResult add(Kullanici kullanici)
         {
 
-            var result = BusinessRules.Run(CheckIfKullaniciExists(kullanici.Kullanici_Adi));
+            var result = BusinessRules.Run(CheckIfKullaniciExists(kullanici.KullaniciAdi));
 
             if (result != null)
             {
@@ -36,7 +36,7 @@ namespace Business.Concrete
         private IResult CheckIfKullaniciExists(string kullaniciAdi)
         {
 
-            if (_kullaniciDal.GetAll(x => x.Kullanici_Adi == kullaniciAdi).Any())
+            if (_kullaniciDal.GetAll(x => x.KullaniciAdi == kullaniciAdi).Any())
             {
                 return new ErrorResult();
             }
@@ -76,7 +76,7 @@ namespace Business.Concrete
 
         public IDataResult<Kullanici> GetByKullaniciAdi(string kullaniciAdi)
         {
-            return new SuccessDataResult<Kullanici>(_kullaniciDal.Get(x => x.Kullanici_Adi == kullaniciAdi));
+            return new SuccessDataResult<Kullanici>(_kullaniciDal.Get(x => x.KullaniciAdi == kullaniciAdi));
         }
     }
 }
