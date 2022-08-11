@@ -44,6 +44,9 @@ namespace Business.DependencyResolvers.Autofac
             builder.RegisterType<KesitYapisiManager>().As<IKesitYapisiService>().SingleInstance();
             builder.RegisterType<EfKesitYapisiDal>().As<IKesitYapisiDal>().SingleInstance();
 
+            builder.RegisterType<SarfiyatManager>().As<ISarfiyatService>().SingleInstance();
+            builder.RegisterType<EfSarfiyatDal>().As<ISarfiyatDal>().SingleInstance();
+
 
             builder.RegisterType<AuthManager>().As<IAuthService>();
             builder.RegisterType<JwtHelper>().As<ITokenHelper>();

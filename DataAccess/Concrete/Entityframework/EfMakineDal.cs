@@ -36,11 +36,13 @@ namespace DataAccess.Concrete.Entityframework
                                  HurdaPvc = kabloUretim.HurdaPvc,
                                  HurdaCu = kabloUretim.HurdaCu,
                                  CalismaSuresi = kabloUretim.CalismaSuresi,
+                                 KayipZaman=kabloUretim.KayipZaman,
+                                 Verimlilik=kabloUretim.Verimlilik,
                                  Isinma = makine.Isinma,
-                                 KayipZaman = kabloUretim.KayipZaman,
-                                 Verimlilik = kabloUretim.Verimlilik,
                                  Tarih = kabloUretim.Tarih
                              };
+
+                
                 return result.ToList();
 
             }

@@ -37,5 +37,16 @@ namespace WebApi.Controllers
             }
             return BadRequest(result);
         }
+        [HttpPost("Delete")]
+        public IActionResult Delete(KesitYapisi kablo)
+        {
+            var result = _kesitYapisiService.delete(kablo);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+
+        }
     }
 }

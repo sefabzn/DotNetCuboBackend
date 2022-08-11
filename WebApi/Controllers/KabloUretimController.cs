@@ -46,6 +46,18 @@ namespace WebApi.Controllers
             }
             return BadRequest(result);
         }
+        [HttpPost("Delete")]
+        public IActionResult Delete(KabloUretim kablo)
+        {
+
+            var result = _kabloUretimService.delete(kablo);
+            if (result.Success)
+            {
+                return Ok(result);
+
+            }
+            return BadRequest(result);
+        }
         [HttpGet("GetById")]
         public IActionResult GetById(int id,DateTime tarih)
         {

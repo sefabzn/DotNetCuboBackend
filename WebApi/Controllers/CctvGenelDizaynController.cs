@@ -35,6 +35,16 @@ namespace WebApi.Controllers
             }
             return BadRequest(result);
         }
+        [HttpPost("Delete")]
+        public IActionResult Delete(CctvGenelDizayn kablo)
+        {
+            var result = _cctvGenelDizaynService.delete(kablo);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
 
+        }
     }
 }

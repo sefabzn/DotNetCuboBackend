@@ -1,4 +1,5 @@
 ﻿using Business.Abstract;
+using Entities.Concrete;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebApi.Controllers
@@ -21,6 +22,17 @@ namespace WebApi.Controllers
                 return Ok(result);
             }
             return BadRequest(result);
+        }
+        [HttpPost("Delete")]
+        public IActionResult Delete(OperatorIsEmri kablo)
+        {
+            var result = _operatorIsEmriService.delete(kablo);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+
         }
     }
 }

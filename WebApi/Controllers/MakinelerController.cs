@@ -39,6 +39,17 @@ namespace WebApi.Controllers
 
 
         }
+        [HttpPost("Delete")]
+        public IActionResult Delete(Makine kablo)
+        {
+            var result = _makinaService.Delete(kablo);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+
+        }
         [HttpGet("GetById")]
         public IActionResult GetById(int id)
         {

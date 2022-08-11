@@ -6,7 +6,7 @@ namespace WebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class KullanicilarController : ControllerBase
+    public class KullanicilarController : Controller
     {
         //Loosely Coupled
         //IoC container Inversion of Control
@@ -46,6 +46,17 @@ namespace WebApi.Controllers
         public IActionResult GetById(int id)
         {
             var result = _kullaniciService.Get(x => x.ID == id);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+
+        }
+        [HttpPost("Delete")]
+        public IActionResult Delete(Kullanici kablo)
+        {
+            var result = _kullaniciService.delete(kablo);
             if (result.Success)
             {
                 return Ok(result);
