@@ -1,4 +1,7 @@
 ﻿using Business.Abstract;
+using Business.BusinessAspects.Autofac;
+using Core.Business;
+using Core.Utilities.Business;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
@@ -6,14 +9,15 @@ using System.Linq.Expressions;
 
 namespace Business.Concrete
 {
-    public class KabloUretimManager : IKabloUretimService
+    public class KabloUretimManager : ManagerBase<KabloUretim, IKabloUretimDal>, IKabloUretimService
     {
         private IKabloUretimDal _kabloUretimDal;
         private ISarfiyatDal _sarfiyatDal;
         private IKesitYapisiDal _kesitYapisiDal;
         private IMakineDal _makineDal;
 
-        public KabloUretimManager(IKabloUretimDal kabloUretimDal, ISarfiyatDal sarfiyatDal, IKesitYapisiDal kesitYapisiDal, IMakineDal makineDal)
+        //Bu class cok fazla experimental bunu test et
+        public KabloUretimManager(IKabloUretimDal kabloUretimDal, ISarfiyatDal sarfiyatDal, IKesitYapisiDal kesitYapisiDal, IMakineDal makineDal):base(kabloUretimDal)
         {
             _kabloUretimDal = kabloUretimDal;
             _sarfiyatDal = sarfiyatDal;
@@ -22,17 +26,33 @@ namespace Business.Concrete
         }
         public IResult add(KabloUretim kablo)
         {
+
+            var result = BusinessRules.Run(IsTimeValid());
+
+            if (result != null)
+            {
+                return result;
+            }
+
+
             var makine = _makineDal.Get(x => x.Id == kablo.MakineId);
 
             VerimlilikHesapla(kablo, makine);
 
             _kabloUretimDal.Add((kablo));
 
-            addToSarfiyat(kablo);
 
             return new SuccessResult("Ürün Başarıyla Eklendi");
         }
+        public IResult IsTimeValid()
+        {
+            if (DateTime.Now.Hour < 6 && DateTime.Now.Hour > 21 )
+            {
+                return new ErrorResult();
+            }
 
+            return new SuccessResult();
+        }
         private static void VerimlilikHesapla(KabloUretim kablo, Makine makine)
         {
             double KopmaKaybi = kablo.Kopma * makine.Kopma;
@@ -41,8 +61,8 @@ namespace Business.Concrete
             double GenelAriza = kablo.GenelAriza;
             double Isinma = makine.Isinma;
 
-            kablo.KayipZaman = KopmaKaybi + RenkDegisimiKaybi + KesitDegisimiKaybi + GenelAriza + Isinma;
-            kablo.Verimlilik = ((kablo.CalismaSuresi - kablo.KayipZaman) / kablo.CalismaSuresi) * 100;
+            kablo.KayipZaman = (KopmaKaybi + RenkDegisimiKaybi + KesitDegisimiKaybi + GenelAriza + Isinma);
+            kablo.Verimlilik = Math.Round(((kablo.CalismaSuresi - kablo.KayipZaman) / kablo.CalismaSuresi),2) * 100; // Çalışılan zaman 0 olmamalı dikkat et
         }
 
         private IResult addToSarfiyat(KabloUretim kablo)
@@ -104,5 +124,7 @@ namespace Business.Concrete
         {
             return new SuccessDataResult<KabloUretim>(_kabloUretimDal.Get(filter));
         }
+
+  
     }
 }

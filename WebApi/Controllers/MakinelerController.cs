@@ -29,7 +29,7 @@ namespace WebApi.Controllers
         public IActionResult Add(Makine makina)
         {
 
-            var result = _makinaService.Add(makina);
+            var result = _makinaService.add(makina);
             if (result.Success)
             {
                 return Ok(result);
@@ -42,7 +42,7 @@ namespace WebApi.Controllers
         [HttpPost("Delete")]
         public IActionResult Delete(Makine kablo)
         {
-            var result = _makinaService.Delete(kablo);
+            var result = _makinaService.delete(kablo);
             if (result.Success)
             {
                 return Ok(result);

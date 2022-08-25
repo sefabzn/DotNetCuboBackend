@@ -69,5 +69,16 @@ namespace WebApi.Controllers
             return BadRequest(result);
 
         }
+        [HttpGet("GetAllByDateRange")]
+        public IActionResult GetAllByDateRange(DateTime start, DateTime finish)
+        {
+            var result = _kabloUretimService.GetAll(x => x.Tarih>=start && x.Tarih<=finish);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+
+        }
     }
 }

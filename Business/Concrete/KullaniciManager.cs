@@ -8,31 +8,23 @@ using Business.Abstract;
 using Business.BusinessAspects.Autofac;
 using Business.Validation.FluentValidation;
 using DataAccess.Abstract;
+using Core.Business;
 
 namespace Business.Concrete
 {
-    public class KullaniciManager:IKullaniciService
+    public class KullaniciManager : ManagerBase<Kullanici, IKullaniciDal>, IKullaniciService
     {
         IKullaniciDal _kullaniciDal;
 
-        public KullaniciManager(IKullaniciDal repository)
+        public KullaniciManager(IKullaniciDal dal) : base(dal)
         {
-            _kullaniciDal = repository;
+            _kullaniciDal = dal;
         }
+
         [ValidationAspect(typeof(KullaniciValidator))]
         [CacheRemoveAspect("IKullaniciService.Get")]
-        public IResult add(Kullanici kullanici)
-        {
+  
 
-            var result = BusinessRules.Run(CheckIfKullaniciExists(kullanici.KullaniciAdi));
-
-            if (result != null)
-            {
-                return result;
-            }
-            _kullaniciDal.Add(kullanici);
-            return new SuccessResult("Ürün Eklendi");
-        }
         private IResult CheckIfKullaniciExists(string kullaniciAdi)
         {
 
@@ -44,36 +36,12 @@ namespace Business.Concrete
 
 
         }
-        public IResult delete(Kullanici kullanici)
-        {
-            _kullaniciDal.Delete(kullanici);
-            return new SuccessResult("Ürün Eklendi");
-        }
-
-        public IDataResult<Kullanici> Get(Expression<Func<Kullanici, bool>> filter)
-        {
-            return new SuccessDataResult<Kullanici>(_kullaniciDal.Get(filter), "Ürün Getirildi");
-        }
-
-     
-
-        public IResult update(Kullanici kullanici)
-        {
-            _kullaniciDal.Update(kullanici);
-            return new SuccessResult("Ürün Değiştirildi");
-        }
-
+      
         public IDataResult<List<OperationClaim>> GetClaims(Kullanici kullanici)
         {
             return new SuccessDataResult<List<OperationClaim>>(_kullaniciDal.GetClaims(kullanici));
         }
-        //[CacheAspect]
-        public IDataResult<List<Kullanici>> GetAll(Expression<Func<Kullanici, bool>> filter = null)
-        {
-            return new SuccessDataResult<List<Kullanici>>(_kullaniciDal.GetAll(filter), "Ürünler Listelendi");
-
-        }
-
+       
         public IDataResult<Kullanici> GetByKullaniciAdi(string kullaniciAdi)
         {
             return new SuccessDataResult<Kullanici>(_kullaniciDal.Get(x => x.KullaniciAdi == kullaniciAdi));

@@ -15,6 +15,7 @@ namespace Entities.Base
         public string? OrguBarkodu { get; set; }
         public string? DisKilifBarkodu { get; set; }
         public DateTime? Tarih { get; set; }
+        public string? Degistiren { get; set; }
     }
 
 }

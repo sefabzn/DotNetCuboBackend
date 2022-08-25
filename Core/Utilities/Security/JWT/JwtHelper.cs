@@ -35,6 +35,7 @@ namespace Core.Utilities.Security.JWT
 
             return new AccessToken
             {
+                UserName=kullanici.KullaniciAdi,
                 Token = token,
                 Expiration = _accessTokenExpiration
             };

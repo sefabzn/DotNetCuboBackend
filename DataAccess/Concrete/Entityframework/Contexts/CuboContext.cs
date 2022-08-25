@@ -23,10 +23,10 @@ namespace DataAccess.Concrete.Entityframework.Contexts
         public DbSet<TekDamarDizayn> TekDamarDizayn { get; set; }
         public DbSet<TelefonDamarDizayn> TelefonDamarDizayn { get; set; }
         public DbSet<TelefonGenelDizayn> TelefonGenelDizayn { get; set; }
-        public DbSet<TelefonIsEmirleri> TelefonIsEmirleri { get; set; }
+        public DbSet<TelefonIsEmri> TelefonIsEmirleri { get; set; }
         public DbSet<YanginDamarDizayn> YanginDamarDizayn { get; set; }
         public DbSet<YanginGenelDizayn> YanginGenelDizayn { get; set; }
-        public DbSet<YanginIsEmirleri> YanginIsEmirleri { get; set; }
+        public DbSet<YanginIsEmri> YanginIsEmirleri { get; set; }
         public DbSet<Kullanici> Kullanicilar { get; set; }
         public DbSet<OperationClaim> OperationClaims { get; set; }
         public DbSet<UserOperationClaim> UserOperationClaims{ get; set; }

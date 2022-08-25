@@ -2,6 +2,6 @@
 
 namespace Entities.Concrete;
 
-public class TelefonIsEmirleri : IsEmirleriBase
+public class YanginIsEmri : IsEmirleriBase
 {
 }

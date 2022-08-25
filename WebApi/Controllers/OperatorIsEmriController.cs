@@ -34,5 +34,16 @@ namespace WebApi.Controllers
             return BadRequest(result);
 
         }
+        [HttpPost("Add")]
+        public IActionResult Add(OperatorIsEmri kablo)
+        {
+            var result = _operatorIsEmriService.add(kablo);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+
+        }
     }
 }

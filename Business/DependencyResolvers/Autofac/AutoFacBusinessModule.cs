@@ -35,6 +35,10 @@ namespace Business.DependencyResolvers.Autofac
             builder.RegisterType<CctvGenelDizaynManager>().As<ICctvGenelDizaynService>().SingleInstance();
             builder.RegisterType<EfCctvGenelDizaynDal>().As<ICctvGenelDizaynDal>().SingleInstance();
 
+            builder.RegisterType<MakineKesizHizTablosuManager>().As<IMakineKesitHizTablosuService>().SingleInstance();
+            builder.RegisterType<EfMakineKesitHizTablosuDal>().As<IMakineKesitHizTablosuDal>().SingleInstance();
+
+
             builder.RegisterType<CctvDamarDizaynManager>().As<ICctvDamarDizaynService>().SingleInstance();
             builder.RegisterType<EfCctvDamarDizaynDal>().As<ICctvDamarDizaynDal>().SingleInstance();
 

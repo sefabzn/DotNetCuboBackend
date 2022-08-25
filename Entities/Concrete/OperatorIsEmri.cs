@@ -17,4 +17,5 @@ public class OperatorIsEmri:IEntity
     public string Kalip { get; set; }
     public double TeorikMaliyet { get; set; }
     public DateTime Tarih { get; set; }
+    public string? Degistiren { get; set; }
 }

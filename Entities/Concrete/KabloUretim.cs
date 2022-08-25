@@ -18,6 +18,7 @@ namespace Entities.Concrete
         public double KayipZaman { get; set; }
         public double Verimlilik { get; set; }
         public DateTime Tarih { get; set; }
+        public string? Degistiren { get; set; }
 
     }
 }
