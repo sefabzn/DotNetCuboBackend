@@ -13,7 +13,8 @@ namespace Business.Abstract
 {
     public interface IMakineService: IServiceRepository<Makine>
     {
-      
+
+        IDataResult<double> GetOrtalamaVerimlilik(List<KabloUretim> data);
         IDataResult<List<MakineGunlukRaporDto>> GetGunlukRaporlar(string makineIsmi,DateTime tarih);
     }
 }

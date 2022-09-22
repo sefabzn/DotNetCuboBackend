@@ -25,7 +25,7 @@ namespace DataAccess.Concrete.Entityframework
                              {
                                  MakineIsmi = makine.MakineIsmi,
                                  KabloIsmi = kabloUretim.KabloIsmi,
-                                 KesitAlani = kabloUretim.KesitAlani,
+                                 KesitAlani = kabloUretim.KesitCapi,
                                  Metraj = kabloUretim.Metraj,
                                  Kopma = kabloUretim.Kopma,
                                  KopmaKaybi = kabloUretim.Kopma * makine.Kopma,
@@ -46,6 +46,11 @@ namespace DataAccess.Concrete.Entityframework
                 return result.ToList();
 
             }
+        }
+
+        public double GetOrtalamaVerimlilik(List<KabloUretim> data)
+        {
+           return data.Average(x => x.Verimlilik);            
         }
     }
 }

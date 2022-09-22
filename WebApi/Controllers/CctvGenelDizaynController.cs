@@ -25,6 +25,17 @@ namespace WebApi.Controllers
             }
             return BadRequest(result);
         }
+        [HttpGet("GetAllByDate")]
+        public IActionResult GetAllByDate(DateTime tarih)
+        {
+            var result = _cctvGenelDizaynService.GetAll(x=>x.Tarih==tarih);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+      
         [HttpPost("Add")]
         public IActionResult Add(CctvGenelDizayn kablo)
         {

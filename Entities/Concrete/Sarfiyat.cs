@@ -6,7 +6,7 @@ public class Sarfiyat : IEntity
 {
     public int Id { get; set; }
     public int KabloId { get; set; }
-    public double KesitAlani{ get; set; }
+    public double KesitCapi{ get; set; }
     public int MakineId{ get; set; }
     public double KullanilanPvc{ get; set; }
     public double KullanilanCu{ get; set; }

@@ -9,16 +9,35 @@ namespace WebApi.Controllers
     public class MakinelerController : Controller
     {
         IMakineService _makinaService;
+        IKabloUretimService _kabloUretimService;
 
-        public MakinelerController(IMakineService makinaService)
+        public MakinelerController(IMakineService makinaService, IKabloUretimService kabloUretimService)
         {
             _makinaService = makinaService;
+            _kabloUretimService = kabloUretimService;
         }
 
         [HttpGet("GetAll")]
         public IActionResult GetAll()
         {
+
+            var data =_kabloUretimService.GetAll();
             var result = _makinaService.GetAll();
+            foreach (var elem in result.Data)
+            {
+                try
+                {
+                    double verimlilik = _makinaService.GetOrtalamaVerimlilik(_kabloUretimService.GetAll(x=>x.MakineId==elem.Id).Data).Data;
+                    elem.Verimlilik = verimlilik;
+                    _makinaService.update(elem);
+
+                }
+                catch (Exception)
+                {
+
+                    elem.Verimlilik = 0;
+                }
+            }
             if (result.Success)
             {
                 return Ok(result);
@@ -65,6 +84,18 @@ namespace WebApi.Controllers
         public IActionResult GetGunlukRaporlar(string makineIsmi,DateTime Tarih)
         {
             var result = _makinaService.GetGunlukRaporlar(makineIsmi,Tarih);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+
+        }
+        [HttpGet("GetOrtalamaVerimlilik")]
+        public IActionResult GetOrtalamaVerimlilik(int makineId)
+        {
+            var data = _kabloUretimService.GetAll(x => x.MakineId == makineId);
+            var result = _makinaService.GetOrtalamaVerimlilik(data.Data);
             if (result.Success)
             {
                 return Ok(result);

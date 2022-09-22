@@ -69,7 +69,7 @@ namespace Business.Concrete
         {
             double PVCOZGUL = 1.5;  ///// Bu değerler için henüz bir veritabanı yok o yüzden constant 
             double CUOZGUL = 8.95;   // değişken gibi girdim
-            var kesityapisi = _kesitYapisiDal.Get(x => x.Kesit == kablo.KesitAlani);
+            var kesityapisi = _kesitYapisiDal.Get(x => x.KesitCapi == kablo.KesitCapi);
             double Back = Convert.ToDouble(kesityapisi.Back);
             double Dis_Cap = Convert.ToDouble(kesityapisi.DisCap);
 
@@ -84,7 +84,7 @@ namespace Business.Concrete
             Sarfiyat sarfiyat = new Sarfiyat
             {
                 KabloId = kablo.Id,
-                KesitAlani = kablo.KesitAlani,
+                KesitCapi = kablo.KesitCapi,
                 MakineId = kablo.MakineId,
                 KullanilanPvc = kullanilanPVC,
                 KullanilanCu = kullanilanCu,
@@ -103,7 +103,16 @@ namespace Business.Concrete
         public IResult delete(KabloUretim kablo)
         {
             var sarfiyat = _sarfiyatDal.Get(x => x.KabloId == kablo.Id);
-            _sarfiyatDal.Delete(sarfiyat);
+            try
+            {
+                _sarfiyatDal.Delete(sarfiyat);
+            }
+            catch (Exception)
+            {
+
+                Console.WriteLine("Belirtilen kabloya ait sarfiyat verisi bulunamadı");
+            }
+          
             _kabloUretimDal.Delete(kablo);
             return new SuccessResult("Ürün Başarıyla Silindi");
 

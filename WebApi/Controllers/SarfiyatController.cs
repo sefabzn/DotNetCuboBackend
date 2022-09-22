@@ -24,6 +24,16 @@ namespace WebApi.Controllers
             }
             return BadRequest(result);
         }
+        [HttpGet("GetAllByDateRange")]
+        public IActionResult GetAllByDateRange(DateTime startDate, DateTime finishDate)
+        {
+            var result = _sarfiyatService.GetAll(x=>x.Tarih>=startDate && x.Tarih<= finishDate);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
         [HttpPost("Delete")]
         public IActionResult Delete(Sarfiyat kablo)
         {

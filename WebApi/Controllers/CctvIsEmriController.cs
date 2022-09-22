@@ -24,6 +24,16 @@ namespace WebApi.Controllers
             }
             return BadRequest(result);
         }
+        [HttpPost("Add")]
+        public IActionResult Add(CctvIsEmri kablo)
+        {
+            var result = _cctvIsEmriService.add(kablo);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
         [HttpPost("Delete")]
         public IActionResult Delete(CctvIsEmri kablo)
         {

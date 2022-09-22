@@ -11,7 +11,7 @@ namespace Entities.Base
     {
         public int Id { get; set; }
         public string Kablo { get; set; }
-        public double Kesit { get; set; }
+        public double KesitCapi { get; set; }
         public double Orgu { get; set; }
         public string? OrguTelYapisi { get; set; }
         public double PolyesterOlcusu { get; set; }

@@ -11,7 +11,7 @@ namespace Entities.Concrete
 
     {
         public int Id { get; set; }
-        public double Kesit { get; set; }
+        public double KesitCapi { get; set; }
         public double Back{ get; set; }
         public double DisCap{ get; set; }
         public double Ayna{ get; set; }

@@ -12,5 +12,6 @@ namespace Business.Abstract
 {
     public interface ICctvIsEmriService: IServiceRepository<CctvIsEmri>
     {
+        
     }
 }

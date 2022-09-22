@@ -7,7 +7,7 @@ public class TekDamarDizayn : IEntity
     public int Id { get; set; }
     public string KabloIsmi { get; set; }
     public string Core { get; set; }
-    public double Kesit { get; set; }
+    public double KesitCapi { get; set; }
     public double Hatve { get; set; }
     public double DisKilif1 { get; set; }
     public double DisKilif2 { get; set; }

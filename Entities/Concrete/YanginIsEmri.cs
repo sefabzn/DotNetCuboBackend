@@ -2,6 +2,6 @@
 
 namespace Entities.Concrete;
 
-public class YanginIsEmri : IsEmirleriBase
+public class YanginIsEmri : IsEmriBase
 {
 }

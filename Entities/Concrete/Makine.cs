@@ -16,6 +16,7 @@ namespace Entities.Concrete
         public int RenkDegisimi{ get; set; }
         public int Kopma{ get; set; }
         public int KesitDegisimi{ get; set; }
+        public double? Verimlilik { get; set; }
 
     }
 }

@@ -12,5 +12,6 @@ namespace DataAccess.Abstract
     public interface IMakineDal:IEntityRepository<Makine>
     {
         List<MakineGunlukRaporDto> getGunlukRapor(string makineIsmi, DateTime date);
+        double GetOrtalamaVerimlilik(List<KabloUretim> data);
     }
 }

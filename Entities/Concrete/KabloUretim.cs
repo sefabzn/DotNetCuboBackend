@@ -7,7 +7,7 @@ namespace Entities.Concrete
         public int Id { get; set; }
         public string KabloIsmi { get; set; }
         public int MakineId { get; set; }
-        public double KesitAlani { get; set; }
+        public double KesitCapi { get; set; }
         public double Metraj { get; set; }
         public double Kopma { get; set; }
         public double RenkDegisimi { get; set; }

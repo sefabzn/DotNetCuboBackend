@@ -35,9 +35,9 @@ namespace WebApi.Controllers
 
         }
         [HttpPost("Add")]
-        public IActionResult Add(OperatorIsEmri kablo)
+        public IActionResult Add(OperatorIsEmri isEmri)
         {
-            var result = _operatorIsEmriService.add(kablo);
+            var result = _operatorIsEmriService.add(isEmri);
             if (result.Success)
             {
                 return Ok(result);
