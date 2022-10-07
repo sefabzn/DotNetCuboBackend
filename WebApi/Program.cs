@@ -30,7 +30,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 app.ConfigureCustomExceptionMiddleware();// bunu biz yazdik çalisma suresi boyunca exceptionlari handle etmek için
-app.UseCors(builder => builder.WithOrigins("http://localhost:4200").AllowAnyHeader());//gelen isteklere izin ver angulardan
+app.UseCors(builder => builder.WithOrigins("http://localhost:4200").AllowAnyHeader().AllowAnyMethod());//gelen isteklere izin ver angulardan
 app.UseHttpsRedirection();
 app.UseRouting();
 app.UseAuthentication();

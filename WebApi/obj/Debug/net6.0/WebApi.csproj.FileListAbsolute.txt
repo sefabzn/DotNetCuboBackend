@@ -144,3 +144,4 @@ C:\Users\sefa_\Source\Repos\DotNetCuboBackend\WebApi\obj\Debug\net6.0\refint\Web
 C:\Users\sefa_\Source\Repos\DotNetCuboBackend\WebApi\obj\Debug\net6.0\WebApi.pdb
 C:\Users\sefa_\Source\Repos\DotNetCuboBackend\WebApi\obj\Debug\net6.0\WebApi.genruntimeconfig.cache
 C:\Users\sefa_\Source\Repos\DotNetCuboBackend\WebApi\obj\Debug\net6.0\ref\WebApi.dll
+C:\Users\sefa_\source\repos\DotNetCuboBackend\WebApi\bin\Debug\net6.0\HtmlAgilityPack.dll

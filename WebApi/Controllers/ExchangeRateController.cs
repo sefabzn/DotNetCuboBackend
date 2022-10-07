@@ -26,7 +26,7 @@ namespace WebApi.Controllers
         [HttpGet("GetEuroRate")]
         public IActionResult GetEuroRate()
         {
-            var result = _exchangeRateService.GetDollarRate();
+            var result = _exchangeRateService.GetEuroRate();
             if (result.Success)
             {
                 return Ok(result);

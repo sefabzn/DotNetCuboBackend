@@ -40,7 +40,7 @@ namespace Business.Concrete
             VerimlilikHesapla(kablo, makine);
 
             _kabloUretimDal.Add((kablo));
-
+            addToSarfiyat(kablo);
 
             return new SuccessResult("Ürün Başarıyla Eklendi");
         }

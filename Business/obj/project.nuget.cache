@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "dbk5dA6ceQ6V1HaqOjmLuQ9vsivBCJrAQ3yfHJb2KrckepFZGHWSL7MY+sSsWkbCBMJKzufzn0kkW3R0NZ/ZGw==",
+  "dgSpecHash": "GssJ94VJzFDx8ycGc0C+pC9yEAFly2g8EyjJL7xMASEEGrEBjyWz2NiJulLmL6sSA/JvaaPcHEOcsEf16rQFqg==",
   "success": true,
   "projectFilePath": "C:\\Users\\sefa_\\source\\repos\\DotNetCuboBackend\\Business\\Business.csproj",
   "expectedPackageFiles": [
@@ -9,6 +9,7 @@
     "C:\\Users\\sefa_\\.nuget\\packages\\autofac.extras.dynamicproxy\\6.0.1\\autofac.extras.dynamicproxy.6.0.1.nupkg.sha512",
     "C:\\Users\\sefa_\\.nuget\\packages\\castle.core\\4.4.0\\castle.core.4.4.0.nupkg.sha512",
     "C:\\Users\\sefa_\\.nuget\\packages\\fluentvalidation\\11.1.0\\fluentvalidation.11.1.0.nupkg.sha512",
+    "C:\\Users\\sefa_\\.nuget\\packages\\htmlagilitypack\\1.11.46\\htmlagilitypack.1.11.46.nupkg.sha512",
     "C:\\Users\\sefa_\\.nuget\\packages\\microsoft.aspnetcore.http\\2.2.2\\microsoft.aspnetcore.http.2.2.2.nupkg.sha512",
     "C:\\Users\\sefa_\\.nuget\\packages\\microsoft.aspnetcore.http.abstractions\\2.2.0\\microsoft.aspnetcore.http.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\sefa_\\.nuget\\packages\\microsoft.aspnetcore.http.features\\2.2.0\\microsoft.aspnetcore.http.features.2.2.0.nupkg.sha512",

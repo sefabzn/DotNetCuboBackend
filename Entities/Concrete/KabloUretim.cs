@@ -1,9 +1,11 @@
 ﻿using Core.Entities;
+using System.ComponentModel.DataAnnotations;
 
 namespace Entities.Concrete
 {
     public class KabloUretim:IEntity
     {
+
         public int Id { get; set; }
         public string KabloIsmi { get; set; }
         public int MakineId { get; set; }
