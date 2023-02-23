@@ -3,6 +3,7 @@ using Autofac.Extensions.DependencyInjection;
 using Business.DependencyResolvers.Autofac;
 using Core.DependencyResolvers;
 using Core.Extensions;
+using NLog;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,13 +14,23 @@ builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory())
         builder.RegisterModule(new AutoFacBusinessModule());
     });
 
+LogManager.LoadConfiguration(String.Concat(Directory.GetCurrentDirectory(), "/nlog.config"));
+
 builder.Services.AddControllers();
 builder.Services.AddCors();
-
 builder.Services.AddDependencyResolvers(new CoreModule());
+
+
+//My Configurations
+builder.Services.ConfigureLoggerService();
+
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+
+
 
 var app = builder.Build();
 

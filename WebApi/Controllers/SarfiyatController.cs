@@ -55,5 +55,27 @@ namespace WebApi.Controllers
             }
             return BadRequest(result);
         }
+        [HttpGet("GetById")]
+        public IActionResult GetById(int id)
+        {
+            var result = _sarfiyatService.Get(x => x.Id == id);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+
+        }
+        [HttpPut("Update")]
+        public IActionResult Update(Sarfiyat kablo)
+        {
+            var result = _sarfiyatService.update(kablo);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+
+        }
     }
 }

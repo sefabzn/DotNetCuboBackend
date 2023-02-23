@@ -1,4 +1,6 @@
-﻿using Core.Utilities.IoC;
+﻿using Core.CrossCuttingConcern.Logging;
+using Core.CrossCuttingConcern.Logging.Nlog;
+using Core.Utilities.IoC;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -17,6 +19,12 @@ namespace Core.Extensions
                 module.Load(services); // bu sayede ICoreModule den inherit eden farklı modellerin farklı içerikli loadlarının hepsini teker teker kullanabiliyoruz
             }
             return ServiceTool.Create(services);
+        }
+
+        public static void ConfigureLoggerService(this IServiceCollection services)
+        {
+
+            services.AddSingleton<ILoggerService, LoggerManager>();
         }
 
 

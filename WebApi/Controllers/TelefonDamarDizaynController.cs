@@ -48,6 +48,28 @@ namespace WebApi.Controllers
             return BadRequest(result);
 
         }
+        [HttpGet("GetById")]
+        public IActionResult GetById(int id)
+        {
+            var result = _telefonDamarDizaynService.Get(x => x.Id == id);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+
+        }
+        [HttpPut("Update")]
+        public IActionResult Update(TelefonDamarDizayn kablo)
+        {
+            var result = _telefonDamarDizaynService.update(kablo);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+
+        }
         [HttpPost("Delete")]
         public IActionResult Delete(TelefonDamarDizayn kablo)
         {

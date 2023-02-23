@@ -34,6 +34,28 @@ namespace WebApi.Controllers
             }
             return BadRequest(result);
         }
+        [HttpPut("Update")]
+        public IActionResult Update(TelefonGenelDizayn kablo)
+        {
+            var result = _telefonGenelDizaynService.update(kablo);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+
+        }
+        [HttpGet("GetById")]
+        public IActionResult GetById(int id)
+        {
+            var result = _telefonGenelDizaynService.Get(x => x.Id == id);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+
+        }
         [HttpPost("Delete")]
         public IActionResult Delete(TelefonGenelDizayn kablo)
         {

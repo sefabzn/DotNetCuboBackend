@@ -145,3 +145,6 @@ C:\Users\sefa_\Source\Repos\DotNetCuboBackend\WebApi\obj\Debug\net6.0\WebApi.pdb
 C:\Users\sefa_\Source\Repos\DotNetCuboBackend\WebApi\obj\Debug\net6.0\WebApi.genruntimeconfig.cache
 C:\Users\sefa_\Source\Repos\DotNetCuboBackend\WebApi\obj\Debug\net6.0\ref\WebApi.dll
 C:\Users\sefa_\source\repos\DotNetCuboBackend\WebApi\bin\Debug\net6.0\HtmlAgilityPack.dll
+C:\Users\sefa_\source\repos\DotNetCuboBackend\WebApi\bin\Debug\net6.0\nlog.config
+C:\Users\sefa_\source\repos\DotNetCuboBackend\WebApi\bin\Debug\net6.0\NLog.dll
+C:\Users\sefa_\source\repos\DotNetCuboBackend\WebApi\bin\Debug\net6.0\NLog.Extensions.Logging.dll

@@ -34,6 +34,29 @@ namespace WebApi.Controllers
             }
             return BadRequest(result);
         }
+        [HttpGet("GetById")]
+        public IActionResult GetById(int id)
+        {
+            var result = _yanginGenelDizaynService.Get(x => x.Id == id);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+
+        }
+        [HttpPut("Update")]
+        public IActionResult Update(YanginGenelDizayn kablo)
+        {
+          
+            var result = _yanginGenelDizaynService.update(kablo);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+
+        }
         [HttpPost("Delete")]
         public IActionResult Delete(YanginGenelDizayn kablo)
         {

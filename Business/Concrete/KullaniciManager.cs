@@ -9,21 +9,24 @@ using Business.BusinessAspects.Autofac;
 using Business.Validation.FluentValidation;
 using DataAccess.Abstract;
 using Core.Business;
+using Core.CrossCuttingConcern.Logging;
 
 namespace Business.Concrete
 {
     public class KullaniciManager : ManagerBase<Kullanici, IKullaniciDal>, IKullaniciService
     {
         IKullaniciDal _kullaniciDal;
-
-        public KullaniciManager(IKullaniciDal dal) : base(dal)
+        ILoggerService _loggerService;
+        public KullaniciManager(IKullaniciDal dal,ILoggerService loggerService) : base(dal)
         {
             _kullaniciDal = dal;
+            _loggerService = loggerService;
         }
+
+
 
         [ValidationAspect(typeof(KullaniciValidator))]
         [CacheRemoveAspect("IKullaniciService.Get")]
-  
 
         private IResult CheckIfKullaniciExists(string kullaniciAdi)
         {
@@ -44,6 +47,8 @@ namespace Business.Concrete
        
         public IDataResult<Kullanici> GetByKullaniciAdi(string kullaniciAdi)
         {
+            _loggerService.LogInfo($"{kullaniciAdi} isimli kullanıcı getirildi. ");
+           
             return new SuccessDataResult<Kullanici>(_kullaniciDal.Get(x => x.KullaniciAdi == kullaniciAdi));
         }
     }

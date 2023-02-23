@@ -24,9 +24,9 @@ namespace Business.Concrete
         }
       
         [CacheAspect]
-        public IDataResult<List<MakineGunlukRaporDto>> GetGunlukRaporlar(string makineIsmi, DateTime tarih)
+        public IDataResult<List<MakineGunlukRaporDto>> GetGunlukRaporlar(string makineIsmi, DateTime firstDate, DateTime lastDate)
         {
-           return new SuccessDataResult<List<MakineGunlukRaporDto>>(_makineDal.getGunlukRapor(makineIsmi,tarih),"Günlük Rapor Getirildi");
+           return new SuccessDataResult<List<MakineGunlukRaporDto>>(_makineDal.getGunlukRapor(makineIsmi,firstDate,lastDate),"Günlük Rapor Getirildi");
         }
 
         public IDataResult<double> GetOrtalamaVerimlilik(List<KabloUretim> data)

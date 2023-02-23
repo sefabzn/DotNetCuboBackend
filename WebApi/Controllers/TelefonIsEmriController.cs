@@ -35,5 +35,27 @@ namespace WebApi.Controllers
             return BadRequest(result);
 
         }
+        [HttpGet("GetById")]
+        public IActionResult GetById(int id)
+        {
+            var result = _telefonIsEmriService.Get(x => x.Id == id);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+
+        }
+        [HttpPut("Update")]
+        public IActionResult Update(TelefonIsEmri kablo)
+        {
+            var result = _telefonIsEmriService.update(kablo);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+
+        }
     }
 }

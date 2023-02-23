@@ -26,7 +26,28 @@ namespace WebApi.Controllers
             return BadRequest(result);
 
         }
+        [HttpGet("GetById")]
+        public IActionResult GetById(int id)
+        {
+            var result = _kesitYapisiService.Get(x => x.Id == id);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
 
+        }
+        [HttpPut("Update")]
+        public IActionResult Update(KesitYapisi kablo)
+        {
+            var result = _kesitYapisiService.update(kablo);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+
+        }
         [HttpGet("GetAll")]
         public IActionResult GetAll()
         {

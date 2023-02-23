@@ -4,6 +4,9 @@
     {
         double GetDollarRate();
         double GetEuroRate();
+        double GetCopperRate();
+        double GetPVCRate();
+        double GetCopperRateByTL();
     }
 
 }

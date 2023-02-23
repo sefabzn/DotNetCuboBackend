@@ -48,6 +48,28 @@ namespace WebApi.Controllers
             return BadRequest(result);
 
         }
+        [HttpGet("GetById")]
+        public IActionResult GetById(int id)
+        {
+            var result = _yanginDamarDizaynService.Get(x => x.Id == id);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+
+        }
+        [HttpPut("Update")]
+        public IActionResult Update(YanginDamarDizayn kablo)
+        {
+            var result = _yanginDamarDizaynService.update(kablo);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+
+        }
         [HttpPost("Delete")]
         public IActionResult Delete(YanginDamarDizayn kablo)
         {

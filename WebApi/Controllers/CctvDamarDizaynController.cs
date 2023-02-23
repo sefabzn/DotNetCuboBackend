@@ -49,6 +49,28 @@ namespace WebApi.Controllers
             return BadRequest(result);
 
         }
+        [HttpGet("GetById")]
+        public IActionResult GetById(int id)
+        {
+            var result = _cctvDamarDizaynService.Get(x => x.Id == id);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+
+        }
+        [HttpPut("Update")]
+        public IActionResult Update(CctvDamarDizayn kablo)
+        {
+            var result = _cctvDamarDizaynService.update(kablo);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+
+        }
         [HttpPost("Delete")]
         public IActionResult Delete(CctvDamarDizayn kablo)
         {

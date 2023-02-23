@@ -53,6 +53,29 @@ namespace WebApi.Controllers
             return BadRequest(result);
 
         }
+        [HttpGet("GetByName")]
+        public IActionResult GetByName(string kullaniciAdi)
+        {
+            var result = _kullaniciService.GetByKullaniciAdi(kullaniciAdi);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+
+        }
+        [HttpPut("Update")]
+        public IActionResult Update(Kullanici kablo)
+        {
+            var result = _kullaniciService.update(kablo);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+
+        }
+        
         [HttpPost("Delete")]
         public IActionResult Delete(Kullanici kablo)
         {

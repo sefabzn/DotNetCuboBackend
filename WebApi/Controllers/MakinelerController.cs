@@ -23,11 +23,15 @@ namespace WebApi.Controllers
 
             var data =_kabloUretimService.GetAll();
             var result = _makinaService.GetAll();
+            var data2 = _kabloUretimService.GetAll(x => x.MakineId == 3).Data;
             foreach (var elem in result.Data)
             {
+                int a = 12;
                 try
                 {
-                    double verimlilik = _makinaService.GetOrtalamaVerimlilik(_kabloUretimService.GetAll(x=>x.MakineId==elem.Id).Data).Data;
+                    var kablo = _kabloUretimService.GetAll(x => x.MakineId == elem.Id).Data;
+                    var b = _makinaService.GetOrtalamaVerimlilik(_kabloUretimService.GetAll(x => x.MakineId == elem.Id).Data);
+                    double verimlilik =b.Data;
                     elem.Verimlilik = verimlilik;
                     _makinaService.update(elem);
 
@@ -58,17 +62,6 @@ namespace WebApi.Controllers
 
 
         }
-        [HttpPost("Delete")]
-        public IActionResult Delete(Makine kablo)
-        {
-            var result = _makinaService.delete(kablo);
-            if (result.Success)
-            {
-                return Ok(result);
-            }
-            return BadRequest(result);
-
-        }
         [HttpGet("GetById")]
         public IActionResult GetById(int id)
         {
@@ -80,10 +73,33 @@ namespace WebApi.Controllers
             return BadRequest(result);
 
         }
-        [HttpGet("GetGunlukRaporlar")]
-        public IActionResult GetGunlukRaporlar(string makineIsmi,DateTime Tarih)
+        [HttpPut("Update")]
+        public IActionResult Update(Makine kablo)
         {
-            var result = _makinaService.GetGunlukRaporlar(makineIsmi,Tarih);
+            var result = _makinaService.update(kablo);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+
+        }
+        [HttpPost("Delete")]
+        public IActionResult Delete(Makine kablo)
+        {
+            var result = _makinaService.delete(kablo);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+
+        }
+       
+        [HttpGet("GetGunlukRaporlar")]
+        public IActionResult GetGunlukRaporlar(string makineIsmi,DateTime startDate, DateTime finishDate)
+        {
+            var result = _makinaService.GetGunlukRaporlar(makineIsmi,startDate,finishDate);
             if (result.Success)
             {
                 return Ok(result);

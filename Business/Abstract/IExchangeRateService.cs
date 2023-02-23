@@ -11,6 +11,9 @@ namespace Business.Abstract
     {
         IDataResult<double> GetDollarRate();
         IDataResult<double> GetEuroRate();
+        IDataResult<double> GetCopperRate();
+        IDataResult<double> GetPVCRate();
+        IDataResult<double> GetCopperRateByTL();
 
     }
 }

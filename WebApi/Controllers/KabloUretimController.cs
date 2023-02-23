@@ -71,7 +71,7 @@ namespace WebApi.Controllers
             return BadRequest(result);
         }
         [HttpGet("GetById")]
-        public IActionResult GetById(int id,DateTime tarih)
+        public IActionResult GetById(int id)
         {
             var result = _kabloUretimService.Get(x => x.Id == id);
             if (result.Success)

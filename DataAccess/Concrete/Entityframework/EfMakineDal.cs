@@ -13,14 +13,14 @@ namespace DataAccess.Concrete.Entityframework
 {
     public class EfMakineDal : EfEntityRepositoryBase<Makine, CuboContext>, IMakineDal
     {
-        public List<MakineGunlukRaporDto> getGunlukRapor(string makineIsmi, DateTime date)
+        public List<MakineGunlukRaporDto> getGunlukRapor(string makineIsmi, DateTime firstDate,DateTime lastDate)
         {
             using (var context = new CuboContext())
             {
                 var result = from makine in context.Makineler
                              join kabloUretim in context.KabloUretim
                                  on makine.Id equals kabloUretim.MakineId
-                             where makine.MakineIsmi == makineIsmi && kabloUretim.Tarih == date
+                             where makine.MakineIsmi == makineIsmi && kabloUretim.Tarih>=firstDate && kabloUretim.Tarih<=lastDate
                              select new MakineGunlukRaporDto
                              {
                                  MakineIsmi = makine.MakineIsmi,

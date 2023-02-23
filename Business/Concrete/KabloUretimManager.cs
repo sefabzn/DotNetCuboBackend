@@ -15,16 +15,18 @@ namespace Business.Concrete
         private ISarfiyatDal _sarfiyatDal;
         private IKesitYapisiDal _kesitYapisiDal;
         private IMakineDal _makineDal;
+        private IExchangeRateDal _exchangeRateDal;
 
         //Bu class cok fazla experimental bunu test et
-        public KabloUretimManager(IKabloUretimDal kabloUretimDal, ISarfiyatDal sarfiyatDal, IKesitYapisiDal kesitYapisiDal, IMakineDal makineDal):base(kabloUretimDal)
+        public KabloUretimManager(IKabloUretimDal kabloUretimDal, ISarfiyatDal sarfiyatDal, IKesitYapisiDal kesitYapisiDal, IMakineDal makineDal,IExchangeRateDal exchangeRateDal):base(kabloUretimDal)
         {
             _kabloUretimDal = kabloUretimDal;
             _sarfiyatDal = sarfiyatDal;
             _kesitYapisiDal = kesitYapisiDal;
             _makineDal = makineDal;
+            _exchangeRateDal = exchangeRateDal;
         }
-        public IResult add(KabloUretim kablo)
+        public new IResult add(KabloUretim kablo) // new keywordu base'deki aynı isimdeki methodu bastırması için kullanılır
         {
 
             var result = BusinessRules.Run(IsTimeValid());
@@ -61,8 +63,10 @@ namespace Business.Concrete
             double GenelAriza = kablo.GenelAriza;
             double Isinma = makine.Isinma;
 
+            double calismaSuresiByDakika = kablo.CalismaSuresi * 60;
+
             kablo.KayipZaman = (KopmaKaybi + RenkDegisimiKaybi + KesitDegisimiKaybi + GenelAriza + Isinma);
-            kablo.Verimlilik = Math.Round(((kablo.CalismaSuresi - kablo.KayipZaman) / kablo.CalismaSuresi),2) * 100; // Çalışılan zaman 0 olmamalı dikkat et
+            kablo.Verimlilik = Math.Round(((calismaSuresiByDakika - kablo.KayipZaman) / calismaSuresiByDakika),2) * 100; // Çalışılan zaman 0 olmamalı dikkat et
         }
 
         private IResult addToSarfiyat(KabloUretim kablo)
@@ -81,6 +85,13 @@ namespace Business.Concrete
             double kullanilanPVC = (Dis_Cap / 2 * Math.PI - ((Back / 2) * Math.PI)) * PVCOZGUL * Convert.ToDouble(kablo.Metraj) / 1000;
             double kullanilanCu = cuAlan * CUOZGUL * Convert.ToDouble(kablo.Metraj) / 1000;
 
+
+            double cuFiyat = _exchangeRateDal.GetCopperRateByTL();
+            double cuMaliyet = kullanilanCu * cuFiyat;
+
+            double pvcMaliyet = 0; //şimdilik
+
+            double toplamMaliyet = cuMaliyet + pvcMaliyet;
             Sarfiyat sarfiyat = new Sarfiyat
             {
                 KabloId = kablo.Id,
@@ -90,7 +101,7 @@ namespace Business.Concrete
                 KullanilanCu = kullanilanCu,
                 HurdaPvc = kablo.HurdaPvc,
                 HurdaCu = kablo.HurdaCu,
-                Maliyet = 0,
+                Maliyet = toplamMaliyet,
                 Tarih = kablo.Tarih
             };
 
@@ -100,7 +111,7 @@ namespace Business.Concrete
 
      
 
-        public IResult delete(KabloUretim kablo)
+        public new IResult delete(KabloUretim kablo)
         {
             var sarfiyat = _sarfiyatDal.Get(x => x.KabloId == kablo.Id);
             try
@@ -118,7 +129,7 @@ namespace Business.Concrete
 
         }
 
-        public IResult update(KabloUretim kablo)
+        public new IResult update(KabloUretim kablo)
         {
             _kabloUretimDal.Update(kablo);
             return new SuccessResult("Ürün Başarıyla Güncellendi");

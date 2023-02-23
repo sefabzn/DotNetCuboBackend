@@ -34,6 +34,28 @@ namespace WebApi.Controllers
 
             return BadRequest(result);
         }
+        [HttpGet("GetCopperRate")]
+        public IActionResult GetCopperRate()
+        {
+            var result = _exchangeRateService.GetCopperRate();
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+
+            return BadRequest(result);
+        }
+        [HttpGet("GetCopperRateByTL")]
+        public IActionResult GetCopperRateByTL()
+        {
+            var result = _exchangeRateService.GetCopperRateByTL();
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+
+            return BadRequest(result);
+        }
 
     }
 }
