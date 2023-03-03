@@ -15,9 +15,9 @@ namespace WebApi.Controllers
             _cctvIsEmriService = cctvIsEmriService;
         }
         [HttpGet("GetAll")]
-        public IActionResult GetAll()
+        public async Task<IActionResult> GetAllAsync()
         {
-            var result = _cctvIsEmriService.GetAll();
+            var result =await _cctvIsEmriService.GetAllAsync();
             if (result.Success)
             {
                 return Ok(result);
@@ -25,9 +25,9 @@ namespace WebApi.Controllers
             return BadRequest(result);
         }
         [HttpGet("GetById")]
-        public IActionResult GetById(int id)
+        public async Task<IActionResult> GetByIdAsync(int id)
         {
-            var result = _cctvIsEmriService.Get(x => x.Id == id);
+            var result = await _cctvIsEmriService.GetAsync(x => x.Id == id);
             if (result.Success)
             {
                 return Ok(result);
@@ -36,9 +36,9 @@ namespace WebApi.Controllers
 
         }
         [HttpPut("Update")]
-        public IActionResult Update(CctvIsEmri kablo)
+        public async Task<IActionResult> UpdateAsync(CctvIsEmri kablo)
         {
-            var result = _cctvIsEmriService.update(kablo);
+            var result = await _cctvIsEmriService.updateAsync(kablo);
             if (result.Success)
             {
                 return Ok(result);
@@ -47,9 +47,9 @@ namespace WebApi.Controllers
 
         }
         [HttpPost("Add")]
-        public IActionResult Add(CctvIsEmri kablo)
+        public async Task<IActionResult> AddAsync(CctvIsEmri kablo)
         {
-            var result = _cctvIsEmriService.add(kablo);
+            var result = await _cctvIsEmriService.addAsync(kablo);
             if (result.Success)
             {
                 return Ok(result);
@@ -57,9 +57,9 @@ namespace WebApi.Controllers
             return BadRequest(result);
         }
         [HttpPost("Delete")]
-        public IActionResult Delete(CctvIsEmri kablo)
+        public async Task<IActionResult> DeleteAsync(CctvIsEmri kablo)
         {
-            var result = _cctvIsEmriService.delete(kablo);
+            var result = await _cctvIsEmriService.deleteAsync(kablo);
             if (result.Success)
             {
                 return Ok(result);

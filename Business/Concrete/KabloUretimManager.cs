@@ -26,27 +26,20 @@ namespace Business.Concrete
             _makineDal = makineDal;
             _exchangeRateDal = exchangeRateDal;
         }
-        public new IResult add(KabloUretim kablo) // new keywordu base'deki aynı isimdeki methodu bastırması için kullanılır
+        public new async Task<IResult> addAsync(KabloUretim kablo) // new keywordu base'deki aynı isimdeki methodu bastırması için kullanılır
         {
 
-            var result = BusinessRules.Run(IsTimeValid());
 
-            if (result != null)
-            {
-                return result;
-            }
-
-
-            var makine = _makineDal.Get(x => x.Id == kablo.MakineId);
+            var makine = await _makineDal.GetAsync(x => x.Id == kablo.MakineId);
 
             VerimlilikHesapla(kablo, makine);
 
-            _kabloUretimDal.Add((kablo));
-            addToSarfiyat(kablo);
+            await _kabloUretimDal.AddAsync((kablo));
+            await addToSarfiyat(kablo);
 
             return new SuccessResult("Ürün Başarıyla Eklendi");
         }
-        public IResult IsTimeValid()
+        public async Task<IResult> IsTimeValid()
         {
             if (DateTime.Now.Hour < 6 && DateTime.Now.Hour > 21 )
             {
@@ -69,11 +62,11 @@ namespace Business.Concrete
             kablo.Verimlilik = Math.Round(((calismaSuresiByDakika - kablo.KayipZaman) / calismaSuresiByDakika),2) * 100; // Çalışılan zaman 0 olmamalı dikkat et
         }
 
-        private IResult addToSarfiyat(KabloUretim kablo)
+        private async Task<IResult> addToSarfiyat(KabloUretim kablo)
         {
             double PVCOZGUL = 1.5;  ///// Bu değerler için henüz bir veritabanı yok o yüzden constant 
             double CUOZGUL = 8.95;   // değişken gibi girdim
-            var kesityapisi = _kesitYapisiDal.Get(x => x.KesitCapi == kablo.KesitCapi);
+            var kesityapisi =await _kesitYapisiDal.GetAsync(x => x.KesitCapi == kablo.KesitCapi);
             double Back = Convert.ToDouble(kesityapisi.Back);
             double Dis_Cap = Convert.ToDouble(kesityapisi.DisCap);
 
@@ -105,18 +98,18 @@ namespace Business.Concrete
                 Tarih = kablo.Tarih
             };
 
-            _sarfiyatDal.Add((sarfiyat));
+            _sarfiyatDal.AddAsync((sarfiyat));
             return new SuccessResult();
         }
 
      
 
-        public new IResult delete(KabloUretim kablo)
+        public new async Task<IResult> deleteAsync(KabloUretim kablo)
         {
-            var sarfiyat = _sarfiyatDal.Get(x => x.KabloId == kablo.Id);
+            var sarfiyat =await _sarfiyatDal.GetAsync(x => x.KabloId == kablo.Id);
             try
             {
-                _sarfiyatDal.Delete(sarfiyat);
+                await _sarfiyatDal.DeleteAsync(sarfiyat);
             }
             catch (Exception)
             {
@@ -124,25 +117,25 @@ namespace Business.Concrete
                 Console.WriteLine("Belirtilen kabloya ait sarfiyat verisi bulunamadı");
             }
           
-            _kabloUretimDal.Delete(kablo);
+            await _kabloUretimDal.DeleteAsync(kablo);
             return new SuccessResult("Ürün Başarıyla Silindi");
 
         }
 
-        public new IResult update(KabloUretim kablo)
+        public new async Task<IResult> update(KabloUretim kablo)
         {
-            _kabloUretimDal.Update(kablo);
+            await _kabloUretimDal.UpdateAsync(kablo);
             return new SuccessResult("Ürün Başarıyla Güncellendi");
         }
 
-        public IDataResult<List<KabloUretim>> GetAll(Expression<Func<KabloUretim, bool>>? filter = null)
+        public async Task<IDataResult<List<KabloUretim>>> GetAll(Expression<Func<KabloUretim, bool>>? filter = null)
         {
-            return new SuccessDataResult<List<KabloUretim>>(_kabloUretimDal.GetAll(filter), "Ürünler Getirildi");
+            return new SuccessDataResult<List<KabloUretim>>(await _kabloUretimDal.GetAllAsync(filter), "Ürünler Getirildi");
         }
 
-        public IDataResult<KabloUretim> Get(Expression<Func<KabloUretim, bool>> filter)
+        public async Task<IDataResult<KabloUretim>> GetAsync(Expression<Func<KabloUretim, bool>> filter)
         {
-            return new SuccessDataResult<KabloUretim>(_kabloUretimDal.Get(filter));
+            return new SuccessDataResult<KabloUretim>(await _kabloUretimDal.GetAsync(filter));
         }
 
   

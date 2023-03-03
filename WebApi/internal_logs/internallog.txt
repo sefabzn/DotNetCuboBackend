@@ -10,3 +10,86 @@
 2023-02-23 22:15:42.7288 Info Message Template Auto Format enabled
 2023-02-23 22:15:42.8642 Info Registered target NLog.Targets.FileTarget(Name=logfile)
 2023-02-23 22:15:42.9097 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\sefa_\source\repos\DotNetCuboBackend\WebApi\nlog.config
+2023-02-23 22:19:26.1997 Info Message Template Auto Format enabled
+2023-02-23 22:19:26.3461 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-02-23 22:19:26.3876 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\sefa_\source\repos\DotNetCuboBackend\WebApi\nlog.config
+2023-02-24 20:44:09.0658 Info Message Template Auto Format enabled
+2023-02-24 20:44:09.3464 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-02-24 20:44:09.3862 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\sefa_\source\repos\DotNetCuboBackend\WebApi\nlog.config
+2023-02-24 20:50:11.4474 Info Message Template Auto Format enabled
+2023-02-24 20:50:11.6159 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-02-24 20:50:11.6621 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\sefa_\source\repos\DotNetCuboBackend\WebApi\nlog.config
+2023-02-24 20:51:26.1190 Info Message Template Auto Format enabled
+2023-02-24 20:51:26.2727 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-02-24 20:51:26.3284 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\sefa_\source\repos\DotNetCuboBackend\WebApi\nlog.config
+2023-02-24 20:51:52.1920 Info Message Template Auto Format enabled
+2023-02-24 20:51:52.3156 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-02-24 20:51:52.3457 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\sefa_\source\repos\DotNetCuboBackend\WebApi\nlog.config
+2023-02-24 20:56:04.5447 Info Message Template Auto Format enabled
+2023-02-24 20:56:04.6594 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-02-24 20:56:04.6922 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\sefa_\source\repos\DotNetCuboBackend\WebApi\nlog.config
+2023-02-24 20:56:57.2330 Info Message Template Auto Format enabled
+2023-02-24 20:56:57.3708 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-02-24 20:56:57.4034 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\sefa_\source\repos\DotNetCuboBackend\WebApi\nlog.config
+2023-02-24 20:58:12.9550 Info Message Template Auto Format enabled
+2023-02-24 20:58:13.0846 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-02-24 20:58:13.1208 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\sefa_\source\repos\DotNetCuboBackend\WebApi\nlog.config
+2023-02-24 21:00:06.0312 Info Message Template Auto Format enabled
+2023-02-24 21:00:06.1624 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-02-24 21:00:06.1977 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\sefa_\source\repos\DotNetCuboBackend\WebApi\nlog.config
+2023-02-24 21:04:45.5813 Info Message Template Auto Format enabled
+2023-02-24 21:04:45.7412 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-02-24 21:04:45.7883 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\sefa_\source\repos\DotNetCuboBackend\WebApi\nlog.config
+2023-02-24 21:05:34.3589 Info Message Template Auto Format enabled
+2023-02-24 21:05:34.4420 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-02-24 21:05:34.4724 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\sefa_\source\repos\DotNetCuboBackend\WebApi\nlog.config
+2023-02-24 21:06:10.6336 Info Message Template Auto Format enabled
+2023-02-24 21:06:10.7861 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-02-24 21:06:10.8234 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\sefa_\source\repos\DotNetCuboBackend\WebApi\nlog.config
+2023-02-24 21:06:13.6478 Info Message Template Auto Format enabled
+2023-02-24 21:06:13.7214 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-02-24 21:06:13.7506 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\sefa_\source\repos\DotNetCuboBackend\WebApi\nlog.config
+2023-02-24 21:07:16.0031 Info Message Template Auto Format enabled
+2023-02-24 21:07:16.0746 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-02-24 21:07:16.1106 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\sefa_\source\repos\DotNetCuboBackend\WebApi\nlog.config
+2023-02-24 21:08:04.2606 Info Message Template Auto Format enabled
+2023-02-24 21:08:04.3481 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-02-24 21:08:04.3758 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\sefa_\source\repos\DotNetCuboBackend\WebApi\nlog.config
+2023-02-24 21:09:14.1508 Info Message Template Auto Format enabled
+2023-02-24 21:09:14.3344 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-02-24 21:09:14.3821 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\sefa_\source\repos\DotNetCuboBackend\WebApi\nlog.config
+2023-02-24 21:13:18.9895 Info AppDomain Shutting down. LogFactory closing...
+2023-02-24 21:13:19.0355 Info LogFactory has been closed.
+2023-02-24 22:01:47.6955 Info Message Template Auto Format enabled
+2023-02-24 22:01:47.8741 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-02-24 22:01:47.9181 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\sefa_\source\repos\DotNetCuboBackend\WebApi\nlog.config
+2023-02-24 22:03:10.3566 Info Message Template Auto Format enabled
+2023-02-24 22:03:10.5927 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-02-24 22:03:10.6520 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\sefa_\source\repos\DotNetCuboBackend\WebApi\nlog.config
+2023-02-24 22:08:21.1342 Info Message Template Auto Format enabled
+2023-02-24 22:08:21.2935 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-02-24 22:08:21.3337 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\sefa_\source\repos\DotNetCuboBackend\WebApi\nlog.config
+2023-02-24 22:09:05.9580 Info Message Template Auto Format enabled
+2023-02-24 22:09:06.0936 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-02-24 22:09:06.1253 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\sefa_\source\repos\DotNetCuboBackend\WebApi\nlog.config
+2023-02-24 22:11:57.7822 Info Message Template Auto Format enabled
+2023-02-24 22:11:57.9471 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-02-24 22:11:57.9888 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\sefa_\source\repos\DotNetCuboBackend\WebApi\nlog.config
+2023-02-24 22:17:05.2722 Info Message Template Auto Format enabled
+2023-02-24 22:17:05.4072 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-02-24 22:17:05.4450 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\sefa_\source\repos\DotNetCuboBackend\WebApi\nlog.config
+2023-02-24 22:21:11.7749 Info Message Template Auto Format enabled
+2023-02-24 22:21:11.9520 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-02-24 22:21:11.9991 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\sefa_\source\repos\DotNetCuboBackend\WebApi\nlog.config
+2023-02-24 23:05:48.1546 Info Message Template Auto Format enabled
+2023-02-24 23:05:48.3835 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-02-24 23:05:48.4472 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\sefa_\source\repos\DotNetCuboBackend\WebApi\nlog.config
+2023-03-03 23:16:35.9523 Info Message Template Auto Format enabled
+2023-03-03 23:16:36.1578 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-03-03 23:16:36.2038 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\sefa_\source\repos\DotNetCuboBackend\WebApi\nlog.config
+2023-03-03 23:18:42.9895 Info Message Template Auto Format enabled
+2023-03-03 23:18:43.1397 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-03-03 23:18:43.1804 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\sefa_\source\repos\DotNetCuboBackend\WebApi\nlog.config
+2023-03-03 23:23:06.9807 Info Message Template Auto Format enabled
+2023-03-03 23:23:07.1744 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-03-03 23:23:07.2211 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\sefa_\source\repos\DotNetCuboBackend\WebApi\nlog.config

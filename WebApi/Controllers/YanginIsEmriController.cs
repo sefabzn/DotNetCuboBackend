@@ -15,9 +15,9 @@ namespace WebApi.Controllers
             _yanginIsEmriService = yanginIsEmriService;
         }
         [HttpGet("GetAll")]
-        public IActionResult GetAll()
+        public async Task<IActionResult> GetAll()
         {
-            var result = _yanginIsEmriService.GetAll();
+            var result =await _yanginIsEmriService.GetAllAsync();
             if (result.Success)
             {
                 return Ok(result);
@@ -26,10 +26,10 @@ namespace WebApi.Controllers
         }
 
         [HttpPut("Update")]
-        public IActionResult Update(YanginIsEmri kablo)
+        public async Task<IActionResult> Update(YanginIsEmri kablo)
         {
 
-            var result = _yanginIsEmriService.update(kablo);
+            var result =await _yanginIsEmriService.updateAsync(kablo);
             if (result.Success)
             {
                 return Ok(result);
@@ -38,9 +38,9 @@ namespace WebApi.Controllers
 
         }
         [HttpGet("GetById")]
-        public IActionResult GetById(int id)
+        public async Task<IActionResult> GetById(int id)
         {
-            var result = _yanginIsEmriService.Get(x => x.Id == id);
+            var result =await _yanginIsEmriService.GetAsync(x => x.Id == id);
             if (result.Success)
             {
                 return Ok(result);
@@ -49,9 +49,9 @@ namespace WebApi.Controllers
 
         }
         [HttpPost("Delete")]
-        public IActionResult Delete(YanginIsEmri kablo)
+        public async Task<IActionResult> Delete(YanginIsEmri kablo)
         {
-            var result = _yanginIsEmriService.delete(kablo);
+            var result =await _yanginIsEmriService.deleteAsync(kablo);
             if (result.Success)
             {
                 return Ok(result);

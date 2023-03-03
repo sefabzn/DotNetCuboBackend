@@ -24,15 +24,15 @@ namespace Business.Concrete
         }
       
         [CacheAspect]
-        public IDataResult<List<MakineGunlukRaporDto>> GetGunlukRaporlar(string makineIsmi, DateTime firstDate, DateTime lastDate)
+        public async Task<IDataResult<List<MakineGunlukRaporDto>>> GetGunlukRaporlarAsync(string makineIsmi, DateTime firstDate, DateTime lastDate)
         {
            return new SuccessDataResult<List<MakineGunlukRaporDto>>(_makineDal.getGunlukRapor(makineIsmi,firstDate,lastDate),"Günlük Rapor Getirildi");
         }
 
-        public IDataResult<double> GetOrtalamaVerimlilik(List<KabloUretim> data)
+        public  IDataResult<double> GetOrtalamaVerimlilik(List<KabloUretim> data)
         {
 
-            return  new SuccessDataResult<double>(_makineDal.GetOrtalamaVerimlilik(data),"Verimlilik Hesaplandı");
+            return  new SuccessDataResult<double>( _makineDal.GetOrtalamaVerimlilik(data),"Verimlilik Hesaplandı");
         }
     }
 }

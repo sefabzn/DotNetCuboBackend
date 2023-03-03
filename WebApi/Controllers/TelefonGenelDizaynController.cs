@@ -15,9 +15,9 @@ namespace WebApi.Controllers
             _telefonGenelDizaynService = telefonGenelDizaynService;
         }
         [HttpGet("GetAll")]
-        public IActionResult GetAll()
+        public async Task<IActionResult> GetAll()
         {
-            var result = _telefonGenelDizaynService.GetAll();
+            var result =await _telefonGenelDizaynService.GetAllAsync();
             if (result.Success)
             {
                 return Ok(result);
@@ -25,9 +25,9 @@ namespace WebApi.Controllers
             return BadRequest(result);
         }
         [HttpPost("Add")]
-        public IActionResult Add(TelefonGenelDizayn kablo)
+        public async Task<IActionResult> Add(TelefonGenelDizayn kablo)
         {
-            var result = _telefonGenelDizaynService.add(kablo);
+            var result =await _telefonGenelDizaynService.addAsync(kablo);
             if (result.Success)
             {
                 return Ok(result);
@@ -35,9 +35,9 @@ namespace WebApi.Controllers
             return BadRequest(result);
         }
         [HttpPut("Update")]
-        public IActionResult Update(TelefonGenelDizayn kablo)
+        public async Task<IActionResult> Update(TelefonGenelDizayn kablo)
         {
-            var result = _telefonGenelDizaynService.update(kablo);
+            var result =await _telefonGenelDizaynService.updateAsync(kablo);
             if (result.Success)
             {
                 return Ok(result);
@@ -46,9 +46,9 @@ namespace WebApi.Controllers
 
         }
         [HttpGet("GetById")]
-        public IActionResult GetById(int id)
+        public async Task<IActionResult> GetById(int id)
         {
-            var result = _telefonGenelDizaynService.Get(x => x.Id == id);
+            var result =await _telefonGenelDizaynService.GetAsync(x => x.Id == id);
             if (result.Success)
             {
                 return Ok(result);
@@ -57,9 +57,9 @@ namespace WebApi.Controllers
 
         }
         [HttpPost("Delete")]
-        public IActionResult Delete(TelefonGenelDizayn kablo)
+        public async Task<IActionResult> DeleteAsync(TelefonGenelDizayn kablo)
         {
-            var result = _telefonGenelDizaynService.delete(kablo);
+            var result =await _telefonGenelDizaynService.deleteAsync(kablo);
             if (result.Success)
             {
                 return Ok(result);

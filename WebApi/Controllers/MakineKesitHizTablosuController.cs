@@ -14,9 +14,9 @@ namespace WebApi.Controllers
         }
 
         [HttpGet("GetAll")]
-        public IActionResult GetAll()
+        public async Task<IActionResult> GetAllAsync()
         {
-            var result = _makineKesitHizTablosuService.GetAll();
+            var result = await _makineKesitHizTablosuService.GetAllAsync();
             if (result.Success)
             {
                 return Ok(result);

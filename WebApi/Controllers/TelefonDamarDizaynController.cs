@@ -16,9 +16,9 @@ namespace WebApi.Controllers
         }
 
         [HttpGet("GetAll")]
-        public IActionResult GetAll()
+        public async Task<IActionResult> GetAllAsync()
         {
-            var result = _telefonDamarDizaynService.GetAll();
+            var result =await _telefonDamarDizaynService.GetAllAsync();
             if (result.Success)
             {
                 return Ok(result);
@@ -27,9 +27,9 @@ namespace WebApi.Controllers
             return BadRequest(result);
         }
         [HttpGet("GetAllByGenelDizaynId")]
-        public IActionResult GetAll(int id)
+        public async Task<IActionResult> GetAllByGenelDizaynIdAsync(int id)
         {
-            var result = _telefonDamarDizaynService.GetAll(x => x.AnaId == id);
+            var result =await _telefonDamarDizaynService.GetAllAsync(x => x.AnaId == id);
             if (result.Success)
             {
                 return Ok(result);
@@ -37,10 +37,11 @@ namespace WebApi.Controllers
 
             return BadRequest(result);
         }
+
         [HttpPost("Add")]
-        public IActionResult Add(TelefonDamarDizayn kablo)
+        public async Task<IActionResult> AddAsync(TelefonDamarDizayn kablo)
         {
-            var result = _telefonDamarDizaynService.add(kablo);
+            var result = await _telefonDamarDizaynService.addAsync(kablo);
             if (result.Success)
             {
                 return Ok(result);
@@ -49,9 +50,9 @@ namespace WebApi.Controllers
 
         }
         [HttpGet("GetById")]
-        public IActionResult GetById(int id)
+        public async Task<IActionResult> GetByIdAsync(int id)
         {
-            var result = _telefonDamarDizaynService.Get(x => x.Id == id);
+            var result =await _telefonDamarDizaynService.GetAsync(x => x.Id == id);
             if (result.Success)
             {
                 return Ok(result);
@@ -60,9 +61,9 @@ namespace WebApi.Controllers
 
         }
         [HttpPut("Update")]
-        public IActionResult Update(TelefonDamarDizayn kablo)
+        public async Task<IActionResult> UpdateAsync(TelefonDamarDizayn kablo)
         {
-            var result = _telefonDamarDizaynService.update(kablo);
+            var result = await _telefonDamarDizaynService.updateAsync(kablo);
             if (result.Success)
             {
                 return Ok(result);
@@ -71,9 +72,9 @@ namespace WebApi.Controllers
 
         }
         [HttpPost("Delete")]
-        public IActionResult Delete(TelefonDamarDizayn kablo)
+        public async Task<IActionResult> DeleteAsync(TelefonDamarDizayn kablo)
         {
-            var result = _telefonDamarDizaynService.delete(kablo);
+            var result = await _telefonDamarDizaynService.deleteAsync(kablo);
             if (result.Success)
             {
                 return Ok(result);

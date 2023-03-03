@@ -13,10 +13,10 @@ namespace Business.Abstract
     public interface IAuthService
     {
 
-        IDataResult<Kullanici> Register(KullaniciForRegisterDto userForRegisterDto, string password);
-        IDataResult<Kullanici> Login(KullaniciForLoginDto userForLoginDto);
-        IResult UserExists(string kullaniciAdi);
-        IDataResult<AccessToken> CreateAccessToken(Kullanici kullanici);
+        Task<IDataResult<Kullanici>> Register(KullaniciForRegisterDto userForRegisterDto, string password);
+        Task<IDataResult<Kullanici>> Login(KullaniciForLoginDto userForLoginDto);
+        Task<IResult> CheckIfUserExists(string kullaniciAdi);
+        Task<IDataResult<AccessToken>> CreateAccessToken(Kullanici kullanici);
     }
 
     

@@ -14,7 +14,7 @@ namespace Business.Abstract
     {
 
       
-        IDataResult<List<OperationClaim>> GetClaims(Kullanici kullanici);
-        IDataResult<Kullanici> GetByKullaniciAdi(string kullaniciAdi);
+        Task<IDataResult<List<OperationClaim>>> GetClaimsAsync(Kullanici kullanici);
+        Task<IDataResult<Kullanici>> GetByKullaniciAdiAsync(string kullaniciAdi);
     }
 }

@@ -5,12 +5,12 @@ namespace Core.Business
 {
     public interface IServiceRepository<TEntity>
     {
-        IDataResult<List<TEntity>> GetAll(Expression<Func<TEntity, bool>>? filter = null);
-        IResult add(TEntity makinalar);
-        IResult delete(TEntity makinalar);
-        IResult update(TEntity makinalar);
+        Task<IDataResult<List<TEntity>>> GetAllAsync(Expression<Func<TEntity, bool>>? filter = null);
+        Task<IResult> addAsync(TEntity makinalar);
+        Task<IResult> deleteAsync(TEntity makinalar);
+        Task<IResult> updateAsync(TEntity makinalar);
 
-        IDataResult<TEntity> Get(Expression<Func<TEntity, bool>> filter);
+        Task<IDataResult<TEntity>> GetAsync(Expression<Func<TEntity, bool>> filter);
 
     }
 }

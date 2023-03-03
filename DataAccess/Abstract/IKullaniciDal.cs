@@ -10,6 +10,6 @@ namespace DataAccess.Abstract
 {
     public interface IKullaniciDal:IEntityRepository<Kullanici>
     {
-        List<OperationClaim> GetClaims(Kullanici kullanici);
+        Task<List<OperationClaim>> GetClaimsAsync(Kullanici kullanici);
     }
 }

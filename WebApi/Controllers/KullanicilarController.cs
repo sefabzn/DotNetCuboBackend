@@ -18,9 +18,9 @@ namespace WebApi.Controllers
         }
 
         [HttpGet("GetAll")]
-        public IActionResult GetAll()
+        public async Task<IActionResult> GetAllAsync()
         {
-            var result = _kullaniciService.GetAll();
+            var result = await _kullaniciService.GetAllAsync();
             if (result.Success)
             {
                 return Ok(result);
@@ -29,10 +29,10 @@ namespace WebApi.Controllers
         }
        
         [HttpPost("Add")]
-        public IActionResult Add(Kullanici kullanici)
+        public async Task<IActionResult> AddAsync(Kullanici kullanici)
         {
 
-            var result = _kullaniciService.add(kullanici);
+            var result = await _kullaniciService.addAsync(kullanici);
             if (result.Success)
             {
                 return Ok(result);
@@ -43,9 +43,9 @@ namespace WebApi.Controllers
 
         }
         [HttpGet("GetById")]
-        public IActionResult GetById(int id)
+        public async  Task<IActionResult> GetById(int id)
         {
-            var result = _kullaniciService.Get(x => x.ID == id);
+            var result = await _kullaniciService.GetAsync(x => x.ID == id);
             if (result.Success)
             {
                 return Ok(result);
@@ -54,9 +54,9 @@ namespace WebApi.Controllers
 
         }
         [HttpGet("GetByName")]
-        public IActionResult GetByName(string kullaniciAdi)
+        public async Task<IActionResult> GetByName(string kullaniciAdi)
         {
-            var result = _kullaniciService.GetByKullaniciAdi(kullaniciAdi);
+            var result = await _kullaniciService.GetByKullaniciAdiAsync(kullaniciAdi);
             if (result.Success)
             {
                 return Ok(result);
@@ -65,9 +65,9 @@ namespace WebApi.Controllers
 
         }
         [HttpPut("Update")]
-        public IActionResult Update(Kullanici kablo)
+        public async Task<IActionResult> UpdateAsync(Kullanici kablo)
         {
-            var result = _kullaniciService.update(kablo);
+            var result =await  _kullaniciService.updateAsync(kablo);
             if (result.Success)
             {
                 return Ok(result);
@@ -77,9 +77,9 @@ namespace WebApi.Controllers
         }
         
         [HttpPost("Delete")]
-        public IActionResult Delete(Kullanici kablo)
+        public async Task<IActionResult> DeleteAsync(Kullanici kablo)
         {
-            var result = _kullaniciService.delete(kablo);
+            var result =await _kullaniciService.deleteAsync(kablo);
             if (result.Success)
             {
                 return Ok(result);
@@ -88,10 +88,10 @@ namespace WebApi.Controllers
 
         }
         [HttpGet("GetClaims")]
-        public IActionResult GetClaims(int id)
+        public  async Task<IActionResult>GetClaims(int id)
         {
-            var kullanici = _kullaniciService.Get(x => x.ID == id).Data;
-            var result = _kullaniciService.GetClaims(kullanici);
+            var kullanici =(await _kullaniciService.GetAsync(x => x.ID == id)).Data;
+            var result =await  _kullaniciService.GetClaimsAsync(kullanici);
             if (result.Success)
             {
                 return Ok(result);

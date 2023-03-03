@@ -41,6 +41,7 @@ namespace Core.Extensions
             message = e.Message;
             if (e.GetType() == typeof(ValidationException))
             {
+
                 errors = ((ValidationException)e).Errors;
                 httpContext.Response.StatusCode = 400;
                 return httpContext.Response.WriteAsync(new ValidationErrorDetails
@@ -50,7 +51,7 @@ namespace Core.Extensions
                     ValidationErrors = errors
                 }.ToString()) ;
             }
-
+           
 
             return httpContext.Response.WriteAsync(new ErrorDetails
             {

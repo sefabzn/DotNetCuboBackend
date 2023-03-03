@@ -1,1 +1,2 @@
 2023-02-23 22:16:08.4123 INFO sefa isimli kullanıcı getirildi. 
+2023-02-23 22:19:55.8440 INFO sefam isimli kullanıcı getirildi. 

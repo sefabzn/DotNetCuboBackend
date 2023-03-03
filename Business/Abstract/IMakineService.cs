@@ -15,6 +15,6 @@ namespace Business.Abstract
     {
 
         IDataResult<double> GetOrtalamaVerimlilik(List<KabloUretim> data);
-        IDataResult<List<MakineGunlukRaporDto>> GetGunlukRaporlar(string makineIsmi,DateTime firstDate, DateTime lastDate);
+        Task<IDataResult<List<MakineGunlukRaporDto>>> GetGunlukRaporlarAsync(string makineIsmi,DateTime firstDate, DateTime lastDate);
     }
 }

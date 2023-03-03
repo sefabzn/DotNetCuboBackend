@@ -10,12 +10,12 @@ namespace Core.DataAccess
 {
     public interface IEntityRepository<T> where T:IEntity
     {
-        List<T> GetAll(Expression<Func<T, bool>> filter = null); //filtre girilmeyebilir
+        Task<List<T>> GetAllAsync(Expression<Func<T, bool>> filter = null); //filtre girilmeyebilir
 
-        T Get(Expression<Func<T,bool>> filter);//filtre girmek zorunlu
+        Task<T> GetAsync(Expression<Func<T,bool>> filter);//filtre girmek zorunlu
 
-        void Add(T entity);
-        void Delete(T entity);
-        void Update(T entity);
+        Task AddAsync(T entity);
+        Task DeleteAsync(T entity);
+        Task UpdateAsync(T entity);
     }
 }

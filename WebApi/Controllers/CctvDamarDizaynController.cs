@@ -17,9 +17,9 @@ namespace WebApi.Controllers
         }
 
         [HttpGet("GetAll")]
-        public IActionResult GetAll()
+        public async Task<IActionResult> GetAllAsync()
         {
-            var result = _cctvDamarDizaynService.GetAll();
+            var result = await _cctvDamarDizaynService.GetAllAsync();
             if (result.Success)
             {
                 return Ok(result);
@@ -28,9 +28,9 @@ namespace WebApi.Controllers
             return BadRequest(result);
         }
         [HttpGet("GetAllByGenelDizaynId")]
-        public IActionResult GetAll(int id)
+        public async Task<IActionResult> GetAllAsync(int id)
         {
-            var result = _cctvDamarDizaynService.GetAll(x=>x.AnaId==id);
+            var result = await _cctvDamarDizaynService.GetAllAsync(x=>x.AnaId==id);
             if (result.Success)
             {
                 return Ok(result);
@@ -39,9 +39,9 @@ namespace WebApi.Controllers
             return BadRequest(result);
         }
         [HttpPost("Add")]
-        public IActionResult Add(CctvDamarDizayn kablo)
+        public async Task<IActionResult> AddAsync(CctvDamarDizayn kablo)
         {
-            var result = _cctvDamarDizaynService.add(kablo);
+            var result =await _cctvDamarDizaynService.addAsync(kablo);
             if (result.Success)
             {
                 return Ok(result);
@@ -50,9 +50,9 @@ namespace WebApi.Controllers
 
         }
         [HttpGet("GetById")]
-        public IActionResult GetById(int id)
+        public async Task<IActionResult> GetByIdAsync(int id)
         {
-            var result = _cctvDamarDizaynService.Get(x => x.Id == id);
+            var result = await _cctvDamarDizaynService.GetAsync(x => x.Id == id);
             if (result.Success)
             {
                 return Ok(result);
@@ -61,9 +61,9 @@ namespace WebApi.Controllers
 
         }
         [HttpPut("Update")]
-        public IActionResult Update(CctvDamarDizayn kablo)
+        public async Task<IActionResult> UpdateAsync(CctvDamarDizayn kablo)
         {
-            var result = _cctvDamarDizaynService.update(kablo);
+            var result =await  _cctvDamarDizaynService.updateAsync(kablo);
             if (result.Success)
             {
                 return Ok(result);
@@ -72,9 +72,9 @@ namespace WebApi.Controllers
 
         }
         [HttpPost("Delete")]
-        public IActionResult Delete(CctvDamarDizayn kablo)
+        public async Task<IActionResult> DeleteAsync(CctvDamarDizayn kablo)
         {
-            var result = _cctvDamarDizaynService.delete(kablo);
+            var result =await  _cctvDamarDizaynService.deleteAsync(kablo);
             if (result.Success)
             {
                 return Ok(result);

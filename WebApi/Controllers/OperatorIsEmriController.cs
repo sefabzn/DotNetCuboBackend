@@ -14,9 +14,9 @@ namespace WebApi.Controllers
             _operatorIsEmriService = operatorIsEmriService;
         }
         [HttpGet("GetAll")]
-        public IActionResult GetAll()
+        public async Task<IActionResult> GetAll()
         {
-           var result= _operatorIsEmriService.GetAll();
+           var result=await _operatorIsEmriService.GetAllAsync();
             if (result.Success)
             {
                 return Ok(result);
@@ -24,9 +24,9 @@ namespace WebApi.Controllers
             return BadRequest(result);
         }
         [HttpPost("Delete")]
-        public IActionResult Delete(OperatorIsEmri kablo)
+        public async Task<IActionResult> Delete(OperatorIsEmri kablo)
         {
-            var result = _operatorIsEmriService.delete(kablo);
+            var result = await _operatorIsEmriService.deleteAsync(kablo);
             if (result.Success)
             {
                 return Ok(result);
@@ -35,9 +35,9 @@ namespace WebApi.Controllers
 
         }
         [HttpPost("Add")]
-        public IActionResult Add(OperatorIsEmri isEmri)
+        public async Task<IActionResult> Add(OperatorIsEmri isEmri)
         {
-            var result = _operatorIsEmriService.add(isEmri);
+            var result =await _operatorIsEmriService.addAsync(isEmri);
             if (result.Success)
             {
                 return Ok(result);
@@ -46,9 +46,9 @@ namespace WebApi.Controllers
 
         }
         [HttpGet("GetById")]
-        public IActionResult GetById(int id)
+        public async Task<IActionResult> GetById(int id)
         {
-            var result = _operatorIsEmriService.Get(x => x.Id == id);
+            var result = await _operatorIsEmriService.GetAsync(x => x.Id == id);
             if (result.Success)
             {
                 return Ok(result);
@@ -57,9 +57,9 @@ namespace WebApi.Controllers
 
         }
         [HttpPut("Update")]
-        public IActionResult Update(OperatorIsEmri kablo)
+        public async Task<IActionResult> Update(OperatorIsEmri kablo)
         {
-            var result = _operatorIsEmriService.update(kablo);
+            var result =await _operatorIsEmriService.updateAsync(kablo);
             if (result.Success)
             {
                 return Ok(result);

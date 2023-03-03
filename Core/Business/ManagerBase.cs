@@ -21,36 +21,36 @@ namespace Core.Business
         {
             _dal = repository;
         }
-        public IResult add(TEntity entity)
+        public async Task<IResult> addAsync(TEntity entity)
         {
 
-            _dal.Add(entity);
+            await _dal.AddAsync(entity);
 
             return new SuccessResult("Ürün Eklendi");
         }
 
-        public IResult delete(TEntity makinalar)
+        public async Task<IResult> deleteAsync(TEntity makinalar)
         {
-            _dal.Delete(makinalar);
+            await _dal.DeleteAsync(makinalar);
             return new SuccessResult("Ürün Silindi");
 
         }
 
-        public IDataResult<TEntity> Get(Expression<Func<TEntity, bool>> filter)
+        public async Task<IDataResult<TEntity>> GetAsync(Expression<Func<TEntity, bool>> filter)
         {
             
-            return new SuccessDataResult<TEntity>(_dal.Get(filter),"Ürün bulundu");
+            return new SuccessDataResult<TEntity>(await _dal.GetAsync(filter),"Ürün bulundu");
         }
 
       
-        public IDataResult<List<TEntity>> GetAll(Expression<Func<TEntity, bool>>? filter = null)
+        public async Task<IDataResult<List<TEntity>>> GetAllAsync(Expression<Func<TEntity, bool>>? filter = null)
         {
-            return new SuccessDataResult<List<TEntity>>(_dal.GetAll(filter),"Ürünler Bulundu");
+            return new SuccessDataResult<List<TEntity>>(await _dal.GetAllAsync(filter),"Ürünler Bulundu");
         }
 
-        public IResult update(TEntity makinalar)
+        public async Task<IResult> updateAsync(TEntity makinalar)
         {
-            _dal.Update(makinalar);
+            await _dal.UpdateAsync(makinalar);
             return new SuccessResult("Ürün Güncellendi");
 
 

@@ -16,15 +16,15 @@ namespace WebApi.Controllers
         }
 
         [HttpPost("login")]
-        public ActionResult Login(KullaniciForLoginDto userForLoginDto)
+        public async Task<ActionResult> Login(KullaniciForLoginDto userForLoginDto)
         {
-            var userToLogin = _authService.Login(userForLoginDto);
+            var userToLogin =await _authService.Login(userForLoginDto);
             if (!userToLogin.Success)
             {
                 return BadRequest(userToLogin.Message);
             }
 
-            var result = _authService.CreateAccessToken(userToLogin.Data);
+            var result =await _authService.CreateAccessToken(userToLogin.Data);
             if (result.Success)
             {
                 return Ok(result.Data);
@@ -34,16 +34,16 @@ namespace WebApi.Controllers
         }
 
         [HttpPost("register")]
-        public ActionResult Register(KullaniciForRegisterDto userForRegisterDto)
+        public async Task<ActionResult> Register(KullaniciForRegisterDto userForRegisterDto)
         {
-            var userExists = _authService.UserExists(userForRegisterDto.KullaniciAdi);
+            var userExists =await _authService.CheckIfUserExists(userForRegisterDto.KullaniciAdi);
             if (!userExists.Success)
             {
                 return BadRequest(userExists.Message);
             }
 
-            var registerResult = _authService.Register(userForRegisterDto, userForRegisterDto.Sifre);
-            var result = _authService.CreateAccessToken(registerResult.Data);
+            var registerResult =await _authService.Register(userForRegisterDto, userForRegisterDto.Sifre);
+            var result =await _authService.CreateAccessToken(registerResult.Data);
             if (result.Success)
             {
                 return Ok(result.Data);

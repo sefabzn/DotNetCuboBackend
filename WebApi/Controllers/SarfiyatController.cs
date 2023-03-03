@@ -15,9 +15,9 @@ namespace WebApi.Controllers
         }
 
         [HttpGet("GetAll")]
-        public IActionResult GetAll()
+        public async Task<IActionResult> GetAll()
         {
-            var result = _sarfiyatService.GetAll();
+            var result =await  _sarfiyatService.GetAllAsync();
             if (result.Success)
             {
                 return Ok(result);
@@ -25,9 +25,9 @@ namespace WebApi.Controllers
             return BadRequest(result);
         }
         [HttpGet("GetAllByDateRange")]
-        public IActionResult GetAllByDateRange(DateTime startDate, DateTime finishDate)
+        public async Task<IActionResult> GetAllByDateRange(DateTime startDate, DateTime finishDate)
         {
-            var result = _sarfiyatService.GetAll(x=>x.Tarih>=startDate && x.Tarih<= finishDate);
+            var result =await _sarfiyatService.GetAllAsync(x=>x.Tarih>=startDate && x.Tarih<= finishDate);
             if (result.Success)
             {
                 return Ok(result);
@@ -35,9 +35,9 @@ namespace WebApi.Controllers
             return BadRequest(result);
         }
         [HttpPost("Delete")]
-        public IActionResult Delete(Sarfiyat kablo)
+        public async Task<IActionResult> Delete(Sarfiyat kablo)
         {
-            var result = _sarfiyatService.delete(kablo);
+            var result =await _sarfiyatService.deleteAsync(kablo);
             if (result.Success)
             {
                 return Ok(result);
@@ -46,9 +46,9 @@ namespace WebApi.Controllers
 
         }
         [HttpPost("Add")]
-        public IActionResult Add(Sarfiyat sarfiyat)
+        public async Task<IActionResult> Add(Sarfiyat sarfiyat)
         {
-            var result = _sarfiyatService.add(sarfiyat);
+            var result =await  _sarfiyatService.addAsync(sarfiyat);
             if (result.Success)
             {
                 return Ok(result);
@@ -56,9 +56,9 @@ namespace WebApi.Controllers
             return BadRequest(result);
         }
         [HttpGet("GetById")]
-        public IActionResult GetById(int id)
+        public async Task<IActionResult> GetById(int id)
         {
-            var result = _sarfiyatService.Get(x => x.Id == id);
+            var result =await  _sarfiyatService.GetAsync(x => x.Id == id);
             if (result.Success)
             {
                 return Ok(result);
@@ -67,9 +67,9 @@ namespace WebApi.Controllers
 
         }
         [HttpPut("Update")]
-        public IActionResult Update(Sarfiyat kablo)
+        public async Task<IActionResult> Update(Sarfiyat kablo)
         {
-            var result = _sarfiyatService.update(kablo);
+            var result =await _sarfiyatService.updateAsync(kablo);
             if (result.Success)
             {
                 return Ok(result);

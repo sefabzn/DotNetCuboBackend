@@ -23,7 +23,7 @@ namespace Business.Concrete
             _tokenHelper = tokenHelper;
         }
 
-        public IDataResult<Kullanici> Register(KullaniciForRegisterDto kullaniciForRegisterDto, string password)
+        public async Task<IDataResult<Kullanici>> Register(KullaniciForRegisterDto kullaniciForRegisterDto, string password)
         {
             byte[] passwordHash, passwordSalt;
             HashingHelper.CreatePasswordHash(password, out passwordHash, out passwordSalt);
@@ -35,13 +35,13 @@ namespace Business.Concrete
                 Status = true,
 
             };
-            _kullaniciService.add(kullanici);
+            await _kullaniciService.addAsync(kullanici);
             return new SuccessDataResult<Kullanici>(kullanici, "User Registered");
         }
 
-        public IDataResult<Kullanici> Login(KullaniciForLoginDto kullaniciForLoginDto)
+        public async Task<IDataResult<Kullanici>> Login(KullaniciForLoginDto kullaniciForLoginDto)
         {
-            var kullaniciToCheck = _kullaniciService.GetByKullaniciAdi(kullaniciForLoginDto.KullaniciAdi).Data;
+            var kullaniciToCheck =(await _kullaniciService.GetByKullaniciAdiAsync(kullaniciForLoginDto.KullaniciAdi)).Data;
             if (kullaniciToCheck == null)
             {
                 return new ErrorDataResult<Kullanici>("User not Found");
@@ -55,18 +55,18 @@ namespace Business.Concrete
             return new SuccessDataResult<Kullanici>(kullaniciToCheck, "Giriş yapıldı");
         }
 
-        public IResult UserExists(string kullaniciAdi)
+        public async Task<IResult> CheckIfUserExists(string kullaniciAdi)
         {
-            if (_kullaniciService.GetByKullaniciAdi(kullaniciAdi).Data != null)
+            if ((await _kullaniciService.GetByKullaniciAdiAsync(kullaniciAdi)).Data != null)
             {
                 return new ErrorResult("User Already exist");
             }
             return new SuccessResult();
         }
 
-        public IDataResult<AccessToken> CreateAccessToken(Kullanici kullanici)
+        public async Task<IDataResult<AccessToken>> CreateAccessToken(Kullanici kullanici)
         {
-            var claims = _kullaniciService.GetClaims(kullanici);
+            var claims = await _kullaniciService.GetClaimsAsync(kullanici);
             var accessToken = _tokenHelper.CreateToken(kullanici, claims.Data);
             return new SuccessDataResult<AccessToken>(accessToken, "Acces Token Created");
         }

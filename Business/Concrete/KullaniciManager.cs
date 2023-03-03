@@ -10,6 +10,7 @@ using Business.Validation.FluentValidation;
 using DataAccess.Abstract;
 using Core.Business;
 using Core.CrossCuttingConcern.Logging;
+using FluentValidation;
 
 namespace Business.Concrete
 {
@@ -28,28 +29,20 @@ namespace Business.Concrete
         [ValidationAspect(typeof(KullaniciValidator))]
         [CacheRemoveAspect("IKullaniciService.Get")]
 
-        private IResult CheckIfKullaniciExists(string kullaniciAdi)
-        {
-
-            if (_kullaniciDal.GetAll(x => x.KullaniciAdi == kullaniciAdi).Any())
-            {
-                return new ErrorResult();
-            }
-            return new SuccessResult();
-
-
-        }
+        
       
-        public IDataResult<List<OperationClaim>> GetClaims(Kullanici kullanici)
+        public async Task<IDataResult<List<OperationClaim>>> GetClaimsAsync(Kullanici kullanici)
         {
-            return new SuccessDataResult<List<OperationClaim>>(_kullaniciDal.GetClaims(kullanici));
+            return new SuccessDataResult<List<OperationClaim>>(await _kullaniciDal.GetClaimsAsync(kullanici));
         }
        
-        public IDataResult<Kullanici> GetByKullaniciAdi(string kullaniciAdi)
+        public async Task<IDataResult<Kullanici>> GetByKullaniciAdiAsync(string kullaniciAdi)
         {
+            var data =await _kullaniciDal.GetAsync(x=>x.KullaniciAdi==kullaniciAdi);
+            
             _loggerService.LogInfo($"{kullaniciAdi} isimli kullanıcı getirildi. ");
            
-            return new SuccessDataResult<Kullanici>(_kullaniciDal.Get(x => x.KullaniciAdi == kullaniciAdi));
+            return new SuccessDataResult<Kullanici>(data);
         }
     }
 }

@@ -14,10 +14,10 @@ namespace WebApi.Controllers
             _kesitYapisiService = kesitYapisiService;
         }
         [HttpPost("Add")]
-        public IActionResult Add(KesitYapisi entity)
+        public async Task<IActionResult> AddAsync(KesitYapisi entity)
         {
 
-            var result = _kesitYapisiService.add(entity);
+            var result =await _kesitYapisiService.addAsync(entity);
             if (result.Success)
             {
                 return Ok(result);
@@ -27,9 +27,9 @@ namespace WebApi.Controllers
 
         }
         [HttpGet("GetById")]
-        public IActionResult GetById(int id)
+        public async Task<IActionResult> GetByIdAsync(int id)
         {
-            var result = _kesitYapisiService.Get(x => x.Id == id);
+            var result =await  _kesitYapisiService.GetAsync(x => x.Id == id);
             if (result.Success)
             {
                 return Ok(result);
@@ -38,9 +38,9 @@ namespace WebApi.Controllers
 
         }
         [HttpPut("Update")]
-        public IActionResult Update(KesitYapisi kablo)
+        public async Task<IActionResult> UpdateAsync(KesitYapisi kablo)
         {
-            var result = _kesitYapisiService.update(kablo);
+            var result =await _kesitYapisiService.updateAsync(kablo);
             if (result.Success)
             {
                 return Ok(result);
@@ -49,9 +49,9 @@ namespace WebApi.Controllers
 
         }
         [HttpGet("GetAll")]
-        public IActionResult GetAll()
+        public async Task<IActionResult> GetAllAsync()
         {
-            var result =_kesitYapisiService.GetAll();
+            var result =await _kesitYapisiService.GetAllAsync();
             if (result.Success)
             {
                 return Ok(result);
@@ -59,9 +59,9 @@ namespace WebApi.Controllers
             return BadRequest(result);
         }
         [HttpPost("Delete")]
-        public IActionResult Delete(KesitYapisi kablo)
+        public async Task<IActionResult> DeleteAsync(KesitYapisi kablo)
         {
-            var result = _kesitYapisiService.delete(kablo);
+            var result =await _kesitYapisiService.deleteAsync(kablo);
             if (result.Success)
             {
                 return Ok(result);
