@@ -1,5 +1,6 @@
 ﻿using Business.Abstract;
 using Business.BusinessAspects.Autofac;
+using Core.Aspects.Autofac.Mailing;
 using Core.Business;
 using Core.Utilities.Business;
 using Core.Utilities.Results;
@@ -26,6 +27,8 @@ namespace Business.Concrete
             _makineDal = makineDal;
             _exchangeRateDal = exchangeRateDal;
         }
+
+        [MailAspect]
         public new async Task<IResult> addAsync(KabloUretim kablo) // new keywordu base'deki aynı isimdeki methodu bastırması için kullanılır
         {
 

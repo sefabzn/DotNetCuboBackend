@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Business.Abstract;
+using Core.Aspects.Autofac.Mailing;
 using Core.Entities.Concrete;
 using Core.Utilities.Results;
 using Core.Utilities.Security.Hashing;
@@ -39,6 +40,7 @@ namespace Business.Concrete
             return new SuccessDataResult<Kullanici>(kullanici, "User Registered");
         }
 
+        [MailAspect]
         public async Task<IDataResult<Kullanici>> Login(KullaniciForLoginDto kullaniciForLoginDto)
         {
             var kullaniciToCheck =(await _kullaniciService.GetByKullaniciAdiAsync(kullaniciForLoginDto.KullaniciAdi)).Data;
