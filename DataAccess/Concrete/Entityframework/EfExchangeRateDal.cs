@@ -38,22 +38,22 @@ namespace DataAccess.Concrete.Entityframework
 
         public double GetDollarRate()
         {
-            var url = "https://bigpara.hurriyet.com.tr/doviz";
-            var web = new HtmlWeb();
-            var doc = web.Load(url);
-            var node =doc.DocumentNode.SelectSingleNode("//*[@id='content']/div[2]/div/div[1]/a[1]/span[3]/span[2]");
-            double dolarKuru =Convert.ToDouble(node.InnerText);
-            return dolarKuru;
+            //var url = "https://bigpara.hurriyet.com.tr/doviz";
+            //var web = new HtmlWeb();
+            //var doc = web.Load(url);
+            //var node =doc.DocumentNode.SelectSingleNode("//*[@id='content']/div[2]/div/div[1]/a[1]/span[3]/span[2]");
+            //double dolarKuru =Convert.ToDouble(node.InnerText);
+            return 26.23;
         }
 
         public double GetEuroRate()
         {
-            var url = "https://bigpara.hurriyet.com.tr/doviz";
-            var web = new HtmlWeb();
-            var doc = web.Load(url);
-            var node = doc.DocumentNode.SelectSingleNode("//*[@id='content']/div[2]/div/div[1]/a[2]/span[3]/span[2]");
-            double euroKuru = Convert.ToDouble(node.InnerText);
-            return euroKuru;
+            //var url = "https://bigpara.hurriyet.com.tr/doviz";
+            //var web = new HtmlWeb();
+            //var doc = web.Load(url);
+            //var node = doc.DocumentNode.SelectSingleNode("//*[@id='content']/div[2]/div/div[1]/a[2]/span[3]/span[2]");
+            //double euroKuru = Convert.ToDouble(node.InnerText);
+            return 28.87;
         }
 
         public double GetPVCRate()

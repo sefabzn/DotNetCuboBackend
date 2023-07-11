@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "CZ/auOMHqZI3lQr9fJ1kKqXM0qOUpf7RQNdyhzDAak1PrxZ+SOE1n6DErU8C8Sktq3tI7W3Jc2SL5skn88wYFg==",
+  "dgSpecHash": "uQQt0dUUAhZRMiFcYXb9zYOAiePVdNwBRgNZpiF6qlfSR5sWp21QCzTYlmSdc5OOtZ0fBEKWJgYI6YEsZ2KPrQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\sefa_\\source\\repos\\DotNetCuboBackend\\ConsoleTesting\\ConsoleTesting.csproj",
+  "projectFilePath": "C:\\Users\\sefa_\\OneDrive\\Masaüstü\\DOTNETBACKEND\\DotNetCuboBackend\\ConsoleTesting\\ConsoleTesting.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\sefa_\\.nuget\\packages\\autofac\\6.4.0\\autofac.6.4.0.nupkg.sha512",
     "C:\\Users\\sefa_\\.nuget\\packages\\autofac.extensions.dependencyinjection\\8.0.0\\autofac.extensions.dependencyinjection.8.0.0.nupkg.sha512",

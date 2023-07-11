@@ -7161,11 +7161,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\sefa_\\source\\repos\\DotNetCuboBackend\\Core\\Core.csproj",
+      "projectUniqueName": "C:\\Users\\sefa_\\OneDrive\\Masaüstü\\DOTNETBACKEND\\DotNetCuboBackend\\Core\\Core.csproj",
       "projectName": "Core",
-      "projectPath": "C:\\Users\\sefa_\\source\\repos\\DotNetCuboBackend\\Core\\Core.csproj",
+      "projectPath": "C:\\Users\\sefa_\\OneDrive\\Masaüstü\\DOTNETBACKEND\\DotNetCuboBackend\\Core\\Core.csproj",
       "packagesPath": "C:\\Users\\sefa_\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\sefa_\\source\\repos\\DotNetCuboBackend\\Core\\obj\\",
+      "outputPath": "C:\\Users\\sefa_\\OneDrive\\Masaüstü\\DOTNETBACKEND\\DotNetCuboBackend\\Core\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\sefa_\\AppData\\Roaming\\NuGet\\NuGet.Config",

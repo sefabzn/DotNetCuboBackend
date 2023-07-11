@@ -7493,11 +7493,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\sefa_\\source\\repos\\DotNetCuboBackend\\WebApi\\WebApi.csproj",
+      "projectUniqueName": "C:\\Users\\sefa_\\OneDrive\\Masaüstü\\DOTNETBACKEND\\DotNetCuboBackend\\WebApi\\WebApi.csproj",
       "projectName": "WebApi",
-      "projectPath": "C:\\Users\\sefa_\\source\\repos\\DotNetCuboBackend\\WebApi\\WebApi.csproj",
+      "projectPath": "C:\\Users\\sefa_\\OneDrive\\Masaüstü\\DOTNETBACKEND\\DotNetCuboBackend\\WebApi\\WebApi.csproj",
       "packagesPath": "C:\\Users\\sefa_\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\sefa_\\source\\repos\\DotNetCuboBackend\\WebApi\\obj\\",
+      "outputPath": "C:\\Users\\sefa_\\OneDrive\\Masaüstü\\DOTNETBACKEND\\DotNetCuboBackend\\WebApi\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\sefa_\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -7514,8 +7514,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\sefa_\\source\\repos\\DotNetCuboBackend\\Business\\Business.csproj": {
-              "projectPath": "C:\\Users\\sefa_\\source\\repos\\DotNetCuboBackend\\Business\\Business.csproj"
+            "C:\\Users\\sefa_\\OneDrive\\Masaüstü\\DOTNETBACKEND\\DotNetCuboBackend\\Business\\Business.csproj": {
+              "projectPath": "C:\\Users\\sefa_\\OneDrive\\Masaüstü\\DOTNETBACKEND\\DotNetCuboBackend\\Business\\Business.csproj"
             }
           }
         }

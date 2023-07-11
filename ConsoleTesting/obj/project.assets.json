@@ -7276,11 +7276,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\sefa_\\source\\repos\\DotNetCuboBackend\\ConsoleTesting\\ConsoleTesting.csproj",
+      "projectUniqueName": "C:\\Users\\sefa_\\OneDrive\\Masaüstü\\DOTNETBACKEND\\DotNetCuboBackend\\ConsoleTesting\\ConsoleTesting.csproj",
       "projectName": "ConsoleTesting",
-      "projectPath": "C:\\Users\\sefa_\\source\\repos\\DotNetCuboBackend\\ConsoleTesting\\ConsoleTesting.csproj",
+      "projectPath": "C:\\Users\\sefa_\\OneDrive\\Masaüstü\\DOTNETBACKEND\\DotNetCuboBackend\\ConsoleTesting\\ConsoleTesting.csproj",
       "packagesPath": "C:\\Users\\sefa_\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\sefa_\\source\\repos\\DotNetCuboBackend\\ConsoleTesting\\obj\\",
+      "outputPath": "C:\\Users\\sefa_\\OneDrive\\Masaüstü\\DOTNETBACKEND\\DotNetCuboBackend\\ConsoleTesting\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\sefa_\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -7297,11 +7297,11 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\sefa_\\source\\repos\\DotNetCuboBackend\\DataAccess\\DataAccess.csproj": {
-              "projectPath": "C:\\Users\\sefa_\\source\\repos\\DotNetCuboBackend\\DataAccess\\DataAccess.csproj"
+            "C:\\Users\\sefa_\\OneDrive\\Masaüstü\\DOTNETBACKEND\\DotNetCuboBackend\\DataAccess\\DataAccess.csproj": {
+              "projectPath": "C:\\Users\\sefa_\\OneDrive\\Masaüstü\\DOTNETBACKEND\\DotNetCuboBackend\\DataAccess\\DataAccess.csproj"
             },
-            "C:\\Users\\sefa_\\source\\repos\\DotNetCuboBackend\\Entities\\Entities.csproj": {
-              "projectPath": "C:\\Users\\sefa_\\source\\repos\\DotNetCuboBackend\\Entities\\Entities.csproj"
+            "C:\\Users\\sefa_\\OneDrive\\Masaüstü\\DOTNETBACKEND\\DotNetCuboBackend\\Entities\\Entities.csproj": {
+              "projectPath": "C:\\Users\\sefa_\\OneDrive\\Masaüstü\\DOTNETBACKEND\\DotNetCuboBackend\\Entities\\Entities.csproj"
             }
           }
         }
