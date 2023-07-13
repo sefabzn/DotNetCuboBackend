@@ -78,7 +78,7 @@ namespace Business.Concrete
 
 
 
-            double kullanilanPVC = (Dis_Cap / 2 * Math.PI - ((Back / 2) * Math.PI)) * PVCOZGUL * Convert.ToDouble(kablo.Metraj) / 1000;
+            double kullanilanPVC = ((Dis_Cap / 2) * Math.PI - ((Back / 2) * Math.PI)) * PVCOZGUL * Convert.ToDouble(kablo.Metraj) / 1000;
             double kullanilanCu = cuAlan * CUOZGUL * Convert.ToDouble(kablo.Metraj) / 1000;
 
 

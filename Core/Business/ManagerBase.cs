@@ -1,4 +1,5 @@
-﻿using Core.CrossCuttingConcern.Validation;
+﻿using Core.Aspects.Autofac.Mailing;
+using Core.CrossCuttingConcern.Validation;
 using Core.DataAccess;
 using Core.Entities;
 using Core.Utilities.Results;
@@ -21,6 +22,7 @@ namespace Core.Business
         {
             _dal = repository;
         }
+        [MailAspect]
         public async Task<IResult> addAsync(TEntity entity)
         {
 

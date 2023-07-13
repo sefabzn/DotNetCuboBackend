@@ -23,25 +23,7 @@ namespace WebApi.Controllers
 
             var data =_kabloUretimService.GetAllAsync();
             var result = await _makinaService.GetAllAsync();
-            var data2 = (await _kabloUretimService.GetAllAsync(x => x.MakineId == 3)).Data;
-            foreach (var elem in result.Data)
-            {
-                int a = 12;
-                try
-                {
-                    var kablo =(await _kabloUretimService.GetAllAsync(x => x.MakineId == elem.Id)).Data;
-                    var b = _makinaService.GetOrtalamaVerimlilik((await _kabloUretimService.GetAllAsync(x => x.MakineId == elem.Id)).Data);
-                    double verimlilik =b.Data;
-                    elem.Verimlilik = verimlilik;
-                   await _makinaService.updateAsync(elem);
-
-                }
-                catch (Exception)
-                {
-
-                    elem.Verimlilik = 0;
-                }
-            }
+         
             if (result.Success)
             {
                 return Ok(result);
@@ -107,17 +89,14 @@ namespace WebApi.Controllers
             return BadRequest(result);
 
         }
-        [HttpGet("GetOrtalamaVerimlilik")]
-        public async Task<IActionResult>GetOrtalamaVerimlilik(int makineId)
+        [HttpPost("SetVerimlilikForAll")]
+        public async Task<IActionResult> SetVerimlilikForAll()
         {
-            var data =await  _kabloUretimService.GetAllAsync(x => x.MakineId == makineId);
-            var result = _makinaService.GetOrtalamaVerimlilik(data.Data);
-            if (result.Success)
-            {
-                return Ok(result);
-            }
-            return BadRequest(result);
+            var result = await _makinaService.SetOrtalamaVerimlilikForAll();
+
+            return Ok(result);
 
         }
+
     }
 }

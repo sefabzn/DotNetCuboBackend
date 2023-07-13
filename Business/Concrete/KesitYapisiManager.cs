@@ -14,8 +14,21 @@ namespace Business.Concrete
 {
     public class KesitYapisiManager : ManagerBase<KesitYapisi, IKesitYapisiDal>, IKesitYapisiService
     {
+        IKesitYapisiDal _kesitYapisiDal;
         public KesitYapisiManager(IKesitYapisiDal dal) : base(dal)
         {
+            _kesitYapisiDal = dal;
         }
+
+        public async Task<IResult> CalculateAreaAndCoef(KesitYapisi kesitYapisi)
+        {
+            kesitYapisi.Alan = Math.PI * Math.Pow(kesitYapisi.KilcalDamarCapi / 2, 2) * kesitYapisi.KilcalDamarSayisi;
+            kesitYapisi.Coef = 0.025;
+            await _kesitYapisiDal.UpdateAsync(kesitYapisi);
+
+            return new SuccessResult("Alan ve Coef hesaplandı");
+        }
+
+      
     }
 }

@@ -20,6 +20,7 @@ namespace WebApi.Controllers
             var result =await _kesitYapisiService.addAsync(entity);
             if (result.Success)
             {
+                await _kesitYapisiService.CalculateAreaAndCoef(entity);
                 return Ok(result);
 
             }

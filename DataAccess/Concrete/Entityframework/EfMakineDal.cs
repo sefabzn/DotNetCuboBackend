@@ -48,9 +48,6 @@ namespace DataAccess.Concrete.Entityframework
             }
         }
 
-        public double GetOrtalamaVerimlilik(List<KabloUretim> data)
-        {
-           return data.Average(x => x.Verimlilik);            
-        }
+      
     }
 }

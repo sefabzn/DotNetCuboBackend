@@ -14,7 +14,8 @@ namespace Business.Abstract
     public interface IMakineService: IServiceRepository<Makine>
     {
 
-        IDataResult<double> GetOrtalamaVerimlilik(List<KabloUretim> data);
+        Task<IDataResult<double>> SetOrtalamaVerimlilik(int id);
+        Task<IResult> SetOrtalamaVerimlilikForAll();
         Task<IDataResult<List<MakineGunlukRaporDto>>> GetGunlukRaporlarAsync(string makineIsmi,DateTime firstDate, DateTime lastDate);
     }
 }

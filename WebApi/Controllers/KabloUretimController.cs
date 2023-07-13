@@ -9,9 +9,11 @@ namespace WebApi.Controllers
     public class KabloUretimController : Controller
     {
         private IKabloUretimService _kabloUretimService;
-        public KabloUretimController(IKabloUretimService kabloUretimService)
+        private IMakineService _makineService;
+        public KabloUretimController(IKabloUretimService kabloUretimService, IMakineService makineService)
         {
             _kabloUretimService = kabloUretimService;
+            _makineService = makineService;
         }
         [HttpGet("GetAll")]
         public async Task<IActionResult> GetAll()
@@ -39,6 +41,8 @@ namespace WebApi.Controllers
         {
 
             var result =await _kabloUretimService.addAsync(kablo);
+            await _makineService.SetOrtalamaVerimlilik(kablo.MakineId);
+
             if (result.Success)
             {
                 return Ok(result);
