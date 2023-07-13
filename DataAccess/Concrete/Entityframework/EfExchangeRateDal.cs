@@ -1,5 +1,7 @@
 ﻿using DataAccess.Abstract;
+using Entities.Concrete;
 using HtmlAgilityPack;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,34 +28,57 @@ namespace DataAccess.Concrete.Entityframework
 
         public double GetCopperRateByTL()
         {
-            double dolarKuru = GetDollarRate();
+            decimal dolarKuru = GetDollarRate().Result;
             double copperDolarFiyati = GetCopperRate();
             copperDolarFiyati = (copperDolarFiyati / POUNDtoKG);
-            double copperTlFiyati = copperDolarFiyati * dolarKuru;
+            double copperTlFiyati = Convert.ToDouble(dolarKuru) * copperDolarFiyati;
 
             return copperTlFiyati;
 
 
         }
 
-        public double GetDollarRate()
+        public async Task<decimal>GetDollarRate()
         {
-            //var url = "https://bigpara.hurriyet.com.tr/doviz";
-            //var web = new HtmlWeb();
-            //var doc = web.Load(url);
-            //var node =doc.DocumentNode.SelectSingleNode("//*[@id='content']/div[2]/div/div[1]/a[1]/span[3]/span[2]");
-            //double dolarKuru =Convert.ToDouble(node.InnerText);
-            return 26.23;
+            using (HttpClient client = new HttpClient())
+            {
+                string url = "https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies/usd/try.json"; // Değiştirilmesi gereken URL
+                HttpResponseMessage response = await client.GetAsync(url);
+                if (response.IsSuccessStatusCode)
+                {
+                    string json = await response.Content.ReadAsStringAsync();
+                    ExchangeRateData exchangeRate = JsonConvert.DeserializeObject<ExchangeRateData>(json);
+                    return exchangeRate.Try;
+                }
+                else
+                {
+                    // İstek başarısız olduysa hata işlemleri yapabilirsiniz.
+                    return 0;
+                }
+            }
         }
 
-        public double GetEuroRate()
+        public async Task<decimal> GetEuroRate()
         {
-            //var url = "https://bigpara.hurriyet.com.tr/doviz";
-            //var web = new HtmlWeb();
-            //var doc = web.Load(url);
-            //var node = doc.DocumentNode.SelectSingleNode("//*[@id='content']/div[2]/div/div[1]/a[2]/span[3]/span[2]");
-            //double euroKuru = Convert.ToDouble(node.InnerText);
-            return 28.87;
+
+
+            using (HttpClient client = new HttpClient())
+            {
+                string url = "https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies/eur/try.json"; // Değiştirilmesi gereken URL
+                HttpResponseMessage response = await client.GetAsync(url);
+                if (response.IsSuccessStatusCode)
+                {
+                    string json = await response.Content.ReadAsStringAsync();
+                    ExchangeRateData exchangeRate = JsonConvert.DeserializeObject<ExchangeRateData>(json);
+                    return exchangeRate.Try;
+                }
+                else
+                {
+                    // İstek başarısız olduysa hata işlemleri yapabilirsiniz.
+                    return 0;
+                }
+            }
+          
         }
 
         public double GetPVCRate()

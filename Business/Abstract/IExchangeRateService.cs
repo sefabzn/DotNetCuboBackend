@@ -9,8 +9,8 @@ namespace Business.Abstract
 {
     public  interface IExchangeRateService
     {
-        IDataResult<double> GetDollarRate();
-        IDataResult<double> GetEuroRate();
+       Task< IDataResult<decimal>> GetDollarRate();
+        Task<IDataResult<decimal>> GetEuroRate();
         IDataResult<double> GetCopperRate();
         IDataResult<double> GetPVCRate();
         IDataResult<double> GetCopperRateByTL();

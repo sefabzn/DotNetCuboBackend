@@ -27,14 +27,14 @@ namespace Business.Concrete
             return new SuccessDataResult<double>(_exchangeRateDal.GetCopperRateByTL(), "Bakır/TL fiyatı getirildi");
         }
 
-        public IDataResult<double> GetDollarRate()
+        public async Task<IDataResult<decimal>> GetDollarRate()
         {
-            return new SuccessDataResult<double>(_exchangeRateDal.GetDollarRate(),"Döviz Kuru Getirildi");
+            return new SuccessDataResult<decimal>(await _exchangeRateDal.GetDollarRate(),"Döviz Kuru Getirildi");
         }
 
-        public IDataResult<double> GetEuroRate()
+        public async Task<IDataResult<decimal>> GetEuroRate()
         {
-            return new SuccessDataResult<double>(_exchangeRateDal.GetEuroRate(), "Döviz Kuru Getirildi");
+            return new SuccessDataResult<decimal>(await _exchangeRateDal.GetEuroRate(), "Döviz Kuru Getirildi");
 
         }
 

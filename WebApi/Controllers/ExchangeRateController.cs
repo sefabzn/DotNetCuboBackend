@@ -13,26 +13,29 @@ namespace WebApi.Controllers
             _exchangeRateService = exchangeRateService;
         }
         [HttpGet("GetDollarRate")]
-        public IActionResult GetDollarRate()
+        public async Task<IActionResult> GetDollarRate()
         {
-            var result = _exchangeRateService.GetDollarRate();
-            if (result.Success)
+            var json = await _exchangeRateService.GetDollarRate();
+            if (json != null)
             {
-                return Ok(result);
+                return Ok(json);
             }
 
-            return BadRequest(result);
+
+            return BadRequest(json);
         }
         [HttpGet("GetEuroRate")]
-        public IActionResult GetEuroRate()
+        public async Task<IActionResult> GetEuroRate()
         {
-            var result = _exchangeRateService.GetEuroRate();
-            if (result.Success)
-            {
-                return Ok(result);
-            }
 
-            return BadRequest(result);
+            var json = await _exchangeRateService.GetEuroRate();
+            if (json != null)
+            {
+                return Ok(json);
+            }
+          
+
+            return BadRequest(json);
         }
         [HttpGet("GetCopperRate")]
         public IActionResult GetCopperRate()

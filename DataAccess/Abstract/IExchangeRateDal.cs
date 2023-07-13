@@ -2,8 +2,8 @@
 {
     public interface IExchangeRateDal
     {
-        double GetDollarRate();
-        double GetEuroRate();
+        Task <decimal> GetDollarRate();
+        Task<decimal>GetEuroRate();
         double GetCopperRate();
         double GetPVCRate();
         double GetCopperRateByTL();
