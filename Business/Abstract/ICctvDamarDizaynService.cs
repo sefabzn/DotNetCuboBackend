@@ -12,5 +12,6 @@ namespace Business.Abstract
 {
     public interface ICctvDamarDizaynService:IServiceRepository<CctvDamarDizayn>
     {
+        IResult UpdateGenelDizaynDamarSayisi(int genelDizaynId);
     }
 }

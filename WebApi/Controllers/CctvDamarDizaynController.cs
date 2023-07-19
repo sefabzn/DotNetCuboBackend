@@ -44,6 +44,7 @@ namespace WebApi.Controllers
             var result =await _cctvDamarDizaynService.addAsync(kablo);
             if (result.Success)
             {
+                _cctvDamarDizaynService.UpdateGenelDizaynDamarSayisi(kablo.AnaId);
                 return Ok(result);
             }
             return BadRequest(result);
@@ -77,6 +78,7 @@ namespace WebApi.Controllers
             var result =await  _cctvDamarDizaynService.deleteAsync(kablo);
             if (result.Success)
             {
+                _cctvDamarDizaynService.UpdateGenelDizaynDamarSayisi(kablo.AnaId);
                 return Ok(result);
             }
             return BadRequest(result);

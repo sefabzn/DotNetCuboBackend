@@ -242,3 +242,102 @@
 2023-07-14 00:17:35.5144 Info Message Template Auto Format enabled
 2023-07-14 00:17:35.6779 Info Registered target NLog.Targets.FileTarget(Name=logfile)
 2023-07-14 00:17:35.7235 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\sefa_\OneDrive\Masaüstü\DOTNETBACKEND\DotNetCuboBackend\WebApi\nlog.config
+2023-07-14 08:17:22.6745 Info Message Template Auto Format enabled
+2023-07-14 08:17:23.3713 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-07-14 08:17:23.4150 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\sefa_\OneDrive\Masaüstü\DOTNETBACKEND\DotNetCuboBackend\WebApi\nlog.config
+2023-07-14 08:49:12.4864 Info Message Template Auto Format enabled
+2023-07-14 08:49:12.7351 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-07-14 08:49:12.7768 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\sefa_\OneDrive\Masaüstü\DOTNETBACKEND\DotNetCuboBackend\WebApi\nlog.config
+2023-07-14 08:52:09.3776 Info Message Template Auto Format enabled
+2023-07-14 08:52:09.5074 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-07-14 08:52:09.5377 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\sefa_\OneDrive\Masaüstü\DOTNETBACKEND\DotNetCuboBackend\WebApi\nlog.config
+2023-07-14 12:00:25.8351 Info Message Template Auto Format enabled
+2023-07-14 12:00:26.0974 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-07-14 12:00:26.1488 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\sefa_\OneDrive\Masaüstü\DOTNETBACKEND\DotNetCuboBackend\WebApi\nlog.config
+2023-07-14 12:14:44.6891 Info Message Template Auto Format enabled
+2023-07-14 12:14:44.8567 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-07-14 12:14:44.9036 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\sefa_\OneDrive\Masaüstü\DOTNETBACKEND\DotNetCuboBackend\WebApi\nlog.config
+2023-07-14 12:26:29.3494 Info Message Template Auto Format enabled
+2023-07-14 12:26:29.5463 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-07-14 12:26:29.5785 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\sefa_\OneDrive\Masaüstü\DOTNETBACKEND\DotNetCuboBackend\WebApi\nlog.config
+2023-07-14 12:40:47.7036 Info Message Template Auto Format enabled
+2023-07-14 12:40:47.9280 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-07-14 12:40:47.9839 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\sefa_\OneDrive\Masaüstü\DOTNETBACKEND\DotNetCuboBackend\WebApi\nlog.config
+2023-07-14 12:45:52.3540 Info Message Template Auto Format enabled
+2023-07-14 12:45:52.6639 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-07-14 12:45:52.7435 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\sefa_\OneDrive\Masaüstü\DOTNETBACKEND\DotNetCuboBackend\WebApi\nlog.config
+2023-07-14 17:47:53.3149 Info Message Template Auto Format enabled
+2023-07-14 17:47:53.5760 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-07-14 17:47:53.6292 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\sefa_\OneDrive\Masaüstü\DOTNETBACKEND\DotNetCuboBackend\WebApi\nlog.config
+2023-07-14 18:52:34.8170 Info Message Template Auto Format enabled
+2023-07-14 18:52:35.0387 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-07-14 18:52:35.0877 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\sefa_\OneDrive\Masaüstü\DOTNETBACKEND\DotNetCuboBackend\WebApi\nlog.config
+2023-07-14 19:07:26.4373 Info Message Template Auto Format enabled
+2023-07-14 19:07:26.7157 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-07-14 19:07:26.7631 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\sefa_\OneDrive\Masaüstü\DOTNETBACKEND\DotNetCuboBackend\WebApi\nlog.config
+2023-07-14 19:35:31.7505 Info Message Template Auto Format enabled
+2023-07-14 19:35:31.9618 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-07-14 19:35:32.0132 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\sefa_\OneDrive\Masaüstü\DOTNETBACKEND\DotNetCuboBackend\WebApi\nlog.config
+2023-07-14 19:44:11.9487 Info Message Template Auto Format enabled
+2023-07-14 19:44:12.0935 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-07-14 19:44:12.1674 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\sefa_\OneDrive\Masaüstü\DOTNETBACKEND\DotNetCuboBackend\WebApi\nlog.config
+2023-07-14 19:48:13.2545 Info Message Template Auto Format enabled
+2023-07-14 19:48:13.4334 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-07-14 19:48:13.4707 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\sefa_\OneDrive\Masaüstü\DOTNETBACKEND\DotNetCuboBackend\WebApi\nlog.config
+2023-07-14 19:53:39.0054 Info Message Template Auto Format enabled
+2023-07-14 19:53:39.1382 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-07-14 19:53:39.1751 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\sefa_\OneDrive\Masaüstü\DOTNETBACKEND\DotNetCuboBackend\WebApi\nlog.config
+2023-07-14 19:57:53.4500 Info Message Template Auto Format enabled
+2023-07-14 19:57:53.5871 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-07-14 19:57:53.6221 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\sefa_\OneDrive\Masaüstü\DOTNETBACKEND\DotNetCuboBackend\WebApi\nlog.config
+2023-07-14 20:03:21.1450 Info Message Template Auto Format enabled
+2023-07-14 20:03:21.3643 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-07-14 20:03:21.4157 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\sefa_\OneDrive\Masaüstü\DOTNETBACKEND\DotNetCuboBackend\WebApi\nlog.config
+2023-07-14 20:07:34.6105 Info Message Template Auto Format enabled
+2023-07-14 20:07:34.7586 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-07-14 20:07:34.7985 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\sefa_\OneDrive\Masaüstü\DOTNETBACKEND\DotNetCuboBackend\WebApi\nlog.config
+2023-07-14 20:07:58.1898 Info Message Template Auto Format enabled
+2023-07-14 20:07:58.3803 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-07-14 20:07:58.4321 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\sefa_\OneDrive\Masaüstü\DOTNETBACKEND\DotNetCuboBackend\WebApi\nlog.config
+2023-07-14 20:08:36.1211 Info Message Template Auto Format enabled
+2023-07-14 20:08:36.2499 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-07-14 20:08:36.2815 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\sefa_\OneDrive\Masaüstü\DOTNETBACKEND\DotNetCuboBackend\WebApi\nlog.config
+2023-07-14 20:10:09.7525 Info Message Template Auto Format enabled
+2023-07-14 20:10:09.8938 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-07-14 20:10:09.9373 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\sefa_\OneDrive\Masaüstü\DOTNETBACKEND\DotNetCuboBackend\WebApi\nlog.config
+2023-07-14 20:16:12.9409 Info Message Template Auto Format enabled
+2023-07-14 20:16:13.1773 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-07-14 20:16:13.2177 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\sefa_\OneDrive\Masaüstü\DOTNETBACKEND\DotNetCuboBackend\WebApi\nlog.config
+2023-07-18 11:47:12.8932 Info Message Template Auto Format enabled
+2023-07-18 11:47:14.1444 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-07-18 11:47:14.2202 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\sefa_\OneDrive\Masaüstü\DOTNETBACKEND\DotNetCuboBackend\WebApi\nlog.config
+2023-07-18 12:19:24.3772 Info Message Template Auto Format enabled
+2023-07-18 12:19:24.6068 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-07-18 12:19:24.6711 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\sefa_\OneDrive\Masaüstü\DOTNETBACKEND\DotNetCuboBackend\WebApi\nlog.config
+2023-07-18 13:26:33.9477 Info Message Template Auto Format enabled
+2023-07-18 13:26:34.1325 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-07-18 13:26:34.1747 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\sefa_\OneDrive\Masaüstü\DOTNETBACKEND\DotNetCuboBackend\WebApi\nlog.config
+2023-07-18 13:56:38.3643 Info Message Template Auto Format enabled
+2023-07-18 13:56:38.5120 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-07-18 13:56:38.5458 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\sefa_\OneDrive\Masaüstü\DOTNETBACKEND\DotNetCuboBackend\WebApi\nlog.config
+2023-07-18 14:44:06.5445 Info Message Template Auto Format enabled
+2023-07-18 14:44:06.7171 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-07-18 14:44:06.7735 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\sefa_\OneDrive\Masaüstü\DOTNETBACKEND\DotNetCuboBackend\WebApi\nlog.config
+2023-07-18 14:55:02.4907 Info Message Template Auto Format enabled
+2023-07-18 14:55:02.7522 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-07-18 14:55:02.8121 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\sefa_\OneDrive\Masaüstü\DOTNETBACKEND\DotNetCuboBackend\WebApi\nlog.config
+2023-07-18 15:02:54.6853 Info Message Template Auto Format enabled
+2023-07-18 15:02:54.9682 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-07-18 15:02:55.0202 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\sefa_\OneDrive\Masaüstü\DOTNETBACKEND\DotNetCuboBackend\WebApi\nlog.config
+2023-07-18 15:06:12.0086 Info Message Template Auto Format enabled
+2023-07-18 15:06:12.1738 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-07-18 15:06:12.2272 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\sefa_\OneDrive\Masaüstü\DOTNETBACKEND\DotNetCuboBackend\WebApi\nlog.config
+2023-07-18 15:09:48.5007 Info Message Template Auto Format enabled
+2023-07-18 15:09:48.6592 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-07-18 15:09:48.7025 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\sefa_\OneDrive\Masaüstü\DOTNETBACKEND\DotNetCuboBackend\WebApi\nlog.config
+2023-07-18 15:11:11.6834 Info Message Template Auto Format enabled
+2023-07-18 15:11:11.8096 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-07-18 15:11:11.8439 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\sefa_\OneDrive\Masaüstü\DOTNETBACKEND\DotNetCuboBackend\WebApi\nlog.config
+2023-07-18 15:20:08.9667 Info Message Template Auto Format enabled
+2023-07-18 15:20:09.1706 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-07-18 15:20:09.2164 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\sefa_\OneDrive\Masaüstü\DOTNETBACKEND\DotNetCuboBackend\WebApi\nlog.config

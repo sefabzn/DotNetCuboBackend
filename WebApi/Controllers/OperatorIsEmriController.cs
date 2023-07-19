@@ -23,6 +23,14 @@ namespace WebApi.Controllers
             }
             return BadRequest(result);
         }
+     
+        [HttpPost("IsPlaniOlustur")]
+        public async Task<IActionResult> IsPlaniOlustur(OrtakIsEmri ortakIsEmri)
+        {
+
+
+            return Ok(await _operatorIsEmriService.IsPlaniOlustur(ortakIsEmri));
+        }
         [HttpPost("Delete")]
         public async Task<IActionResult> Delete(OperatorIsEmri kablo)
         {
@@ -67,5 +75,12 @@ namespace WebApi.Controllers
             return BadRequest(result);
 
         }
+        [HttpPost("TeorikSüreHesapla")]
+         public async Task<IActionResult> TeorikSüreHesapla(double metraj, double kesit, params string[] makineIsimleri)
+        {
+
+            return Ok(await _operatorIsEmriService.TeorikSüreHesapla(metraj, kesit, makineIsimleri));
+        }
+       
     }
 }
