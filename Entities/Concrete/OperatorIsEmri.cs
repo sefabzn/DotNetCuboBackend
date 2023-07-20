@@ -10,7 +10,7 @@ public class OperatorIsEmri:IEntity
     public string UrunIsmi { get; set; }
     public string DizaynTuru { get; set; }
     public double KesitCapi { get; set; }
-    public int Metraj { get; set; }
+    public double Metraj { get; set; }
     public double DisCap { get; set; }
     public double Back { get; set; }
     public double Ayna { get; set; }

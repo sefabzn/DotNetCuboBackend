@@ -62,7 +62,7 @@ namespace Business.Concrete
             double calismaSuresiByDakika = kablo.CalismaSuresi * 60;
 
             kablo.KayipZaman = (KopmaKaybi + RenkDegisimiKaybi + KesitDegisimiKaybi + GenelAriza + Isinma);
-            kablo.Verimlilik = Math.Round(((calismaSuresiByDakika - kablo.KayipZaman) / calismaSuresiByDakika),2) * 100; // Çalışılan zaman 0 olmamalı dikkat et
+            kablo.Verimlilik = Math.Round(((calismaSuresiByDakika - kablo.KayipZaman) / calismaSuresiByDakika),2); // Çalışılan zaman 0 olmamalı dikkat et
         }
 
         private async Task<IResult> addToSarfiyat(KabloUretim kablo)

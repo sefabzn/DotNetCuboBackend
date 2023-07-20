@@ -14,8 +14,25 @@ namespace Business.Concrete
 {
     public class CctvDamarDizaynManager : ManagerBase<CctvDamarDizayn, ICctvDamarDizaynDal>, ICctvDamarDizaynService
     {
-        public CctvDamarDizaynManager(ICctvDamarDizaynDal dal) : base(dal)
+        ICctvGenelDizaynDal _cctvGenelDizaynDal;
+        ICctvDamarDizaynDal _cctvDamarDizaynDal;
+        public CctvDamarDizaynManager(ICctvDamarDizaynDal dal, ICctvGenelDizaynDal cctvGenelDizaynDal) : base(dal)
         {
+            _cctvGenelDizaynDal = cctvGenelDizaynDal;
+            _cctvDamarDizaynDal = dal;
+        }
+
+        public IResult UpdateGenelDizaynDamarSayisi(int  genelDizaynId)
+        {
+            var genelDizaynKablo =_cctvGenelDizaynDal.GetAsync(x => x.Id == genelDizaynId).Result;
+
+            var damarSayisi= _cctvDamarDizaynDal.GetAllAsync(x=>x.AnaId==genelDizaynId).Result.Count;
+
+            genelDizaynKablo.GirilenDamarSayisi = damarSayisi;
+
+            _cctvGenelDizaynDal.UpdateAsync(genelDizaynKablo);
+
+            return new SuccessResult("Damar Sayısı Güncellendi");
         }
     }
 }
