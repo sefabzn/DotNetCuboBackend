@@ -6,6 +6,7 @@ using Castle.DynamicProxy;
 using Core.Utilities.Interceptors;
 using Core.Utilities.Security.JWT;
 using DataAccess.Abstract;
+using DataAccess.Concrete;
 using DataAccess.Concrete.Entityframework;
 
 namespace Business.DependencyResolvers.Autofac
@@ -59,6 +60,11 @@ namespace Business.DependencyResolvers.Autofac
             builder.RegisterType<SarfiyatManager>().As<ISarfiyatService>().SingleInstance();
             builder.RegisterType<EfSarfiyatDal>().As<ISarfiyatDal>().SingleInstance();
 
+            builder.RegisterType<OrderProcessManager>().As<IOrderProcessService>().SingleInstance();
+            builder.RegisterType<EfOrderProcessDal>().As<IOrderProcessDal>().SingleInstance();
+
+            builder.RegisterType<ProcessManager>().As<IProcessService>().SingleInstance();
+            builder.RegisterType<EfProcessDal>().As<IProcessDal>().SingleInstance();
 
             builder.RegisterType<AuthManager>().As<IAuthService>();
             builder.RegisterType<JwtHelper>().As<ITokenHelper>();
