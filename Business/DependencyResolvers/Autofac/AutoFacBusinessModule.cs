@@ -6,7 +6,6 @@ using Castle.DynamicProxy;
 using Core.Utilities.Interceptors;
 using Core.Utilities.Security.JWT;
 using DataAccess.Abstract;
-using DataAccess.Concrete;
 using DataAccess.Concrete.Entityframework;
 
 namespace Business.DependencyResolvers.Autofac

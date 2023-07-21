@@ -2,15 +2,16 @@
 using DataAccess.Abstract;
 using DataAccess.Concrete.Entityframework.Contexts;
 using Entities.Concrete;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Entities.DTO_s;
 
 namespace DataAccess.Concrete.Entityframework
 {
-    public class EfOperatorIsEmriDal:EfEntityRepositoryBase<OperatorIsEmri,CuboContext>,IOperatorIsEmriDal
+    public class EfOperatorIsEmriDal : EfEntityRepositoryBase<OperatorIsEmri, CuboContext>, IOperatorIsEmriDal
     {
+    
+    
+    
+    
     }
 }
+

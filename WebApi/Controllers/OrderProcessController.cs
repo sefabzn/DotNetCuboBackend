@@ -23,6 +23,16 @@ namespace WebApi.Controllers
             }
             return BadRequest(result);
         }
+        [HttpGet("GetTakip")]
+        public IActionResult GetTakip()
+        {
+            var result = _orderProcessService.GetTakip();
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
         [HttpPost("Add")]
         public async Task<IActionResult> AddAsync(OrderProcess orderProcess)
         {
