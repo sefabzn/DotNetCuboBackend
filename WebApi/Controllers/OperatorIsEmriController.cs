@@ -75,11 +75,11 @@ namespace WebApi.Controllers
             return BadRequest(result);
 
         }
-        [HttpPost("TeorikSüreHesapla")]
-         public async Task<IActionResult> TeorikSüreHesapla(double metraj, double kesit, params string[] makineIsimleri)
+        [HttpPost("TeorikSureHesapla")]
+         public async Task<IActionResult> TeorikSüreHesapla(OrtakIsEmri ortakIsEmri)
         {
 
-            return Ok(await _operatorIsEmriService.TeorikSüreHesapla(metraj, kesit, makineIsimleri));
+            return Ok(await _operatorIsEmriService.TeorikSüreHesapla(ortakIsEmri));
         }
        
     }

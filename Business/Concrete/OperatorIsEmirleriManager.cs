@@ -72,10 +72,10 @@ namespace Business.Concrete
             return (liste);
         }
 
-        public async Task<double?> TeorikSüreHesapla(double metraj, double kesit, params string[] makineIsimleri)
+        public async Task<double?> TeorikSüreHesapla(OrtakIsEmri ortakIsEmri)
         {
             List<Makine> makines = new List<Makine>();
-            foreach (var isim in makineIsimleri)
+            foreach (var isim in ortakIsEmri.MakineIsimleri)
             {
                 makines.Add(_makineDal.GetAsync(x => x.MakineIsmi == isim).Result);
 
@@ -89,13 +89,13 @@ namespace Business.Concrete
 
             foreach (var makine in makines)
             {
-                toplamHiz += kesitBilgisi.Single(x => x.MakineId == makine.Id && x.KesitCapi == kesit).Hiz;
+                toplamHiz += kesitBilgisi.Single(x => x.MakineId == makine.Id && x.KesitCapi == ortakIsEmri.Kesit).Hiz;
                 toplamVerimlilik += makine.Verimlilik;
             }
 
             var ortalamaVerimlilik = toplamVerimlilik / makines.Count();
 
-            var teorikTahminiSüre = (metraj / toplamHiz) / (ortalamaVerimlilik);
+            var teorikTahminiSüre = (ortakIsEmri.Metraj / toplamHiz) / (ortalamaVerimlilik);
 
 
 

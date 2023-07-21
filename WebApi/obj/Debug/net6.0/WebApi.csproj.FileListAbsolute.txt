@@ -233,3 +233,8 @@ C:\Users\sefa_\OneDrive\Masaüstü\DOTNETBACKEND\DotNetCuboBackend\WebApi\bin\De
 C:\Users\sefa_\OneDrive\Masaüstü\DOTNETBACKEND\DotNetCuboBackend\WebApi\bin\Debug\net6.0\System.Text.Encoding.CodePages.dll
 C:\Users\sefa_\OneDrive\Masaüstü\DOTNETBACKEND\DotNetCuboBackend\WebApi\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Security.Cryptography.Pkcs.dll
 C:\Users\sefa_\OneDrive\Masaüstü\DOTNETBACKEND\DotNetCuboBackend\WebApi\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Text.Encoding.CodePages.dll
+C:\Users\sefa_\OneDrive\Masaüstü\DOTNETBACKEND\DotNetCuboBackend\WebApi\obj\Debug\net6.0\staticwebassets\msbuild.WebApi.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\sefa_\OneDrive\Masaüstü\DOTNETBACKEND\DotNetCuboBackend\WebApi\obj\Debug\net6.0\staticwebassets\msbuild.build.WebApi.props
+C:\Users\sefa_\OneDrive\Masaüstü\DOTNETBACKEND\DotNetCuboBackend\WebApi\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.WebApi.props
+C:\Users\sefa_\OneDrive\Masaüstü\DOTNETBACKEND\DotNetCuboBackend\WebApi\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.WebApi.props
+C:\Users\sefa_\OneDrive\Masaüstü\DOTNETBACKEND\DotNetCuboBackend\WebApi\obj\Debug\net6.0\staticwebassets.pack.json

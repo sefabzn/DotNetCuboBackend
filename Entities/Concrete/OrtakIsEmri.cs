@@ -1,13 +1,8 @@
 ﻿using Core.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Entities.Concrete
 {
-    public class OrtakIsEmri:IEntity
+    public class OrtakIsEmri : IEntity
     {
         public string? UrunIsmi { get; set; }
         public string? DizaynTuru { get; set; }
@@ -18,7 +13,7 @@ namespace Entities.Concrete
         public double Ayna { get; set; }
         public string? Kalip { get; set; }
         public string? Operator { get; set; }
-        public DateTime Tarih{ get; set; }
+        public DateTime Tarih { get; set; }
         public string? Degistiren { get; set; }
         public string[]? MakineIsimleri { get; set; }
     }

@@ -13,7 +13,7 @@ namespace Business.Abstract
     public interface IOperatorIsEmriService: IServiceRepository<OperatorIsEmri>
     {
         Task<Object> IsPlaniOlustur(OrtakIsEmri ortakIsEmri);
-        Task<double?> TeorikSüreHesapla(double metraj, double kesit, params string[] makineIsimleri);
+        Task<double?> TeorikSüreHesapla(OrtakIsEmri ortakIsEmri);
     }
    
 }
