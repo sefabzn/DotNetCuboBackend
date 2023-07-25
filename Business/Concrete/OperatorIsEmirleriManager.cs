@@ -95,7 +95,7 @@ namespace Business.Concrete
 
             var ortalamaVerimlilik = toplamVerimlilik / makines.Count();
 
-            var teorikTahminiSüre = (ortakIsEmri.Metraj / toplamHiz) / (ortalamaVerimlilik);
+            var teorikTahminiSüre = (ortakIsEmri.Metraj /( toplamHiz*60)) / (ortalamaVerimlilik);
 
 
 
