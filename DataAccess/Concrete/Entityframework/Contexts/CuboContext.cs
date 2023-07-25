@@ -1,15 +1,34 @@
 ﻿using Core.Entities.Concrete;
 using Entities.Concrete;
 using Microsoft.EntityFrameworkCore;
+using System;
+using System.Reflection;
 
 namespace DataAccess.Concrete.Entityframework.Contexts
 {
     public class CuboContext:DbContext
     {
+        public CuboContext()
+        {
+                
+        }
+        public CuboContext(DbContextOptions<CuboContext> options) : base(options)
+        {
+
+        }
+
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=EKMEKTEKNEM;Database=CuboDb;Integrated Security=True;Trusted_Connection=true");
+            optionsBuilder.UseSqlServer(@"Server=EKMEKTEKNEM;Database=ProjectDb;Trusted_Connection=True;TrustServerCertificate=True;MultipleActiveResultSets=true");
+            optionsBuilder.LogTo(Console.WriteLine); // To easily see SQL logs on console.
         }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+            modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+        }
+
         public  DbSet<CctvDamarDizayn> CctvDamarDizayn { get; set; }
         public DbSet<CctvGenelDizayn> CctvGenelDizayn { get; set; }
         public DbSet<CctvIsEmri> CctvIsEmirleri { get; set; }
