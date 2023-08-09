@@ -81,3 +81,11 @@ C:\Users\sefa_\source\repos\DotNetCuboBackend\ConsoleTesting\obj\Debug\net6.0\Co
 C:\Users\sefa_\source\repos\DotNetCuboBackend\ConsoleTesting\obj\Debug\net6.0\ConsoleTesting.dll
 C:\Users\sefa_\source\repos\DotNetCuboBackend\ConsoleTesting\obj\Debug\net6.0\refint\ConsoleTesting.dll
 C:\Users\sefa_\source\repos\DotNetCuboBackend\ConsoleTesting\obj\Debug\net6.0\ConsoleTesting.pdb
+C:\Users\sefa_\OneDrive\Masaüstü\DOTNETBACKEND\DotNetCuboBackend\ConsoleTesting\obj\Debug\net6.0\ConsoleTesting.csproj.AssemblyReference.cache
+C:\Users\sefa_\OneDrive\Masaüstü\DOTNETBACKEND\DotNetCuboBackend\ConsoleTesting\obj\Debug\net6.0\ConsoleTesting.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\sefa_\OneDrive\Masaüstü\DOTNETBACKEND\DotNetCuboBackend\ConsoleTesting\obj\Debug\net6.0\ConsoleTesting.AssemblyInfoInputs.cache
+C:\Users\sefa_\OneDrive\Masaüstü\DOTNETBACKEND\DotNetCuboBackend\ConsoleTesting\obj\Debug\net6.0\ConsoleTesting.AssemblyInfo.cs
+C:\Users\sefa_\OneDrive\Masaüstü\DOTNETBACKEND\DotNetCuboBackend\ConsoleTesting\obj\Debug\net6.0\ConsoleTesting.csproj.CoreCompileInputs.cache
+C:\Users\sefa_\OneDrive\Masaüstü\DOTNETBACKEND\DotNetCuboBackend\ConsoleTesting\obj\Debug\net6.0\ConsoleTesting.dll
+C:\Users\sefa_\OneDrive\Masaüstü\DOTNETBACKEND\DotNetCuboBackend\ConsoleTesting\obj\Debug\net6.0\refint\ConsoleTesting.dll
+C:\Users\sefa_\OneDrive\Masaüstü\DOTNETBACKEND\DotNetCuboBackend\ConsoleTesting\obj\Debug\net6.0\ConsoleTesting.pdb

@@ -420,6 +420,10 @@ namespace DataAccess.Migrations
                     b.Property<double>("Back")
                         .HasColumnType("float");
 
+                    b.Property<string>("Barkod")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Degistiren")
                         .HasColumnType("nvarchar(max)");
 
@@ -448,6 +452,9 @@ namespace DataAccess.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool>("TamamlanmaDurumu")
+                        .HasColumnType("bit");
+
                     b.Property<DateTime>("Tarih")
                         .HasColumnType("datetime2");
 
@@ -463,32 +470,6 @@ namespace DataAccess.Migrations
                     b.ToTable("OperatorIsEmirleri");
                 });
 
-            modelBuilder.Entity("Entities.Concrete.OrderProcess", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Barcode")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("OrderId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ProcessId")
-                        .HasColumnType("int");
-
-                    b.Property<bool>("isCompleted")
-                        .HasColumnType("bit");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("OrderProcesses");
-                });
-
             modelBuilder.Entity("Entities.Concrete.Process", b =>
                 {
                     b.Property<int>("Id")
@@ -497,11 +478,22 @@ namespace DataAccess.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("ProcessName")
+                    b.Property<string>("Aciklama")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("IsEmriId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Isim")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool>("TamamlanmaDurumu")
+                        .HasColumnType("bit");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("IsEmriId");
 
                     b.ToTable("Processes");
                 });
@@ -962,6 +954,22 @@ namespace DataAccess.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("YanginIsEmirleri");
+                });
+
+            modelBuilder.Entity("Entities.Concrete.Process", b =>
+                {
+                    b.HasOne("Entities.Concrete.OperatorIsEmri", "OperatorIsEmri")
+                        .WithMany("Surecler")
+                        .HasForeignKey("IsEmriId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("OperatorIsEmri");
+                });
+
+            modelBuilder.Entity("Entities.Concrete.OperatorIsEmri", b =>
+                {
+                    b.Navigation("Surecler");
                 });
 #pragma warning restore 612, 618
         }

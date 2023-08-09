@@ -59,8 +59,6 @@ namespace Business.DependencyResolvers.Autofac
             builder.RegisterType<SarfiyatManager>().As<ISarfiyatService>().SingleInstance();
             builder.RegisterType<EfSarfiyatDal>().As<ISarfiyatDal>().SingleInstance();
 
-            builder.RegisterType<OrderProcessManager>().As<IOrderProcessService>().SingleInstance();
-            builder.RegisterType<EfOrderProcessDal>().As<IOrderProcessDal>().SingleInstance();
 
             builder.RegisterType<ProcessManager>().As<IProcessService>().SingleInstance();
             builder.RegisterType<EfProcessDal>().As<IProcessDal>().SingleInstance();

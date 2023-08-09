@@ -10,6 +10,10 @@ namespace Entities.Concrete
     public class Process:IEntity
     {
         public int Id{ get; set; }
-        public string ProcessName{ get; set; }
+        public string Isim{ get; set; }
+        public string? Aciklama{ get; set; }
+        public int IsEmriId { get; set; }
+        public OperatorIsEmri OperatorIsEmri{ get; set; }
+        public bool TamamlanmaDurumu { get; set; } = false;
     }
 }

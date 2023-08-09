@@ -1,9 +1,14 @@
 using Autofac;
+using Autofac.Core;
 using Autofac.Extensions.DependencyInjection;
 using Business.DependencyResolvers.Autofac;
 using Core.DependencyResolvers;
 using Core.Extensions;
+using DataAccess.Concrete.Entityframework.Contexts;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.VisualBasic;
 using NLog;
+using System;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,6 +20,11 @@ builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory())
     });
 
 LogManager.LoadConfiguration(String.Concat(Directory.GetCurrentDirectory(), "/nlog.config"));
+
+builder.Services.AddDbContext<CuboContext>(options =>
+{
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+});
 
 builder.Services.AddControllers();
 builder.Services.AddCors();

@@ -16,6 +16,10 @@ public class OperatorIsEmri:IEntity
     public double Ayna { get; set; }
     public string Kalip { get; set; }
     public double TeorikMaliyet { get; set; }
+    public bool TamamlanmaDurumu { get; set; } = false;
+    public string Barkod { get; set; }
+
+    public List<Process>? Surecler { get; set; } = new List<Process>();
     public DateTime Tarih { get; set; }
     public string? Degistiren { get; set; }
 }
