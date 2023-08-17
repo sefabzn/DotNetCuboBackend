@@ -20,7 +20,7 @@ namespace DataAccess.Concrete.Entityframework.Contexts
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=EKMEKTEKNEM;Database=ProjectDb;Trusted_Connection=True;TrustServerCertificate=True;MultipleActiveResultSets=true");
+            optionsBuilder.UseSqlServer(@"Server=(localdb)\MSSQLLocalDB;Database=ProjectDb;Trusted_Connection=True;TrustServerCertificate=True;MultipleActiveResultSets=true");
             optionsBuilder.LogTo(Console.WriteLine); // To easily see SQL logs on console.
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
