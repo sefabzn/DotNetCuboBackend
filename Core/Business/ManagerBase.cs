@@ -22,7 +22,7 @@ namespace Core.Business
         {
             _dal = repository;
         }
-        [MailAspect]
+        //[MailAspect]
         public async Task<IResult> addAsync(TEntity entity)
         {
 

@@ -421,7 +421,6 @@ namespace DataAccess.Migrations
                         .HasColumnType("float");
 
                     b.Property<string>("Barkod")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Degistiren")
@@ -487,12 +486,18 @@ namespace DataAccess.Migrations
                     b.Property<string>("Isim")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("OperatorIsEmriId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Order")
+                        .HasColumnType("int");
+
                     b.Property<bool>("TamamlanmaDurumu")
                         .HasColumnType("bit");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("IsEmriId");
+                    b.HasIndex("OperatorIsEmriId");
 
                     b.ToTable("Processes");
                 });
@@ -959,9 +964,8 @@ namespace DataAccess.Migrations
                 {
                     b.HasOne("Entities.Concrete.OperatorIsEmri", "OperatorIsEmri")
                         .WithMany("Surecler")
-                        .HasForeignKey("IsEmriId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("OperatorIsEmriId")
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.Navigation("OperatorIsEmri");
                 });

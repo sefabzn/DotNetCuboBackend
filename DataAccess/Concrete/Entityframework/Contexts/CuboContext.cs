@@ -26,11 +26,14 @@ namespace DataAccess.Concrete.Entityframework.Contexts
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            modelBuilder.Entity<OperatorIsEmri>().HasMany(o => o.Surecler)
-                .WithOne(p=>p.OperatorIsEmri)
-                .HasForeignKey(p=>p.IsEmriId)
+
+            modelBuilder.Entity<Process>()
+                .HasOne(p=> p.OperatorIsEmri)
+                .WithMany(o=>o.Surecler)
                 .OnDelete(DeleteBehavior.Cascade);
 
+
+         
 
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
         }
@@ -57,5 +60,6 @@ namespace DataAccess.Concrete.Entityframework.Contexts
         public DbSet<UserOperationClaim> UserOperationClaims{ get; set; }
 
         public DbSet<Process> Processes { get; set; }
+
     }
 }

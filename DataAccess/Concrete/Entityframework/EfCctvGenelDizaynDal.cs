@@ -12,6 +12,6 @@ namespace DataAccess.Concrete.Entityframework
 {
     public class EfCctvGenelDizaynDal:EfEntityRepositoryBase<CctvGenelDizayn,CuboContext>,ICctvGenelDizaynDal
     {
-
+        
     }
 }

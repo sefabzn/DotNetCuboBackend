@@ -101,7 +101,7 @@ namespace Business.Concrete
                 Tarih = kablo.Tarih
             };
 
-            _sarfiyatDal.AddAsync((sarfiyat));
+           await _sarfiyatDal.AddAsync((sarfiyat));
             return new SuccessResult();
         }
 
