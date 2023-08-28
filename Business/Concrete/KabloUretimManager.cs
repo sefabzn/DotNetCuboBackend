@@ -28,7 +28,7 @@ namespace Business.Concrete
             _exchangeRateDal = exchangeRateDal;
         }
 
-        [MailAspect]
+        //[MailAspect]
         public new async Task<IResult> addAsync(KabloUretim kablo) // new keywordu base'deki aynı isimdeki methodu bastırması için kullanılır
         {
 
@@ -141,6 +141,19 @@ namespace Business.Concrete
             return new SuccessDataResult<KabloUretim>(await _kabloUretimDal.GetAsync(filter));
         }
 
-  
+        public async Task<IResult> AddManyAsync(List<KabloUretim> kabloUretims)
+        {
+            //await _kabloUretimDal.AddManyAsync(kabloUretims); bu metodu şimdilik kullanmıyorum ek işlemler de kullanmam gerektiği için fakat bu Core katmanına dahil edilebilir bir method
+            foreach (var kablo in kabloUretims)
+            {
+                var makine = await _makineDal.GetAsync(x => x.Id == kablo.MakineId);
+
+                VerimlilikHesapla(kablo, makine);
+
+                await _kabloUretimDal.AddAsync((kablo));
+                await addToSarfiyat(kablo);
+            }
+            return new SuccessResult("Kablolar Eklendi");
+        }
     }
 }
