@@ -1,16 +1,19 @@
 ﻿using Core.Entities.Concrete;
 using Entities.Concrete;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using System;
 using System.Reflection;
 
 namespace DataAccess.Concrete.Entityframework.Contexts
 {
-    public class CuboContext:DbContext
+    public class CuboContext : IdentityDbContext<User, Role, int, IdentityUserClaim<int>,
+        UserRole, IdentityUserLogin<int>,
+        IdentityRoleClaim<int>, IdentityUserToken<int>>
     {
         public CuboContext()
         {
-                
+
         }
         public CuboContext(DbContextOptions<CuboContext> options) : base(options)
         {
@@ -27,18 +30,33 @@ namespace DataAccess.Concrete.Entityframework.Contexts
         {
             base.OnModelCreating(modelBuilder);
 
+            modelBuilder.Entity<User>().ToTable("Users");
+            modelBuilder.Entity<Role>().ToTable("Roles");
+            modelBuilder.Entity<UserRole>().ToTable("UserRoles");
+
+
             modelBuilder.Entity<Process>()
-                .HasOne(p=> p.OperatorIsEmri)
-                .WithMany(o=>o.Surecler)
+                .HasOne(p => p.OperatorIsEmri)
+                .WithMany(o => o.Surecler)
                 .OnDelete(DeleteBehavior.Cascade);
 
+            modelBuilder.Entity<User>()
+              .HasMany(u => u.UserRoles)
+              .WithOne(ur => ur.User)
+              .HasForeignKey(u => u.UserId)
+              .IsRequired();
 
-         
+            modelBuilder.Entity<Role>()
+               .HasMany(r => r.UserRoles)
+               .WithOne(ur => ur.Role)
+               .HasForeignKey(r => r.RoleId)
+               .IsRequired();
+
 
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
         }
 
-        public  DbSet<CctvDamarDizayn> CctvDamarDizayn { get; set; }
+        public DbSet<CctvDamarDizayn> CctvDamarDizayn { get; set; }
         public DbSet<CctvGenelDizayn> CctvGenelDizayn { get; set; }
         public DbSet<CctvIsEmri> CctvIsEmirleri { get; set; }
         public DbSet<KabloUretim> KabloUretim { get; set; }
@@ -57,7 +75,7 @@ namespace DataAccess.Concrete.Entityframework.Contexts
         public DbSet<YanginIsEmri> YanginIsEmirleri { get; set; }
         public DbSet<Kullanici> Kullanicilar { get; set; }
         public DbSet<OperationClaim> OperationClaims { get; set; }
-        public DbSet<UserOperationClaim> UserOperationClaims{ get; set; }
+        public DbSet<UserOperationClaim> UserOperationClaims { get; set; }
 
         public DbSet<Process> Processes { get; set; }
 
