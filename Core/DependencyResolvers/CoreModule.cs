@@ -17,9 +17,7 @@ namespace Core.DependencyResolvers
             services.AddSingleton<ICacheManager, MemoryCacheManager>();
             services.AddSingleton<IMailService, MailManager>();
             services.AddMemoryCache();
-
             services.AddSingleton<Stopwatch>();
-
         }
     }
 }

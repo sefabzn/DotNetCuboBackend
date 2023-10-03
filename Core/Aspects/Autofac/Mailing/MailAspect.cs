@@ -1,20 +1,14 @@
 ﻿using Castle.DynamicProxy;
-using Core.CrossCuttingConcern.Caching;
 using Core.CrossCuttingConcern.Mailing;
 using Core.Entities.Concrete;
 using Core.Utilities.Interceptors;
 using Core.Utilities.IoC;
 using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Core.Aspects.Autofac.Mailing
 {
-    public class MailAspect: MethodInterception
+    public class MailAspect : MethodInterception
     {
         private IMailService _mailService;
         public MailAspect()

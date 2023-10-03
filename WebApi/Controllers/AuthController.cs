@@ -1,55 +1,86 @@
-﻿using Business.Abstract;
+﻿using AutoMapper;
+using Business.Abstract;
+using DataAccess.Concrete.Entityframework.Contexts;
+using Entities.Concrete;
 using Entities.DTO_s;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebApi.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class AuthController : Controller
-    {
-        private IAuthService _authService;
 
-        public AuthController(IAuthService authService)
+
+    [ApiController]
+    [Route("[controller]")]
+    public class AuthController : ControllerBase
+    {
+        private readonly ITokenService _tokenService;
+        private readonly UserManager<User> _userManager;
+        private readonly RoleManager<Role> _roleManager;
+        private readonly IMapper _mapper;
+        private readonly CuboContext _context;
+        private readonly IAuthService _authService;
+
+        public AuthController(CuboContext context, ITokenService tokenService, UserManager<User> userManager, RoleManager<Role> roleManager, IMapper mapper, IAuthService authService)
         {
+            _context = context;
+            _tokenService = tokenService;
+            _userManager = userManager;
+            _roleManager = roleManager;
+            _mapper = mapper;
             _authService = authService;
         }
 
-        [HttpPost("login")]
-        public async Task<ActionResult> Login(KullaniciForLoginDto userForLoginDto)
+
+        [HttpPost("Register")]
+        public async Task<ActionResult> RegisterAsync(RegisterDto registerUser)
         {
-            var userToLogin =await _authService.Login(userForLoginDto);
-            if (!userToLogin.Success)
-            {
-                return BadRequest(userToLogin.Message);
-            }
+            var result = await _authService.RegisterAsync(registerUser);
 
-            var result =await _authService.CreateAccessToken(userToLogin.Data);
-            if (result.Success)
-            {
-                return Ok(result.Data);
-            }
+            return Ok(result);
 
-            return BadRequest(result.Message);
         }
 
-        [HttpPost("register")]
-        public async Task<ActionResult> Register(KullaniciForRegisterDto userForRegisterDto)
+
+        [HttpPost("Login")]
+        public async Task<ActionResult> Login(LoginDto loginUser)
         {
-            var userExists =await _authService.CheckIfUserExists(userForRegisterDto.KullaniciAdi);
-            if (!userExists.Success)
-            {
-                return BadRequest(userExists.Message);
-            }
 
-            var registerResult =await _authService.Register(userForRegisterDto, userForRegisterDto.Sifre);
-            var result =await _authService.CreateAccessToken(registerResult.Data);
-            if (result.Success)
-            {
-                return Ok(result.Data);
-            }
+            var result = await _authService.LoginAsync(loginUser);
 
-            return BadRequest(result.Message);
+            return Ok(result);
+
         }
+
+        [HttpPost("AddRole")]
+        public async Task<ActionResult> AddRole(string roleName)
+        {
+            var role = new Role
+            {
+                Name = roleName
+            };
+
+            var result = await _roleManager.CreateAsync(role);
+
+            if (!result.Succeeded)
+            {
+                return BadRequest("Rol Eklenemedi");
+
+            }
+
+            return Ok("Rol Eklendi");
+
+        }
+        [Authorize(Roles = "Admin")]
+        [HttpPost("authexperiment")]
+        public ActionResult authexperiment()
+        {
+
+            return Ok("yetkilendirme başarılı");
+
+        }
+
+
     }
 }

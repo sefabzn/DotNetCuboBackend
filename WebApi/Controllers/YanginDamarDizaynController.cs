@@ -18,7 +18,7 @@ namespace WebApi.Controllers
         [HttpGet("GetAll")]
         public async Task<IActionResult> GetAll()
         {
-            var result =await _yanginDamarDizaynService.GetAllAsync();
+            var result = await _yanginDamarDizaynService.GetAllAsync();
             if (result.Success)
             {
                 return Ok(result);
@@ -29,7 +29,7 @@ namespace WebApi.Controllers
         [HttpGet("GetAllByGenelDizaynId")]
         public async Task<IActionResult> GetAllByGenelDizaynId(int id)
         {
-            var result =await _yanginDamarDizaynService.GetAllAsync(x => x.AnaId == id);
+            var result = await _yanginDamarDizaynService.GetAllAsync(x => x.AnaId == id);
             if (result.Success)
             {
                 return Ok(result);
@@ -40,12 +40,31 @@ namespace WebApi.Controllers
         [HttpPost("Add")]
         public async Task<IActionResult> Add(YanginDamarDizayn kablo)
         {
-            var result =await _yanginDamarDizaynService.addAsync(kablo);
+            var result = await _yanginDamarDizaynService.addAsync(kablo);
             if (result.Success)
             {
+                _yanginDamarDizaynService.UpdateGenelDizaynDamarSayisi(kablo.AnaId);
                 return Ok(result);
             }
             return BadRequest(result);
+
+        }
+        [HttpPost("AddAll")]
+        public async Task<IActionResult> AddAAlllAsync(List<YanginDamarDizayn> kablolar)
+        {
+
+            foreach (var kablo in kablolar)
+            {
+                var result = await _yanginDamarDizaynService.addAsync(kablo);
+                if (!result.Success)
+                {
+                    return BadRequest(result);
+
+                }
+                _yanginDamarDizaynService.UpdateGenelDizaynDamarSayisi(kablo.AnaId);
+
+            }
+            return Ok("Damarlar Eklendi");
 
         }
         [HttpGet("GetById")]
@@ -62,7 +81,7 @@ namespace WebApi.Controllers
         [HttpPut("Update")]
         public async Task<IActionResult> Update(YanginDamarDizayn kablo)
         {
-            var result =await _yanginDamarDizaynService.updateAsync(kablo);
+            var result = await _yanginDamarDizaynService.updateAsync(kablo);
             if (result.Success)
             {
                 return Ok(result);
@@ -73,7 +92,7 @@ namespace WebApi.Controllers
         [HttpPost("Delete")]
         public async Task<IActionResult> Delete(YanginDamarDizayn kablo)
         {
-            var result =await _yanginDamarDizaynService.deleteAsync(kablo);
+            var result = await _yanginDamarDizaynService.deleteAsync(kablo);
             if (result.Success)
             {
                 return Ok(result);

@@ -2,9 +2,9 @@
 using Autofac.Extras.DynamicProxy;
 using Business.Abstract;
 using Business.Concrete;
+using Business.Extensions;
 using Castle.DynamicProxy;
 using Core.Utilities.Interceptors;
-using Core.Utilities.Security.JWT;
 using DataAccess.Abstract;
 using DataAccess.Concrete.Entityframework;
 
@@ -64,11 +64,17 @@ namespace Business.DependencyResolvers.Autofac
             builder.RegisterType<EfProcessDal>().As<IProcessDal>().SingleInstance();
 
             builder.RegisterType<AuthManager>().As<IAuthService>();
-            builder.RegisterType<JwtHelper>().As<ITokenHelper>();
 
             builder.RegisterType<ExchangeRateManager>().As<IExchangeRateService>().SingleInstance();
             builder.RegisterType<EfExchangeRateDal>().As<IExchangeRateDal>().SingleInstance();
 
+
+
+            builder.RegisterType<TokenManager>().As<ITokenService>().InstancePerLifetimeScope();
+
+            builder.RegisterType<AuthManager>().As<IAuthService>().SingleInstance();
+
+            builder.AddAutoMapper(new[] { System.Reflection.Assembly.GetExecutingAssembly() });
 
             var assembly = System.Reflection.Assembly.GetExecutingAssembly();
 

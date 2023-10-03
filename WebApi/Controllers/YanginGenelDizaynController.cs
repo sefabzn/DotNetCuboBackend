@@ -17,17 +17,31 @@ namespace WebApi.Controllers
         [HttpGet("GetAll")]
         public async Task<IActionResult> GetAll()
         {
-            var result =await _yanginGenelDizaynService.GetAllAsync();
+            var result = await _yanginGenelDizaynService.GetAllAsync();
             if (result.Success)
             {
                 return Ok(result);
             }
             return BadRequest(result);
         }
+        [HttpPost("AddAll")]
+        public async Task<IActionResult> AddAll(List<YanginGenelDizayn> kablolar)  //veri testi amacıyla oluşturuldu
+        {
+            foreach (var kablo in kablolar)
+            {
+                var result = await _yanginGenelDizaynService.addAsync(kablo);
+                if (!result.Success)
+                {
+                    return BadRequest(result);
+                }
+            }
+
+            return Ok("Kablolar Eklendi");
+        }
         [HttpPost("Add")]
         public async Task<IActionResult> Add(YanginGenelDizayn kablo)
         {
-            var result =await _yanginGenelDizaynService.addAsync(kablo);
+            var result = await _yanginGenelDizaynService.addAsync(kablo);
             if (result.Success)
             {
                 return Ok(result);
@@ -37,7 +51,7 @@ namespace WebApi.Controllers
         [HttpGet("GetById")]
         public async Task<IActionResult> GetById(int id)
         {
-            var result =await _yanginGenelDizaynService.GetAsync(x => x.Id == id);
+            var result = await _yanginGenelDizaynService.GetAsync(x => x.Id == id);
             if (result.Success)
             {
                 return Ok(result);
@@ -48,8 +62,8 @@ namespace WebApi.Controllers
         [HttpPut("Update")]
         public async Task<IActionResult> Update(YanginGenelDizayn kablo)
         {
-          
-            var result =await _yanginGenelDizaynService.updateAsync(kablo);
+
+            var result = await _yanginGenelDizaynService.updateAsync(kablo);
             if (result.Success)
             {
                 return Ok(result);

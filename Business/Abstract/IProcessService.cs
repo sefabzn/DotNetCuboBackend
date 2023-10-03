@@ -6,7 +6,8 @@ namespace Business.Abstract
 {
     public interface IProcessService : IServiceRepository<Process>
     {
-        Task<DataResult<OperatorIsEmri>> UpdateBarcodeAsync(int isEmriId,Process process);
+        Task<DataResult<OperatorIsEmri>> UpdateBarcodeAsync(int isEmriId, Process process);
+        Task<DataResult<OperatorIsEmri>> UpdateBarcodeAtCreateAsync(int isEmriId);
 
 
     }

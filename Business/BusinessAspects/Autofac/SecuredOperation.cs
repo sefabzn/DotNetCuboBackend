@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Castle.DynamicProxy;
-using Core.Extensions;
+﻿using Castle.DynamicProxy;
 using Core.Utilities.Interceptors;
 using Core.Utilities.IoC;
 using Microsoft.AspNetCore.Http;
@@ -26,15 +20,15 @@ namespace Business.BusinessAspects.Autofac
 
         protected override void OnBefore(IInvocation invocation)
         {
-            var roleClaims = _httpContextAccessor.HttpContext.User.ClaimRoles();
-            foreach (var role in _roles)
-            {
-                if (roleClaims.Contains(role))
-                {
-                    return;
-                }
-            }
-            throw new Exception("Authorization Denied");
+            ////var roleClaims = _httpContextAccessor.HttpContext.User.ClaimRoles();
+            //foreach (var role in _roles)
+            //{
+            //    if (roleClaims.Contains(role))
+            //    {
+            //        return;
+            //    }
+            //}
+            //throw new Exception("Authorization Denied");
         }
     }
 }

@@ -9,21 +9,25 @@ namespace WebApi.Controllers
     public class OperatorIsEmriController : Controller
     {
         IOperatorIsEmriService _operatorIsEmriService;
-        public OperatorIsEmriController(IOperatorIsEmriService operatorIsEmriService)
+
+        IProcessService _processService { get; }
+
+        public OperatorIsEmriController(IOperatorIsEmriService operatorIsEmriService, IProcessService processService)
         {
             _operatorIsEmriService = operatorIsEmriService;
+            _processService = processService;
         }
         [HttpGet("GetAll")]
         public async Task<IActionResult> GetAll()
         {
-           var result=await _operatorIsEmriService.GetAllAsync();
+            var result = await _operatorIsEmriService.GetAllAsync();
             if (result.Success)
             {
                 return Ok(result);
             }
             return BadRequest(result);
         }
-     
+
         [HttpPost("IsPlaniOlustur")]
         public async Task<IActionResult> IsPlaniOlustur(OrtakIsEmri ortakIsEmri)
         {
@@ -45,12 +49,41 @@ namespace WebApi.Controllers
         [HttpPost("Add")]
         public async Task<IActionResult> Add(OperatorIsEmri isEmri)
         {
-            var result =await _operatorIsEmriService.addAsync(isEmri);
+            var result = await _operatorIsEmriService.addAsync(isEmri);
+
             if (result.Success)
             {
                 return Ok(result);
             }
+
+
+            await _processService.UpdateBarcodeAtCreateAsync(isEmri.Id);
             return BadRequest(result);
+
+        }
+        [HttpPost("AddAll")]
+        public async Task<IActionResult> AddAll(List<OperatorIsEmri> isEmirleri)
+        {
+
+            foreach (var isEmri in isEmirleri)
+            {
+                var addResult = await _operatorIsEmriService.addAsync(isEmri);
+                if (!addResult.Success)
+                {
+                    return BadRequest("İş Emri Eklenemedi");
+                }
+                var updateResult = await _processService.UpdateBarcodeAtCreateAsync(isEmri.Id);
+
+                if (!updateResult.Success)
+                {
+                    return BadRequest("İş Emri Barkodu Güncellenemedi");
+
+                }
+
+            }
+
+
+            return Ok(isEmirleri);
 
         }
         [HttpGet("GetById")]
@@ -67,7 +100,7 @@ namespace WebApi.Controllers
         [HttpPut("Update")]
         public async Task<IActionResult> Update(OperatorIsEmri kablo)
         {
-            var result =await _operatorIsEmriService.updateAsync(kablo);
+            var result = await _operatorIsEmriService.updateAsync(kablo);
             if (result.Success)
             {
                 return Ok(result);
@@ -76,11 +109,11 @@ namespace WebApi.Controllers
 
         }
         [HttpPost("TeorikSureHesapla")]
-         public async Task<IActionResult> TeorikSüreHesapla(OrtakIsEmri ortakIsEmri)
+        public async Task<IActionResult> TeorikSüreHesapla(OrtakIsEmri ortakIsEmri)
         {
 
             return Ok(await _operatorIsEmriService.TeorikSüreHesapla(ortakIsEmri));
         }
-       
+
     }
 }

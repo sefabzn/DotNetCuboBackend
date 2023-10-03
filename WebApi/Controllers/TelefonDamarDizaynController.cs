@@ -18,7 +18,7 @@ namespace WebApi.Controllers
         [HttpGet("GetAll")]
         public async Task<IActionResult> GetAllAsync()
         {
-            var result =await _telefonDamarDizaynService.GetAllAsync();
+            var result = await _telefonDamarDizaynService.GetAllAsync();
             if (result.Success)
             {
                 return Ok(result);
@@ -29,7 +29,7 @@ namespace WebApi.Controllers
         [HttpGet("GetAllByGenelDizaynId")]
         public async Task<IActionResult> GetAllByGenelDizaynIdAsync(int id)
         {
-            var result =await _telefonDamarDizaynService.GetAllAsync(x => x.AnaId == id);
+            var result = await _telefonDamarDizaynService.GetAllAsync(x => x.AnaId == id);
             if (result.Success)
             {
                 return Ok(result);
@@ -37,22 +37,41 @@ namespace WebApi.Controllers
 
             return BadRequest(result);
         }
+        [HttpPost("AddAll")]
+        public async Task<IActionResult> AddAAlllAsync(List<TelefonDamarDizayn> kablolar)
+        {
 
+            foreach (var kablo in kablolar)
+            {
+                var result = await _telefonDamarDizaynService.addAsync(kablo);
+                if (!result.Success)
+                {
+                    return BadRequest(result);
+
+                }
+                _telefonDamarDizaynService.UpdateGenelDizaynDamarSayisi(kablo.AnaId);
+
+            }
+            return Ok("Damarlar Eklendi");
+
+        }
         [HttpPost("Add")]
         public async Task<IActionResult> AddAsync(TelefonDamarDizayn kablo)
         {
             var result = await _telefonDamarDizaynService.addAsync(kablo);
             if (result.Success)
             {
+                _telefonDamarDizaynService.UpdateGenelDizaynDamarSayisi(kablo.AnaId);
                 return Ok(result);
             }
             return BadRequest(result);
+
 
         }
         [HttpGet("GetById")]
         public async Task<IActionResult> GetByIdAsync(int id)
         {
-            var result =await _telefonDamarDizaynService.GetAsync(x => x.Id == id);
+            var result = await _telefonDamarDizaynService.GetAsync(x => x.Id == id);
             if (result.Success)
             {
                 return Ok(result);

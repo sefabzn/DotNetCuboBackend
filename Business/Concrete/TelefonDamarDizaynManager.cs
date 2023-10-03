@@ -1,18 +1,32 @@
-﻿using Core.Business;
+﻿using Business.Abstract;
+using Core.Business;
+using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Business.Concrete
 {
-    public class TelefonDamarDizaynManager : ManagerBase<TelefonDamarDizayn, ITelefonDamarDizaynDal>, Abstract.ITelefonDamarDizaynService
+    public class TelefonDamarDizaynManager : ManagerBase<TelefonDamarDizayn, ITelefonDamarDizaynDal>, ITelefonDamarDizaynService
     {
-        public TelefonDamarDizaynManager(ITelefonDamarDizaynDal repository) : base(repository)
+
+        ITelefonDamarDizaynDal _telefonDamarDizaynDal;
+        ITelefonGenelDizaynDal _telefonGenelDizaynDal;
+        public TelefonDamarDizaynManager(ITelefonDamarDizaynDal telefonDamarDizaynDal, ITelefonGenelDizaynDal telefonGenelDizaynDal) : base(telefonDamarDizaynDal)
         {
+            _telefonDamarDizaynDal = telefonDamarDizaynDal;
+            _telefonGenelDizaynDal = telefonGenelDizaynDal;
+        }
+        public IResult UpdateGenelDizaynDamarSayisi(int genelDizaynId)
+        {
+            var genelDizaynKablo = _telefonGenelDizaynDal.GetAsync(x => x.Id == genelDizaynId).Result;
+
+            var damarSayisi = _telefonDamarDizaynDal.GetAllAsync(x => x.AnaId == genelDizaynId).Result.Count;
+
+            genelDizaynKablo.GirilenDamarSayisi = damarSayisi;
+
+            _telefonGenelDizaynDal.UpdateAsync(genelDizaynKablo);
+
+            return new SuccessResult("Damar Sayısı Güncellendi");
         }
     }
 }

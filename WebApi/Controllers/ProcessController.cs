@@ -6,13 +6,13 @@ namespace WebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    
+
     public class ProcessController : Controller
     {
         IProcessService _processService;
         IOperatorIsEmriService _operatorIsEmriService;
 
-        public ProcessController(IProcessService processService,IOperatorIsEmriService operatorIsEmri)
+        public ProcessController(IProcessService processService, IOperatorIsEmriService operatorIsEmri)
         {
             _processService = processService;
             _operatorIsEmriService = operatorIsEmri;
@@ -30,7 +30,7 @@ namespace WebApi.Controllers
         [HttpGet("GetAllByIsEmriId")]
         public async Task<IActionResult> GetAllByIsEmriId(int id)
         {
-            var result = await _processService.GetAllAsync(x=>x.IsEmriId==id);
+            var result = await _processService.GetAllAsync(x => x.IsEmriId == id);
             if (result.Success)
             {
                 return Ok(result);
@@ -60,11 +60,13 @@ namespace WebApi.Controllers
                 Aciklama = processDto.Aciklama,
                 IsEmriId = processDto.IsEmriId,
                 Isim = processDto.Isim,
+                Order = processDto.Order,
                 TamamlanmaDurumu = processDto.TamamlanmaDurumu,
 
             };
 
             var result = _processService.addAsync(process);
+            await UpdateBarcode(process.IsEmriId, process);
 
             return Ok(result.Result);
 
@@ -72,7 +74,7 @@ namespace WebApi.Controllers
         [HttpPut("Update")]
         public async Task<IActionResult> UpdateAsync(Process process)
         {
-           
+
             var result = await _processService.updateAsync(process);
             await UpdateBarcode(process.IsEmriId, process);
 
@@ -89,7 +91,7 @@ namespace WebApi.Controllers
 
 
 
-                var result =await _processService.UpdateBarcodeAsync(isEmriId,process);
+            var result = await _processService.UpdateBarcodeAsync(isEmriId, process);
 
             if (result.Success)
             {
