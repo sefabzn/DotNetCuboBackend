@@ -99,3 +99,4 @@ C:\Users\sefa_\OneDrive\Masaüstü\DOTNETBACKEND\DotNetCuboBackend\AdminConsoleA
 C:\Users\sefa_\OneDrive\Masaüstü\DOTNETBACKEND\DotNetCuboBackend\AdminConsoleApp\bin\Debug\net6.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
 C:\Users\sefa_\OneDrive\Masaüstü\DOTNETBACKEND\DotNetCuboBackend\AdminConsoleApp\bin\Debug\net6.0\Microsoft.Extensions.Identity.Core.dll
 C:\Users\sefa_\OneDrive\Masaüstü\DOTNETBACKEND\DotNetCuboBackend\AdminConsoleApp\bin\Debug\net6.0\Microsoft.Extensions.Identity.Stores.dll
+C:\Users\sefa_\OneDrive\Masaüstü\DOTNETBACKEND\DotNetCuboBackend\AdminConsoleApp\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
