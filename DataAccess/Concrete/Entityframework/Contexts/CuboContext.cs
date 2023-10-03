@@ -1,4 +1,5 @@
 ﻿using Core.Entities.Concrete;
+using Entities.Base;
 using Entities.Concrete;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
@@ -36,8 +37,9 @@ namespace DataAccess.Concrete.Entityframework.Contexts
 
 
             modelBuilder.Entity<Process>()
-                .HasOne(p => p.OperatorIsEmri)
+                .HasOne(p => p.IsEmri)
                 .WithMany(o => o.Surecler)
+                .HasForeignKey(p => p.IsEmriId)
                 .OnDelete(DeleteBehavior.Cascade);
 
             modelBuilder.Entity<User>()
@@ -58,7 +60,6 @@ namespace DataAccess.Concrete.Entityframework.Contexts
 
         public DbSet<CctvDamarDizayn> CctvDamarDizayn { get; set; }
         public DbSet<CctvGenelDizayn> CctvGenelDizayn { get; set; }
-        public DbSet<CctvIsEmri> CctvIsEmirleri { get; set; }
         public DbSet<KabloUretim> KabloUretim { get; set; }
         public DbSet<KesitYapisi> KesitYapisi { get; set; }
         public DbSet<Makine> Makineler { get; set; }
@@ -69,14 +70,12 @@ namespace DataAccess.Concrete.Entityframework.Contexts
         public DbSet<TekDamarDizayn> TekDamarDizayn { get; set; }
         public DbSet<TelefonDamarDizayn> TelefonDamarDizayn { get; set; }
         public DbSet<TelefonGenelDizayn> TelefonGenelDizayn { get; set; }
-        public DbSet<TelefonIsEmri> TelefonIsEmirleri { get; set; }
         public DbSet<YanginDamarDizayn> YanginDamarDizayn { get; set; }
         public DbSet<YanginGenelDizayn> YanginGenelDizayn { get; set; }
-        public DbSet<YanginIsEmri> YanginIsEmirleri { get; set; }
         public DbSet<Kullanici> Kullanicilar { get; set; }
         public DbSet<OperationClaim> OperationClaims { get; set; }
         public DbSet<UserOperationClaim> UserOperationClaims { get; set; }
-
+        public DbSet<IsEmriBase> ısEmriBases { get; set; }
         public DbSet<Process> Processes { get; set; }
 
     }
