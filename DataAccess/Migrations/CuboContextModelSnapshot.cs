@@ -86,6 +86,58 @@ namespace DataAccess.Migrations
                     b.ToTable("UserOperationClaims");
                 });
 
+            modelBuilder.Entity("Entities.Base.IsEmriBase", b =>
+                {
+                    b.Property<int?>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("Id"));
+
+                    b.Property<string>("Barkod")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("BukumBarkodu")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DamarBarkodu")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DamarBukumBarkodu")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Degistiren")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DisKilifBarkodu")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DolguBarkodu")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FolyoBarkodu")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Isim")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("KilifBarkodu")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("OrguBarkodu")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("TamamlanmaDurumu")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("Tarih")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ısEmriBases");
+                });
+
             modelBuilder.Entity("Entities.Concrete.CctvDamarDizayn", b =>
                 {
                     b.Property<int>("Id")
@@ -116,7 +168,6 @@ namespace DataAccess.Migrations
                         .HasColumnType("float");
 
                     b.Property<string>("Imalat")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Kalip")
@@ -206,52 +257,6 @@ namespace DataAccess.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("CctvGenelDizayn");
-                });
-
-            modelBuilder.Entity("Entities.Concrete.CctvIsEmri", b =>
-                {
-                    b.Property<int?>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("Id"));
-
-                    b.Property<string>("BukumBarkodu")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("DamarBarkodu")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("DamarBukumBarkodu")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Degistiren")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("DisKilifBarkodu")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("DolguBarkodu")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("FolyoBarkodu")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Isim")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("KilifBarkodu")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("OrguBarkodu")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("Tarih")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("CctvIsEmirleri");
                 });
 
             modelBuilder.Entity("Entities.Concrete.KabloUretim", b =>
@@ -490,6 +495,8 @@ namespace DataAccess.Migrations
                         .HasColumnType("bit");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("IsEmriId");
 
                     b.HasIndex("OperatorIsEmriId");
 
@@ -780,52 +787,6 @@ namespace DataAccess.Migrations
                     b.ToTable("TelefonGenelDizayn");
                 });
 
-            modelBuilder.Entity("Entities.Concrete.TelefonIsEmri", b =>
-                {
-                    b.Property<int?>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("Id"));
-
-                    b.Property<string>("BukumBarkodu")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("DamarBarkodu")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("DamarBukumBarkodu")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Degistiren")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("DisKilifBarkodu")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("DolguBarkodu")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("FolyoBarkodu")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Isim")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("KilifBarkodu")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("OrguBarkodu")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("Tarih")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("TelefonIsEmirleri");
-                });
-
             modelBuilder.Entity("Entities.Concrete.User", b =>
                 {
                     b.Property<int>("Id")
@@ -1021,52 +982,6 @@ namespace DataAccess.Migrations
                     b.ToTable("YanginGenelDizayn");
                 });
 
-            modelBuilder.Entity("Entities.Concrete.YanginIsEmri", b =>
-                {
-                    b.Property<int?>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("Id"));
-
-                    b.Property<string>("BukumBarkodu")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("DamarBarkodu")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("DamarBukumBarkodu")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Degistiren")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("DisKilifBarkodu")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("DolguBarkodu")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("FolyoBarkodu")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Isim")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("KilifBarkodu")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("OrguBarkodu")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("Tarih")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("YanginIsEmirleri");
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int>", b =>
                 {
                     b.Property<int>("Id")
@@ -1157,12 +1072,17 @@ namespace DataAccess.Migrations
 
             modelBuilder.Entity("Entities.Concrete.Process", b =>
                 {
-                    b.HasOne("Entities.Concrete.OperatorIsEmri", "OperatorIsEmri")
+                    b.HasOne("Entities.Base.IsEmriBase", "IsEmri")
                         .WithMany("Surecler")
-                        .HasForeignKey("OperatorIsEmriId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("IsEmriId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.Navigation("OperatorIsEmri");
+                    b.HasOne("Entities.Concrete.OperatorIsEmri", null)
+                        .WithMany("Surecler")
+                        .HasForeignKey("OperatorIsEmriId");
+
+                    b.Navigation("IsEmri");
                 });
 
             modelBuilder.Entity("Entities.Concrete.UserRole", b =>
@@ -1218,6 +1138,11 @@ namespace DataAccess.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("Entities.Base.IsEmriBase", b =>
+                {
+                    b.Navigation("Surecler");
                 });
 
             modelBuilder.Entity("Entities.Concrete.OperatorIsEmri", b =>

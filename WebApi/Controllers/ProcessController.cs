@@ -10,12 +10,12 @@ namespace WebApi.Controllers
     public class ProcessController : Controller
     {
         IProcessService _processService;
-        IOperatorIsEmriService _operatorIsEmriService;
+        IIsEmriService _IsEmriService;
 
-        public ProcessController(IProcessService processService, IOperatorIsEmriService operatorIsEmri)
+        public ProcessController(IProcessService processService, IIsEmriService ısEmriService)
         {
             _processService = processService;
-            _operatorIsEmriService = operatorIsEmri;
+            _IsEmriService = ısEmriService;
         }
         [HttpGet("GetAll")]
         public async Task<IActionResult> GetAll()
@@ -51,12 +51,12 @@ namespace WebApi.Controllers
         public async Task<IActionResult> AddAsync(Process processDto)
         {
 
-            var isEmriResult = await _operatorIsEmriService.GetAsync(x => x.Id == processDto.IsEmriId);
+            var isEmriResult = await _IsEmriService.GetAsync(x => x.Id == processDto.IsEmriId);
 
 
             var process = new Process
             {
-                OperatorIsEmri = isEmriResult.Data,
+                IsEmri = isEmriResult.Data,
                 Aciklama = processDto.Aciklama,
                 IsEmriId = processDto.IsEmriId,
                 Isim = processDto.Isim,

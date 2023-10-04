@@ -46,6 +46,8 @@ namespace Business.DependencyResolvers.Autofac
             builder.RegisterType<YanginDamarDizaynManager>().As<IYanginDamarDizaynService>().SingleInstance();
             builder.RegisterType<EfYanginDamarDizaynDal>().As<IYanginDamarDizaynDal>().SingleInstance();
 
+            builder.RegisterType<IsEmriManager>().As<IIsEmriService>().SingleInstance();
+            builder.RegisterType<EfIsEmriDal>().As<IIsEmriDal>().SingleInstance();
 
             builder.RegisterType<KesitYapisiManager>().As<IKesitYapisiService>().SingleInstance();
             builder.RegisterType<EfKesitYapisiDal>().As<IKesitYapisiDal>().SingleInstance();

@@ -22,7 +22,7 @@ namespace Entities.Base
         public string? Barkod { get; set; }
 
         public List<Process>? Surecler { get; set; }
-        public DateTime? Tarih { get; set; }
+        public DateTime Tarih { get; set; }
         public string? Degistiren { get; set; }
     }
 

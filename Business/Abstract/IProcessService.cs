@@ -1,13 +1,14 @@
 ﻿using Core.Business;
 using Core.Utilities.Results;
+using Entities.Base;
 using Entities.Concrete;
 
 namespace Business.Abstract
 {
     public interface IProcessService : IServiceRepository<Process>
     {
-        Task<DataResult<OperatorIsEmri>> UpdateBarcodeAsync(int isEmriId, Process process);
-        Task<DataResult<OperatorIsEmri>> UpdateBarcodeAtCreateAsync(int isEmriId);
+        Task<DataResult<IsEmriBase>> UpdateBarcodeAsync(int isEmriId, Process process);
+        Task<DataResult<IsEmriBase>> UpdateBarcodeAtCreateAsync(int isEmriId);
 
 
     }

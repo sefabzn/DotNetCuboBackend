@@ -2,6 +2,7 @@
 using Core.Business;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
+using Entities.Base;
 using Entities.Concrete;
 
 namespace Business.Concrete
@@ -9,17 +10,17 @@ namespace Business.Concrete
     public class ProcessManager : ManagerBase<Process, IProcessDal>, IProcessService
     {
         private readonly IProcessDal _processDal;
-        private readonly IOperatorIsEmriDal _operatorIsEmriDal;
+        private readonly IIsEmriDal _isEmriDal;
 
-        public ProcessManager(IProcessDal processDal, IOperatorIsEmriDal operatorIsEmriService) : base(processDal)
+        public ProcessManager(IProcessDal processDal, IIsEmriDal isEmriDal) : base(processDal)
         {
             _processDal = processDal;
-            _operatorIsEmriDal = operatorIsEmriService;
+            _isEmriDal = isEmriDal;
         }
 
-        public async Task<DataResult<OperatorIsEmri>> UpdateBarcodeAsync(int isEmriId, Process process)
+        public async Task<DataResult<IsEmriBase>> UpdateBarcodeAsync(int isEmriId, Process process)
         {
-            var result = await _operatorIsEmriDal.GetAsync(x => x.Id == isEmriId);
+            var result = await _isEmriDal.GetAsync(x => x.Id == isEmriId);
 
             var allProcesses = await _processDal.GetAllAsync(x => x.IsEmriId == isEmriId);
 
@@ -34,7 +35,7 @@ namespace Business.Concrete
             //{
             //    result.Barkod = result.UrunIsmi + "-" + result.Tarih;
             //}
-            result.Barkod = result.UrunIsmi + "-(" + result.Tarih.ToString("dd/MM/yy") + ")";
+            result.Barkod = result.Isim + "-(" + result.Tarih.ToString("dd/MM/yy") + ")";
 
             result.Barkod += "-";
             foreach (var elem in completedProcesses)
@@ -45,24 +46,24 @@ namespace Business.Concrete
 
 
 
-            await _operatorIsEmriDal.UpdateAsync(result);
+            await _isEmriDal.UpdateAsync(result);
 
-            return new SuccessDataResult<OperatorIsEmri>(result, "Barkod Değişti ");
+            return new SuccessDataResult<IsEmriBase>(result, "Barkod Değişti ");
         }
-        public async Task<DataResult<OperatorIsEmri>> UpdateBarcodeAtCreateAsync(int isEmriId)
+        public async Task<DataResult<IsEmriBase>> UpdateBarcodeAtCreateAsync(int isEmriId)
         {
-            var result = await _operatorIsEmriDal.GetAsync(x => x.Id == isEmriId);
+            var result = await _isEmriDal.GetAsync(x => x.Id == isEmriId);
 
 
 
-            result.Barkod = result.UrunIsmi + "-(" + result.Tarih.ToString("dd/MM/yy") + ")";
+            result.Barkod = result.Isim + "-(" + result.Tarih.ToString("dd/MM/yy") + ")";
 
 
 
 
-            await _operatorIsEmriDal.UpdateAsync(result);
+            await _isEmriDal.UpdateAsync(result);
 
-            return new SuccessDataResult<OperatorIsEmri>(result, "Barkod Değişti ");
+            return new SuccessDataResult<IsEmriBase>(result, "Barkod Değişti ");
         }
     }
 }
