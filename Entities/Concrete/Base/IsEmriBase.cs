@@ -6,6 +6,10 @@ namespace Entities.Base
 {
     public class IsEmriBase : IEntity
     {
+        public IsEmriBase()
+        {
+            Tarih = DateTime.Today;
+        }
         public int? Id { get; set; }
         public string? Isim { get; set; }
         public string? BukumBarkodu { get; set; }
@@ -22,6 +26,7 @@ namespace Entities.Base
         public string? Barkod { get; set; }
 
         public List<Process>? Surecler { get; set; }
+
         public DateTime Tarih { get; set; }
         public string? Degistiren { get; set; }
     }
