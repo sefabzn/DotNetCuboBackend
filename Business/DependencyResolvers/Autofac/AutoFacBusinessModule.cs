@@ -31,20 +31,12 @@ namespace Business.DependencyResolvers.Autofac
             builder.RegisterType<MakineKesizHizTablosuManager>().As<IMakineKesitHizTablosuService>().SingleInstance();
             builder.RegisterType<EfMakineKesitHizTablosuDal>().As<IMakineKesitHizTablosuDal>().SingleInstance();
 
-            builder.RegisterType<CctvGenelDizaynManager>().As<ICctvGenelDizaynService>().SingleInstance();
-            builder.RegisterType<EfCctvGenelDizaynDal>().As<ICctvGenelDizaynDal>().SingleInstance();
-            builder.RegisterType<CctvDamarDizaynManager>().As<ICctvDamarDizaynService>().SingleInstance();
-            builder.RegisterType<EfCctvDamarDizaynDal>().As<ICctvDamarDizaynDal>().SingleInstance();
 
-            builder.RegisterType<TelefonGenelDizaynManager>().As<ITelefonGenelDizaynService>().SingleInstance();
-            builder.RegisterType<EfTelefonGenelDizaynDal>().As<ITelefonGenelDizaynDal>().SingleInstance();
-            builder.RegisterType<TelefonDamarDizaynManager>().As<ITelefonDamarDizaynService>().SingleInstance();
-            builder.RegisterType<EfTelefonDamarDizaynDal>().As<ITelefonDamarDizaynDal>().SingleInstance();
 
-            builder.RegisterType<YanginGenelDizaynManager>().As<IYanginGenelDizaynService>().SingleInstance();
-            builder.RegisterType<EfYanginGenelDizaynDal>().As<IYanginGenelDizaynDal>().SingleInstance();
-            builder.RegisterType<YanginDamarDizaynManager>().As<IYanginDamarDizaynService>().SingleInstance();
-            builder.RegisterType<EfYanginDamarDizaynDal>().As<IYanginDamarDizaynDal>().SingleInstance();
+            builder.RegisterType<GenelDizaynManager>().As<IGenelDizaynService>().SingleInstance();
+            builder.RegisterType<EfGenelDizaynDal>().As<IGenelDizaynDal>().SingleInstance();
+            builder.RegisterType<DamarDizaynManager>().As<IDamarDizaynService>().SingleInstance();
+            builder.RegisterType<EfDamarDizaynDal>().As<IDamarDizaynDal>().SingleInstance();
 
             builder.RegisterType<IsEmriManager>().As<IIsEmriService>().SingleInstance();
             builder.RegisterType<EfIsEmriDal>().As<IIsEmriDal>().SingleInstance();

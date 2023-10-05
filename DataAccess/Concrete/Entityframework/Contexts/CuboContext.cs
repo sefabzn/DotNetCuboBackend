@@ -42,6 +42,18 @@ namespace DataAccess.Concrete.Entityframework.Contexts
                 .HasForeignKey(p => p.IsEmriId)
                 .OnDelete(DeleteBehavior.Cascade);
 
+            modelBuilder.Entity<GenelDizaynBase>()
+              .HasOne(d => d.IsEmri)
+              .WithOne(i => i.GenelDizayn)
+              .HasForeignKey<IsEmriBase>(i => i.GenelDizaynId);
+
+            modelBuilder.Entity<GenelDizaynBase>()
+            .HasMany(g => g.Damarlar)
+            .WithOne(d => d.GenelDizayn)
+            .HasForeignKey(d => d.GenelDizaynId)
+            .OnDelete(DeleteBehavior.Cascade);
+
+
             modelBuilder.Entity<User>()
               .HasMany(u => u.UserRoles)
               .WithOne(ur => ur.User)
@@ -58,8 +70,6 @@ namespace DataAccess.Concrete.Entityframework.Contexts
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
         }
 
-        public DbSet<CctvDamarDizayn> CctvDamarDizayn { get; set; }
-        public DbSet<CctvGenelDizayn> CctvGenelDizayn { get; set; }
         public DbSet<KabloUretim> KabloUretim { get; set; }
         public DbSet<KesitYapisi> KesitYapisi { get; set; }
         public DbSet<Makine> Makineler { get; set; }
@@ -68,14 +78,10 @@ namespace DataAccess.Concrete.Entityframework.Contexts
         public DbSet<Sarfiyat> Sarfiyat { get; set; }
         public DbSet<SatisPlanlama> SatisPlanlama { get; set; }
         public DbSet<TekDamarDizayn> TekDamarDizayn { get; set; }
-        public DbSet<TelefonDamarDizayn> TelefonDamarDizayn { get; set; }
-        public DbSet<TelefonGenelDizayn> TelefonGenelDizayn { get; set; }
-        public DbSet<YanginDamarDizayn> YanginDamarDizayn { get; set; }
-        public DbSet<YanginGenelDizayn> YanginGenelDizayn { get; set; }
         public DbSet<Kullanici> Kullanicilar { get; set; }
         public DbSet<OperationClaim> OperationClaims { get; set; }
         public DbSet<UserOperationClaim> UserOperationClaims { get; set; }
-        public DbSet<IsEmriBase> ısEmriBases { get; set; }
+        public DbSet<IsEmriBase> IsEmirleri { get; set; }
         public DbSet<Process> Processes { get; set; }
 
     }

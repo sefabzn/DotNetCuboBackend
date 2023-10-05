@@ -86,68 +86,13 @@ namespace DataAccess.Migrations
                     b.ToTable("UserOperationClaims");
                 });
 
-            modelBuilder.Entity("Entities.Base.IsEmriBase", b =>
-                {
-                    b.Property<int?>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("Id"));
-
-                    b.Property<string>("Barkod")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("BukumBarkodu")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("DamarBarkodu")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("DamarBukumBarkodu")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Degistiren")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("DisKilifBarkodu")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("DolguBarkodu")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("FolyoBarkodu")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Isim")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("KilifBarkodu")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("OrguBarkodu")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("TamamlanmaDurumu")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTime>("Tarih")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("ısEmriBases");
-                });
-
-            modelBuilder.Entity("Entities.Concrete.CctvDamarDizayn", b =>
+            modelBuilder.Entity("Entities.Base.DamarDizaynBase", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("AnaId")
-                        .HasColumnType("int");
 
                     b.Property<double>("Ayna")
                         .HasColumnType("float");
@@ -164,6 +109,9 @@ namespace DataAccess.Migrations
                     b.Property<double>("Etk")
                         .HasColumnType("float");
 
+                    b.Property<int>("GenelDizaynId")
+                        .HasColumnType("int");
+
                     b.Property<double>("Hatve")
                         .HasColumnType("float");
 
@@ -171,22 +119,22 @@ namespace DataAccess.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Kalip")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<double>("KesitCapi")
                         .HasColumnType("float");
 
                     b.Property<string>("Renk")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("CctvDamarDizayn");
+                    b.HasIndex("GenelDizaynId");
+
+                    b.ToTable("DamarDizaynBase");
                 });
 
-            modelBuilder.Entity("Entities.Concrete.CctvGenelDizayn", b =>
+            modelBuilder.Entity("Entities.Base.GenelDizaynBase", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -251,12 +199,76 @@ namespace DataAccess.Migrations
                     b.Property<DateTime>("Tarih")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("Tur")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Zorlama")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("CctvGenelDizayn");
+                    b.ToTable("GenelDizaynBase");
+                });
+
+            modelBuilder.Entity("Entities.Base.IsEmriBase", b =>
+                {
+                    b.Property<int?>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("Id"));
+
+                    b.Property<string>("Barkod")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("BukumBarkodu")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DamarBarkodu")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DamarBukumBarkodu")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Degistiren")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DisKilifBarkodu")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DolguBarkodu")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FolyoBarkodu")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("GenelDizaynId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Isim")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("KilifBarkodu")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("OrguBarkodu")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("TamamlanmaDurumu")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("Tarih")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Tur")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("GenelDizaynId")
+                        .IsUnique();
+
+                    b.ToTable("IsEmirleri");
                 });
 
             modelBuilder.Entity("Entities.Concrete.KabloUretim", b =>
@@ -675,118 +687,6 @@ namespace DataAccess.Migrations
                     b.ToTable("TekDamarDizayn");
                 });
 
-            modelBuilder.Entity("Entities.Concrete.TelefonDamarDizayn", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("AnaId")
-                        .HasColumnType("int");
-
-                    b.Property<double>("Ayna")
-                        .HasColumnType("float");
-
-                    b.Property<double>("Back")
-                        .HasColumnType("float");
-
-                    b.Property<double>("Cap")
-                        .HasColumnType("float");
-
-                    b.Property<int>("DamarNo")
-                        .HasColumnType("int");
-
-                    b.Property<double>("Etk")
-                        .HasColumnType("float");
-
-                    b.Property<double>("Hatve")
-                        .HasColumnType("float");
-
-                    b.Property<string>("Kalip")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<double>("KesitCapi")
-                        .HasColumnType("float");
-
-                    b.Property<string>("Renk")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("TelefonDamarDizayn");
-                });
-
-            modelBuilder.Entity("Entities.Concrete.TelefonGenelDizayn", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<double>("Ayna")
-                        .HasColumnType("float");
-
-                    b.Property<double>("Back")
-                        .HasColumnType("float");
-
-                    b.Property<int>("DamarSayisi")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Degistiren")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("DegistirilmeTarihi")
-                        .HasColumnType("datetime2");
-
-                    b.Property<double>("DisCap")
-                        .HasColumnType("float");
-
-                    b.Property<string>("DisKilif")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<double>("FolyoOlcusu")
-                        .HasColumnType("float");
-
-                    b.Property<string>("FolyoTipi")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("GirilenDamarSayisi")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Kablo")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Kalip")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<double>("KesitCapi")
-                        .HasColumnType("float");
-
-                    b.Property<double>("Orgu")
-                        .HasColumnType("float");
-
-                    b.Property<string>("OrguTelYapisi")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<double>("PolyesterOlcusu")
-                        .HasColumnType("float");
-
-                    b.Property<DateTime>("Tarih")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Zorlama")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("TelefonGenelDizayn");
-                });
-
             modelBuilder.Entity("Entities.Concrete.User", b =>
                 {
                     b.Property<int>("Id")
@@ -868,118 +768,6 @@ namespace DataAccess.Migrations
                     b.HasIndex("RoleId");
 
                     b.ToTable("UserRoles", (string)null);
-                });
-
-            modelBuilder.Entity("Entities.Concrete.YanginDamarDizayn", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("AnaId")
-                        .HasColumnType("int");
-
-                    b.Property<double>("Ayna")
-                        .HasColumnType("float");
-
-                    b.Property<double>("Back")
-                        .HasColumnType("float");
-
-                    b.Property<double>("Cap")
-                        .HasColumnType("float");
-
-                    b.Property<int>("DamarNo")
-                        .HasColumnType("int");
-
-                    b.Property<double>("Etk")
-                        .HasColumnType("float");
-
-                    b.Property<double>("Hatve")
-                        .HasColumnType("float");
-
-                    b.Property<string>("Kalip")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<double>("KesitCapi")
-                        .HasColumnType("float");
-
-                    b.Property<string>("Renk")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("YanginDamarDizayn");
-                });
-
-            modelBuilder.Entity("Entities.Concrete.YanginGenelDizayn", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<double>("Ayna")
-                        .HasColumnType("float");
-
-                    b.Property<double>("Back")
-                        .HasColumnType("float");
-
-                    b.Property<int>("DamarSayisi")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Degistiren")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("DegistirilmeTarihi")
-                        .HasColumnType("datetime2");
-
-                    b.Property<double>("DisCap")
-                        .HasColumnType("float");
-
-                    b.Property<string>("DisKilif")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<double>("FolyoOlcusu")
-                        .HasColumnType("float");
-
-                    b.Property<string>("FolyoTipi")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("GirilenDamarSayisi")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Kablo")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Kalip")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<double>("KesitCapi")
-                        .HasColumnType("float");
-
-                    b.Property<double>("Orgu")
-                        .HasColumnType("float");
-
-                    b.Property<string>("OrguTelYapisi")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<double>("PolyesterOlcusu")
-                        .HasColumnType("float");
-
-                    b.Property<DateTime>("Tarih")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Zorlama")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("YanginGenelDizayn");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int>", b =>
@@ -1070,6 +858,28 @@ namespace DataAccess.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("Entities.Base.DamarDizaynBase", b =>
+                {
+                    b.HasOne("Entities.Base.GenelDizaynBase", "GenelDizayn")
+                        .WithMany("Damarlar")
+                        .HasForeignKey("GenelDizaynId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("GenelDizayn");
+                });
+
+            modelBuilder.Entity("Entities.Base.IsEmriBase", b =>
+                {
+                    b.HasOne("Entities.Base.GenelDizaynBase", "GenelDizayn")
+                        .WithOne("IsEmri")
+                        .HasForeignKey("Entities.Base.IsEmriBase", "GenelDizaynId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("GenelDizayn");
+                });
+
             modelBuilder.Entity("Entities.Concrete.Process", b =>
                 {
                     b.HasOne("Entities.Base.IsEmriBase", "IsEmri")
@@ -1138,6 +948,13 @@ namespace DataAccess.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("Entities.Base.GenelDizaynBase", b =>
+                {
+                    b.Navigation("Damarlar");
+
+                    b.Navigation("IsEmri");
                 });
 
             modelBuilder.Entity("Entities.Base.IsEmriBase", b =>

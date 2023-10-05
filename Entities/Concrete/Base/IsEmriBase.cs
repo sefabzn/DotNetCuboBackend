@@ -12,6 +12,7 @@ namespace Entities.Base
         }
         public int? Id { get; set; }
         public string? Isim { get; set; }
+        public string? Tur { get; set; }
         public string? BukumBarkodu { get; set; }
         public string? DamarBarkodu { get; set; }
         public string? DamarBukumBarkodu { get; set; }
@@ -29,6 +30,8 @@ namespace Entities.Base
 
         public DateTime Tarih { get; set; }
         public string? Degistiren { get; set; }
+        public int GenelDizaynId { get; set; }
+        public virtual GenelDizaynBase GenelDizayn { get; set; }
     }
 
 }
