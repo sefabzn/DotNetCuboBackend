@@ -13,6 +13,7 @@ namespace Entities.Concrete
         public double Ayna { get; set; }
         public string? Kalip { get; set; }
         public string? Operator { get; set; }
+        public int GenelDizaynId { get; set; }
         public DateTime Tarih { get; set; }
         public string? Degistiren { get; set; }
         public string[]? MakineIsimleri { get; set; }

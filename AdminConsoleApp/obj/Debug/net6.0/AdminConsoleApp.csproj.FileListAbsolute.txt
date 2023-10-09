@@ -13,10 +13,6 @@ C:\Users\sefa_\OneDrive\Masaüstü\DOTNETBACKEND\DotNetCuboBackend\AdminConsoleA
 C:\Users\sefa_\OneDrive\Masaüstü\DOTNETBACKEND\DotNetCuboBackend\AdminConsoleApp\bin\Debug\net6.0\FluentValidation.dll
 C:\Users\sefa_\OneDrive\Masaüstü\DOTNETBACKEND\DotNetCuboBackend\AdminConsoleApp\bin\Debug\net6.0\HtmlAgilityPack.dll
 C:\Users\sefa_\OneDrive\Masaüstü\DOTNETBACKEND\DotNetCuboBackend\AdminConsoleApp\bin\Debug\net6.0\MailKit.dll
-C:\Users\sefa_\OneDrive\Masaüstü\DOTNETBACKEND\DotNetCuboBackend\AdminConsoleApp\bin\Debug\net6.0\Microsoft.AspNetCore.Http.dll
-C:\Users\sefa_\OneDrive\Masaüstü\DOTNETBACKEND\DotNetCuboBackend\AdminConsoleApp\bin\Debug\net6.0\Microsoft.AspNetCore.Http.Abstractions.dll
-C:\Users\sefa_\OneDrive\Masaüstü\DOTNETBACKEND\DotNetCuboBackend\AdminConsoleApp\bin\Debug\net6.0\Microsoft.AspNetCore.Http.Features.dll
-C:\Users\sefa_\OneDrive\Masaüstü\DOTNETBACKEND\DotNetCuboBackend\AdminConsoleApp\bin\Debug\net6.0\Microsoft.AspNetCore.WebUtilities.dll
 C:\Users\sefa_\OneDrive\Masaüstü\DOTNETBACKEND\DotNetCuboBackend\AdminConsoleApp\bin\Debug\net6.0\Microsoft.Bcl.AsyncInterfaces.dll
 C:\Users\sefa_\OneDrive\Masaüstü\DOTNETBACKEND\DotNetCuboBackend\AdminConsoleApp\bin\Debug\net6.0\Microsoft.Data.SqlClient.dll
 C:\Users\sefa_\OneDrive\Masaüstü\DOTNETBACKEND\DotNetCuboBackend\AdminConsoleApp\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll
@@ -26,12 +22,10 @@ C:\Users\sefa_\OneDrive\Masaüstü\DOTNETBACKEND\DotNetCuboBackend\AdminConsoleA
 C:\Users\sefa_\OneDrive\Masaüstü\DOTNETBACKEND\DotNetCuboBackend\AdminConsoleApp\bin\Debug\net6.0\Microsoft.Extensions.Caching.Abstractions.dll
 C:\Users\sefa_\OneDrive\Masaüstü\DOTNETBACKEND\DotNetCuboBackend\AdminConsoleApp\bin\Debug\net6.0\Microsoft.Extensions.Caching.Memory.dll
 C:\Users\sefa_\OneDrive\Masaüstü\DOTNETBACKEND\DotNetCuboBackend\AdminConsoleApp\bin\Debug\net6.0\Microsoft.Extensions.Configuration.Abstractions.dll
-C:\Users\sefa_\OneDrive\Masaüstü\DOTNETBACKEND\DotNetCuboBackend\AdminConsoleApp\bin\Debug\net6.0\Microsoft.Extensions.Configuration.Binder.dll
 C:\Users\sefa_\OneDrive\Masaüstü\DOTNETBACKEND\DotNetCuboBackend\AdminConsoleApp\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.dll
 C:\Users\sefa_\OneDrive\Masaüstü\DOTNETBACKEND\DotNetCuboBackend\AdminConsoleApp\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
 C:\Users\sefa_\OneDrive\Masaüstü\DOTNETBACKEND\DotNetCuboBackend\AdminConsoleApp\bin\Debug\net6.0\Microsoft.Extensions.Logging.dll
 C:\Users\sefa_\OneDrive\Masaüstü\DOTNETBACKEND\DotNetCuboBackend\AdminConsoleApp\bin\Debug\net6.0\Microsoft.Extensions.Logging.Abstractions.dll
-C:\Users\sefa_\OneDrive\Masaüstü\DOTNETBACKEND\DotNetCuboBackend\AdminConsoleApp\bin\Debug\net6.0\Microsoft.Extensions.ObjectPool.dll
 C:\Users\sefa_\OneDrive\Masaüstü\DOTNETBACKEND\DotNetCuboBackend\AdminConsoleApp\bin\Debug\net6.0\Microsoft.Extensions.Options.dll
 C:\Users\sefa_\OneDrive\Masaüstü\DOTNETBACKEND\DotNetCuboBackend\AdminConsoleApp\bin\Debug\net6.0\Microsoft.Extensions.Primitives.dll
 C:\Users\sefa_\OneDrive\Masaüstü\DOTNETBACKEND\DotNetCuboBackend\AdminConsoleApp\bin\Debug\net6.0\Microsoft.Identity.Client.dll
@@ -42,7 +36,6 @@ C:\Users\sefa_\OneDrive\Masaüstü\DOTNETBACKEND\DotNetCuboBackend\AdminConsoleA
 C:\Users\sefa_\OneDrive\Masaüstü\DOTNETBACKEND\DotNetCuboBackend\AdminConsoleApp\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.dll
 C:\Users\sefa_\OneDrive\Masaüstü\DOTNETBACKEND\DotNetCuboBackend\AdminConsoleApp\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 C:\Users\sefa_\OneDrive\Masaüstü\DOTNETBACKEND\DotNetCuboBackend\AdminConsoleApp\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
-C:\Users\sefa_\OneDrive\Masaüstü\DOTNETBACKEND\DotNetCuboBackend\AdminConsoleApp\bin\Debug\net6.0\Microsoft.Net.Http.Headers.dll
 C:\Users\sefa_\OneDrive\Masaüstü\DOTNETBACKEND\DotNetCuboBackend\AdminConsoleApp\bin\Debug\net6.0\Microsoft.SqlServer.Server.dll
 C:\Users\sefa_\OneDrive\Masaüstü\DOTNETBACKEND\DotNetCuboBackend\AdminConsoleApp\bin\Debug\net6.0\Microsoft.Win32.SystemEvents.dll
 C:\Users\sefa_\OneDrive\Masaüstü\DOTNETBACKEND\DotNetCuboBackend\AdminConsoleApp\bin\Debug\net6.0\MimeKit.dll
@@ -100,3 +93,5 @@ C:\Users\sefa_\OneDrive\Masaüstü\DOTNETBACKEND\DotNetCuboBackend\AdminConsoleA
 C:\Users\sefa_\OneDrive\Masaüstü\DOTNETBACKEND\DotNetCuboBackend\AdminConsoleApp\bin\Debug\net6.0\Microsoft.Extensions.Identity.Core.dll
 C:\Users\sefa_\OneDrive\Masaüstü\DOTNETBACKEND\DotNetCuboBackend\AdminConsoleApp\bin\Debug\net6.0\Microsoft.Extensions.Identity.Stores.dll
 C:\Users\sefa_\OneDrive\Masaüstü\DOTNETBACKEND\DotNetCuboBackend\AdminConsoleApp\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\sefa_\OneDrive\Masaüstü\DOTNETBACKEND\DotNetCuboBackend\AdminConsoleApp\bin\Debug\net6.0\FluentValidation.AspNetCore.dll
+C:\Users\sefa_\OneDrive\Masaüstü\DOTNETBACKEND\DotNetCuboBackend\AdminConsoleApp\bin\Debug\net6.0\FluentValidation.DependencyInjectionExtensions.dll

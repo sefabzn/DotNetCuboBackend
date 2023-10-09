@@ -1,14 +1,7 @@
 ﻿using Business.Abstract;
 using Core.Business;
-using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Business.Concrete
 {
@@ -18,7 +11,7 @@ namespace Business.Concrete
         IMakineDal _makineDal;
         IOperatorIsEmriDal _operatorIsEmriDal;
         IMakineKesitHizTablosuDal _kesitHizTablosuDal;
-        public OperatorIsEmriManager(IOperatorIsEmriDal operatorIsEmriDal, IMakineKesitHizTablosuDal kesitHizTablosuDal,IMakineDal makineDal) : base(operatorIsEmriDal)
+        public OperatorIsEmriManager(IOperatorIsEmriDal operatorIsEmriDal, IMakineKesitHizTablosuDal kesitHizTablosuDal, IMakineDal makineDal) : base(operatorIsEmriDal)
         {
             _operatorIsEmriDal = operatorIsEmriDal;
             _kesitHizTablosuDal = kesitHizTablosuDal;
@@ -50,19 +43,19 @@ namespace Business.Concrete
             {
                 var isEmri = new OperatorIsEmri()
                 {
-                    UrunIsmi=ortakIsEmri.UrunIsmi,
-                    DizaynTuru=ortakIsEmri.DizaynTuru,
-                    DisCap= ortakIsEmri.DisCap,
-                    Back= ortakIsEmri.Back,
-                    Ayna= ortakIsEmri.Ayna,
-                    Kalip= ortakIsEmri.Kalip,
+                    UrunIsmi = ortakIsEmri.UrunIsmi,
+                    DizaynTuru = ortakIsEmri.DizaynTuru,
+                    DisCap = ortakIsEmri.DisCap,
+                    Back = ortakIsEmri.Back,
+                    Ayna = ortakIsEmri.Ayna,
+                    Kalip = ortakIsEmri.Kalip,
                     MakineIsmi = makine.MakineIsmi,
-                    Metraj =Convert.ToDouble(ortakIsEmri.Metraj * (makine.Verimlilik / toplamVerimlilik)),
-                    KesitCapi=ortakIsEmri.Kesit,
-                    Operator=ortakIsEmri.Operator,
-                    Degistiren=ortakIsEmri.Degistiren,
-                    Tarih=ortakIsEmri.Tarih
-                   
+                    Metraj = Convert.ToDouble(ortakIsEmri.Metraj * (makine.Verimlilik / toplamVerimlilik)),
+                    KesitCapi = ortakIsEmri.Kesit,
+                    Operator = ortakIsEmri.Operator,
+                    Degistiren = ortakIsEmri.Degistiren,
+                    Tarih = ortakIsEmri.Tarih
+
                 };
 
                 liste.Add(isEmri);
@@ -95,7 +88,7 @@ namespace Business.Concrete
 
             var ortalamaVerimlilik = toplamVerimlilik / makines.Count();
 
-            var teorikTahminiSüre = (ortakIsEmri.Metraj /( toplamHiz*60)) / (ortalamaVerimlilik);
+            var teorikTahminiSüre = (ortakIsEmri.Metraj / (toplamHiz * 60)) / (ortalamaVerimlilik);
 
 
 

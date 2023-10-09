@@ -36,6 +36,8 @@ namespace DataAccess.Concrete.Entityframework.Contexts
             modelBuilder.Entity<UserRole>().ToTable("UserRoles");
 
 
+
+
             modelBuilder.Entity<Process>()
                 .HasOne(p => p.IsEmri)
                 .WithMany(o => o.Surecler)

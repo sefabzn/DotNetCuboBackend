@@ -1,11 +1,7 @@
-﻿using System.Linq.Expressions;
-using Business.Abstract;
-using Business.BusinessAspects.Autofac;
+﻿using Business.Abstract;
 using Business.Validation.FluentValidation;
 using Core.Aspects.Autofac.Caching;
-using Core.Aspects.Autofac.Validation;
 using Core.Business;
-using Core.Entities;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
@@ -18,24 +14,25 @@ namespace Business.Concrete
         IMakineDal _makineDal;
         IKabloUretimDal _kabloUretimDal;
 
-        public MakineManager(IMakineDal dal,IKabloUretimDal kabloUretimDal) : base(dal)
+        public MakineManager(IMakineDal dal, IKabloUretimDal kabloUretimDal) : base(dal, new MakineValidator())
         {
             _makineDal = dal;
             _kabloUretimDal = kabloUretimDal;
         }
-      
+
         [CacheAspect]
         public async Task<IDataResult<List<MakineGunlukRaporDto>>> GetGunlukRaporlarAsync(string makineIsmi, DateTime firstDate, DateTime lastDate)
         {
-           return new SuccessDataResult<List<MakineGunlukRaporDto>>(_makineDal.getGunlukRapor(makineIsmi,firstDate,lastDate),"Günlük Rapor Getirildi");
+            return new SuccessDataResult<List<MakineGunlukRaporDto>>(_makineDal.getGunlukRapor(makineIsmi, firstDate, lastDate), "Günlük Rapor Getirildi");
         }
 
-        public  async Task<IDataResult<double>> SetOrtalamaVerimlilik(int id)
+        public async Task<IDataResult<double>> SetOrtalamaVerimlilik(int id)
         {
+
             // Makine ve verileri al.
             var makine = await _makineDal.GetAsync(x => x.Id == id);
             var data = await _kabloUretimDal.GetAllAsync(x => x.MakineId == id);
-            if (data.Count== 0)
+            if (data.Count == 0)
             {
                 makine.Verimlilik = 0;
                 return new SuccessDataResult<double>(0, "Verimlilik Hesaplandı");
@@ -59,7 +56,7 @@ namespace Business.Concrete
             foreach (var makine in makineler)
             {
 
-               await  SetOrtalamaVerimlilik(makine.Id);
+                await SetOrtalamaVerimlilik(makine.Id);
             }
             return new SuccessResult("Tüm makineler için verimlilik hesaplandı");
         }
