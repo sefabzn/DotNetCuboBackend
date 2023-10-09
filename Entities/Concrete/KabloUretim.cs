@@ -1,9 +1,9 @@
 ﻿using Core.Entities;
-using System.ComponentModel.DataAnnotations;
+using Entities.Base;
 
 namespace Entities.Concrete
 {
-    public class KabloUretim:IEntity
+    public class KabloUretim : IEntity
     {
 
         public int Id { get; set; }
@@ -19,6 +19,10 @@ namespace Entities.Concrete
         public double CalismaSuresi { get; set; }
         public double KayipZaman { get; set; }
         public double Verimlilik { get; set; }
+        public int IsEmriId { get; set; }
+
+        public IsEmriBase? IsEmri { get; set; }
+
         public DateTime Tarih { get; set; }
         public string? Degistiren { get; set; }
 

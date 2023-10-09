@@ -9,6 +9,8 @@ namespace Business.Concrete
     {
         public GenelDizaynManager(IGenelDizaynDal repository) : base(repository)
         {
+
+
         }
     }
 }

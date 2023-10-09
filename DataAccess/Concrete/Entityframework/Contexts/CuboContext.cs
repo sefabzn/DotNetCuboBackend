@@ -47,6 +47,11 @@ namespace DataAccess.Concrete.Entityframework.Contexts
               .WithOne(i => i.GenelDizayn)
               .HasForeignKey<IsEmriBase>(i => i.GenelDizaynId);
 
+            modelBuilder.Entity<IsEmriBase>()
+              .HasOne(i => i.KabloUretim)
+              .WithOne(k => k.IsEmri)
+              .HasForeignKey<KabloUretim>(k => k.IsEmriId);
+
             modelBuilder.Entity<GenelDizaynBase>()
             .HasMany(g => g.Damarlar)
             .WithOne(d => d.GenelDizayn)

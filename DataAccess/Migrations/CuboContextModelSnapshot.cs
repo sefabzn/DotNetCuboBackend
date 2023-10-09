@@ -221,37 +221,13 @@ namespace DataAccess.Migrations
                     b.Property<string>("Barkod")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("BukumBarkodu")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("DamarBarkodu")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("DamarBukumBarkodu")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Degistiren")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("DisKilifBarkodu")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("DolguBarkodu")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("FolyoBarkodu")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("GenelDizaynId")
                         .HasColumnType("int");
 
                     b.Property<string>("Isim")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("KilifBarkodu")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("OrguBarkodu")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("TamamlanmaDurumu")
@@ -294,6 +270,9 @@ namespace DataAccess.Migrations
                     b.Property<double>("HurdaPvc")
                         .HasColumnType("float");
 
+                    b.Property<int>("IsEmriId")
+                        .HasColumnType("int");
+
                     b.Property<string>("KabloIsmi")
                         .HasColumnType("nvarchar(max)");
 
@@ -322,6 +301,9 @@ namespace DataAccess.Migrations
                         .HasColumnType("float");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("IsEmriId")
+                        .IsUnique();
 
                     b.ToTable("KabloUretim");
                 });
@@ -880,6 +862,17 @@ namespace DataAccess.Migrations
                     b.Navigation("GenelDizayn");
                 });
 
+            modelBuilder.Entity("Entities.Concrete.KabloUretim", b =>
+                {
+                    b.HasOne("Entities.Base.IsEmriBase", "IsEmri")
+                        .WithOne("KabloUretim")
+                        .HasForeignKey("Entities.Concrete.KabloUretim", "IsEmriId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("IsEmri");
+                });
+
             modelBuilder.Entity("Entities.Concrete.Process", b =>
                 {
                     b.HasOne("Entities.Base.IsEmriBase", "IsEmri")
@@ -959,6 +952,8 @@ namespace DataAccess.Migrations
 
             modelBuilder.Entity("Entities.Base.IsEmriBase", b =>
                 {
+                    b.Navigation("KabloUretim");
+
                     b.Navigation("Surecler");
                 });
 

@@ -13,14 +13,7 @@ namespace Entities.Base
         public int? Id { get; set; }
         public string? Isim { get; set; }
         public string? Tur { get; set; }
-        public string? BukumBarkodu { get; set; }
-        public string? DamarBarkodu { get; set; }
-        public string? DamarBukumBarkodu { get; set; }
-        public string? DolguBarkodu { get; set; }
-        public string? KilifBarkodu { get; set; }
-        public string? FolyoBarkodu { get; set; }
-        public string? OrguBarkodu { get; set; }
-        public string? DisKilifBarkodu { get; set; }
+
 
         [DefaultValue(false)]
         public bool TamamlanmaDurumu { get; set; }
@@ -31,7 +24,8 @@ namespace Entities.Base
         public DateTime Tarih { get; set; }
         public string? Degistiren { get; set; }
         public int GenelDizaynId { get; set; }
-        public virtual GenelDizaynBase GenelDizayn { get; set; }
+        public virtual GenelDizaynBase? GenelDizayn { get; set; }
+        public virtual KabloUretim? KabloUretim { get; set; }
     }
 
 }
