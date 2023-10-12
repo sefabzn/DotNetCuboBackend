@@ -1,8 +1,5 @@
 ﻿using Business.Abstract;
-using Business.BusinessAspects.Autofac;
-using Core.Aspects.Autofac.Mailing;
 using Core.Business;
-using Core.Utilities.Business;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
@@ -19,7 +16,7 @@ namespace Business.Concrete
         private IExchangeRateDal _exchangeRateDal;
 
         //Bu class cok fazla experimental bunu test et
-        public KabloUretimManager(IKabloUretimDal kabloUretimDal, ISarfiyatDal sarfiyatDal, IKesitYapisiDal kesitYapisiDal, IMakineDal makineDal,IExchangeRateDal exchangeRateDal):base(kabloUretimDal)
+        public KabloUretimManager(IKabloUretimDal kabloUretimDal, ISarfiyatDal sarfiyatDal, IKesitYapisiDal kesitYapisiDal, IMakineDal makineDal, IExchangeRateDal exchangeRateDal) : base(kabloUretimDal)
         {
             _kabloUretimDal = kabloUretimDal;
             _sarfiyatDal = sarfiyatDal;
@@ -28,7 +25,7 @@ namespace Business.Concrete
             _exchangeRateDal = exchangeRateDal;
         }
 
-        [MailAspect]
+        //[MailAspect]
         public new async Task<IResult> addAsync(KabloUretim kablo) // new keywordu base'deki aynı isimdeki methodu bastırması için kullanılır
         {
 
@@ -44,7 +41,7 @@ namespace Business.Concrete
         }
         public async Task<IResult> IsTimeValid()
         {
-            if (DateTime.Now.Hour < 6 && DateTime.Now.Hour > 21 )
+            if (DateTime.Now.Hour < 6 && DateTime.Now.Hour > 21)
             {
                 return new ErrorResult();
             }
@@ -62,14 +59,14 @@ namespace Business.Concrete
             double calismaSuresiByDakika = kablo.CalismaSuresi * 60;
 
             kablo.KayipZaman = (KopmaKaybi + RenkDegisimiKaybi + KesitDegisimiKaybi + GenelAriza + Isinma);
-            kablo.Verimlilik = Math.Round(((calismaSuresiByDakika - kablo.KayipZaman) / calismaSuresiByDakika),2); // Çalışılan zaman 0 olmamalı dikkat et
+            kablo.Verimlilik = Math.Round(((calismaSuresiByDakika - kablo.KayipZaman) / calismaSuresiByDakika), 2); // Çalışılan zaman 0 olmamalı dikkat et
         }
 
         private async Task<IResult> addToSarfiyat(KabloUretim kablo)
         {
             double PVCOZGUL = 1.5;  ///// Bu değerler için henüz bir veritabanı yok o yüzden constant 
             double CUOZGUL = 8.95;   // değişken gibi girdim
-            var kesityapisi =await _kesitYapisiDal.GetAsync(x => x.KesitCapi == kablo.KesitCapi);
+            var kesityapisi = await _kesitYapisiDal.GetAsync(x => x.KesitCapi == kablo.KesitCapi);
             double Back = Convert.ToDouble(kesityapisi.Back);
             double Dis_Cap = Convert.ToDouble(kesityapisi.DisCap);
 
@@ -101,15 +98,15 @@ namespace Business.Concrete
                 Tarih = kablo.Tarih
             };
 
-            _sarfiyatDal.AddAsync((sarfiyat));
+            await _sarfiyatDal.AddAsync((sarfiyat));
             return new SuccessResult();
         }
 
-     
+
 
         public new async Task<IResult> deleteAsync(KabloUretim kablo)
         {
-            var sarfiyat =await _sarfiyatDal.GetAsync(x => x.KabloId == kablo.Id);
+            var sarfiyat = await _sarfiyatDal.GetAsync(x => x.KabloId == kablo.Id);
             try
             {
                 await _sarfiyatDal.DeleteAsync(sarfiyat);
@@ -119,7 +116,7 @@ namespace Business.Concrete
 
                 Console.WriteLine("Belirtilen kabloya ait sarfiyat verisi bulunamadı");
             }
-          
+
             await _kabloUretimDal.DeleteAsync(kablo);
             return new SuccessResult("Ürün Başarıyla Silindi");
 
@@ -141,6 +138,19 @@ namespace Business.Concrete
             return new SuccessDataResult<KabloUretim>(await _kabloUretimDal.GetAsync(filter));
         }
 
-  
+        public async Task<IResult> AddManyAsync(List<KabloUretim> kabloUretims)
+        {
+            //await _kabloUretimDal.AddManyAsync(kabloUretims); bu metodu şimdilik kullanmıyorum ek işlemler de kullanmam gerektiği için fakat bu Core katmanına dahil edilebilir bir method
+            foreach (var kablo in kabloUretims)
+            {
+                var makine = await _makineDal.GetAsync(x => x.Id == kablo.MakineId);
+
+                VerimlilikHesapla(kablo, makine);
+
+                await _kabloUretimDal.AddAsync((kablo));
+                await addToSarfiyat(kablo);
+            }
+            return new SuccessResult("Kablolar Eklendi");
+        }
     }
 }

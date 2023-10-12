@@ -1,11 +1,6 @@
 ﻿using Core.Entities;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Core.DataAccess.EntityFramework
 {
@@ -17,9 +12,10 @@ namespace Core.DataAccess.EntityFramework
         {
             using (TContext context = new TContext())
             {
+
                 var addedEntity = context.Entry(entity);
                 addedEntity.State = EntityState.Added;
-               await context.SaveChangesAsync();
+                await context.SaveChangesAsync();
             }
         }
 
@@ -41,8 +37,8 @@ namespace Core.DataAccess.EntityFramework
             }
         }
 
-    
-        public async  Task<List<TEntity>> GetAllAsync(Expression<Func<TEntity, bool>> filter = null)
+
+        public async Task<List<TEntity>> GetAllAsync(Expression<Func<TEntity, bool>> filter = null)
         {
 
             using (TContext context = new TContext())
@@ -62,5 +58,7 @@ namespace Core.DataAccess.EntityFramework
                 await context.SaveChangesAsync();
             }
         }
+
+
     }
 }

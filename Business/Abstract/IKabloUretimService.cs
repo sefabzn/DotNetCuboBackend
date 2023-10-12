@@ -12,6 +12,7 @@ namespace Business.Abstract
 {
     public interface IKabloUretimService: IServiceRepository<KabloUretim>
     {
-        
+
+        Task<IResult> AddManyAsync(List<KabloUretim> kabloUretims);
     }
 }

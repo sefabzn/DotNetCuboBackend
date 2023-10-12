@@ -1,30 +1,40 @@
-﻿using Core.Aspects.Autofac.Mailing;
-using Core.CrossCuttingConcern.Validation;
-using Core.DataAccess;
+﻿using Core.DataAccess;
 using Core.Entities;
 using Core.Utilities.Results;
 using FluentValidation;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+using FluentValidation.Results;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace Core.Business
 {
-    public class ManagerBase<TEntity,TDal> : IServiceRepository<TEntity>
-        where TEntity : class, IEntity,new()
+    public class ManagerBase<TEntity, TDal> : IServiceRepository<TEntity>
+        where TEntity : class, IEntity, new()
         where TDal : IEntityRepository<TEntity>
     {
+
+        AbstractValidator<TEntity> _validator;
         TDal _dal;
-        public ManagerBase(TDal repository)
+        public ManagerBase(TDal repository, AbstractValidator<TEntity>? validator = null)
         {
             _dal = repository;
+            _validator = validator;
         }
-        [MailAspect]
+        //[MailAspect]
         public async Task<IResult> addAsync(TEntity entity)
         {
+
+            if (_validator != null)
+            {
+                // Validator is provided, you can perform additional actions if needed.
+                ValidationResult results = await _validator.ValidateAsync(entity);
+
+                if (!results.IsValid)
+                {
+                    foreach (var failure in results.Errors)
+                    {
+                        return new ErrorResult("Property " + failure.PropertyName + " failed validation. Error was: " + failure.ErrorMessage);
+                    }
+                }
+            }
 
             await _dal.AddAsync(entity);
 
@@ -40,22 +50,41 @@ namespace Core.Business
 
         public async Task<IDataResult<TEntity>> GetAsync(Expression<Func<TEntity, bool>> filter)
         {
-            
-            return new SuccessDataResult<TEntity>(await _dal.GetAsync(filter),"Ürün bulundu");
+
+            return new SuccessDataResult<TEntity>(await _dal.GetAsync(filter), "Ürün bulundu");
         }
 
-      
+
         public async Task<IDataResult<List<TEntity>>> GetAllAsync(Expression<Func<TEntity, bool>>? filter = null)
         {
-            return new SuccessDataResult<List<TEntity>>(await _dal.GetAllAsync(filter),"Ürünler Bulundu");
+            return new SuccessDataResult<List<TEntity>>(await _dal.GetAllAsync(filter), "Ürünler Bulundu");
         }
 
-        public async Task<IResult> updateAsync(TEntity makinalar)
+        public async Task<IResult> updateAsync(TEntity entity)
         {
-            await _dal.UpdateAsync(makinalar);
+
+            if (_validator != null)
+            {
+                // Validator is provided, you can perform additional actions if needed.
+                ValidationResult results = await _validator.ValidateAsync(entity);
+
+                if (!results.IsValid)
+                {
+                    foreach (var failure in results.Errors)
+                    {
+                        return new ErrorResult("Property " + failure.PropertyName + " failed validation. Error was: " + failure.ErrorMessage);
+                    }
+                }
+            }
+            await _dal.UpdateAsync(entity);
             return new SuccessResult("Ürün Güncellendi");
 
 
         }
+
+
+
+
+
     }
 }

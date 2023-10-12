@@ -50,6 +50,25 @@ namespace WebApi.Controllers
             }
             return BadRequest(result);
         }
+
+        [HttpPost("AddMany")]
+        public async Task<IActionResult> AddMany(List<KabloUretim> kabloUretims)
+        {
+
+            var result = await _kabloUretimService.AddManyAsync(kabloUretims);
+            foreach (var kablo in kabloUretims)
+            {
+                await _makineService.SetOrtalamaVerimlilik(kablo.MakineId);
+
+            }
+
+            if (result.Success)
+            {
+                return Ok(result);
+
+            }
+            return BadRequest(result);
+        }
         [HttpPost("Delete")]
         public async Task<IActionResult> Delete(KabloUretim kablo)
         {

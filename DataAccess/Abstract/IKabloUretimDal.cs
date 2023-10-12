@@ -10,5 +10,6 @@ namespace DataAccess.Abstract
 {
     public interface IKabloUretimDal:IEntityRepository<KabloUretim>
     {
+        Task  AddManyAsync(List<KabloUretim> kabloUretims);
     }
 }

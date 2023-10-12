@@ -1,76 +1,97 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using AutoMapper;
 using Business.Abstract;
-using Core.Aspects.Autofac.Mailing;
-using Core.Entities.Concrete;
 using Core.Utilities.Results;
-using Core.Utilities.Security.Hashing;
-using Core.Utilities.Security.JWT;
+using DataAccess.Concrete.Entityframework.Contexts;
+using Entities.Concrete;
 using Entities.DTO_s;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 
 namespace Business.Concrete
 {
     public class AuthManager : IAuthService
     {
-        private IKullaniciService _kullaniciService;
-        private ITokenHelper _tokenHelper;
+        private readonly ITokenService _tokenService;
+        private readonly UserManager<User> _userManager;
+        private readonly RoleManager<Role> _roleManager;
+        private readonly IMapper _mapper;
+        private readonly CuboContext _context;
 
-        public AuthManager(IKullaniciService kullaniciService, ITokenHelper tokenHelper)
+        public AuthManager(CuboContext context, ITokenService tokenService, UserManager<User> userManager, RoleManager<Role> roleManager, IMapper mapper)
         {
-            _kullaniciService = kullaniciService;
-            _tokenHelper = tokenHelper;
+            _context = context;
+            _tokenService = tokenService;
+            _userManager = userManager;
+            _roleManager = roleManager;
+            _mapper = mapper;
         }
 
-        public async Task<IDataResult<Kullanici>> Register(KullaniciForRegisterDto kullaniciForRegisterDto, string password)
+        public async Task<IDataResult<UserDTO>> LoginAsync(LoginDto loginUser)
         {
-            byte[] passwordHash, passwordSalt;
-            HashingHelper.CreatePasswordHash(password, out passwordHash, out passwordSalt);
-            var kullanici = new Kullanici
-            {
-                KullaniciAdi = kullaniciForRegisterDto.KullaniciAdi,
-                PasswordHash = passwordHash,
-                PasswordSalt = passwordSalt,
-                Status = true,
+            var user = await _userManager.Users.SingleOrDefaultAsync(x => x.Email == loginUser.Email);
 
-            };
-            await _kullaniciService.addAsync(kullanici);
-            return new SuccessDataResult<Kullanici>(kullanici, "User Registered");
+            if (user == null) return new ErrorDataResult<UserDTO>("Invalid email");
+            var result = await _userManager.CheckPasswordAsync(user, loginUser.Password);
+
+            if (!result) return new ErrorDataResult<UserDTO>("Invalid Password");
+
+            return new SuccessDataResult<UserDTO>(new UserDTO
+            {
+                Email = user.Email,
+                Token = await _tokenService.CreateToken(user)
+            });
         }
 
-        [MailAspect]
-        public async Task<IDataResult<Kullanici>> Login(KullaniciForLoginDto kullaniciForLoginDto)
+        public async Task<IDataResult<UserDTO>> RegisterAsync(RegisterDto registerUser)
         {
-            var kullaniciToCheck =(await _kullaniciService.GetByKullaniciAdiAsync(kullaniciForLoginDto.KullaniciAdi)).Data;
-            if (kullaniciToCheck == null)
+            var user = _mapper.Map<User>(registerUser);
+
+            var result = await _userManager.CreateAsync(user, registerUser.Password);
+            if (!result.Succeeded)
             {
-                return new ErrorDataResult<Kullanici>("User not Found");
+                return new ErrorDataResult<UserDTO>("Could not create the user");
             }
 
-            if (!HashingHelper.VerifyPasswordHash(kullaniciForLoginDto.Sifre, kullaniciToCheck.PasswordHash, kullaniciToCheck.PasswordSalt))
+            var roleResult = await _userManager.AddToRoleAsync(user, "Member");
+
+            if (!roleResult.Succeeded)
             {
-                return new ErrorDataResult<Kullanici>("Şifre Hatalı");
+                return new ErrorDataResult<UserDTO>("Could not assign the role");
             }
 
-            return new SuccessDataResult<Kullanici>(kullaniciToCheck, "Giriş yapıldı");
-        }
 
+            return new SuccessDataResult<UserDTO>(new UserDTO
+            {
+                Email = user.Email,
+                Token = await _tokenService.CreateToken(user)
+            });
+
+        }
         public async Task<IResult> CheckIfUserExists(string kullaniciAdi)
         {
-            if ((await _kullaniciService.GetByKullaniciAdiAsync(kullaniciAdi)).Data != null)
+            if (await _context.Users.AnyAsync(x => x.UserName == kullaniciAdi))
             {
                 return new ErrorResult("User Already exist");
             }
             return new SuccessResult();
         }
 
-        public async Task<IDataResult<AccessToken>> CreateAccessToken(Kullanici kullanici)
+        public async Task AddRoles()
         {
-            var claims = await _kullaniciService.GetClaimsAsync(kullanici);
-            var accessToken = _tokenHelper.CreateToken(kullanici, claims.Data);
-            return new SuccessDataResult<AccessToken>(accessToken, "Acces Token Created");
+            var roles = new List<Role>
+            {
+                new Role{Name="Admin"},
+                new Role{Name="Moderator"},
+                new Role{Name="Member"}
+            };
+
+            foreach (var role in roles)
+            {
+                await _roleManager.CreateAsync(role);
+
+            }
         }
+
+
     }
 }
