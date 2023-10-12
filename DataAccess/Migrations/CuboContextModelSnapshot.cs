@@ -212,11 +212,11 @@ namespace DataAccess.Migrations
 
             modelBuilder.Entity("Entities.Base.IsEmriBase", b =>
                 {
-                    b.Property<int?>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("Id"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Barkod")
                         .HasColumnType("nvarchar(max)");
@@ -230,6 +230,12 @@ namespace DataAccess.Migrations
                     b.Property<string>("Isim")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("MakineIsmi")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("Metraj")
+                        .HasColumnType("float");
+
                     b.Property<bool>("TamamlanmaDurumu")
                         .HasColumnType("bit");
 
@@ -241,8 +247,7 @@ namespace DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("GenelDizaynId")
-                        .IsUnique();
+                    b.HasIndex("GenelDizaynId");
 
                     b.ToTable("IsEmirleri");
                 });
@@ -302,8 +307,7 @@ namespace DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("IsEmriId")
-                        .IsUnique();
+                    b.HasIndex("IsEmriId");
 
                     b.ToTable("KabloUretim");
                 });
@@ -404,64 +408,6 @@ namespace DataAccess.Migrations
                     b.ToTable("MakineKesitHizTablosu");
                 });
 
-            modelBuilder.Entity("Entities.Concrete.OperatorIsEmri", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<double>("Ayna")
-                        .HasColumnType("float");
-
-                    b.Property<double>("Back")
-                        .HasColumnType("float");
-
-                    b.Property<string>("Barkod")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Degistiren")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<double>("DisCap")
-                        .HasColumnType("float");
-
-                    b.Property<string>("DizaynTuru")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Kalip")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<double>("KesitCapi")
-                        .HasColumnType("float");
-
-                    b.Property<string>("MakineIsmi")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<double>("Metraj")
-                        .HasColumnType("float");
-
-                    b.Property<string>("Operator")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("TamamlanmaDurumu")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTime>("Tarih")
-                        .HasColumnType("datetime2");
-
-                    b.Property<double>("TeorikMaliyet")
-                        .HasColumnType("float");
-
-                    b.Property<string>("UrunIsmi")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("OperatorIsEmirleri");
-                });
-
             modelBuilder.Entity("Entities.Concrete.Process", b =>
                 {
                     b.Property<int>("Id")
@@ -479,9 +425,6 @@ namespace DataAccess.Migrations
                     b.Property<string>("Isim")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("OperatorIsEmriId")
-                        .HasColumnType("int");
-
                     b.Property<int>("Order")
                         .HasColumnType("int");
 
@@ -491,8 +434,6 @@ namespace DataAccess.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("IsEmriId");
-
-                    b.HasIndex("OperatorIsEmriId");
 
                     b.ToTable("Processes");
                 });
@@ -854,8 +795,8 @@ namespace DataAccess.Migrations
             modelBuilder.Entity("Entities.Base.IsEmriBase", b =>
                 {
                     b.HasOne("Entities.Base.GenelDizaynBase", "GenelDizayn")
-                        .WithOne("IsEmri")
-                        .HasForeignKey("Entities.Base.IsEmriBase", "GenelDizaynId")
+                        .WithMany("IsEmirleri")
+                        .HasForeignKey("GenelDizaynId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -865,8 +806,8 @@ namespace DataAccess.Migrations
             modelBuilder.Entity("Entities.Concrete.KabloUretim", b =>
                 {
                     b.HasOne("Entities.Base.IsEmriBase", "IsEmri")
-                        .WithOne("KabloUretim")
-                        .HasForeignKey("Entities.Concrete.KabloUretim", "IsEmriId")
+                        .WithMany("KabloUretimler")
+                        .HasForeignKey("IsEmriId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -880,10 +821,6 @@ namespace DataAccess.Migrations
                         .HasForeignKey("IsEmriId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.HasOne("Entities.Concrete.OperatorIsEmri", null)
-                        .WithMany("Surecler")
-                        .HasForeignKey("OperatorIsEmriId");
 
                     b.Navigation("IsEmri");
                 });
@@ -947,18 +884,13 @@ namespace DataAccess.Migrations
                 {
                     b.Navigation("Damarlar");
 
-                    b.Navigation("IsEmri");
+                    b.Navigation("IsEmirleri");
                 });
 
             modelBuilder.Entity("Entities.Base.IsEmriBase", b =>
                 {
-                    b.Navigation("KabloUretim");
+                    b.Navigation("KabloUretimler");
 
-                    b.Navigation("Surecler");
-                });
-
-            modelBuilder.Entity("Entities.Concrete.OperatorIsEmri", b =>
-                {
                     b.Navigation("Surecler");
                 });
 

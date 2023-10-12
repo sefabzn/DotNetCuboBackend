@@ -11,7 +11,7 @@ namespace Business.Validation.FluentValidation
         {
             RuleFor(x => x.MakineIsmi).MinimumLength(2)
                 .MustAsync(async (makineIsmi, cancellationToken) => !await CheckIfExistsAsync(makineIsmi))
-                .WithMessage("A machine with this name already exists.");
+                .WithMessage("Bu isimde bir makine zaten var.");
 
             RuleFor(x => x.No).GreaterThan(0);
 

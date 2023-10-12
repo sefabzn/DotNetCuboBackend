@@ -56,6 +56,25 @@ namespace WebApi.Controllers
             }
             return BadRequest(result);
         }
+
+        [HttpPost("AddByList")]
+        public async Task<IActionResult> AddByListAsync(List<GenelDizaynBase> dizaynList)
+        {
+
+            foreach (var elem in dizaynList)
+            {
+
+                var result = await _genelDizaynService.addAsync(elem);
+                if (!(result.Success))
+                {
+                    return BadRequest(result);
+
+                }
+
+            }
+            return Ok("Ekleme Tamamlandı");
+
+        }
         [HttpGet("GetById")]
         public async Task<IActionResult> GetByIdAsync(int id)
         {

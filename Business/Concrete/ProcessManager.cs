@@ -18,7 +18,7 @@ namespace Business.Concrete
             _isEmriDal = isEmriDal;
         }
 
-        public async Task<DataResult<IsEmriBase>> UpdateBarcodeAsync(int isEmriId, Process process)
+        public async Task<DataResult<IsEmriBase>> UpdateBarcodeAsync(int isEmriId)
         {
             var result = await _isEmriDal.GetAsync(x => x.Id == isEmriId);
 

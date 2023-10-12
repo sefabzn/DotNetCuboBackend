@@ -24,8 +24,6 @@ namespace Business.DependencyResolvers.Autofac
             builder.RegisterType<KabloUretimManager>().As<IKabloUretimService>().SingleInstance();
             builder.RegisterType<EfKabloUretimDal>().As<IKabloUretimDal>().SingleInstance();
 
-            builder.RegisterType<OperatorIsEmriManager>().As<IOperatorIsEmriService>().SingleInstance();
-            builder.RegisterType<EfOperatorIsEmriDal>().As<IOperatorIsEmriDal>().SingleInstance();
 
 
             builder.RegisterType<MakineKesizHizTablosuManager>().As<IMakineKesitHizTablosuService>().SingleInstance();

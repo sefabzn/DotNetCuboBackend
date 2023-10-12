@@ -45,14 +45,14 @@ namespace DataAccess.Concrete.Entityframework.Contexts
                 .OnDelete(DeleteBehavior.Cascade);
 
             modelBuilder.Entity<GenelDizaynBase>()
-              .HasOne(d => d.IsEmri)
+              .HasMany(d => d.IsEmirleri)
               .WithOne(i => i.GenelDizayn)
-              .HasForeignKey<IsEmriBase>(i => i.GenelDizaynId);
+              .HasForeignKey(i => i.GenelDizaynId);
 
             modelBuilder.Entity<IsEmriBase>()
-              .HasOne(i => i.KabloUretim)
+              .HasMany(i => i.KabloUretimler)
               .WithOne(k => k.IsEmri)
-              .HasForeignKey<KabloUretim>(k => k.IsEmriId);
+              .HasForeignKey(k => k.IsEmriId);
 
             modelBuilder.Entity<GenelDizaynBase>()
             .HasMany(g => g.Damarlar)
@@ -81,7 +81,6 @@ namespace DataAccess.Concrete.Entityframework.Contexts
         public DbSet<KesitYapisi> KesitYapisi { get; set; }
         public DbSet<Makine> Makineler { get; set; }
         public DbSet<MakineKesitHizTablosu> MakineKesitHizTablosu { get; set; }
-        public DbSet<OperatorIsEmri> OperatorIsEmirleri { get; set; }
         public DbSet<Sarfiyat> Sarfiyat { get; set; }
         public DbSet<SatisPlanlama> SatisPlanlama { get; set; }
         public DbSet<TekDamarDizayn> TekDamarDizayn { get; set; }

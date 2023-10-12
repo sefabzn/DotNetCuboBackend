@@ -28,6 +28,6 @@ namespace Entities.Base
         public DateTime DegistirilmeTarihi { get; set; }
         public string? Degistiren { get; set; }
         public List<DamarDizaynBase>? Damarlar { get; set; }
-        public virtual IsEmriBase? IsEmri { get; set; }
+        public virtual List<IsEmriBase>? IsEmirleri { get; set; }
     }
 }

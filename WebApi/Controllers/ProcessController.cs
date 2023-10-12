@@ -66,9 +66,20 @@ namespace WebApi.Controllers
             };
 
             var result = _processService.addAsync(process);
-            await UpdateBarcode(process.IsEmriId, process);
+            await UpdateBarcode(process.IsEmriId);
 
             return Ok(result.Result);
+
+        }
+        [HttpPost("AddAll")]
+        public async Task<IActionResult> AddAllAsync(List<Process> processDtos)
+        {
+
+            foreach (var elem in processDtos)
+            {
+                await AddAsync(elem);
+            }
+            return Ok("Süreçler Eklendi");
 
         }
         [HttpPut("Update")]
@@ -76,7 +87,7 @@ namespace WebApi.Controllers
         {
 
             var result = await _processService.updateAsync(process);
-            await UpdateBarcode(process.IsEmriId, process);
+            await UpdateBarcode(process.IsEmriId);
 
             if (result.Success)
             {
@@ -86,12 +97,12 @@ namespace WebApi.Controllers
 
         }
         [HttpPut("SetAsCompleted")]
-        public async Task<IActionResult> UpdateBarcode(int isEmriId, Process process)
+        public async Task<IActionResult> UpdateBarcode(int isEmriId)
         {
 
 
 
-            var result = await _processService.UpdateBarcodeAsync(isEmriId, process);
+            var result = await _processService.UpdateBarcodeAsync(isEmriId);
 
             if (result.Success)
             {
@@ -100,6 +111,20 @@ namespace WebApi.Controllers
             }
 
             return BadRequest();
+
+        }
+        [HttpPut("UpdateAllBarcodes")]
+        public async Task<IActionResult> UpdateAllBarcodes()
+        {
+
+
+            var allIsEmirleri = _IsEmriService.GetAllAsync().Result.Data;
+
+            foreach (var elem in allIsEmirleri)
+            {
+                await UpdateBarcode(elem.Id);
+            }
+            return Ok("BÜTÜN BARKODLAR İŞLENDİ");
 
         }
         [HttpPost("Delete")]

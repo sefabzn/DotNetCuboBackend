@@ -60,13 +60,30 @@ namespace Core.Business
             return new SuccessDataResult<List<TEntity>>(await _dal.GetAllAsync(filter), "Ürünler Bulundu");
         }
 
-        public async Task<IResult> updateAsync(TEntity makinalar)
+        public async Task<IResult> updateAsync(TEntity entity)
         {
-            await _dal.UpdateAsync(makinalar);
+
+            if (_validator != null)
+            {
+                // Validator is provided, you can perform additional actions if needed.
+                ValidationResult results = await _validator.ValidateAsync(entity);
+
+                if (!results.IsValid)
+                {
+                    foreach (var failure in results.Errors)
+                    {
+                        return new ErrorResult("Property " + failure.PropertyName + " failed validation. Error was: " + failure.ErrorMessage);
+                    }
+                }
+            }
+            await _dal.UpdateAsync(entity);
             return new SuccessResult("Ürün Güncellendi");
 
 
         }
+
+
+
 
 
     }

@@ -10,7 +10,7 @@ namespace Entities.Base
         {
             Tarih = DateTime.Today;
         }
-        public int? Id { get; set; }
+        public int Id { get; set; }
         public string? Isim { get; set; }
         public string? Tur { get; set; }
 
@@ -22,7 +22,7 @@ namespace Entities.Base
 
         public List<Process>? Surecler { get; set; }
 
-
+        [DefaultValue(null)]
         public string? MakineIsmi { get; set; } //  bu özellik ortak is emri verme kısmında
                                                 //  otomatik olarak bir makineye en  uygun iş emrini vermesi
                                                 //  için konuldu.
@@ -32,7 +32,7 @@ namespace Entities.Base
 
         public int GenelDizaynId { get; set; }
         public virtual GenelDizaynBase? GenelDizayn { get; set; }
-        public virtual KabloUretim? KabloUretim { get; set; }
+        public virtual List<KabloUretim>? KabloUretimler { get; set; }
     }
 
 }
