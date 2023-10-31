@@ -13,6 +13,8 @@
         public double RenkDegisimiKaybi { get; set; }
         public double KesitDegisimiKaybi { get; set; }
         public double GenelAriza { get; set; }
+        public double KullanilanCu { get; set; }
+        public double KullanilanPvc { get; set; }
         public double HurdaPvc { get; set; }
         public double HurdaCu { get; set; }
         public double CalismaSuresi { get; set; }

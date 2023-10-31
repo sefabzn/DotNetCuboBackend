@@ -89,6 +89,17 @@ namespace WebApi.Controllers
             return BadRequest(result);
 
         }
+        [HttpGet("GetRaporAnalysis")]
+        public async Task<IActionResult> GetRaporAnalysis(int makineId, DateTime startDate, DateTime finishDate)
+        {
+            var result = await _makinaService.GetRaporAnalysis(makineId, startDate, finishDate);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+
+        }
         [HttpPost("SetVerimlilikForAll")]
         public async Task<IActionResult> SetVerimlilikForAll()
         {

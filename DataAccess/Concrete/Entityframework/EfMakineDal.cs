@@ -16,6 +16,8 @@ namespace DataAccess.Concrete.Entityframework
                 var result = from makine in context.Makineler
                              join kabloUretim in context.KabloUretim
                                  on makine.Id equals kabloUretim.MakineId
+                             join sarfiyat in context.Sarfiyat
+                                 on kabloUretim.Id equals sarfiyat.KabloId
                              where makine.Id == id && kabloUretim.Tarih >= firstDate && kabloUretim.Tarih <= lastDate
                              select new MakineGunlukRaporDto
                              {
@@ -29,6 +31,8 @@ namespace DataAccess.Concrete.Entityframework
                                  RenkDegisimiKaybi = kabloUretim.RenkDegisimi * makine.RenkDegisimi,
                                  KesitDegisimiKaybi = makine.KesitDegisimi, //her kesit 1 kez kesit değişimi yapmış sayılır
                                  GenelAriza = kabloUretim.GenelAriza,
+                                 KullanilanCu = sarfiyat.KullanilanCu,
+                                 KullanilanPvc = sarfiyat.KullanilanPvc,
                                  HurdaPvc = kabloUretim.HurdaPvc,
                                  HurdaCu = kabloUretim.HurdaCu,
                                  CalismaSuresi = kabloUretim.CalismaSuresi,
