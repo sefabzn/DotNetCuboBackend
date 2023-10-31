@@ -3,6 +3,7 @@ using Business.Validation.FluentValidation;
 using Core.Business;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
+using Entities;
 using Entities.Concrete;
 using Entities.DTO_s;
 
@@ -17,6 +18,34 @@ namespace Business.Concrete
         {
             _makineDal = dal;
             _kabloUretimDal = kabloUretimDal;
+        }
+
+        public async Task<IDataResult<RaporAnalizDto>> GetRaporAnalysis(int makineId, DateTime firstDate, DateTime lastDate)
+        {
+            var secilenGun = (lastDate - firstDate).Days + 1;
+            var raporlar = await _makineDal.getRaporByDateRange(makineId, firstDate, lastDate);
+            var raporAnaliz = new RaporAnalizDto()
+            {
+                MakineIsmi = raporlar[0].MakineIsmi,
+                BaslangicTarihi = firstDate,
+                BitisTarihi = lastDate,
+                OrtalamaAriza = raporlar.Average(x => x.GenelAriza),
+                SecilenGun = (lastDate - firstDate).Days + 1,
+                OrtalamaIsinma = raporlar.Average(x => x.Isinma),
+                OrtalamaKesitDegisimKaybi = raporlar.Average(x => x.KesitDegisimiKaybi),
+                OrtalamaKopmaKaybi = raporlar.Average(x => x.KopmaKaybi),
+                OrtalamaRenkDegisimKaybi = raporlar.Average(x => x.RenkDegisimiKaybi),
+                OrtalamaVerimlilik = raporlar.Average(x => x.Verimlilik),
+                HurdaCu = raporlar.Sum(x => x.HurdaCu),
+                HurdaPvc = raporlar.Sum(x => x.HurdaPvc),
+                CalisilanGun = raporlar.Count,
+                VerimliGun = raporlar.Count(x => x.Verimlilik >= 0.50),
+                VerimsizGun = raporlar.Count(x => x.Verimlilik < 0.50),
+                ToplamCu = raporlar.Sum(x => x.KullanilanCu) + raporlar.Sum(x => x.HurdaCu),
+                ToplamPvc = raporlar.Sum(x => x.KullanilanPvc) + raporlar.Sum(x => x.HurdaPvc),
+                ToplamMetraj = raporlar.Sum(x => x.Metraj),
+            };
+            return new SuccessDataResult<RaporAnalizDto>(raporAnaliz, "Rapor Analizi Getirildi");
         }
 
         //[CacheAspect]
