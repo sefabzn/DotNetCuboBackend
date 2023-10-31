@@ -12,7 +12,7 @@ namespace WebApi.Controllers
 
 
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class AuthController : ControllerBase
     {
         private readonly ITokenService _tokenService;

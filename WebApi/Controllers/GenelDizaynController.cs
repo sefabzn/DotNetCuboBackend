@@ -26,9 +26,9 @@ namespace WebApi.Controllers
             return BadRequest(result);
         }
         [HttpGet("GetAll/{tur}")]
-        public async Task<IActionResult> GetAllAsync(string tur)
+        public async Task<IActionResult> GetAllByTurAsync(string tur)
         {
-            var result = await _genelDizaynService.GetAllAsync(x => x.Tur == tur);
+            var result = await _genelDizaynService.GetAllByTurAsync(tur);
             if (result.Success)
             {
                 return Ok(result);
@@ -38,7 +38,7 @@ namespace WebApi.Controllers
         [HttpGet("GetAllByDate")]
         public async Task<IActionResult> GetAllByDateAsync(DateTime tarih)
         {
-            var result = await _genelDizaynService.GetAllAsync(x => x.Tarih == tarih);
+            var result = await _genelDizaynService.GetAllByDateAsync(tarih);
             if (result.Success)
             {
                 return Ok(result);
@@ -76,9 +76,10 @@ namespace WebApi.Controllers
 
         }
         [HttpGet("GetById")]
+
         public async Task<IActionResult> GetByIdAsync(int id)
         {
-            var result = await _genelDizaynService.GetAsync(x => x.Id == id);
+            var result = await _genelDizaynService.GetByIdAsync(id);
             if (result.Success)
             {
                 return Ok(result);

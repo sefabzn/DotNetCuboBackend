@@ -1,6 +1,5 @@
 ﻿using Business.Abstract;
 using Business.Validation.FluentValidation;
-using Core.Aspects.Autofac.Caching;
 using Core.Business;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
@@ -20,10 +19,10 @@ namespace Business.Concrete
             _kabloUretimDal = kabloUretimDal;
         }
 
-        [CacheAspect]
-        public async Task<IDataResult<List<MakineGunlukRaporDto>>> GetGunlukRaporlarAsync(string makineIsmi, DateTime firstDate, DateTime lastDate)
+        //[CacheAspect]
+        public async Task<IDataResult<List<MakineGunlukRaporDto>>> getRaporByDateRangeAsync(int makineId, DateTime firstDate, DateTime lastDate)
         {
-            return new SuccessDataResult<List<MakineGunlukRaporDto>>(_makineDal.getGunlukRapor(makineIsmi, firstDate, lastDate), "Günlük Rapor Getirildi");
+            return new SuccessDataResult<List<MakineGunlukRaporDto>>(await _makineDal.getRaporByDateRange(makineId, firstDate, lastDate), "Günlük Rapor Getirildi");
         }
 
         public async Task<IDataResult<double>> SetOrtalamaVerimlilik(int id)

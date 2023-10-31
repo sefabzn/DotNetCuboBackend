@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace WebApi.Controllers
 {
-    [Route("api/Cctv/[controller]")]
+    [Route("api/[controller]")]
     [ApiController]
     public class DamarDizaynController : Controller
     {
@@ -52,7 +52,7 @@ namespace WebApi.Controllers
 
         }
         [HttpPost("AddAll")]
-        public async Task<IActionResult> AddAAlllAsync(List<DamarDizaynBase> kablolar)
+        public async Task<IActionResult> AddAllAsync(List<DamarDizaynBase> kablolar)
         {
 
             foreach (var kablo in kablolar)

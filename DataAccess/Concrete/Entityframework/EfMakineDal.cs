@@ -1,26 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Core.DataAccess.EntityFramework;
+﻿using Core.DataAccess.EntityFramework;
 using DataAccess.Abstract;
 using DataAccess.Concrete.Entityframework.Contexts;
 using Entities.Concrete;
 using Entities.DTO_s;
+using Microsoft.EntityFrameworkCore;
 
 namespace DataAccess.Concrete.Entityframework
 {
     public class EfMakineDal : EfEntityRepositoryBase<Makine, CuboContext>, IMakineDal
     {
-        public List<MakineGunlukRaporDto> getGunlukRapor(string makineIsmi, DateTime firstDate,DateTime lastDate)
+        public async Task<List<MakineGunlukRaporDto>> getRaporByDateRange(int id, DateTime firstDate, DateTime lastDate)
         {
             using (var context = new CuboContext())
             {
                 var result = from makine in context.Makineler
                              join kabloUretim in context.KabloUretim
                                  on makine.Id equals kabloUretim.MakineId
-                             where makine.MakineIsmi == makineIsmi && kabloUretim.Tarih>=firstDate && kabloUretim.Tarih<=lastDate
+                             where makine.Id == id && kabloUretim.Tarih >= firstDate && kabloUretim.Tarih <= lastDate
                              select new MakineGunlukRaporDto
                              {
                                  MakineIsmi = makine.MakineIsmi,
@@ -36,18 +32,18 @@ namespace DataAccess.Concrete.Entityframework
                                  HurdaPvc = kabloUretim.HurdaPvc,
                                  HurdaCu = kabloUretim.HurdaCu,
                                  CalismaSuresi = kabloUretim.CalismaSuresi,
-                                 KayipZaman=kabloUretim.KayipZaman,
-                                 Verimlilik=kabloUretim.Verimlilik,
+                                 KayipZaman = kabloUretim.KayipZaman,
+                                 Verimlilik = kabloUretim.Verimlilik,
                                  Isinma = makine.Isinma,
                                  Tarih = kabloUretim.Tarih
                              };
 
-                
-                return result.ToList();
+
+                return await result.ToListAsync();
 
             }
         }
 
-      
+
     }
 }

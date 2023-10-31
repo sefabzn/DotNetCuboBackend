@@ -1,17 +1,10 @@
-﻿
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Entities.DTO_s
+﻿namespace Entities.DTO_s
 {
     public class MakineGunlukRaporDto
     {
 
-        public string MakineIsmi { get; set; }
-        public string KabloIsmi { get; set; }
+        public string? MakineIsmi { get; set; }
+        public string? KabloIsmi { get; set; }
         public double KesitAlani { get; set; }
         public double Metraj { get; set; }
         public double Kopma { get; set; }
@@ -23,7 +16,7 @@ namespace Entities.DTO_s
         public double HurdaPvc { get; set; }
         public double HurdaCu { get; set; }
         public double CalismaSuresi { get; set; }
-        public int Isinma{ get; set; }
+        public int Isinma { get; set; }
         public double KayipZaman { get; set; }
         public double Verimlilik { get; set; }
         public DateTime Tarih { get; set; }

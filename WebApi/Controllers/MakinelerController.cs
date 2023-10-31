@@ -21,9 +21,9 @@ namespace WebApi.Controllers
         public async Task<IActionResult> GetAllAsync()
         {
 
-            var data =_kabloUretimService.GetAllAsync();
+            var data = _kabloUretimService.GetAllAsync();
             var result = await _makinaService.GetAllAsync();
-         
+
             if (result.Success)
             {
                 return Ok(result);
@@ -34,7 +34,7 @@ namespace WebApi.Controllers
         public async Task<IActionResult> AddAsync(Makine makina)
         {
 
-            var result =await _makinaService.addAsync(makina);
+            var result = await _makinaService.addAsync(makina);
             if (result.Success)
             {
                 return Ok(result);
@@ -45,9 +45,9 @@ namespace WebApi.Controllers
 
         }
         [HttpGet("GetById")]
-        public async  Task<IActionResult> GetById(int id)
+        public async Task<IActionResult> GetById(int id)
         {
-            var result =await _makinaService.GetAsync(x => x.Id == id);
+            var result = await _makinaService.GetAsync(x => x.Id == id);
             if (result.Success)
             {
                 return Ok(result);
@@ -58,7 +58,7 @@ namespace WebApi.Controllers
         [HttpPut("Update")]
         public async Task<IActionResult> UpdateAsync(Makine kablo)
         {
-            var result =await  _makinaService.updateAsync(kablo);
+            var result = await _makinaService.updateAsync(kablo);
             if (result.Success)
             {
                 return Ok(result);
@@ -77,11 +77,11 @@ namespace WebApi.Controllers
             return BadRequest(result);
 
         }
-       
-        [HttpGet("GetGunlukRaporlar")]
-        public async Task<IActionResult> GetGunlukRaporlar(string makineIsmi,DateTime startDate, DateTime finishDate)
+
+        [HttpGet("GetRaporByDateRange")]
+        public async Task<IActionResult> GetRaporByDateRangeAsync(int makineId, DateTime startDate, DateTime finishDate)
         {
-            var result =await  _makinaService.GetGunlukRaporlarAsync(makineIsmi,startDate,finishDate);
+            var result = await _makinaService.getRaporByDateRangeAsync(makineId, startDate, finishDate);
             if (result.Success)
             {
                 return Ok(result);
