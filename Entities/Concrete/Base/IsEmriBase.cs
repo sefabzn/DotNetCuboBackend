@@ -26,7 +26,8 @@ namespace Entities.Base
         [DefaultValue(null)]
         public string? MakineIsmi { get; set; } //  bu özellik ortak is emri verme kısmında
                                                 //  otomatik olarak bir makineye en  uygun iş emrini vermesi
-                                                //  için konuldu.
+        public int MakineId { get; set; } //  bu özellik ortak is emri verme kısmında
+                                          //  için konuldu.
 
         public DateTime Tarih { get; set; }
         public string? Degistiren { get; set; }

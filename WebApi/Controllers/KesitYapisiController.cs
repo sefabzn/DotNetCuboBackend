@@ -17,7 +17,7 @@ namespace WebApi.Controllers
         public async Task<IActionResult> AddAsync(KesitYapisi entity)
         {
 
-            var result =await _kesitYapisiService.addAsync(entity);
+            var result = await _kesitYapisiService.addAsync(entity);
             if (result.Success)
             {
                 await _kesitYapisiService.CalculateAreaAndCoef(entity);
@@ -30,7 +30,7 @@ namespace WebApi.Controllers
         [HttpGet("GetById")]
         public async Task<IActionResult> GetByIdAsync(int id)
         {
-            var result =await  _kesitYapisiService.GetAsync(x => x.Id == id);
+            var result = await _kesitYapisiService.GetAsync(x => x.Id == id);
             if (result.Success)
             {
                 return Ok(result);
@@ -41,7 +41,7 @@ namespace WebApi.Controllers
         [HttpPut("Update")]
         public async Task<IActionResult> UpdateAsync(KesitYapisi kablo)
         {
-            var result =await _kesitYapisiService.updateAsync(kablo);
+            var result = await _kesitYapisiService.updateAsync(kablo);
             if (result.Success)
             {
                 return Ok(result);
@@ -49,10 +49,13 @@ namespace WebApi.Controllers
             return BadRequest(result);
 
         }
+
+
+
         [HttpGet("GetAll")]
         public async Task<IActionResult> GetAllAsync()
         {
-            var result =await _kesitYapisiService.GetAllAsync();
+            var result = await _kesitYapisiService.GetAllAsync();
             if (result.Success)
             {
                 return Ok(result);
@@ -62,7 +65,7 @@ namespace WebApi.Controllers
         [HttpPost("Delete")]
         public async Task<IActionResult> DeleteAsync(KesitYapisi kablo)
         {
-            var result =await _kesitYapisiService.deleteAsync(kablo);
+            var result = await _kesitYapisiService.deleteAsync(kablo);
             if (result.Success)
             {
                 return Ok(result);

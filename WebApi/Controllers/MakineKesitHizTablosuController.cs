@@ -26,6 +26,16 @@ namespace WebApi.Controllers
             return BadRequest(result);
 
         }
+        [HttpPost("GetAllByMakines")]
+        public async Task<IActionResult> GetAllByMakinesAsync(List<int> makineIdList)
+        {
+            var result = await _makineKesitHizTablosuService.GetAllByMakinesAsync(makineIdList);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
         [HttpGet("GetAll")]
         public async Task<IActionResult> GetAllAsync()
         {

@@ -231,6 +231,9 @@ namespace DataAccess.Migrations
                     b.Property<string>("Isim")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("MakineId")
+                        .HasColumnType("int");
+
                     b.Property<string>("MakineIsmi")
                         .HasColumnType("nvarchar(max)");
 

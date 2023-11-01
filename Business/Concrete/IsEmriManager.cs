@@ -23,6 +23,21 @@ namespace Business.Concrete
             _genelDizaynDal = genelDizaynDal;
         }
 
+        public async Task<IResult> AddWithControl(IsEmriBase isEmriBase)
+        {
+            var makine = await _makineDal.GetAsync(x => x.Id == isEmriBase.MakineId);
+            var verimlilik = makine.Verimlilik;
+
+            if (verimlilik <= 0.4 && isEmriBase.Metraj >= 150000)
+            {
+                return new ErrorResult("Verimsiz makine için metraj 200000 den fazla olamaz");
+            }
+
+            await _isEmriDal.AddAsync(isEmriBase);
+
+            return new SuccessResult("İş Emri Eklendi");
+        }
+
         public async Task<IDataResult<List<IsEmriTakipDto>>> GetAllIsEmriTakipDto(Expression<Func<IsEmriTakipDto, bool>>? filter = null)
         {
 

@@ -63,6 +63,21 @@ namespace WebApi.Controllers
             return BadRequest(result);
 
         }
+        [HttpPost("AddWithControl")]
+        public async Task<IActionResult> AddWithControlAsync(IsEmriBase isEmri)
+        {
+            var result = await _isEmriService.AddWithControl(isEmri);
+
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+
+
+            await _processService.UpdateBarcodeAsync(Convert.ToInt32(isEmri.Id));
+            return BadRequest(result);
+
+        }
         [HttpPost("AddAll")]
         public async Task<IActionResult> AddAll(List<IsEmriBase> isEmirleri)
         {
