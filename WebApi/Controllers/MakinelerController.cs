@@ -55,6 +55,17 @@ namespace WebApi.Controllers
             return BadRequest(result);
 
         }
+        [HttpGet("GetRaporByDate")]
+        public async Task<IActionResult> GetRaporByDateAsync(DateTime date)
+        {
+            var result = await _makinaService.GetRaporByDate(date);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+
+        }
         [HttpPut("Update")]
         public async Task<IActionResult> UpdateAsync(Makine kablo)
         {

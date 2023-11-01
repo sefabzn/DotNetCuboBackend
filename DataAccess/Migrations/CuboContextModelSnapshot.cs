@@ -218,7 +218,8 @@ namespace DataAccess.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Barkod")
+                    b.Property<string>("BarkodString")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Degistiren")
@@ -250,6 +251,29 @@ namespace DataAccess.Migrations
                     b.HasIndex("GenelDizaynId");
 
                     b.ToTable("IsEmirleri");
+                });
+
+            modelBuilder.Entity("Entities.Concrete.Barkod", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("BarkodString")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("IsEmriId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("IsEmriId")
+                        .IsUnique()
+                        .HasFilter("[IsEmriId] IS NOT NULL");
+
+                    b.ToTable("Barkods");
                 });
 
             modelBuilder.Entity("Entities.Concrete.KabloUretim", b =>
@@ -803,6 +827,16 @@ namespace DataAccess.Migrations
                     b.Navigation("GenelDizayn");
                 });
 
+            modelBuilder.Entity("Entities.Concrete.Barkod", b =>
+                {
+                    b.HasOne("Entities.Base.IsEmriBase", "IsEmri")
+                        .WithOne("Barkod")
+                        .HasForeignKey("Entities.Concrete.Barkod", "IsEmriId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.Navigation("IsEmri");
+                });
+
             modelBuilder.Entity("Entities.Concrete.KabloUretim", b =>
                 {
                     b.HasOne("Entities.Base.IsEmriBase", "IsEmri")
@@ -889,6 +923,8 @@ namespace DataAccess.Migrations
 
             modelBuilder.Entity("Entities.Base.IsEmriBase", b =>
                 {
+                    b.Navigation("Barkod");
+
                     b.Navigation("KabloUretimler");
 
                     b.Navigation("Surecler");

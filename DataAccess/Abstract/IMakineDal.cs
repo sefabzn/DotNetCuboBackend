@@ -7,6 +7,6 @@ namespace DataAccess.Abstract
     public interface IMakineDal : IEntityRepository<Makine>
     {
         Task<List<MakineGunlukRaporDto>> getRaporByDateRange(int makineId, DateTime fistDate, DateTime lastDate);
-
+        Task<List<MakineGunlukRaporDto>> getRaporByDay(DateTime date);
     }
 }

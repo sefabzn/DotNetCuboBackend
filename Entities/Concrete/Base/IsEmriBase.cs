@@ -18,7 +18,8 @@ namespace Entities.Base
 
         [DefaultValue(false)]
         public bool TamamlanmaDurumu { get; set; }
-        public string? Barkod { get; set; }
+        public virtual Barkod? Barkod { get; set; }
+        public string BarkodString { get; set; }
 
         public List<Process>? Surecler { get; set; }
 

@@ -1,8 +1,11 @@
 ﻿using Business.Abstract;
 using Core.Business;
+using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Base;
 using Entities.Concrete;
+using Entities.DTO_s;
+using System.Linq.Expressions;
 
 namespace Business.Concrete
 {
@@ -20,7 +23,13 @@ namespace Business.Concrete
             _genelDizaynDal = genelDizaynDal;
         }
 
+        public async Task<IDataResult<List<IsEmriTakipDto>>> GetAllIsEmriTakipDto(Expression<Func<IsEmriTakipDto, bool>>? filter = null)
+        {
 
+            var result = await _isEmriDal.GetAllIsEmriTakipAsync(filter);
+
+            return new SuccessDataResult<List<IsEmriTakipDto>>(result, "İş Emirleri Getirildi");
+        }
 
         public async Task<Object> IsPlaniOlustur(OrtakIsEmri ortakIsEmri)
         {

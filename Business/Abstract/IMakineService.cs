@@ -13,5 +13,6 @@ namespace Business.Abstract
         Task<IResult> SetOrtalamaVerimlilikForAll();
         Task<IDataResult<List<MakineGunlukRaporDto>>> getRaporByDateRangeAsync(int makineId, DateTime firstDate, DateTime lastDate);
         Task<IDataResult<RaporAnalizDto>> GetRaporAnalysis(int makineId, DateTime firstDate, DateTime lastDate);
+        Task<IDataResult<List<MakineGunlukRaporDto>>> GetRaporByDate(DateTime date);
     }
 }

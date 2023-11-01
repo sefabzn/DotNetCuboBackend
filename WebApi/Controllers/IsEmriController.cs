@@ -26,7 +26,16 @@ namespace WebApi.Controllers
             }
             return BadRequest(result);
         }
-
+        [HttpGet("GetAllIsEmriTakip")]
+        public async Task<IActionResult> GetAllIsEmriTakipAsync()
+        {
+            var result = await _isEmriService.GetAllIsEmriTakipDto();
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
 
         [HttpPost("Delete")]
         public async Task<IActionResult> Delete(IsEmriBase isEmri)
@@ -50,7 +59,7 @@ namespace WebApi.Controllers
             }
 
 
-            await _processService.UpdateBarcodeAtCreateAsync(Convert.ToInt32(isEmri.Id));
+            await _processService.UpdateBarcodeAsync(Convert.ToInt32(isEmri.Id));
             return BadRequest(result);
 
         }
@@ -65,7 +74,7 @@ namespace WebApi.Controllers
                 {
                     return BadRequest("İş Emri Eklenemedi");
                 }
-                var updateResult = await _processService.UpdateBarcodeAtCreateAsync(Convert.ToInt32(isEmri.Id));
+                var updateResult = await _processService.UpdateBarcodeAsync(Convert.ToInt32(isEmri.Id));
 
                 if (!updateResult.Success)
                 {

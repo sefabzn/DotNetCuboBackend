@@ -48,6 +48,14 @@ namespace Business.Concrete
             return new SuccessDataResult<RaporAnalizDto>(raporAnaliz, "Rapor Analizi Getirildi");
         }
 
+        public async Task<IDataResult<List<MakineGunlukRaporDto>>> GetRaporByDate(DateTime date)
+        {
+
+            var result = await _makineDal.getRaporByDay(date);
+
+            return new SuccessDataResult<List<MakineGunlukRaporDto>>(result);
+        }
+
         //[CacheAspect]
         public async Task<IDataResult<List<MakineGunlukRaporDto>>> getRaporByDateRangeAsync(int makineId, DateTime firstDate, DateTime lastDate)
         {

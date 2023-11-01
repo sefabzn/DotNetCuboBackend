@@ -37,6 +37,11 @@ namespace DataAccess.Concrete.Entityframework.Contexts
 
 
 
+            modelBuilder.Entity<Barkod>().HasOne(barkod => barkod.IsEmri)
+                .WithOne(isEmri => isEmri.Barkod)
+                .HasForeignKey<Barkod>(barkod => barkod.IsEmriId)
+                .OnDelete(DeleteBehavior.Cascade);
+
 
             modelBuilder.Entity<Process>()
                 .HasOne(p => p.IsEmri)
@@ -89,6 +94,7 @@ namespace DataAccess.Concrete.Entityframework.Contexts
         public DbSet<UserOperationClaim> UserOperationClaims { get; set; }
         public DbSet<IsEmriBase> IsEmirleri { get; set; }
         public DbSet<Process> Processes { get; set; }
+        public DbSet<Barkod> Barkods { get; set; }
 
     }
 }

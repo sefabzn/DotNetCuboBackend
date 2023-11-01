@@ -54,6 +54,7 @@ namespace Business.DependencyResolvers.Autofac
             builder.RegisterType<ExchangeRateManager>().As<IExchangeRateService>().SingleInstance();
             builder.RegisterType<EfExchangeRateDal>().As<IExchangeRateDal>().SingleInstance();
 
+            builder.RegisterType<EfBarkodDal>().As<IBarkodDaL>().SingleInstance();
 
 
             builder.RegisterType<TokenManager>().As<ITokenService>().InstancePerLifetimeScope();
