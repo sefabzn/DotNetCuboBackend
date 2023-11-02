@@ -29,12 +29,16 @@ namespace Entities.Base
         public int MakineId { get; set; } //  bu özellik ortak is emri verme kısmında
                                           //  için konuldu.
 
+
+
+
         public DateTime Tarih { get; set; }
         public string? Degistiren { get; set; }
 
         public int GenelDizaynId { get; set; }
         public virtual GenelDizaynBase? GenelDizayn { get; set; }
         public virtual List<KabloUretim>? KabloUretimler { get; set; }
+        public List<IsEmriOperator>? IsEmriOperators { get; set; }
     }
 
 }

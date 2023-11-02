@@ -279,6 +279,29 @@ namespace DataAccess.Migrations
                     b.ToTable("Barkods");
                 });
 
+            modelBuilder.Entity("Entities.Concrete.IsEmriOperator", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("IsEmriId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("OperatorId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("IsEmriId");
+
+                    b.HasIndex("OperatorId");
+
+                    b.ToTable("IsEmriOperators");
+                });
+
             modelBuilder.Entity("Entities.Concrete.KabloUretim", b =>
                 {
                     b.Property<int>("Id")
@@ -433,6 +456,26 @@ namespace DataAccess.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("MakineKesitHizTablosu");
+                });
+
+            modelBuilder.Entity("Entities.Concrete.Operator", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Operators");
                 });
 
             modelBuilder.Entity("Entities.Concrete.Process", b =>
@@ -840,6 +883,25 @@ namespace DataAccess.Migrations
                     b.Navigation("IsEmri");
                 });
 
+            modelBuilder.Entity("Entities.Concrete.IsEmriOperator", b =>
+                {
+                    b.HasOne("Entities.Base.IsEmriBase", "IsEmri")
+                        .WithMany("IsEmriOperators")
+                        .HasForeignKey("IsEmriId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Entities.Concrete.Operator", "Operator")
+                        .WithMany("IsEmriOperators")
+                        .HasForeignKey("OperatorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("IsEmri");
+
+                    b.Navigation("Operator");
+                });
+
             modelBuilder.Entity("Entities.Concrete.KabloUretim", b =>
                 {
                     b.HasOne("Entities.Base.IsEmriBase", "IsEmri")
@@ -928,9 +990,16 @@ namespace DataAccess.Migrations
                 {
                     b.Navigation("Barkod");
 
+                    b.Navigation("IsEmriOperators");
+
                     b.Navigation("KabloUretimler");
 
                     b.Navigation("Surecler");
+                });
+
+            modelBuilder.Entity("Entities.Concrete.Operator", b =>
+                {
+                    b.Navigation("IsEmriOperators");
                 });
 
             modelBuilder.Entity("Entities.Concrete.Role", b =>

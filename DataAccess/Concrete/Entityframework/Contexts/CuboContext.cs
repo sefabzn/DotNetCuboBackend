@@ -78,6 +78,18 @@ namespace DataAccess.Concrete.Entityframework.Contexts
                .HasForeignKey(r => r.RoleId)
                .IsRequired();
 
+            modelBuilder.Entity<Operator>()
+                .HasMany(Operator => Operator.IsEmriOperators)
+                .WithOne(IsEmriOperator => IsEmriOperator.Operator)
+                .HasForeignKey(IsEmriOperator => IsEmriOperator.OperatorId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<IsEmriBase>()
+                .HasMany(IsEmriBase => IsEmriBase.IsEmriOperators)
+                .WithOne(IsEmriOperator => IsEmriOperator.IsEmri)
+                .HasForeignKey(IsEmriOperator => IsEmriOperator.IsEmriId)
+                .OnDelete(DeleteBehavior.Cascade);
+
 
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
         }
@@ -95,6 +107,8 @@ namespace DataAccess.Concrete.Entityframework.Contexts
         public DbSet<IsEmriBase> IsEmirleri { get; set; }
         public DbSet<Process> Processes { get; set; }
         public DbSet<Barkod> Barkods { get; set; }
+        public DbSet<IsEmriOperator> IsEmriOperators { get; set; }
+        public DbSet<Operator> Operators { get; set; }
 
     }
 }
