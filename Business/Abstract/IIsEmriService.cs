@@ -9,11 +9,11 @@ namespace Business.Abstract
 {
     public interface IIsEmriService : IServiceRepository<IsEmriBase>
     {
-        Task<Object> IsPlaniOlustur(OrtakIsEmri ortakIsEmri);
+        Task<Object> IsPlaniOlustur(OrtakIsEmri ortakIsEmri, int genelDizaynId, int damarDizaynId);
         Task<double?> TeorikSüreHesapla(OrtakIsEmri ortakIsEmri);
         Task<IDataResult<List<IsEmriTakipDto>>> GetAllIsEmriTakipDto(Expression<Func<IsEmriTakipDto, bool>>? filter = null);
-        Task<IResult> AddToGenelDizayn(int genelDizaynId);
-        Task<IResult> AddToDamarDizayn(int damarDizaynId);
+        Task<IResult> AddToGenelDizayn(IsEmriBase isEmri, int genelDizaynId);
+        Task<IResult> AddToDamarDizayn(IsEmriBase isEmri, int damarDizaynId);
 
         Task<IResult> AddWithControl(IsEmriBase isEmriBase);
 

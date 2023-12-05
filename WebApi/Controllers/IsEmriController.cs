@@ -49,11 +49,13 @@ namespace WebApi.Controllers
 
         }
         [HttpPost("Add")]
-        public async Task<IActionResult> Add(IsEmriBase isEmri)
+        public async Task<IActionResult> Add(IsEmriBase isEmri, int genelDizaynId, int damarDizaynId)
         {
             var result = await _isEmriService.addAsync(isEmri);
+            var genelDizaynResult = await _isEmriService.AddToGenelDizayn(isEmri, genelDizaynId);
+            var damarDizaynResult = await _isEmriService.AddToDamarDizayn(isEmri, damarDizaynId);
 
-            if (result.Success)
+            if (result.Success && genelDizaynResult.Success && damarDizaynResult.Success)
             {
                 return Ok(result);
             }
@@ -63,12 +65,35 @@ namespace WebApi.Controllers
             return BadRequest(result);
 
         }
+
+        [HttpPost("AddToGenelDizayn")]
+        public async Task<IActionResult> AddToGenelDizayn(IsEmriBase isEmriBase, int genelDizaynId, int damarDizaynId)
+        {
+            var result = await _isEmriService.AddToGenelDizayn(isEmriBase, genelDizaynId);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest("İş emri genel dizaynla ilişkilendirilemedi");
+        }
+        [HttpPost("AddToDamarDizayn")]
+        public async Task<IActionResult> AddToDamarDizayn(IsEmriBase isEmriBase, int genelDizaynId, int damarDizaynId)
+        {
+            var result = await _isEmriService.AddToGenelDizayn(isEmriBase, damarDizaynId);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest("İş emri damar dizaynla ilişkilendirilemedi");
+        }
         [HttpPost("AddWithControl")]
-        public async Task<IActionResult> AddWithControlAsync(IsEmriBase isEmri)
+        public async Task<IActionResult> AddWithControlAsync(IsEmriBase isEmri, int genelDizaynId, int damarDizaynId)
         {
             var result = await _isEmriService.AddWithControl(isEmri);
+            var genelDizaynResult = await _isEmriService.AddToGenelDizayn(isEmri, genelDizaynId);
+            var damarDizaynResult = await _isEmriService.AddToDamarDizayn(isEmri, damarDizaynId);
 
-            if (result.Success)
+            if (result.Success && genelDizaynResult.Success && damarDizaynResult.Success)
             {
                 return Ok(result);
             }

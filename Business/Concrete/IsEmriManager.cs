@@ -65,6 +65,24 @@ namespace Business.Concrete
             }
         }
 
+        public async Task<IResult> AddWithControl(IsEmriBase isEmriBase, int genelDizaynId, int damarDizaynId)
+        {
+            var makine = await _makineDal.GetAsync(x => x.Id == isEmriBase.MakineId);
+            var verimlilik = makine.Verimlilik;
+
+            if (verimlilik <= 0.4 && isEmriBase.Metraj >= 150000)
+            {
+                return new ErrorResult("Verimsiz makine için metraj 200000 den fazla olamaz");
+            }
+
+            await _isEmriDal.AddAsync(isEmriBase);
+            await AddToGenelDizayn(isEmriBase, genelDizaynId);
+            await AddToGenelDizayn(isEmriBase, damarDizaynId);
+
+            return new SuccessResult("İş Emri Eklendi");
+        }
+
+
         public async Task<IResult> AddWithControl(IsEmriBase isEmriBase)
         {
             var makine = await _makineDal.GetAsync(x => x.Id == isEmriBase.MakineId);
@@ -76,11 +94,10 @@ namespace Business.Concrete
             }
 
             await _isEmriDal.AddAsync(isEmriBase);
-            var context = new CuboContext();
+
 
             return new SuccessResult("İş Emri Eklendi");
         }
-
         public async Task<IDataResult<List<IsEmriTakipDto>>> GetAllIsEmriTakipDto(Expression<Func<IsEmriTakipDto, bool>>? filter = null)
         {
 
@@ -89,43 +106,42 @@ namespace Business.Concrete
             return new SuccessDataResult<List<IsEmriTakipDto>>(result, "İş Emirleri Getirildi");
         }
 
-        public async Task<Object> IsPlaniOlustur(OrtakIsEmri ortakIsEmri)
+        public async Task<Object> IsPlaniOlustur(OrtakIsEmri ortakIsEmri, int genelDizaynId, int damarDizaynId)
         {
-            throw new NotImplementedException();
-            //List<Makine> makines = (from isim in ortakIsEmri.MakineIsimleri
-            //                        select _makineDal.GetAsync(x => x.MakineIsmi == isim).Result).ToList();
-            //var kesitBilgisi = await _kesitHizTablosuDal.GetAllAsync();
+            List<Makine> makines = (from isim in ortakIsEmri.MakineIsimleri
+                                    select _makineDal.GetAsync(x => x.MakineIsmi == isim).Result).ToList();
+            var kesitBilgisi = await _kesitHizTablosuDal.GetAllAsync();
 
-            //double? toplamVerimlilik = 0;
+            double? toplamVerimlilik = 0;
 
-            //foreach (var makine in makines)
-            //{
-            //    toplamVerimlilik += makine.Verimlilik;
-            //}
+            foreach (var makine in makines)
+            {
+                toplamVerimlilik += makine.Verimlilik;
+            }
 
-            //var ortalamaVerimlilik = toplamVerimlilik / makines.Count();
+            var ortalamaVerimlilik = toplamVerimlilik / makines.Count();
 
-            //List<Object> liste = new List<object>();
-            //foreach (var makine in makines)
-            //{
-            //    var isEmri = new IsEmriBase()
-            //    {
-            //        Isim = ortakIsEmri.UrunIsmi,
-            //        Tur = ortakIsEmri.DizaynTuru,
-            //        Metraj = Convert.ToDouble(ortakIsEmri.Metraj * (makine.Verimlilik / toplamVerimlilik)),
-            //        GenelDizaynId = ortakIsEmri.GenelDizaynId,
-            //        MakineId = makine.Id,
-            //        GenelDizayn = _genelDizaynDal.Get(x => x.Id == ortakIsEmri.GenelDizaynId),
-            //        Degistiren = ortakIsEmri.Degistiren,
-            //        Tarih = ortakIsEmri.Tarih
-            //    };
+            List<Object> liste = new List<object>();
+            foreach (var makine in makines)
+            {
+                var isEmri = new IsEmriBase()
+                {
+                    Isim = ortakIsEmri.UrunIsmi,
+                    Tur = ortakIsEmri.DizaynTuru,
+                    Metraj = Convert.ToDouble(ortakIsEmri.Metraj * (makine.Verimlilik / toplamVerimlilik)),
+                    MakineId = makine.Id,
+                    Degistiren = ortakIsEmri.Degistiren,
+                    Tarih = ortakIsEmri.Tarih
+                };
 
 
-            //    liste.Add(isEmri);
-            //    await _isEmriDal.AddAsync(isEmri);
-            //}
+                liste.Add(isEmri);
+                await _isEmriDal.AddAsync(isEmri);
+                await AddToGenelDizayn(isEmri, genelDizaynId);
+                await AddToDamarDizayn(isEmri, damarDizaynId);
+            }
 
-            //return (liste);
+            return (liste);
         }
 
         public async Task<double?> TeorikSüreHesapla(OrtakIsEmri ortakIsEmri)
