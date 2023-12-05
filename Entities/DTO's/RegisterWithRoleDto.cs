@@ -1,7 +1,9 @@
-﻿namespace Entities.DTO_s
+﻿using Core.Entities;
+
+namespace Entities.DTO_s
 
 {
-    public class RegisterWithRoleDto
+    public class RegisterWithRoleDto : IDto
     {
 
         public string? Email { get; set; }

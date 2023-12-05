@@ -1,8 +1,8 @@
 ﻿using Core.Entities;
 
-namespace Entities.Concrete;
+namespace Entities.Concrete.Base;
 
-public class TekDamarDizayn : IEntity
+public class TekDamarDizaynBase : IEntity
 {
     public int Id { get; set; }
     public string KabloIsmi { get; set; }
@@ -19,7 +19,6 @@ public class TekDamarDizayn : IEntity
     public DateTime Tarih { get; set; }
     public DateTime DegistirilmeTarihi { get; set; }
     public string Degistiren { get; set; }
-    
-    
+
 
 }

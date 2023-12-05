@@ -55,3 +55,4 @@ C:\Users\sefa_\OneDrive\Masaüstü\DOTNETBACKEND\DotNetCuboBackend\Business\obj\
 C:\Users\sefa_\OneDrive\Masaüstü\DOTNETBACKEND\DotNetCuboBackend\Business\obj\Debug\net6.0\refint\Business.dll
 C:\Users\sefa_\OneDrive\Masaüstü\DOTNETBACKEND\DotNetCuboBackend\Business\obj\Debug\net6.0\Business.pdb
 C:\Users\sefa_\OneDrive\Masaüstü\DOTNETBACKEND\DotNetCuboBackend\Business\obj\Debug\net6.0\ref\Business.dll
+C:\Users\sefa_\OneDrive\Masaüstü\DOTNETBACKEND\DotNetCuboBackend\Business\obj\Debug\net6.0\Business.sourcelink.json

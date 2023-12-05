@@ -43,3 +43,4 @@ C:\Users\sefa_\OneDrive\Masaüstü\DOTNETBACKEND\DotNetCuboBackend\Entities\obj\
 C:\Users\sefa_\OneDrive\Masaüstü\DOTNETBACKEND\DotNetCuboBackend\Entities\obj\Debug\net6.0\refint\Entities.dll
 C:\Users\sefa_\OneDrive\Masaüstü\DOTNETBACKEND\DotNetCuboBackend\Entities\obj\Debug\net6.0\Entities.pdb
 C:\Users\sefa_\OneDrive\Masaüstü\DOTNETBACKEND\DotNetCuboBackend\Entities\obj\Debug\net6.0\ref\Entities.dll
+C:\Users\sefa_\OneDrive\Masaüstü\DOTNETBACKEND\DotNetCuboBackend\Entities\obj\Debug\net6.0\Entities.sourcelink.json

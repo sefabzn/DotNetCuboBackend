@@ -19,7 +19,7 @@ namespace Core.Aspects.Autofac.Mailing
         {
             MailRequest mailRequest = new MailRequest();
             mailRequest.ReceiverMail = "sefa_futbol_gol@hotmail.com";
-            mailRequest.ReceiverName = "Customer";
+            mailRequest.ReceiverName = "Moderator";
             mailRequest.Subject = invocation.Method.Name;
 
             List<string> arguments = new List<string>();

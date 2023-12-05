@@ -51,3 +51,4 @@ C:\Users\sefa_\OneDrive\Masaüstü\DOTNETBACKEND\DotNetCuboBackend\DataAccess\ob
 C:\Users\sefa_\OneDrive\Masaüstü\DOTNETBACKEND\DotNetCuboBackend\DataAccess\obj\Debug\net6.0\ref\DataAccess.dll
 C:\Users\sefa_\OneDrive\Masaüstü\DOTNETBACKEND\DotNetCuboBackend\DataAccess\bin\Debug\net6.0\DataAccess.runtimeconfig.json
 C:\Users\sefa_\OneDrive\Masaüstü\DOTNETBACKEND\DotNetCuboBackend\DataAccess\obj\Debug\net6.0\DataAccess.genruntimeconfig.cache
+C:\Users\sefa_\OneDrive\Masaüstü\DOTNETBACKEND\DotNetCuboBackend\DataAccess\obj\Debug\net6.0\DataAccess.sourcelink.json

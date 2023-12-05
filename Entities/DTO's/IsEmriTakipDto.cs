@@ -1,6 +1,8 @@
-﻿namespace Entities.DTO_s
+﻿using Core.Entities;
+
+namespace Entities.DTO_s
 {
-    public class IsEmriTakipDto
+    public class IsEmriTakipDto : IDto
     {
 
         public string? Isim { get; set; }

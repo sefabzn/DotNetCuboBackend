@@ -1,6 +1,7 @@
 ﻿using Core.Entities.Concrete;
 using Entities.Base;
 using Entities.Concrete;
+using Entities.Concrete.Base;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
@@ -24,7 +25,7 @@ namespace DataAccess.Concrete.Entityframework.Contexts
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=(localdb)\MSSQLLocalDB;Database=CuboDb;Trusted_Connection=True;TrustServerCertificate=True;MultipleActiveResultSets=true");
+            optionsBuilder.UseSqlServer(@"Server=.\SQLExpress;Database=CuboDb;Trusted_Connection=True;TrustServerCertificate=True;MultipleActiveResultSets=true");
             optionsBuilder.LogTo(Console.WriteLine); // To easily see SQL logs on console.
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -49,9 +50,9 @@ namespace DataAccess.Concrete.Entityframework.Contexts
                 .HasForeignKey(p => p.IsEmriId)
                 .OnDelete(DeleteBehavior.Cascade);
 
-            modelBuilder.Entity<GenelDizaynBase>()
-              .HasMany(d => d.IsEmirleri)
-              .WithOne(i => i.GenelDizayn)
+            modelBuilder.Entity<IsEmriBase>()
+              .HasOne(d => d.GenelDizayn)
+              .WithMany(i => i.IsEmirleri)
               .HasForeignKey(i => i.GenelDizaynId);
 
             modelBuilder.Entity<IsEmriBase>()
@@ -100,8 +101,7 @@ namespace DataAccess.Concrete.Entityframework.Contexts
         public DbSet<MakineKesitHizTablosu> MakineKesitHizTablosu { get; set; }
         public DbSet<Sarfiyat> Sarfiyat { get; set; }
         public DbSet<SatisPlanlama> SatisPlanlama { get; set; }
-        public DbSet<TekDamarDizayn> TekDamarDizayn { get; set; }
-        public DbSet<Kullanici> Kullanicilar { get; set; }
+        public DbSet<TekDamarDizaynBase> TekDamarDizayn { get; set; }
         public DbSet<OperationClaim> OperationClaims { get; set; }
         public DbSet<UserOperationClaim> UserOperationClaims { get; set; }
         public DbSet<IsEmriBase> IsEmirleri { get; set; }
