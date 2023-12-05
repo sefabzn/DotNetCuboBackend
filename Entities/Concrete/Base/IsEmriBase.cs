@@ -27,17 +27,18 @@ namespace Entities.Base
         public List<Process>? Surecler { get; set; }
 
 
-        public int MakineId { get; set; } //  bu özellik ortak is emri verme kısmında
-                                          //  için konuldu.
+        //  için konuldu.
 
         public DateTime Tarih { get; set; }
         public string? Degistiren { get; set; }
 
+        public int GenelDizaynId { get; set; }
+        public GenelDizaynBase GenelDizayn { get; set; }
 
-        public List<IsEmriGenelDizayn>? IsEmriGenelDizayns { get; set; }
-        public List<IsEmriDamarDizayn>? IsEmriDamarDizayns { get; set; }
+        public int OperatorId { get; set; }
+        public Operator Operator { get; set; }
+        public List<DamarDizaynBase>? Damarlar { get; set; }
         public List<KabloUretim>? KabloUretimler { get; set; }
-        public List<IsEmriOperator>? IsEmriOperators { get; set; }
     }
 
 }

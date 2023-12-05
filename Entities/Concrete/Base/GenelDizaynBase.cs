@@ -1,5 +1,4 @@
 ﻿using Core.Entities;
-using Entities.Concrete;
 
 namespace Entities.Base
 {
@@ -27,6 +26,6 @@ namespace Entities.Base
         public DateTime DegistirilmeTarihi { get; set; }
         public string? Degistiren { get; set; }
 
-        public virtual List<IsEmriGenelDizayn>? IsEmriGenelDizayns { get; set; }
+        public virtual List<IsEmriBase>? IsEmirleri { get; set; }
     }
 }

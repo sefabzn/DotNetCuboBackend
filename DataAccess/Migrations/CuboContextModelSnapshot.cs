@@ -101,6 +101,8 @@ namespace DataAccess.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("IsEmriId");
+
                     b.ToTable("DamarDizaynBase");
                 });
 
@@ -201,11 +203,11 @@ namespace DataAccess.Migrations
                     b.Property<string>("Isim")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("MakineId")
-                        .HasColumnType("int");
-
                     b.Property<double>("Metraj")
                         .HasColumnType("float");
+
+                    b.Property<int>("OperatorId")
+                        .HasColumnType("int");
 
                     b.Property<bool>("TamamlanmaDurumu")
                         .HasColumnType("bit");
@@ -217,6 +219,10 @@ namespace DataAccess.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("GenelDizaynId");
+
+                    b.HasIndex("OperatorId");
 
                     b.ToTable("IsEmirleri");
                 });
@@ -302,78 +308,6 @@ namespace DataAccess.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("TekDamarDizayn");
-                });
-
-            modelBuilder.Entity("Entities.Concrete.IsEmriDamarDizayn", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("DamarDizaynId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("IsEmriId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("DamarDizaynId");
-
-                    b.HasIndex("IsEmriId");
-
-                    b.ToTable("IsEmriDamarDizayns");
-                });
-
-            modelBuilder.Entity("Entities.Concrete.IsEmriGenelDizayn", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("GenelDizaynId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("IsEmriId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("GenelDizaynId");
-
-                    b.HasIndex("IsEmriId");
-
-                    b.ToTable("IsEmriGenelDizayns");
-                });
-
-            modelBuilder.Entity("Entities.Concrete.IsEmriOperator", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("IsEmriId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("OperatorId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("Tarih")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("IsEmriId");
-
-                    b.HasIndex("OperatorId");
-
-                    b.ToTable("IsEmriOperators");
                 });
 
             modelBuilder.Entity("Entities.Concrete.KabloUretim", b =>
@@ -543,10 +477,15 @@ namespace DataAccess.Migrations
                     b.Property<string>("Email")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("MakineId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("MakineId");
 
                     b.ToTable("Operators");
                 });
@@ -864,6 +803,36 @@ namespace DataAccess.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("Entities.Base.DamarDizaynBase", b =>
+                {
+                    b.HasOne("Entities.Base.IsEmriBase", "IsEmri")
+                        .WithMany("Damarlar")
+                        .HasForeignKey("IsEmriId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("IsEmri");
+                });
+
+            modelBuilder.Entity("Entities.Base.IsEmriBase", b =>
+                {
+                    b.HasOne("Entities.Base.GenelDizaynBase", "GenelDizayn")
+                        .WithMany("IsEmirleri")
+                        .HasForeignKey("GenelDizaynId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Entities.Concrete.Operator", "Operator")
+                        .WithMany("IsEmriBases")
+                        .HasForeignKey("OperatorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("GenelDizayn");
+
+                    b.Navigation("Operator");
+                });
+
             modelBuilder.Entity("Entities.Concrete.Barkod", b =>
                 {
                     b.HasOne("Entities.Base.IsEmriBase", "IsEmri")
@@ -872,63 +841,6 @@ namespace DataAccess.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
 
                     b.Navigation("IsEmri");
-                });
-
-            modelBuilder.Entity("Entities.Concrete.IsEmriDamarDizayn", b =>
-                {
-                    b.HasOne("Entities.Base.DamarDizaynBase", "DamarDizayn")
-                        .WithMany("IsEmriDamarDizayns")
-                        .HasForeignKey("DamarDizaynId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Entities.Base.IsEmriBase", "IsEmri")
-                        .WithMany("IsEmriDamarDizayns")
-                        .HasForeignKey("IsEmriId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("DamarDizayn");
-
-                    b.Navigation("IsEmri");
-                });
-
-            modelBuilder.Entity("Entities.Concrete.IsEmriGenelDizayn", b =>
-                {
-                    b.HasOne("Entities.Base.GenelDizaynBase", "GenelDizayn")
-                        .WithMany("IsEmriGenelDizayns")
-                        .HasForeignKey("GenelDizaynId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Entities.Base.IsEmriBase", "IsEmri")
-                        .WithMany("IsEmriGenelDizayns")
-                        .HasForeignKey("IsEmriId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("GenelDizayn");
-
-                    b.Navigation("IsEmri");
-                });
-
-            modelBuilder.Entity("Entities.Concrete.IsEmriOperator", b =>
-                {
-                    b.HasOne("Entities.Base.IsEmriBase", "IsEmri")
-                        .WithMany("IsEmriOperators")
-                        .HasForeignKey("IsEmriId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Entities.Concrete.Operator", "Operator")
-                        .WithMany("IsEmriOperators")
-                        .HasForeignKey("OperatorId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("IsEmri");
-
-                    b.Navigation("Operator");
                 });
 
             modelBuilder.Entity("Entities.Concrete.KabloUretim", b =>
@@ -940,6 +852,17 @@ namespace DataAccess.Migrations
                         .IsRequired();
 
                     b.Navigation("IsEmri");
+                });
+
+            modelBuilder.Entity("Entities.Concrete.Operator", b =>
+                {
+                    b.HasOne("Entities.Concrete.Makine", "Makine")
+                        .WithMany("Operators")
+                        .HasForeignKey("MakineId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Makine");
                 });
 
             modelBuilder.Entity("Entities.Concrete.Process", b =>
@@ -1008,34 +931,30 @@ namespace DataAccess.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Entities.Base.DamarDizaynBase", b =>
-                {
-                    b.Navigation("IsEmriDamarDizayns");
-                });
-
             modelBuilder.Entity("Entities.Base.GenelDizaynBase", b =>
                 {
-                    b.Navigation("IsEmriGenelDizayns");
+                    b.Navigation("IsEmirleri");
                 });
 
             modelBuilder.Entity("Entities.Base.IsEmriBase", b =>
                 {
                     b.Navigation("Barkod");
 
-                    b.Navigation("IsEmriDamarDizayns");
-
-                    b.Navigation("IsEmriGenelDizayns");
-
-                    b.Navigation("IsEmriOperators");
+                    b.Navigation("Damarlar");
 
                     b.Navigation("KabloUretimler");
 
                     b.Navigation("Surecler");
                 });
 
+            modelBuilder.Entity("Entities.Concrete.Makine", b =>
+                {
+                    b.Navigation("Operators");
+                });
+
             modelBuilder.Entity("Entities.Concrete.Operator", b =>
                 {
-                    b.Navigation("IsEmriOperators");
+                    b.Navigation("IsEmriBases");
                 });
 
             modelBuilder.Entity("Entities.Concrete.Role", b =>

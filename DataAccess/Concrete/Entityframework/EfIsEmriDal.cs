@@ -31,8 +31,6 @@ namespace DataAccess.Concrete.Entityframework
                 var isemirleri = from isEmri in context.IsEmirleri
                                  join barkod in context.Barkods
                                  on isEmri.Id equals barkod.IsEmriId
-                                 join makine in context.Makineler
-                                 on isEmri.MakineId equals makine.Id
                                  select new IsEmriTakipDto
                                  {
                                      Isim = isEmri.Isim,
@@ -40,7 +38,6 @@ namespace DataAccess.Concrete.Entityframework
                                      Tur = isEmri.Tur,
                                      Metraj = isEmri.Metraj,
                                      TamamlanmaDurumu = isEmri.TamamlanmaDurumu,
-                                     MakineIsmi = makine.MakineIsmi,
                                      Tarih = isEmri.Tarih,
                                      Degistiren = isEmri.Degistiren,
 

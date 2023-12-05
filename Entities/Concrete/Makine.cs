@@ -12,6 +12,7 @@ namespace Entities.Concrete
         public int Kopma { get; set; }
         public int KesitDegisimi { get; set; }
         public double? Verimlilik { get; set; }
+        public virtual List<Operator>? Operators { get; set; }
 
     }
 }

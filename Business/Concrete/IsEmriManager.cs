@@ -2,11 +2,9 @@
 using Core.Business;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
-using DataAccess.Concrete.Entityframework.Contexts;
 using Entities.Base;
 using Entities.Concrete;
 using Entities.DTO_s;
-using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
 
 namespace Business.Concrete
@@ -25,67 +23,12 @@ namespace Business.Concrete
             _genelDizaynDal = genelDizaynDal;
         }
 
-        public async Task<IResult> AddToDamarDizayn(IsEmriBase isEmri, int damarDizaynId)
-        {
-            using (var context = new CuboContext())
-            {
 
-                var damarDizayn = await context.DamarDizaynBase.SingleOrDefaultAsync(x => x.Id == damarDizaynId);
-
-                var isEmriDamarDizayn = new IsEmriDamarDizayn
-                {
-                    IsEmriId = isEmri.Id,
-                    IsEmri = isEmri,
-                    DamarDizayn = damarDizayn,
-                    DamarDizaynId = damarDizayn.Id
-                };
-                await context.IsEmriDamarDizayns.(isEmriDamarDizayn);
-
-                return new SuccessResult("");
-            }
-        }
-
-        public async Task<IResult> AddToGenelDizayn(IsEmriBase isEmri, int genelDizaynId)
-        {
-            using (var context = new CuboContext())
-            {
-
-                var genelDizayn = await context.GenelDizaynBase.SingleOrDefaultAsync(x => x.Id == genelDizaynId);
-
-                var isEmriGenelDizayn = new IsEmriGenelDizayn
-                {
-                    IsEmriId = isEmri.Id,
-                    IsEmri = isEmri,
-                    GenelDizayn = genelDizayn,
-                    GenelDizaynId = genelDizayn.Id
-                };
-                await context.IsEmriGenelDizayns.AddAsync(isEmriGenelDizayn);
-
-                return new SuccessResult("");
-            }
-        }
-
-        public async Task<IResult> AddWithControl(IsEmriBase isEmriBase, int genelDizaynId, int damarDizaynId)
-        {
-            var makine = await _makineDal.GetAsync(x => x.Id == isEmriBase.MakineId);
-            var verimlilik = makine.Verimlilik;
-
-            if (verimlilik <= 0.4 && isEmriBase.Metraj >= 150000)
-            {
-                return new ErrorResult("Verimsiz makine için metraj 200000 den fazla olamaz");
-            }
-
-            await _isEmriDal.AddAsync(isEmriBase);
-            await AddToGenelDizayn(isEmriBase, genelDizaynId);
-            await AddToGenelDizayn(isEmriBase, damarDizaynId);
-
-            return new SuccessResult("İş Emri Eklendi");
-        }
 
 
         public async Task<IResult> AddWithControl(IsEmriBase isEmriBase)
         {
-            var makine = await _makineDal.GetAsync(x => x.Id == isEmriBase.MakineId);
+            var makine = await _makineDal.GetAsync(x => x.Id == isEmriBase.Operator.MakineId);
             var verimlilik = makine.Verimlilik;
 
             if (verimlilik <= 0.4 && isEmriBase.Metraj >= 150000)
@@ -95,9 +38,11 @@ namespace Business.Concrete
 
             await _isEmriDal.AddAsync(isEmriBase);
 
-
             return new SuccessResult("İş Emri Eklendi");
         }
+
+
+
         public async Task<IDataResult<List<IsEmriTakipDto>>> GetAllIsEmriTakipDto(Expression<Func<IsEmriTakipDto, bool>>? filter = null)
         {
 
@@ -106,7 +51,7 @@ namespace Business.Concrete
             return new SuccessDataResult<List<IsEmriTakipDto>>(result, "İş Emirleri Getirildi");
         }
 
-        public async Task<Object> IsPlaniOlustur(OrtakIsEmri ortakIsEmri, int genelDizaynId, int damarDizaynId)
+        public async Task<Object> IsPlaniOlustur(OrtakIsEmri ortakIsEmri)
         {
             List<Makine> makines = (from isim in ortakIsEmri.MakineIsimleri
                                     select _makineDal.GetAsync(x => x.MakineIsmi == isim).Result).ToList();
@@ -129,7 +74,7 @@ namespace Business.Concrete
                     Isim = ortakIsEmri.UrunIsmi,
                     Tur = ortakIsEmri.DizaynTuru,
                     Metraj = Convert.ToDouble(ortakIsEmri.Metraj * (makine.Verimlilik / toplamVerimlilik)),
-                    MakineId = makine.Id,
+
                     Degistiren = ortakIsEmri.Degistiren,
                     Tarih = ortakIsEmri.Tarih
                 };
@@ -137,8 +82,6 @@ namespace Business.Concrete
 
                 liste.Add(isEmri);
                 await _isEmriDal.AddAsync(isEmri);
-                await AddToGenelDizayn(isEmri, genelDizaynId);
-                await AddToDamarDizayn(isEmri, damarDizaynId);
             }
 
             return (liste);
