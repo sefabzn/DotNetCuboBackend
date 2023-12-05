@@ -69,8 +69,8 @@ namespace Business.Concrete
                     Isim = ortakIsEmri.UrunIsmi,
                     Tur = ortakIsEmri.DizaynTuru,
                     Metraj = Convert.ToDouble(ortakIsEmri.Metraj * (makine.Verimlilik / toplamVerimlilik)),
-                    MakineIsmi = makine.MakineIsmi,
                     GenelDizaynId = ortakIsEmri.GenelDizaynId,
+                    MakineId = makine.Id,
                     GenelDizayn = _genelDizaynDal.Get(x => x.Id == ortakIsEmri.GenelDizaynId),
                     Degistiren = ortakIsEmri.Degistiren,
                     Tarih = ortakIsEmri.Tarih

@@ -206,9 +206,6 @@ namespace DataAccess.Migrations
                     b.Property<int>("MakineId")
                         .HasColumnType("int");
 
-                    b.Property<string>("MakineIsmi")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<double>("Metraj")
                         .HasColumnType("float");
 

@@ -23,9 +23,7 @@ namespace Entities.Base
 
         public List<Process>? Surecler { get; set; }
 
-        [DefaultValue(null)]
-        public string? MakineIsmi { get; set; } //  bu özellik ortak is emri verme kısmında
-                                                //  otomatik olarak bir makineye en  uygun iş emrini vermesi
+
         public int MakineId { get; set; } //  bu özellik ortak is emri verme kısmında
                                           //  için konuldu.
 
