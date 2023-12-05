@@ -1,6 +1,8 @@
-﻿namespace Entities
+﻿using Core.Entities;
+
+namespace Entities
 {
-    public class RaporAnalizDto
+    public class RaporAnalizDto : IDto
     {
         public string? MakineIsmi { get; set; }
         public DateTime BaslangicTarihi { get; set; }

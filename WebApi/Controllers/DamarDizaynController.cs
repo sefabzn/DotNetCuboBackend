@@ -27,7 +27,21 @@ namespace WebApi.Controllers
 
             return BadRequest(result);
         }
+        [HttpGet(template: "DeleteAll")]
+        public async Task<IActionResult> DeleteAllAsync()
+        {
+            var result = await _damarDizaynService.GetAllAsync();
+            if (result.Success)
+            {
+                foreach (var elem in result.Data)
+                {
+                    await _damarDizaynService.deleteAsync(elem);
+                }
+                return Ok("Bütün Damarlar Silindi");
+            }
 
+            return BadRequest(result);
+        }
         [HttpGet("GetAllByGenelDizaynId")]
         public async Task<IActionResult> GetAllAsync(int id)
         {

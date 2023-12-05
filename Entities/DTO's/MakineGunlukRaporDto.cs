@@ -1,6 +1,8 @@
-﻿namespace Entities.DTO_s
+﻿using Core.Entities;
+
+namespace Entities.DTO_s
 {
-    public class MakineGunlukRaporDto
+    public class MakineGunlukRaporDto : IDto
     {
 
         public string? MakineIsmi { get; set; }

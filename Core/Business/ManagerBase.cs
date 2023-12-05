@@ -1,4 +1,5 @@
-﻿using Core.DataAccess;
+﻿using Core.Aspects.Autofac.Caching;
+using Core.DataAccess;
 using Core.Entities;
 using Core.Utilities.Results;
 using FluentValidation;
@@ -54,7 +55,7 @@ namespace Core.Business
             return new SuccessDataResult<TEntity>(await _dal.GetAsync(filter), "Ürün bulundu");
         }
 
-
+        [CacheAspect()]
         public async Task<IDataResult<List<TEntity>>> GetAllAsync(Expression<Func<TEntity, bool>>? filter = null)
         {
             return new SuccessDataResult<List<TEntity>>(await _dal.GetAllAsync(filter), "Ürünler Bulundu");
