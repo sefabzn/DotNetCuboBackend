@@ -1,4 +1,5 @@
 ﻿using Core.Entities;
+using Entities.Concrete;
 
 namespace Entities.Base
 {
@@ -22,12 +23,10 @@ namespace Entities.Base
         public string? Core { get; set; }
         public double Hatve { get; set; }
         public DateTime Tarih { get; set; }
-        public int DamarSayisi { get; set; }
-        public int GirilenDamarSayisi { get; set; }
         public string? Zorlama { get; set; }
         public DateTime DegistirilmeTarihi { get; set; }
         public string? Degistiren { get; set; }
-        public List<DamarDizaynBase>? Damarlar { get; set; }
-        public virtual List<IsEmriBase>? IsEmirleri { get; set; }
+
+        public virtual List<IsEmriGenelDizayn>? IsEmriGenelDizayns { get; set; }
     }
 }

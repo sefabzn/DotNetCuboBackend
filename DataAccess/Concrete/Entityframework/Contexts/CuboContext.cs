@@ -51,9 +51,13 @@ namespace DataAccess.Concrete.Entityframework.Contexts
                 .OnDelete(DeleteBehavior.Cascade);
 
             modelBuilder.Entity<IsEmriBase>()
-              .HasOne(d => d.GenelDizayn)
-              .WithMany(i => i.IsEmirleri)
-              .HasForeignKey(i => i.GenelDizaynId);
+              .HasMany(d => d.IsEmriGenelDizayns)
+              .WithOne(i => i.IsEmri)
+              .HasForeignKey(i => i.IsEmriId);
+            modelBuilder.Entity<IsEmriBase>()
+             .HasMany(d => d.IsEmriDamarDizayns)
+             .WithOne(i => i.IsEmri)
+             .HasForeignKey(i => i.IsEmriId);
 
             modelBuilder.Entity<IsEmriBase>()
               .HasMany(i => i.KabloUretimler)
@@ -61,11 +65,16 @@ namespace DataAccess.Concrete.Entityframework.Contexts
               .HasForeignKey(k => k.IsEmriId);
 
             modelBuilder.Entity<GenelDizaynBase>()
-            .HasMany(g => g.Damarlar)
+            .HasMany(g => g.IsEmriGenelDizayns)
             .WithOne(d => d.GenelDizayn)
             .HasForeignKey(d => d.GenelDizaynId)
             .OnDelete(DeleteBehavior.Cascade);
 
+            modelBuilder.Entity<DamarDizaynBase>()
+            .HasMany(g => g.IsEmriDamarDizayns)
+            .WithOne(d => d.DamarDizayn)
+            .HasForeignKey(d => d.DamarDizaynId)
+            .OnDelete(DeleteBehavior.Cascade);
 
             modelBuilder.Entity<User>()
               .HasMany(u => u.UserRoles)
@@ -108,6 +117,8 @@ namespace DataAccess.Concrete.Entityframework.Contexts
         public DbSet<Process> Processes { get; set; }
         public DbSet<Barkod> Barkods { get; set; }
         public DbSet<IsEmriOperator> IsEmriOperators { get; set; }
+        public DbSet<IsEmriGenelDizayn> IsEmriGenelDizayns { get; set; }
+        public DbSet<IsEmriDamarDizayn> IsEmriDamarDizayns { get; set; }
         public DbSet<Operator> Operators { get; set; }
 
     }

@@ -25,7 +25,7 @@ namespace AdminConsoleApp
 
                 var isEmri1 = context.IsEmirleri.SingleOrDefault(x => x.Id == 4);
 
-                var geneldizayn1 = isEmri1.GenelDizayn;
+                //var geneldizayn1 = isEmri1.GenelDizayn;
 
                 var a = 2;
 

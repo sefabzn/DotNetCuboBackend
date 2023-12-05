@@ -81,14 +81,14 @@ namespace DataAccess.Migrations
                     b.Property<double>("Etk")
                         .HasColumnType("float");
 
-                    b.Property<int>("GenelDizaynId")
-                        .HasColumnType("int");
-
                     b.Property<double>("Hatve")
                         .HasColumnType("float");
 
                     b.Property<string>("Imalat")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("IsEmriId")
+                        .HasColumnType("int");
 
                     b.Property<string>("Kalip")
                         .HasColumnType("nvarchar(max)");
@@ -100,8 +100,6 @@ namespace DataAccess.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("GenelDizaynId");
 
                     b.ToTable("DamarDizaynBase");
                 });
@@ -123,9 +121,6 @@ namespace DataAccess.Migrations
                     b.Property<string>("Core")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("DamarSayisi")
-                        .HasColumnType("int");
-
                     b.Property<string>("Degistiren")
                         .HasColumnType("nvarchar(max)");
 
@@ -143,9 +138,6 @@ namespace DataAccess.Migrations
 
                     b.Property<string>("FolyoTipi")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("GirilenDamarSayisi")
-                        .HasColumnType("int");
 
                     b.Property<double>("Hatve")
                         .HasColumnType("float");
@@ -194,10 +186,16 @@ namespace DataAccess.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("DamarSayisi")
+                        .HasColumnType("int");
+
                     b.Property<string>("Degistiren")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("GenelDizaynId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("GirilenDamarSayisi")
                         .HasColumnType("int");
 
                     b.Property<string>("Isim")
@@ -219,8 +217,6 @@ namespace DataAccess.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("GenelDizaynId");
 
                     b.ToTable("IsEmirleri");
                 });
@@ -308,6 +304,52 @@ namespace DataAccess.Migrations
                     b.ToTable("TekDamarDizayn");
                 });
 
+            modelBuilder.Entity("Entities.Concrete.IsEmriDamarDizayn", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("DamarDizaynId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("IsEmriId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("DamarDizaynId");
+
+                    b.HasIndex("IsEmriId");
+
+                    b.ToTable("IsEmriDamarDizayns");
+                });
+
+            modelBuilder.Entity("Entities.Concrete.IsEmriGenelDizayn", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("GenelDizaynId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("IsEmriId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("GenelDizaynId");
+
+                    b.HasIndex("IsEmriId");
+
+                    b.ToTable("IsEmriGenelDizayns");
+                });
+
             modelBuilder.Entity("Entities.Concrete.IsEmriOperator", b =>
                 {
                     b.Property<int>("Id")
@@ -321,6 +363,9 @@ namespace DataAccess.Migrations
 
                     b.Property<int>("OperatorId")
                         .HasColumnType("int");
+
+                    b.Property<DateTime>("Tarih")
+                        .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 
@@ -819,34 +864,50 @@ namespace DataAccess.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("Entities.Base.DamarDizaynBase", b =>
-                {
-                    b.HasOne("Entities.Base.GenelDizaynBase", "GenelDizayn")
-                        .WithMany("Damarlar")
-                        .HasForeignKey("GenelDizaynId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("GenelDizayn");
-                });
-
-            modelBuilder.Entity("Entities.Base.IsEmriBase", b =>
-                {
-                    b.HasOne("Entities.Base.GenelDizaynBase", "GenelDizayn")
-                        .WithMany("IsEmirleri")
-                        .HasForeignKey("GenelDizaynId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("GenelDizayn");
-                });
-
             modelBuilder.Entity("Entities.Concrete.Barkod", b =>
                 {
                     b.HasOne("Entities.Base.IsEmriBase", "IsEmri")
                         .WithOne("Barkod")
                         .HasForeignKey("Entities.Concrete.Barkod", "IsEmriId")
                         .OnDelete(DeleteBehavior.Cascade);
+
+                    b.Navigation("IsEmri");
+                });
+
+            modelBuilder.Entity("Entities.Concrete.IsEmriDamarDizayn", b =>
+                {
+                    b.HasOne("Entities.Base.DamarDizaynBase", "DamarDizayn")
+                        .WithMany("IsEmriDamarDizayns")
+                        .HasForeignKey("DamarDizaynId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Entities.Base.IsEmriBase", "IsEmri")
+                        .WithMany("IsEmriDamarDizayns")
+                        .HasForeignKey("IsEmriId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("DamarDizayn");
+
+                    b.Navigation("IsEmri");
+                });
+
+            modelBuilder.Entity("Entities.Concrete.IsEmriGenelDizayn", b =>
+                {
+                    b.HasOne("Entities.Base.GenelDizaynBase", "GenelDizayn")
+                        .WithMany("IsEmriGenelDizayns")
+                        .HasForeignKey("GenelDizaynId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Entities.Base.IsEmriBase", "IsEmri")
+                        .WithMany("IsEmriGenelDizayns")
+                        .HasForeignKey("IsEmriId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("GenelDizayn");
 
                     b.Navigation("IsEmri");
                 });
@@ -947,16 +1008,23 @@ namespace DataAccess.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("Entities.Base.DamarDizaynBase", b =>
+                {
+                    b.Navigation("IsEmriDamarDizayns");
+                });
+
             modelBuilder.Entity("Entities.Base.GenelDizaynBase", b =>
                 {
-                    b.Navigation("Damarlar");
-
-                    b.Navigation("IsEmirleri");
+                    b.Navigation("IsEmriGenelDizayns");
                 });
 
             modelBuilder.Entity("Entities.Base.IsEmriBase", b =>
                 {
                     b.Navigation("Barkod");
+
+                    b.Navigation("IsEmriDamarDizayns");
+
+                    b.Navigation("IsEmriGenelDizayns");
 
                     b.Navigation("IsEmriOperators");
 

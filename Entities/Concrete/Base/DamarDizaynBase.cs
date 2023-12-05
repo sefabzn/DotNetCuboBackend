@@ -1,4 +1,5 @@
 ﻿using Core.Entities;
+using Entities.Concrete;
 
 namespace Entities.Base
 {
@@ -15,7 +16,7 @@ namespace Entities.Base
         public string? Kalip { get; set; }
         public string? Imalat { get; set; }
         public double Hatve { get; set; }
-        public int GenelDizaynId { get; set; }
-        public GenelDizaynBase? GenelDizayn { get; set; }
+        public int IsEmriId { get; set; }
+        public List<IsEmriDamarDizayn>? IsEmriDamarDizayns { get; set; }
     }
 }

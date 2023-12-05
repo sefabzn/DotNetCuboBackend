@@ -8,22 +8,22 @@ namespace Business.Concrete
 {
     public class DamarDizaynManager : ManagerBase<DamarDizaynBase, IDamarDizaynDal>, IDamarDizaynService
     {
-        IGenelDizaynDal _GenelDizaynDal;
         IDamarDizaynDal _DamarDizaynDal;
-        public DamarDizaynManager(IDamarDizaynDal dal, IGenelDizaynDal cctvGenelDizaynDal) : base(dal)
+        IIsEmriDal _isEmriDal;
+        public DamarDizaynManager(IDamarDizaynDal dal, IIsEmriDal isEmriDal) : base(dal)
         {
-            _GenelDizaynDal = cctvGenelDizaynDal;
             _DamarDizaynDal = dal;
+            _isEmriDal = isEmriDal;
         }
-        public IResult UpdateGenelDizaynDamarSayisi(int genelDizaynId)
+        public IResult UpdateIsEmriDamarSayisi(int isEmriId)
         {
-            var genelDizaynKablo = _GenelDizaynDal.GetAsync(x => x.Id == genelDizaynId).Result;
 
-            var damarSayisi = _DamarDizaynDal.GetAllAsync(x => x.GenelDizaynId == genelDizaynId).Result.Count;
+            var damarSayisi = _DamarDizaynDal.GetAllAsync(x => x.IsEmriId == isEmriId).Result.Count;
 
-            genelDizaynKablo.GirilenDamarSayisi = damarSayisi;
+            var isEmri = _isEmriDal.GetAsync(x => x.Id == isEmriId).Result;
 
-            _GenelDizaynDal.UpdateAsync(genelDizaynKablo);
+
+            _isEmriDal.UpdateAsync(isEmri);
 
             return new SuccessResult("Damar Sayısı Güncellendi");
         }

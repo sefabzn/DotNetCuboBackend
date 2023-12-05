@@ -6,8 +6,9 @@ namespace Entities.Concrete
     {
         public int Id { get; set; }
         public int OperatorId { get; set; }
-        public Operator Operator { get; set; }
+        public Operator? Operator { get; set; }
         public int IsEmriId { get; set; }
-        public IsEmriBase IsEmri { get; set; }
+        public IsEmriBase? IsEmri { get; set; }
+        public DateTime Tarih { get; set; }
     }
 }

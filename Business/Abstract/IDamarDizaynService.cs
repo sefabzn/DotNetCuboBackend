@@ -6,6 +6,6 @@ namespace Business.Abstract
 {
     public interface IDamarDizaynService : IServiceRepository<DamarDizaynBase>
     {
-        IResult UpdateGenelDizaynDamarSayisi(int genelDizaynId);
+        IResult UpdateIsEmriDamarSayisi(int isEmriId);
     }
 }

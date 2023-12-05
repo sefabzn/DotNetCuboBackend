@@ -48,39 +48,41 @@ namespace Business.Concrete
 
         public async Task<Object> IsPlaniOlustur(OrtakIsEmri ortakIsEmri)
         {
-            List<Makine> makines = (from isim in ortakIsEmri.MakineIsimleri
-                                    select _makineDal.GetAsync(x => x.MakineIsmi == isim).Result).ToList();
-            var kesitBilgisi = await _kesitHizTablosuDal.GetAllAsync();
+            throw new NotImplementedException();
+            //List<Makine> makines = (from isim in ortakIsEmri.MakineIsimleri
+            //                        select _makineDal.GetAsync(x => x.MakineIsmi == isim).Result).ToList();
+            //var kesitBilgisi = await _kesitHizTablosuDal.GetAllAsync();
 
-            double? toplamVerimlilik = 0;
+            //double? toplamVerimlilik = 0;
 
-            foreach (var makine in makines)
-            {
-                toplamVerimlilik += makine.Verimlilik;
-            }
+            //foreach (var makine in makines)
+            //{
+            //    toplamVerimlilik += makine.Verimlilik;
+            //}
 
-            var ortalamaVerimlilik = toplamVerimlilik / makines.Count();
+            //var ortalamaVerimlilik = toplamVerimlilik / makines.Count();
 
-            List<Object> liste = new List<object>();
-            foreach (var makine in makines)
-            {
-                var isEmri = new IsEmriBase()
-                {
-                    Isim = ortakIsEmri.UrunIsmi,
-                    Tur = ortakIsEmri.DizaynTuru,
-                    Metraj = Convert.ToDouble(ortakIsEmri.Metraj * (makine.Verimlilik / toplamVerimlilik)),
-                    GenelDizaynId = ortakIsEmri.GenelDizaynId,
-                    MakineId = makine.Id,
-                    GenelDizayn = _genelDizaynDal.Get(x => x.Id == ortakIsEmri.GenelDizaynId),
-                    Degistiren = ortakIsEmri.Degistiren,
-                    Tarih = ortakIsEmri.Tarih
-                };
+            //List<Object> liste = new List<object>();
+            //foreach (var makine in makines)
+            //{
+            //    var isEmri = new IsEmriBase()
+            //    {
+            //        Isim = ortakIsEmri.UrunIsmi,
+            //        Tur = ortakIsEmri.DizaynTuru,
+            //        Metraj = Convert.ToDouble(ortakIsEmri.Metraj * (makine.Verimlilik / toplamVerimlilik)),
+            //        GenelDizaynId = ortakIsEmri.GenelDizaynId,
+            //        MakineId = makine.Id,
+            //        GenelDizayn = _genelDizaynDal.Get(x => x.Id == ortakIsEmri.GenelDizaynId),
+            //        Degistiren = ortakIsEmri.Degistiren,
+            //        Tarih = ortakIsEmri.Tarih
+            //    };
 
-                liste.Add(isEmri);
-                await _isEmriDal.AddAsync(isEmri);
-            }
 
-            return (liste);
+            //    liste.Add(isEmri);
+            //    await _isEmriDal.AddAsync(isEmri);
+            //}
+
+            //return (liste);
         }
 
         public async Task<double?> TeorikSüreHesapla(OrtakIsEmri ortakIsEmri)

@@ -45,7 +45,7 @@ namespace WebApi.Controllers
         [HttpGet("GetAllByGenelDizaynId")]
         public async Task<IActionResult> GetAllAsync(int id)
         {
-            var result = await _damarDizaynService.GetAllAsync(x => x.GenelDizaynId == id);
+            var result = await _damarDizaynService.GetAllAsync(x => x.IsEmriId == id);
             if (result.Success)
             {
                 return Ok(result);
@@ -59,7 +59,7 @@ namespace WebApi.Controllers
             var result = await _damarDizaynService.addAsync(kablo);
             if (result.Success)
             {
-                _damarDizaynService.UpdateGenelDizaynDamarSayisi(kablo.GenelDizaynId);
+                _damarDizaynService.UpdateIsEmriDamarSayisi(kablo.IsEmriId);
                 return Ok(result);
             }
             return BadRequest(result);
@@ -77,7 +77,7 @@ namespace WebApi.Controllers
                     return BadRequest(result);
 
                 }
-                _damarDizaynService.UpdateGenelDizaynDamarSayisi(kablo.GenelDizaynId);
+                _damarDizaynService.UpdateIsEmriDamarSayisi(kablo.IsEmriId);
 
             }
             return Ok("Damarlar Eklendi");
@@ -111,7 +111,7 @@ namespace WebApi.Controllers
             var result = await _damarDizaynService.deleteAsync(kablo);
             if (result.Success)
             {
-                _damarDizaynService.UpdateGenelDizaynDamarSayisi(kablo.GenelDizaynId);
+                _damarDizaynService.UpdateIsEmriDamarSayisi(kablo.IsEmriId);
                 return Ok(result);
             }
             return BadRequest(result);

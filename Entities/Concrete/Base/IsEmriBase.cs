@@ -16,6 +16,9 @@ namespace Entities.Base
 
         public double Metraj { get; set; }
 
+        public int DamarSayisi { get; set; }
+        public int GirilenDamarSayisi { get; set; }
+
         [DefaultValue(false)]
         public bool TamamlanmaDurumu { get; set; }
         public virtual Barkod? Barkod { get; set; }
@@ -31,8 +34,9 @@ namespace Entities.Base
         public string? Degistiren { get; set; }
 
         public int GenelDizaynId { get; set; }
-        public virtual GenelDizaynBase? GenelDizayn { get; set; }
-        public virtual List<KabloUretim>? KabloUretimler { get; set; }
+        public List<IsEmriGenelDizayn>? IsEmriGenelDizayns { get; set; }
+        public List<IsEmriDamarDizayn>? IsEmriDamarDizayns { get; set; }
+        public List<KabloUretim>? KabloUretimler { get; set; }
         public List<IsEmriOperator>? IsEmriOperators { get; set; }
     }
 
