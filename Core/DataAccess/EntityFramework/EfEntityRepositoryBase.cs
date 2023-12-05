@@ -43,6 +43,8 @@ namespace Core.DataAccess.EntityFramework
 
             using (TContext context = new TContext())
             {
+
+
                 return filter == null
                     ? await context.Set<TEntity>().ToListAsync()
                     : await context.Set<TEntity>().Where(filter).ToListAsync();
