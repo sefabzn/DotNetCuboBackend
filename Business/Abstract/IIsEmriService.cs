@@ -12,6 +12,8 @@ namespace Business.Abstract
         Task<Object> IsPlaniOlustur(OrtakIsEmri ortakIsEmri);
         Task<double?> TeorikSüreHesapla(OrtakIsEmri ortakIsEmri);
         Task<IDataResult<List<IsEmriTakipDto>>> GetAllIsEmriTakipDto(Expression<Func<IsEmriTakipDto, bool>>? filter = null);
+        Task<IResult> AddToGenelDizayn(int genelDizaynId);
+        Task<IResult> AddToDamarDizayn(int damarDizaynId);
 
         Task<IResult> AddWithControl(IsEmriBase isEmriBase);
 

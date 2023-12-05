@@ -121,5 +121,7 @@ namespace DataAccess.Concrete.Entityframework.Contexts
         public DbSet<IsEmriDamarDizayn> IsEmriDamarDizayns { get; set; }
         public DbSet<Operator> Operators { get; set; }
 
+        public DbSet<GenelDizaynBase> GenelDizaynBase { get; set; }
+        public DbSet<DamarDizaynBase> DamarDizaynBase { get; set; }
     }
 }

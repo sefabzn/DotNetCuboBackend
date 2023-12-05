@@ -33,7 +33,7 @@ namespace Entities.Base
         public DateTime Tarih { get; set; }
         public string? Degistiren { get; set; }
 
-        public int GenelDizaynId { get; set; }
+
         public List<IsEmriGenelDizayn>? IsEmriGenelDizayns { get; set; }
         public List<IsEmriDamarDizayn>? IsEmriDamarDizayns { get; set; }
         public List<KabloUretim>? KabloUretimler { get; set; }

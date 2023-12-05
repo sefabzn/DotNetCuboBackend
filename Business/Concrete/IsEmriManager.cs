@@ -2,9 +2,11 @@
 using Core.Business;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
+using DataAccess.Concrete.Entityframework.Contexts;
 using Entities.Base;
 using Entities.Concrete;
 using Entities.DTO_s;
+using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
 
 namespace Business.Concrete
@@ -23,6 +25,46 @@ namespace Business.Concrete
             _genelDizaynDal = genelDizaynDal;
         }
 
+        public async Task<IResult> AddToDamarDizayn(IsEmriBase isEmri, int damarDizaynId)
+        {
+            using (var context = new CuboContext())
+            {
+
+                var damarDizayn = await context.DamarDizaynBase.SingleOrDefaultAsync(x => x.Id == damarDizaynId);
+
+                var isEmriDamarDizayn = new IsEmriDamarDizayn
+                {
+                    IsEmriId = isEmri.Id,
+                    IsEmri = isEmri,
+                    DamarDizayn = damarDizayn,
+                    DamarDizaynId = damarDizayn.Id
+                };
+                await context.IsEmriDamarDizayns.(isEmriDamarDizayn);
+
+                return new SuccessResult("");
+            }
+        }
+
+        public async Task<IResult> AddToGenelDizayn(IsEmriBase isEmri, int genelDizaynId)
+        {
+            using (var context = new CuboContext())
+            {
+
+                var genelDizayn = await context.GenelDizaynBase.SingleOrDefaultAsync(x => x.Id == genelDizaynId);
+
+                var isEmriGenelDizayn = new IsEmriGenelDizayn
+                {
+                    IsEmriId = isEmri.Id,
+                    IsEmri = isEmri,
+                    GenelDizayn = genelDizayn,
+                    GenelDizaynId = genelDizayn.Id
+                };
+                await context.IsEmriGenelDizayns.AddAsync(isEmriGenelDizayn);
+
+                return new SuccessResult("");
+            }
+        }
+
         public async Task<IResult> AddWithControl(IsEmriBase isEmriBase)
         {
             var makine = await _makineDal.GetAsync(x => x.Id == isEmriBase.MakineId);
@@ -34,6 +76,7 @@ namespace Business.Concrete
             }
 
             await _isEmriDal.AddAsync(isEmriBase);
+            var context = new CuboContext();
 
             return new SuccessResult("İş Emri Eklendi");
         }
