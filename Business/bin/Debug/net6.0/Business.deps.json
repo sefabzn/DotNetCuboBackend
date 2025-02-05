@@ -1605,7 +1605,10 @@
           "Newtonsoft.Json": "13.0.1"
         },
         "runtime": {
-          "Core.dll": {}
+          "Core.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "DataAccess/1.0.0": {
@@ -1616,7 +1619,10 @@
           "Microsoft.EntityFrameworkCore.SqlServer": "7.0.9"
         },
         "runtime": {
-          "DataAccess.dll": {}
+          "DataAccess.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "Entities/1.0.0": {
@@ -1625,7 +1631,10 @@
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.21"
         },
         "runtime": {
-          "Entities.dll": {}
+          "Entities.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       }
     }

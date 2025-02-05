@@ -1,5 +1,6 @@
 ﻿using Business.Abstract;
 using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 
 namespace WebApi.Controllers
 {
@@ -7,58 +8,55 @@ namespace WebApi.Controllers
     [ApiController]
     public class ExchangeRateController : Controller
     {
-        IExchangeRateService _exchangeRateService;
+        private readonly IExchangeRateService _exchangeRateService;
+
         public ExchangeRateController(IExchangeRateService exchangeRateService)
         {
             _exchangeRateService = exchangeRateService;
         }
+
         [HttpGet("GetDollarRate")]
         public async Task<IActionResult> GetDollarRate()
         {
-            var json = await _exchangeRateService.GetDollarRate();
-            if (json != null)
+            var result = await _exchangeRateService.GetDollarRate();
+            if (result.Success)
             {
-                return Ok(json);
+                return Ok(result.Data);
             }
-
-
-            return BadRequest(json);
+            return BadRequest(result.Message);
         }
+
         [HttpGet("GetEuroRate")]
         public async Task<IActionResult> GetEuroRate()
         {
-
-            var json = await _exchangeRateService.GetEuroRate();
-            if (json != null)
+            var result = await _exchangeRateService.GetEuroRate();
+            if (result.Success)
             {
-                return Ok(json);
+                return Ok(result.Data);
             }
-          
-
-            return BadRequest(json);
+            return BadRequest(result.Message);
         }
+
         [HttpGet("GetCopperRate")]
         public IActionResult GetCopperRate()
         {
             var result = _exchangeRateService.GetCopperRate();
             if (result.Success)
             {
-                return Ok(result);
+                return Ok(result.Data);
             }
-
-            return BadRequest(result);
+            return BadRequest(result.Message);
         }
+
         [HttpGet("GetCopperRateByTL")]
         public IActionResult GetCopperRateByTL()
         {
             var result = _exchangeRateService.GetCopperRateByTL();
             if (result.Success)
             {
-                return Ok(result);
+                return Ok(result.Data);
             }
-
-            return BadRequest(result);
+            return BadRequest(result.Message);
         }
-
     }
 }

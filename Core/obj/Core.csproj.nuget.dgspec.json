@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\sefa_\\OneDrive\\Masaüstü\\DOTNETBACKEND\\DotNetCuboBackend\\Core\\Core.csproj": {}
+    "C:\\Users\\sefa_\\OneDrive\\Masaüstü\\CUBO\\DotNetCuboBackend\\Core\\Core.csproj": {}
   },
   "projects": {
-    "C:\\Users\\sefa_\\OneDrive\\Masaüstü\\DOTNETBACKEND\\DotNetCuboBackend\\Core\\Core.csproj": {
+    "C:\\Users\\sefa_\\OneDrive\\Masaüstü\\CUBO\\DotNetCuboBackend\\Core\\Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\sefa_\\OneDrive\\Masaüstü\\DOTNETBACKEND\\DotNetCuboBackend\\Core\\Core.csproj",
+        "projectUniqueName": "C:\\Users\\sefa_\\OneDrive\\Masaüstü\\CUBO\\DotNetCuboBackend\\Core\\Core.csproj",
         "projectName": "Core",
-        "projectPath": "C:\\Users\\sefa_\\OneDrive\\Masaüstü\\DOTNETBACKEND\\DotNetCuboBackend\\Core\\Core.csproj",
+        "projectPath": "C:\\Users\\sefa_\\OneDrive\\Masaüstü\\CUBO\\DotNetCuboBackend\\Core\\Core.csproj",
         "packagesPath": "C:\\Users\\sefa_\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\sefa_\\OneDrive\\Masaüstü\\DOTNETBACKEND\\DotNetCuboBackend\\Core\\obj\\",
+        "outputPath": "C:\\Users\\sefa_\\OneDrive\\Masaüstü\\CUBO\\DotNetCuboBackend\\Core\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
           "C:\\Users\\sefa_\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -34,7 +38,13 @@
           "warnAsError": [
             "NU1605"
           ]
-        }
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.100"
       },
       "frameworks": {
         "net6.0": {
@@ -105,7 +115,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     }

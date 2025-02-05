@@ -1,0 +1,2686 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "API",
+    "version": "v1"
+  },
+  "paths": {
+    "/api/Auth/Register": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegisterDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegisterDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegisterDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Auth/Login": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Auth/AddRole": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "parameters": [
+          {
+            "name": "roleName",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Auth/authexperiment": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/DamarDizayn/GetAll": {
+      "get": {
+        "tags": [
+          "DamarDizayn"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/DamarDizayn/DeleteAll": {
+      "get": {
+        "tags": [
+          "DamarDizayn"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/DamarDizayn/GetAllByGenelDizaynId": {
+      "get": {
+        "tags": [
+          "DamarDizayn"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/DamarDizayn/Add": {
+      "post": {
+        "tags": [
+          "DamarDizayn"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DamarDizaynBase"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DamarDizaynBase"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DamarDizaynBase"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/DamarDizayn/AddAll": {
+      "post": {
+        "tags": [
+          "DamarDizayn"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/DamarDizaynBase"
+                }
+              }
+            },
+            "text/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/DamarDizaynBase"
+                }
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/DamarDizaynBase"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/DamarDizayn/GetById": {
+      "get": {
+        "tags": [
+          "DamarDizayn"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/DamarDizayn/Update": {
+      "put": {
+        "tags": [
+          "DamarDizayn"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DamarDizaynBase"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DamarDizaynBase"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DamarDizaynBase"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/DamarDizayn/Delete": {
+      "post": {
+        "tags": [
+          "DamarDizayn"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DamarDizaynBase"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DamarDizaynBase"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DamarDizaynBase"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/ExchangeRate/GetDollarRate": {
+      "get": {
+        "tags": [
+          "ExchangeRate"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/ExchangeRate/GetEuroRate": {
+      "get": {
+        "tags": [
+          "ExchangeRate"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/ExchangeRate/GetCopperRate": {
+      "get": {
+        "tags": [
+          "ExchangeRate"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/ExchangeRate/GetCopperRateByTL": {
+      "get": {
+        "tags": [
+          "ExchangeRate"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/GenelDizayn/GetAll": {
+      "get": {
+        "tags": [
+          "GenelDizayn"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/GenelDizayn/GetAll/{tur}": {
+      "get": {
+        "tags": [
+          "GenelDizayn"
+        ],
+        "parameters": [
+          {
+            "name": "tur",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/GenelDizayn/GetAllByDate": {
+      "get": {
+        "tags": [
+          "GenelDizayn"
+        ],
+        "parameters": [
+          {
+            "name": "tarih",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/GenelDizayn/Add": {
+      "post": {
+        "tags": [
+          "GenelDizayn"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GenelDizaynBase"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GenelDizaynBase"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/GenelDizaynBase"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/GenelDizayn/AddByList": {
+      "post": {
+        "tags": [
+          "GenelDizayn"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/GenelDizaynBase"
+                }
+              }
+            },
+            "text/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/GenelDizaynBase"
+                }
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/GenelDizaynBase"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/GenelDizayn/GetById": {
+      "get": {
+        "tags": [
+          "GenelDizayn"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/GenelDizayn/Update": {
+      "put": {
+        "tags": [
+          "GenelDizayn"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GenelDizaynBase"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GenelDizaynBase"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/GenelDizaynBase"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/GenelDizayn/Delete": {
+      "post": {
+        "tags": [
+          "GenelDizayn"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GenelDizaynBase"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GenelDizaynBase"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/GenelDizaynBase"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/IsEmri/GetAll": {
+      "get": {
+        "tags": [
+          "IsEmri"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/IsEmri/GetAllIsEmriTakip": {
+      "get": {
+        "tags": [
+          "IsEmri"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/IsEmri/Delete": {
+      "post": {
+        "tags": [
+          "IsEmri"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/IsEmriBase"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/IsEmriBase"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/IsEmriBase"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/IsEmri/Add": {
+      "post": {
+        "tags": [
+          "IsEmri"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/IsEmriBase"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/IsEmriBase"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/IsEmriBase"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/IsEmri/AddWithControl": {
+      "post": {
+        "tags": [
+          "IsEmri"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/IsEmriBase"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/IsEmriBase"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/IsEmriBase"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/IsEmri/AddAll": {
+      "post": {
+        "tags": [
+          "IsEmri"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/IsEmriBase"
+                }
+              }
+            },
+            "text/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/IsEmriBase"
+                }
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/IsEmriBase"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/IsEmri/GetById": {
+      "get": {
+        "tags": [
+          "IsEmri"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/IsEmri/Update": {
+      "put": {
+        "tags": [
+          "IsEmri"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/IsEmriBase"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/IsEmriBase"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/IsEmriBase"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/KabloUretim/GetAll": {
+      "get": {
+        "tags": [
+          "KabloUretim"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/KabloUretim/GetAllByDate": {
+      "get": {
+        "tags": [
+          "KabloUretim"
+        ],
+        "parameters": [
+          {
+            "name": "tarih",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/KabloUretim/Add": {
+      "post": {
+        "tags": [
+          "KabloUretim"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/KabloUretim"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/KabloUretim"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/KabloUretim"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/KabloUretim/AddMany": {
+      "post": {
+        "tags": [
+          "KabloUretim"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/KabloUretim"
+                }
+              }
+            },
+            "text/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/KabloUretim"
+                }
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/KabloUretim"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/KabloUretim/Delete": {
+      "post": {
+        "tags": [
+          "KabloUretim"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/KabloUretim"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/KabloUretim"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/KabloUretim"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/KabloUretim/Update": {
+      "put": {
+        "tags": [
+          "KabloUretim"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/KabloUretim"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/KabloUretim"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/KabloUretim"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/KabloUretim/GetById": {
+      "get": {
+        "tags": [
+          "KabloUretim"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/KabloUretim/GetAllByDateRange": {
+      "get": {
+        "tags": [
+          "KabloUretim"
+        ],
+        "parameters": [
+          {
+            "name": "start",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "finish",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/KabloUretim/GetAllByDateRangeAndMakine": {
+      "get": {
+        "tags": [
+          "KabloUretim"
+        ],
+        "parameters": [
+          {
+            "name": "start",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "finish",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "makineId",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/KesitYapisi/Add": {
+      "post": {
+        "tags": [
+          "KesitYapisi"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/KesitYapisi"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/KesitYapisi"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/KesitYapisi"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/KesitYapisi/GetById": {
+      "get": {
+        "tags": [
+          "KesitYapisi"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/KesitYapisi/Update": {
+      "put": {
+        "tags": [
+          "KesitYapisi"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/KesitYapisi"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/KesitYapisi"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/KesitYapisi"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/KesitYapisi/GetAll": {
+      "get": {
+        "tags": [
+          "KesitYapisi"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/KesitYapisi/Delete": {
+      "post": {
+        "tags": [
+          "KesitYapisi"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/KesitYapisi"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/KesitYapisi"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/KesitYapisi"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Kullanicilar/GetAll": {
+      "get": {
+        "tags": [
+          "Kullanicilar"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Kullanicilar/Add": {
+      "post": {
+        "tags": [
+          "Kullanicilar"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Kullanici"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Kullanici"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Kullanici"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Kullanicilar/GetById": {
+      "get": {
+        "tags": [
+          "Kullanicilar"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Kullanicilar/GetByName": {
+      "get": {
+        "tags": [
+          "Kullanicilar"
+        ],
+        "parameters": [
+          {
+            "name": "kullaniciAdi",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Kullanicilar/Update": {
+      "put": {
+        "tags": [
+          "Kullanicilar"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Kullanici"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Kullanici"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Kullanici"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Kullanicilar/Delete": {
+      "post": {
+        "tags": [
+          "Kullanicilar"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Kullanici"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Kullanici"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Kullanici"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Kullanicilar/GetClaims": {
+      "get": {
+        "tags": [
+          "Kullanicilar"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/MakineKesitHizTablosu/Add": {
+      "post": {
+        "tags": [
+          "MakineKesitHizTablosu"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MakineKesitHizTablosu"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MakineKesitHizTablosu"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/MakineKesitHizTablosu"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/MakineKesitHizTablosu/GetAllByMakines": {
+      "post": {
+        "tags": [
+          "MakineKesitHizTablosu"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              }
+            },
+            "text/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/MakineKesitHizTablosu/GetAll": {
+      "get": {
+        "tags": [
+          "MakineKesitHizTablosu"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/MakineKesitHizTablosu/GetAllOrdered": {
+      "get": {
+        "tags": [
+          "MakineKesitHizTablosu"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Makineler/GetAll": {
+      "get": {
+        "tags": [
+          "Makineler"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Makineler/Add": {
+      "post": {
+        "tags": [
+          "Makineler"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Makine"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Makine"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Makine"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Makineler/GetById": {
+      "get": {
+        "tags": [
+          "Makineler"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Makineler/GetRaporByDate": {
+      "get": {
+        "tags": [
+          "Makineler"
+        ],
+        "parameters": [
+          {
+            "name": "date",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Makineler/Update": {
+      "put": {
+        "tags": [
+          "Makineler"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Makine"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Makine"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Makine"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Makineler/Delete": {
+      "post": {
+        "tags": [
+          "Makineler"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Makine"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Makine"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Makine"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Makineler/GetRaporByDateRange": {
+      "get": {
+        "tags": [
+          "Makineler"
+        ],
+        "parameters": [
+          {
+            "name": "makineId",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "startDate",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "finishDate",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Makineler/GetRaporAnalysis": {
+      "get": {
+        "tags": [
+          "Makineler"
+        ],
+        "parameters": [
+          {
+            "name": "makineId",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "startDate",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "finishDate",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Makineler/SetVerimlilikForAll": {
+      "post": {
+        "tags": [
+          "Makineler"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Process/GetAll": {
+      "get": {
+        "tags": [
+          "Process"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Process/GetAllByIsEmriId": {
+      "get": {
+        "tags": [
+          "Process"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Process/GetById": {
+      "get": {
+        "tags": [
+          "Process"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Process/Add": {
+      "post": {
+        "tags": [
+          "Process"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Process"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Process"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Process"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Process/AddAll": {
+      "post": {
+        "tags": [
+          "Process"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Process"
+                }
+              }
+            },
+            "text/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Process"
+                }
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Process"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Process/Update": {
+      "put": {
+        "tags": [
+          "Process"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Process"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Process"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Process"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Process/SetAsCompleted": {
+      "put": {
+        "tags": [
+          "Process"
+        ],
+        "parameters": [
+          {
+            "name": "isEmriId",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Process/UpdateAllBarcodes": {
+      "put": {
+        "tags": [
+          "Process"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Process/Delete": {
+      "post": {
+        "tags": [
+          "Process"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Process"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Process"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Process"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Sarfiyat/GetAll": {
+      "get": {
+        "tags": [
+          "Sarfiyat"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Sarfiyat/GetAllByDateRange": {
+      "get": {
+        "tags": [
+          "Sarfiyat"
+        ],
+        "parameters": [
+          {
+            "name": "startDate",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "finishDate",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Sarfiyat/Delete": {
+      "post": {
+        "tags": [
+          "Sarfiyat"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Sarfiyat"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Sarfiyat"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Sarfiyat"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Sarfiyat/Add": {
+      "post": {
+        "tags": [
+          "Sarfiyat"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Sarfiyat"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Sarfiyat"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Sarfiyat"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Sarfiyat/GetById": {
+      "get": {
+        "tags": [
+          "Sarfiyat"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Sarfiyat/Update": {
+      "put": {
+        "tags": [
+          "Sarfiyat"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Sarfiyat"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Sarfiyat"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Sarfiyat"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Barkod": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "barkodString": {
+            "type": "string",
+            "nullable": true
+          },
+          "isEmriId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "isEmri": {
+            "$ref": "#/components/schemas/IsEmriBase"
+          }
+        },
+        "additionalProperties": false
+      },
+      "DamarDizaynBase": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "damarNo": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "renk": {
+            "type": "string",
+            "nullable": true
+          },
+          "kesitCapi": {
+            "type": "number",
+            "format": "double"
+          },
+          "etk": {
+            "type": "number",
+            "format": "double"
+          },
+          "cap": {
+            "type": "number",
+            "format": "double"
+          },
+          "back": {
+            "type": "number",
+            "format": "double"
+          },
+          "ayna": {
+            "type": "number",
+            "format": "double"
+          },
+          "kalip": {
+            "type": "string",
+            "nullable": true
+          },
+          "imalat": {
+            "type": "string",
+            "nullable": true
+          },
+          "hatve": {
+            "type": "number",
+            "format": "double"
+          },
+          "genelDizaynId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "genelDizayn": {
+            "$ref": "#/components/schemas/GenelDizaynBase"
+          }
+        },
+        "additionalProperties": false
+      },
+      "GenelDizaynBase": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "kablo": {
+            "type": "string",
+            "nullable": true
+          },
+          "tur": {
+            "type": "string",
+            "nullable": true
+          },
+          "kesitCapi": {
+            "type": "number",
+            "format": "double"
+          },
+          "orgu": {
+            "type": "number",
+            "format": "double"
+          },
+          "orguTelYapisi": {
+            "type": "string",
+            "nullable": true
+          },
+          "polyesterOlcusu": {
+            "type": "number",
+            "format": "double"
+          },
+          "folyoTipi": {
+            "type": "string",
+            "nullable": true
+          },
+          "folyoOlcusu": {
+            "type": "number",
+            "format": "double"
+          },
+          "disKilif": {
+            "type": "string",
+            "nullable": true
+          },
+          "disCap": {
+            "type": "number",
+            "format": "double"
+          },
+          "back": {
+            "type": "number",
+            "format": "double"
+          },
+          "ayna": {
+            "type": "number",
+            "format": "double"
+          },
+          "kalip": {
+            "type": "string",
+            "nullable": true
+          },
+          "core": {
+            "type": "string",
+            "nullable": true
+          },
+          "hatve": {
+            "type": "number",
+            "format": "double"
+          },
+          "tarih": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "damarSayisi": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "girilenDamarSayisi": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "zorlama": {
+            "type": "string",
+            "nullable": true
+          },
+          "degistirilmeTarihi": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "degistiren": {
+            "type": "string",
+            "nullable": true
+          },
+          "damarlar": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DamarDizaynBase"
+            },
+            "nullable": true
+          },
+          "isEmirleri": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/IsEmriBase"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "IsEmriBase": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "isim": {
+            "type": "string",
+            "nullable": true
+          },
+          "tur": {
+            "type": "string",
+            "nullable": true
+          },
+          "metraj": {
+            "type": "number",
+            "format": "double"
+          },
+          "tamamlanmaDurumu": {
+            "type": "boolean",
+            "default": false
+          },
+          "barkod": {
+            "$ref": "#/components/schemas/Barkod"
+          },
+          "barkodString": {
+            "type": "string",
+            "nullable": true
+          },
+          "surecler": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Process"
+            },
+            "nullable": true
+          },
+          "makineId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "tarih": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "degistiren": {
+            "type": "string",
+            "nullable": true
+          },
+          "genelDizaynId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "genelDizayn": {
+            "$ref": "#/components/schemas/GenelDizaynBase"
+          },
+          "kabloUretimler": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/KabloUretim"
+            },
+            "nullable": true
+          },
+          "isEmriOperators": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/IsEmriOperator"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "IsEmriOperator": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "operatorId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "operator": {
+            "$ref": "#/components/schemas/Operator"
+          },
+          "isEmriId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "isEmri": {
+            "$ref": "#/components/schemas/IsEmriBase"
+          }
+        },
+        "additionalProperties": false
+      },
+      "KabloUretim": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "kabloIsmi": {
+            "type": "string",
+            "nullable": true
+          },
+          "makineId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "kesitCapi": {
+            "type": "number",
+            "format": "double"
+          },
+          "metraj": {
+            "type": "number",
+            "format": "double"
+          },
+          "kopma": {
+            "type": "number",
+            "format": "double"
+          },
+          "renkDegisimi": {
+            "type": "number",
+            "format": "double"
+          },
+          "genelAriza": {
+            "type": "number",
+            "format": "double"
+          },
+          "hurdaPvc": {
+            "type": "number",
+            "format": "double"
+          },
+          "hurdaCu": {
+            "type": "number",
+            "format": "double"
+          },
+          "calismaSuresi": {
+            "type": "number",
+            "format": "double"
+          },
+          "kayipZaman": {
+            "type": "number",
+            "format": "double"
+          },
+          "verimlilik": {
+            "type": "number",
+            "format": "double"
+          },
+          "isEmriId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "isEmri": {
+            "$ref": "#/components/schemas/IsEmriBase"
+          },
+          "tarih": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "degistiren": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "KesitYapisi": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "kesitCapi": {
+            "type": "number",
+            "format": "double"
+          },
+          "back": {
+            "type": "number",
+            "format": "double"
+          },
+          "disCap": {
+            "type": "number",
+            "format": "double"
+          },
+          "ayna": {
+            "type": "number",
+            "format": "double"
+          },
+          "kilcalDamarSayisi": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "kilcalDamarCapi": {
+            "type": "number",
+            "format": "double"
+          },
+          "hatve": {
+            "type": "number",
+            "format": "double"
+          },
+          "alan": {
+            "type": "number",
+            "format": "double"
+          },
+          "coef": {
+            "type": "number",
+            "format": "double"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Kullanici": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "kullaniciAdi": {
+            "type": "string",
+            "nullable": true
+          },
+          "passwordHash": {
+            "type": "string",
+            "format": "byte",
+            "nullable": true
+          },
+          "passwordSalt": {
+            "type": "string",
+            "format": "byte",
+            "nullable": true
+          },
+          "status": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "LoginDto": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "password": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Makine": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "no": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "makineIsmi": {
+            "type": "string",
+            "nullable": true
+          },
+          "isinma": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "renkDegisimi": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "kopma": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "kesitDegisimi": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "verimlilik": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "MakineKesitHizTablosu": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "kesitCapi": {
+            "type": "number",
+            "format": "double"
+          },
+          "makineId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "hiz": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Operator": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "isEmriOperators": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/IsEmriOperator"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Process": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "isim": {
+            "type": "string",
+            "nullable": true
+          },
+          "aciklama": {
+            "type": "string",
+            "nullable": true
+          },
+          "order": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "isEmriId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "isEmri": {
+            "$ref": "#/components/schemas/IsEmriBase"
+          },
+          "tamamlanmaDurumu": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "RegisterDto": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "username": {
+            "type": "string",
+            "nullable": true
+          },
+          "password": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Sarfiyat": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "kabloId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "kesitCapi": {
+            "type": "number",
+            "format": "double"
+          },
+          "makineId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "kullanilanPvc": {
+            "type": "number",
+            "format": "double"
+          },
+          "kullanilanCu": {
+            "type": "number",
+            "format": "double"
+          },
+          "hurdaPvc": {
+            "type": "number",
+            "format": "double"
+          },
+          "hurdaCu": {
+            "type": "number",
+            "format": "double"
+          },
+          "maliyet": {
+            "type": "number",
+            "format": "double"
+          },
+          "tarih": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "securitySchemes": {
+      "Bearer": {
+        "type": "apiKey",
+        "name": "Authorization",
+        "in": "header"
+      }
+    }
+  },
+  "security": [
+    {
+      "Bearer": [ ]
+    }
+  ]
+}

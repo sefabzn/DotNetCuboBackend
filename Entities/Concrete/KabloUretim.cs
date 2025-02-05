@@ -19,7 +19,7 @@ namespace Entities.Concrete
         public double CalismaSuresi { get; set; }
         public double KayipZaman { get; set; }
         public double Verimlilik { get; set; }
-        public int IsEmriId { get; set; }
+        public int? IsEmriId { get; set; }
 
         public IsEmriBase? IsEmri { get; set; }
 

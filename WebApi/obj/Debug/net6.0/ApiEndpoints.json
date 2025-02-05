@@ -1,0 +1,1218 @@
+[
+  {
+    "ContainingType": "WebApi.Controllers.AuthController",
+    "Method": "AddRole",
+    "RelativePath": "api/Auth/AddRole",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "roleName",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebApi.Controllers.AuthController",
+    "Method": "authexperiment",
+    "RelativePath": "api/Auth/authexperiment",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebApi.Controllers.AuthController",
+    "Method": "Login",
+    "RelativePath": "api/Auth/Login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "loginUser",
+        "Type": "Entities.DTO_s.LoginDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebApi.Controllers.AuthController",
+    "Method": "RegisterAsync",
+    "RelativePath": "api/Auth/Register",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "registerUser",
+        "Type": "Entities.DTO_s.RegisterDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebApi.Controllers.DamarDizaynController",
+    "Method": "AddAsync",
+    "RelativePath": "api/DamarDizayn/Add",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "kablo",
+        "Type": "Entities.Base.DamarDizaynBase",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebApi.Controllers.DamarDizaynController",
+    "Method": "AddAllAsync",
+    "RelativePath": "api/DamarDizayn/AddAll",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "kablolar",
+        "Type": "System.Collections.Generic.List\u00601[[Entities.Base.DamarDizaynBase, Entities, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebApi.Controllers.DamarDizaynController",
+    "Method": "DeleteAsync",
+    "RelativePath": "api/DamarDizayn/Delete",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "kablo",
+        "Type": "Entities.Base.DamarDizaynBase",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebApi.Controllers.DamarDizaynController",
+    "Method": "DeleteAllAsync",
+    "RelativePath": "api/DamarDizayn/DeleteAll",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebApi.Controllers.DamarDizaynController",
+    "Method": "GetAllAsync",
+    "RelativePath": "api/DamarDizayn/GetAll",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebApi.Controllers.DamarDizaynController",
+    "Method": "GetAllAsync",
+    "RelativePath": "api/DamarDizayn/GetAllByGenelDizaynId",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebApi.Controllers.DamarDizaynController",
+    "Method": "GetByIdAsync",
+    "RelativePath": "api/DamarDizayn/GetById",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebApi.Controllers.DamarDizaynController",
+    "Method": "UpdateAsync",
+    "RelativePath": "api/DamarDizayn/Update",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "kablo",
+        "Type": "Entities.Base.DamarDizaynBase",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebApi.Controllers.ExchangeRateController",
+    "Method": "GetCopperRate",
+    "RelativePath": "api/ExchangeRate/GetCopperRate",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebApi.Controllers.ExchangeRateController",
+    "Method": "GetCopperRateByTL",
+    "RelativePath": "api/ExchangeRate/GetCopperRateByTL",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebApi.Controllers.ExchangeRateController",
+    "Method": "GetDollarRate",
+    "RelativePath": "api/ExchangeRate/GetDollarRate",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebApi.Controllers.ExchangeRateController",
+    "Method": "GetEuroRate",
+    "RelativePath": "api/ExchangeRate/GetEuroRate",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebApi.Controllers.GenelDizaynController",
+    "Method": "AddAsync",
+    "RelativePath": "api/GenelDizayn/Add",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dizayn",
+        "Type": "Entities.Base.GenelDizaynBase",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebApi.Controllers.GenelDizaynController",
+    "Method": "AddByListAsync",
+    "RelativePath": "api/GenelDizayn/AddByList",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dizaynList",
+        "Type": "System.Collections.Generic.List\u00601[[Entities.Base.GenelDizaynBase, Entities, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebApi.Controllers.GenelDizaynController",
+    "Method": "DeleteAsync",
+    "RelativePath": "api/GenelDizayn/Delete",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dizayn",
+        "Type": "Entities.Base.GenelDizaynBase",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebApi.Controllers.GenelDizaynController",
+    "Method": "GetAllAsync",
+    "RelativePath": "api/GenelDizayn/GetAll",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebApi.Controllers.GenelDizaynController",
+    "Method": "GetAllByTurAsync",
+    "RelativePath": "api/GenelDizayn/GetAll/{tur}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "tur",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebApi.Controllers.GenelDizaynController",
+    "Method": "GetAllByDateAsync",
+    "RelativePath": "api/GenelDizayn/GetAllByDate",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "tarih",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebApi.Controllers.GenelDizaynController",
+    "Method": "GetByIdAsync",
+    "RelativePath": "api/GenelDizayn/GetById",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebApi.Controllers.GenelDizaynController",
+    "Method": "UpdateAsync",
+    "RelativePath": "api/GenelDizayn/Update",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dizayn",
+        "Type": "Entities.Base.GenelDizaynBase",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebApi.Controllers.IsEmriController",
+    "Method": "Add",
+    "RelativePath": "api/IsEmri/Add",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "isEmri",
+        "Type": "Entities.Base.IsEmriBase",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebApi.Controllers.IsEmriController",
+    "Method": "AddAll",
+    "RelativePath": "api/IsEmri/AddAll",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "isEmirleri",
+        "Type": "System.Collections.Generic.List\u00601[[Entities.Base.IsEmriBase, Entities, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebApi.Controllers.IsEmriController",
+    "Method": "AddWithControlAsync",
+    "RelativePath": "api/IsEmri/AddWithControl",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "isEmri",
+        "Type": "Entities.Base.IsEmriBase",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebApi.Controllers.IsEmriController",
+    "Method": "Delete",
+    "RelativePath": "api/IsEmri/Delete",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "isEmri",
+        "Type": "Entities.Base.IsEmriBase",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebApi.Controllers.IsEmriController",
+    "Method": "GetAll",
+    "RelativePath": "api/IsEmri/GetAll",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebApi.Controllers.IsEmriController",
+    "Method": "GetAllIsEmriTakipAsync",
+    "RelativePath": "api/IsEmri/GetAllIsEmriTakip",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebApi.Controllers.IsEmriController",
+    "Method": "GetById",
+    "RelativePath": "api/IsEmri/GetById",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebApi.Controllers.IsEmriController",
+    "Method": "Update",
+    "RelativePath": "api/IsEmri/Update",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "isEmri",
+        "Type": "Entities.Base.IsEmriBase",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebApi.Controllers.KabloUretimController",
+    "Method": "Add",
+    "RelativePath": "api/KabloUretim/Add",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "kablo",
+        "Type": "Entities.Concrete.KabloUretim",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebApi.Controllers.KabloUretimController",
+    "Method": "AddMany",
+    "RelativePath": "api/KabloUretim/AddMany",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "kabloUretims",
+        "Type": "System.Collections.Generic.List\u00601[[Entities.Concrete.KabloUretim, Entities, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebApi.Controllers.KabloUretimController",
+    "Method": "Delete",
+    "RelativePath": "api/KabloUretim/Delete",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "kablo",
+        "Type": "Entities.Concrete.KabloUretim",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebApi.Controllers.KabloUretimController",
+    "Method": "GetAll",
+    "RelativePath": "api/KabloUretim/GetAll",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebApi.Controllers.KabloUretimController",
+    "Method": "GetAllByDate",
+    "RelativePath": "api/KabloUretim/GetAllByDate",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "tarih",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebApi.Controllers.KabloUretimController",
+    "Method": "GetAllByDateRange",
+    "RelativePath": "api/KabloUretim/GetAllByDateRange",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "start",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      },
+      {
+        "Name": "finish",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebApi.Controllers.KabloUretimController",
+    "Method": "GetAllByDateRangeAndMakine",
+    "RelativePath": "api/KabloUretim/GetAllByDateRangeAndMakine",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "start",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      },
+      {
+        "Name": "finish",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      },
+      {
+        "Name": "makineId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebApi.Controllers.KabloUretimController",
+    "Method": "GetById",
+    "RelativePath": "api/KabloUretim/GetById",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebApi.Controllers.KabloUretimController",
+    "Method": "Update",
+    "RelativePath": "api/KabloUretim/Update",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "kablo",
+        "Type": "Entities.Concrete.KabloUretim",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebApi.Controllers.KesitYapisiController",
+    "Method": "AddAsync",
+    "RelativePath": "api/KesitYapisi/Add",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "entity",
+        "Type": "Entities.Concrete.KesitYapisi",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebApi.Controllers.KesitYapisiController",
+    "Method": "DeleteAsync",
+    "RelativePath": "api/KesitYapisi/Delete",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "kablo",
+        "Type": "Entities.Concrete.KesitYapisi",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebApi.Controllers.KesitYapisiController",
+    "Method": "GetAllAsync",
+    "RelativePath": "api/KesitYapisi/GetAll",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebApi.Controllers.KesitYapisiController",
+    "Method": "GetByIdAsync",
+    "RelativePath": "api/KesitYapisi/GetById",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebApi.Controllers.KesitYapisiController",
+    "Method": "UpdateAsync",
+    "RelativePath": "api/KesitYapisi/Update",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "kablo",
+        "Type": "Entities.Concrete.KesitYapisi",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebApi.Controllers.KullanicilarController",
+    "Method": "AddAsync",
+    "RelativePath": "api/Kullanicilar/Add",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "kullanici",
+        "Type": "Core.Entities.Concrete.Kullanici",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebApi.Controllers.KullanicilarController",
+    "Method": "DeleteAsync",
+    "RelativePath": "api/Kullanicilar/Delete",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "kablo",
+        "Type": "Core.Entities.Concrete.Kullanici",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebApi.Controllers.KullanicilarController",
+    "Method": "GetAllAsync",
+    "RelativePath": "api/Kullanicilar/GetAll",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebApi.Controllers.KullanicilarController",
+    "Method": "GetById",
+    "RelativePath": "api/Kullanicilar/GetById",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebApi.Controllers.KullanicilarController",
+    "Method": "GetByName",
+    "RelativePath": "api/Kullanicilar/GetByName",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "kullaniciAdi",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebApi.Controllers.KullanicilarController",
+    "Method": "GetClaims",
+    "RelativePath": "api/Kullanicilar/GetClaims",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebApi.Controllers.KullanicilarController",
+    "Method": "UpdateAsync",
+    "RelativePath": "api/Kullanicilar/Update",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "kablo",
+        "Type": "Core.Entities.Concrete.Kullanici",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebApi.Controllers.MakineKesitHizTablosuController",
+    "Method": "AddAsync",
+    "RelativePath": "api/MakineKesitHizTablosu/Add",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "entity",
+        "Type": "Entities.Concrete.MakineKesitHizTablosu",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebApi.Controllers.MakineKesitHizTablosuController",
+    "Method": "GetAllAsync",
+    "RelativePath": "api/MakineKesitHizTablosu/GetAll",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebApi.Controllers.MakineKesitHizTablosuController",
+    "Method": "GetAllByMakinesAsync",
+    "RelativePath": "api/MakineKesitHizTablosu/GetAllByMakines",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "makineIdList",
+        "Type": "System.Collections.Generic.List\u00601[[System.Int32, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebApi.Controllers.MakineKesitHizTablosuController",
+    "Method": "GetAllOrderedAsync",
+    "RelativePath": "api/MakineKesitHizTablosu/GetAllOrdered",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebApi.Controllers.MakinelerController",
+    "Method": "AddAsync",
+    "RelativePath": "api/Makineler/Add",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "makina",
+        "Type": "Entities.Concrete.Makine",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebApi.Controllers.MakinelerController",
+    "Method": "DeleteAsync",
+    "RelativePath": "api/Makineler/Delete",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "kablo",
+        "Type": "Entities.Concrete.Makine",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebApi.Controllers.MakinelerController",
+    "Method": "GetAllAsync",
+    "RelativePath": "api/Makineler/GetAll",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebApi.Controllers.MakinelerController",
+    "Method": "GetById",
+    "RelativePath": "api/Makineler/GetById",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebApi.Controllers.MakinelerController",
+    "Method": "GetRaporAnalysis",
+    "RelativePath": "api/Makineler/GetRaporAnalysis",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "makineId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "startDate",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      },
+      {
+        "Name": "finishDate",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebApi.Controllers.MakinelerController",
+    "Method": "GetRaporByDateAsync",
+    "RelativePath": "api/Makineler/GetRaporByDate",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "date",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebApi.Controllers.MakinelerController",
+    "Method": "GetRaporByDateRangeAsync",
+    "RelativePath": "api/Makineler/GetRaporByDateRange",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "makineId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "startDate",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      },
+      {
+        "Name": "finishDate",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebApi.Controllers.MakinelerController",
+    "Method": "SetVerimlilikForAll",
+    "RelativePath": "api/Makineler/SetVerimlilikForAll",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebApi.Controllers.MakinelerController",
+    "Method": "UpdateAsync",
+    "RelativePath": "api/Makineler/Update",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "kablo",
+        "Type": "Entities.Concrete.Makine",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebApi.Controllers.ProcessController",
+    "Method": "AddAsync",
+    "RelativePath": "api/Process/Add",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "processDto",
+        "Type": "Entities.Concrete.Process",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebApi.Controllers.ProcessController",
+    "Method": "AddAllAsync",
+    "RelativePath": "api/Process/AddAll",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "processDtos",
+        "Type": "System.Collections.Generic.List\u00601[[Entities.Concrete.Process, Entities, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebApi.Controllers.ProcessController",
+    "Method": "DeleteAsync",
+    "RelativePath": "api/Process/Delete",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "process",
+        "Type": "Entities.Concrete.Process",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebApi.Controllers.ProcessController",
+    "Method": "GetAll",
+    "RelativePath": "api/Process/GetAll",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebApi.Controllers.ProcessController",
+    "Method": "GetAllByIsEmriId",
+    "RelativePath": "api/Process/GetAllByIsEmriId",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebApi.Controllers.ProcessController",
+    "Method": "GetById",
+    "RelativePath": "api/Process/GetById",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebApi.Controllers.ProcessController",
+    "Method": "UpdateBarcode",
+    "RelativePath": "api/Process/SetAsCompleted",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "isEmriId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebApi.Controllers.ProcessController",
+    "Method": "UpdateAsync",
+    "RelativePath": "api/Process/Update",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "process",
+        "Type": "Entities.Concrete.Process",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebApi.Controllers.ProcessController",
+    "Method": "UpdateAllBarcodes",
+    "RelativePath": "api/Process/UpdateAllBarcodes",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebApi.Controllers.SarfiyatController",
+    "Method": "Add",
+    "RelativePath": "api/Sarfiyat/Add",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "sarfiyat",
+        "Type": "Entities.Concrete.Sarfiyat",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebApi.Controllers.SarfiyatController",
+    "Method": "Delete",
+    "RelativePath": "api/Sarfiyat/Delete",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "kablo",
+        "Type": "Entities.Concrete.Sarfiyat",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebApi.Controllers.SarfiyatController",
+    "Method": "GetAll",
+    "RelativePath": "api/Sarfiyat/GetAll",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebApi.Controllers.SarfiyatController",
+    "Method": "GetAllByDateRange",
+    "RelativePath": "api/Sarfiyat/GetAllByDateRange",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "startDate",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      },
+      {
+        "Name": "finishDate",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebApi.Controllers.SarfiyatController",
+    "Method": "GetById",
+    "RelativePath": "api/Sarfiyat/GetById",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebApi.Controllers.SarfiyatController",
+    "Method": "Update",
+    "RelativePath": "api/Sarfiyat/Update",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "kablo",
+        "Type": "Entities.Concrete.Sarfiyat",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]

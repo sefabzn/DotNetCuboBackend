@@ -13,18 +13,14 @@ using Org.BouncyCastle.Tls;
 
 namespace DataAccess.Concrete.Entityframework
 {
+
     public class EfKabloUretimDal : EfEntityRepositoryBase<KabloUretim, CuboContext>, IKabloUretimDal
     {
-      
-
-      
         public async Task AddManyAsync(List<KabloUretim> kabloUretims)
         {
-
             using (CuboContext context = new CuboContext())
             {
                 await context.KabloUretim.AddRangeAsync(kabloUretims);
-               
                 await context.SaveChangesAsync();
             }
         }

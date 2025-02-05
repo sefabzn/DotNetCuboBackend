@@ -7961,19 +7961,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\sefa_\\.nuget\\packages\\": {}
+    "C:\\Users\\sefa_\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\sefa_\\OneDrive\\Masaüstü\\DOTNETBACKEND\\DotNetCuboBackend\\Entities\\Entities.csproj",
+      "projectUniqueName": "C:\\Users\\sefa_\\OneDrive\\Masaüstü\\CUBO\\DotNetCuboBackend\\Entities\\Entities.csproj",
       "projectName": "Entities",
-      "projectPath": "C:\\Users\\sefa_\\OneDrive\\Masaüstü\\DOTNETBACKEND\\DotNetCuboBackend\\Entities\\Entities.csproj",
+      "projectPath": "C:\\Users\\sefa_\\OneDrive\\Masaüstü\\CUBO\\DotNetCuboBackend\\Entities\\Entities.csproj",
       "packagesPath": "C:\\Users\\sefa_\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\sefa_\\OneDrive\\Masaüstü\\DOTNETBACKEND\\DotNetCuboBackend\\Entities\\obj\\",
+      "outputPath": "C:\\Users\\sefa_\\OneDrive\\Masaüstü\\CUBO\\DotNetCuboBackend\\Entities\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
         "C:\\Users\\sefa_\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -7987,8 +7992,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\sefa_\\OneDrive\\Masaüstü\\DOTNETBACKEND\\DotNetCuboBackend\\Core\\Core.csproj": {
-              "projectPath": "C:\\Users\\sefa_\\OneDrive\\Masaüstü\\DOTNETBACKEND\\DotNetCuboBackend\\Core\\Core.csproj"
+            "C:\\Users\\sefa_\\OneDrive\\Masaüstü\\CUBO\\DotNetCuboBackend\\Core\\Core.csproj": {
+              "projectPath": "C:\\Users\\sefa_\\OneDrive\\Masaüstü\\CUBO\\DotNetCuboBackend\\Core\\Core.csproj"
             }
           }
         }
@@ -7997,7 +8002,13 @@
         "warnAsError": [
           "NU1605"
         ]
-      }
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
+      },
+      "SdkAnalysisLevel": "9.0.100"
     },
     "frameworks": {
       "net6.0": {
@@ -8024,7 +8035,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.101\\RuntimeIdentifierGraph.json"
       }
     }
   }

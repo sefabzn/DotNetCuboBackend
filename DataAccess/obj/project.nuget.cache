@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "kMwhwOaH+h2eyMsDjBhU5S5ZF2rIsGzckM9PLYKBZXlhTjH1ah0HldfeFfvff07wBS1Osm8BiyOMCLYxiv3JBQ==",
+  "dgSpecHash": "n38cbwrF16U=",
   "success": true,
-  "projectFilePath": "C:\\Users\\sefa_\\OneDrive\\Masaüstü\\DOTNETBACKEND\\DotNetCuboBackend\\DataAccess\\DataAccess.csproj",
+  "projectFilePath": "C:\\Users\\sefa_\\OneDrive\\Masaüstü\\CUBO\\DotNetCuboBackend\\DataAccess\\DataAccess.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\sefa_\\.nuget\\packages\\autofac\\6.4.0\\autofac.6.4.0.nupkg.sha512",
     "C:\\Users\\sefa_\\.nuget\\packages\\autofac.extensions.dependencyinjection\\8.0.0\\autofac.extensions.dependencyinjection.8.0.0.nupkg.sha512",

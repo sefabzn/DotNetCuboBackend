@@ -55,7 +55,7 @@ namespace Core.Business
             return new SuccessDataResult<TEntity>(await _dal.GetAsync(filter), "Ürün bulundu");
         }
 
-        [CacheAspect()]
+        //[CacheAspect()]
         public async Task<IDataResult<List<TEntity>>> GetAllAsync(Expression<Func<TEntity, bool>>? filter = null)
         {
             return new SuccessDataResult<List<TEntity>>(await _dal.GetAllAsync(filter), "Ürünler Bulundu");

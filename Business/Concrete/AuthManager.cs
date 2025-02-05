@@ -47,9 +47,11 @@ namespace Business.Concrete
             var user = _mapper.Map<User>(registerUser);
 
             var result = await _userManager.CreateAsync(user, registerUser.Password);
+
             if (!result.Succeeded)
             {
-                return new ErrorDataResult<UserDTO>("Could not create the user");
+                var errors = string.Join(", ", result.Errors.Select(e => e.Description));
+                return new ErrorDataResult<UserDTO>($"Could not create the user: {errors}");
             }
 
             var roleResult = await _userManager.AddToRoleAsync(user, "Member");

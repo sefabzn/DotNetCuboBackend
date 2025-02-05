@@ -354,7 +354,7 @@ namespace DataAccess.Migrations
                     b.Property<double>("HurdaPvc")
                         .HasColumnType("float");
 
-                    b.Property<int>("IsEmriId")
+                    b.Property<int?>("IsEmriId")
                         .HasColumnType("int");
 
                     b.Property<string>("KabloIsmi")
@@ -875,8 +875,7 @@ namespace DataAccess.Migrations
                     b.HasOne("Entities.Base.IsEmriBase", "IsEmri")
                         .WithMany("KabloUretimler")
                         .HasForeignKey("IsEmriId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.SetNull);
 
                     b.Navigation("IsEmri");
                 });

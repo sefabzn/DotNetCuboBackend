@@ -25,7 +25,10 @@ namespace DataAccess.Concrete.Entityframework.Contexts
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=.\SQLExpress;Database=CuboDb;Trusted_Connection=True;TrustServerCertificate=True;MultipleActiveResultSets=true");
+            optionsBuilder.UseSqlServer(
+        @"Server=(localdb)\mssqllocaldb;Database=CuboDb;Trusted_Connection=True;TrustServerCertificate=True;MultipleActiveResultSets=true",
+        b => b.MigrationsAssembly("DataAccess")
+    );
             optionsBuilder.LogTo(Console.WriteLine); // To easily see SQL logs on console.
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -36,13 +39,10 @@ namespace DataAccess.Concrete.Entityframework.Contexts
             modelBuilder.Entity<Role>().ToTable("Roles");
             modelBuilder.Entity<UserRole>().ToTable("UserRoles");
 
-
-
             modelBuilder.Entity<Barkod>().HasOne(barkod => barkod.IsEmri)
                 .WithOne(isEmri => isEmri.Barkod)
                 .HasForeignKey<Barkod>(barkod => barkod.IsEmriId)
                 .OnDelete(DeleteBehavior.Cascade);
-
 
             modelBuilder.Entity<Process>()
                 .HasOne(p => p.IsEmri)
@@ -51,46 +51,45 @@ namespace DataAccess.Concrete.Entityframework.Contexts
                 .OnDelete(DeleteBehavior.Cascade);
 
             modelBuilder.Entity<IsEmriBase>()
-              .HasOne(d => d.GenelDizayn)
-              .WithMany(i => i.IsEmirleri)
-              .HasForeignKey(i => i.GenelDizaynId);
+                .HasOne(d => d.GenelDizayn)
+                .WithMany(i => i.IsEmirleri)
+                .HasForeignKey(i => i.GenelDizaynId);
 
             modelBuilder.Entity<IsEmriBase>()
-              .HasMany(i => i.KabloUretimler)
-              .WithOne(k => k.IsEmri)
-              .HasForeignKey(k => k.IsEmriId);
+                .HasMany(i => i.KabloUretimler)
+                .WithOne(k => k.IsEmri)
+                .HasForeignKey(k => k.IsEmriId)
+                .OnDelete(DeleteBehavior.SetNull); // Update the delete behavior
 
             modelBuilder.Entity<GenelDizaynBase>()
-            .HasMany(g => g.Damarlar)
-            .WithOne(d => d.GenelDizayn)
-            .HasForeignKey(d => d.GenelDizaynId)
-            .OnDelete(DeleteBehavior.Cascade);
-
+                .HasMany(g => g.Damarlar)
+                .WithOne(d => d.GenelDizayn)
+                .HasForeignKey(d => d.GenelDizaynId)
+                .OnDelete(DeleteBehavior.Cascade);
 
             modelBuilder.Entity<User>()
-              .HasMany(u => u.UserRoles)
-              .WithOne(ur => ur.User)
-              .HasForeignKey(u => u.UserId)
-              .IsRequired();
+                .HasMany(u => u.UserRoles)
+                .WithOne(ur => ur.User)
+                .HasForeignKey(u => u.UserId)
+                .IsRequired();
 
             modelBuilder.Entity<Role>()
-               .HasMany(r => r.UserRoles)
-               .WithOne(ur => ur.Role)
-               .HasForeignKey(r => r.RoleId)
-               .IsRequired();
+                .HasMany(r => r.UserRoles)
+                .WithOne(ur => ur.Role)
+                .HasForeignKey(r => r.RoleId)
+                .IsRequired();
 
             modelBuilder.Entity<Operator>()
-                .HasMany(Operator => Operator.IsEmriOperators)
-                .WithOne(IsEmriOperator => IsEmriOperator.Operator)
-                .HasForeignKey(IsEmriOperator => IsEmriOperator.OperatorId)
+                .HasMany(o => o.IsEmriOperators)
+                .WithOne(io => io.Operator)
+                .HasForeignKey(io => io.OperatorId)
                 .OnDelete(DeleteBehavior.Cascade);
 
             modelBuilder.Entity<IsEmriBase>()
-                .HasMany(IsEmriBase => IsEmriBase.IsEmriOperators)
-                .WithOne(IsEmriOperator => IsEmriOperator.IsEmri)
-                .HasForeignKey(IsEmriOperator => IsEmriOperator.IsEmriId)
+                .HasMany(ie => ie.IsEmriOperators)
+                .WithOne(io => io.IsEmri)
+                .HasForeignKey(io => io.IsEmriId)
                 .OnDelete(DeleteBehavior.Cascade);
-
 
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
         }

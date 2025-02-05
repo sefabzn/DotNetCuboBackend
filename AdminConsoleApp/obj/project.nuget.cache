@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "cmLubFGtNzVWesY4MRnNilLoC1c1Or/9JU6Mp7ee9eMRnb8UTrzTGs+UKeU2kSSm2K0CtH2WbqiuFGkBWpF8Rg==",
+  "dgSpecHash": "hbnItkpuYes=",
   "success": true,
-  "projectFilePath": "C:\\Users\\sefa_\\OneDrive\\Masaüstü\\DOTNETBACKEND\\DotNetCuboBackend\\AdminConsoleApp\\AdminConsoleApp.csproj",
+  "projectFilePath": "C:\\Users\\sefa_\\OneDrive\\Masaüstü\\CUBO\\DotNetCuboBackend\\AdminConsoleApp\\AdminConsoleApp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\sefa_\\.nuget\\packages\\autofac\\6.4.0\\autofac.6.4.0.nupkg.sha512",
     "C:\\Users\\sefa_\\.nuget\\packages\\autofac.extensions.dependencyinjection\\8.0.0\\autofac.extensions.dependencyinjection.8.0.0.nupkg.sha512",
