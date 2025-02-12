@@ -23,10 +23,11 @@ public class DeliveryNoteController : ControllerBase
         return BadRequest(result);
     }
 
-    [HttpGet("GetAllWithItems")]
-    public async Task<IActionResult> GetAllWithItems()
+   
+    [HttpGet("GetAllWithItemsAndCustomerAsync")]
+    public async Task<IActionResult> GetAllWithItemsAndCustomerAsync()
     {
-        var result = await _deliveryNoteService.GetAllWithItemsAsync();
+        var result = await _deliveryNoteService.GetAllWithItemsAndCustomerAsync();
         if (result.Success)
         {
             return Ok(result);
@@ -76,5 +77,9 @@ public class DeliveryNoteController : ControllerBase
             return Ok(result);
         }
         return BadRequest(result);
+
     }
+
+
+   
 }

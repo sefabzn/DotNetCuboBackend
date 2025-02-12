@@ -7,10 +7,12 @@ public class DeliveryNoteManager : ManagerBase<SevkIrsaliye, IDeliveryNoteDal>, 
 {
     private  IKabloUretimService _kabloUretimService;
     private readonly IDeliveryNoteDal _deliveryNoteDal;
-    public DeliveryNoteManager(IDeliveryNoteDal deliveryNoteDal, IKabloUretimService kabloUretimService) : base(deliveryNoteDal)
+    private readonly ICustomerService _customerService;
+    public DeliveryNoteManager(IDeliveryNoteDal deliveryNoteDal, IKabloUretimService kabloUretimService, ICustomerService customerService) : base(deliveryNoteDal)
     {
         _kabloUretimService = kabloUretimService;
         _deliveryNoteDal = deliveryNoteDal;
+        _customerService = customerService;
     }
 
     public async Task<IResult> CreateDeliveryNoteAsync(SevkIrsaliye deliveryNote, List<SevkIrsaliyeKalem> items)
@@ -22,26 +24,19 @@ public class DeliveryNoteManager : ManagerBase<SevkIrsaliye, IDeliveryNoteDal>, 
             item.SevkIrsaliyeId = deliveryNote.Id;
             await _deliveryNoteDal.AddItemAsync(item);
         }
-        foreach (var item in items)
-        {
-            // Update stock logic here
-            var product = await _kabloUretimService.GetAsync(p => p.Id == item.KabloUretimId);
-            if (product.Data != null)
-            {
-                product.Data.Metraj -= item.Miktar;
-                await _kabloUretimService.updateAsync(product.Data);
-            }
-        }
+      
         return new SuccessResult("Delivery note created and stock updated.");
     }
 
    
-    public async Task<IDataResult<List<SevkIrsaliye>>> GetAllWithItemsAsync()
+    public async Task<IDataResult<List<SevkIrsaliye>>> GetAllWithItemsAndCustomerAsync()
     {
         var deliveryNotes = await _deliveryNoteDal.GetAllAsync();
         foreach (var note in deliveryNotes)
         {
             note.Kalemler = await _deliveryNoteDal.GetItemsByDeliveryNoteId(note.Id);
+
+            note.Musteri = (await _customerService.GetAsync(x => x.Id == note.MusteriId)).Data;
         }
         return new SuccessDataResult<List<SevkIrsaliye>>(deliveryNotes);
     }
