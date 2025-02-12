@@ -58,6 +58,32 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "CustomerController",
+    "Method": "Add",
+    "RelativePath": "api/Customer/Add",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "customer",
+        "Type": "Entities.Concrete.Musteri",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CustomerController",
+    "Method": "GetAll",
+    "RelativePath": "api/Customer/GetAll",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "WebApi.Controllers.DamarDizaynController",
     "Method": "AddAsync",
     "RelativePath": "api/DamarDizayn/Add",
@@ -171,6 +197,32 @@
         "IsRequired": true
       }
     ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DeliveryNoteController",
+    "Method": "Create",
+    "RelativePath": "api/DeliveryNote/Create",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "sevkIrsaliyeCreateDto",
+        "Type": "Entities.DTO_s.SevkIrsaliyeCreateDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DeliveryNoteController",
+    "Method": "GetAllWithItems",
+    "RelativePath": "api/DeliveryNote/GetAllWithItems",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
     "ReturnTypes": []
   },
   {

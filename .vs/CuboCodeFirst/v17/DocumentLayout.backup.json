@@ -3,39 +3,59 @@
   "WorkspaceRootPath": "C:\\Users\\sefa_\\OneDrive\\Masa\u00FCst\u00FC\\CUBO\\DotNetCuboBackend\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{792BA7FD-7956-46FA-AEE2-01C4F642A70D}|Business\\Business.csproj|c:\\users\\sefa_\\onedrive\\masa\u00FCst\u00FC\\cubo\\dotnetcubobackend\\business\\concrete\\kablouretimmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{792BA7FD-7956-46FA-AEE2-01C4F642A70D}|Business\\Business.csproj|solutionrelative:business\\concrete\\kablouretimmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{792BA7FD-7956-46FA-AEE2-01C4F642A70D}|Business\\Business.csproj|c:\\users\\sefa_\\onedrive\\masa\u00FCst\u00FC\\cubo\\dotnetcubobackend\\business\\concrete\\deliverynotemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{792BA7FD-7956-46FA-AEE2-01C4F642A70D}|Business\\Business.csproj|solutionrelative:business\\concrete\\deliverynotemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{ECE0B293-2746-48F2-8A0B-2349F7BEE029}|WebApi\\WebApi.csproj|c:\\users\\sefa_\\onedrive\\masa\u00FCst\u00FC\\cubo\\dotnetcubobackend\\webapi\\controllers\\kablouretimcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{ECE0B293-2746-48F2-8A0B-2349F7BEE029}|WebApi\\WebApi.csproj|solutionrelative:webapi\\controllers\\kablouretimcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{ECE0B293-2746-48F2-8A0B-2349F7BEE029}|WebApi\\WebApi.csproj|c:\\users\\sefa_\\onedrive\\masa\u00FCst\u00FC\\cubo\\dotnetcubobackend\\webapi\\controllers\\deliverynotecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ECE0B293-2746-48F2-8A0B-2349F7BEE029}|WebApi\\WebApi.csproj|solutionrelative:webapi\\controllers\\deliverynotecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{431F04C8-1BD7-4BC5-AD1D-AA358F94F995}|Entities\\Entities.csproj|c:\\users\\sefa_\\onedrive\\masa\u00FCst\u00FC\\cubo\\dotnetcubobackend\\entities\\concrete\\kablouretim.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{431F04C8-1BD7-4BC5-AD1D-AA358F94F995}|Entities\\Entities.csproj|solutionrelative:entities\\concrete\\kablouretim.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/CuboDb/True/SqlTable/dbo.SevkIrsaliyeKalemler.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{431F04C8-1BD7-4BC5-AD1D-AA358F94F995}|Entities\\Entities.csproj|c:\\users\\sefa_\\onedrive\\masa\u00FCst\u00FC\\cubo\\dotnetcubobackend\\entities\\concrete\\sarfiyat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{431F04C8-1BD7-4BC5-AD1D-AA358F94F995}|Entities\\Entities.csproj|solutionrelative:entities\\concrete\\sarfiyat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{431F04C8-1BD7-4BC5-AD1D-AA358F94F995}|Entities\\Entities.csproj|c:\\users\\sefa_\\onedrive\\masa\u00FCst\u00FC\\cubo\\dotnetcubobackend\\entities\\dto\u0027s\\sevkirsaliyecreatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{431F04C8-1BD7-4BC5-AD1D-AA358F94F995}|Entities\\Entities.csproj|solutionrelative:entities\\dto\u0027s\\sevkirsaliyecreatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BA14959A-5610-4C68-B422-3AC2C61C4D11}|DataAccess\\DataAccess.csproj|c:\\users\\sefa_\\onedrive\\masa\u00FCst\u00FC\\cubo\\dotnetcubobackend\\dataaccess\\concrete\\entityframework\\efexchangeratedal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BA14959A-5610-4C68-B422-3AC2C61C4D11}|DataAccess\\DataAccess.csproj|solutionrelative:dataaccess\\concrete\\entityframework\\efexchangeratedal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{431F04C8-1BD7-4BC5-AD1D-AA358F94F995}|Entities\\Entities.csproj|c:\\users\\sefa_\\onedrive\\masa\u00FCst\u00FC\\cubo\\dotnetcubobackend\\entities\\dto\u0027s\\makinedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{431F04C8-1BD7-4BC5-AD1D-AA358F94F995}|Entities\\Entities.csproj|solutionrelative:entities\\dto\u0027s\\makinedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/CuboDb/True/SqlTable/dbo.Sarfiyat.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
+      "AbsoluteMoniker": "D:0:0:{ECE0B293-2746-48F2-8A0B-2349F7BEE029}|WebApi\\WebApi.csproj|c:\\users\\sefa_\\onedrive\\masa\u00FCst\u00FC\\cubo\\dotnetcubobackend\\webapi\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ECE0B293-2746-48F2-8A0B-2349F7BEE029}|WebApi\\WebApi.csproj|solutionrelative:webapi\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{ECE0B293-2746-48F2-8A0B-2349F7BEE029}|WebApi\\WebApi.csproj|c:\\users\\sefa_\\onedrive\\masa\u00FCst\u00FC\\cubo\\dotnetcubobackend\\webapi\\controllers\\sarfiyatcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{ECE0B293-2746-48F2-8A0B-2349F7BEE029}|WebApi\\WebApi.csproj|solutionrelative:webapi\\controllers\\sarfiyatcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{431F04C8-1BD7-4BC5-AD1D-AA358F94F995}|Entities\\Entities.csproj|c:\\users\\sefa_\\onedrive\\masa\u00FCst\u00FC\\cubo\\dotnetcubobackend\\entities\\concrete\\sevkirsaliye.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{431F04C8-1BD7-4BC5-AD1D-AA358F94F995}|Entities\\Entities.csproj|solutionrelative:entities\\concrete\\sevkirsaliye.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{431F04C8-1BD7-4BC5-AD1D-AA358F94F995}|Entities\\Entities.csproj|c:\\users\\sefa_\\onedrive\\masa\u00FCst\u00FC\\cubo\\dotnetcubobackend\\entities\\concrete\\base\\isemribase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{431F04C8-1BD7-4BC5-AD1D-AA358F94F995}|Entities\\Entities.csproj|solutionrelative:entities\\concrete\\base\\isemribase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{792BA7FD-7956-46FA-AEE2-01C4F642A70D}|Business\\Business.csproj|c:\\users\\sefa_\\onedrive\\masa\u00FCst\u00FC\\cubo\\dotnetcubobackend\\business\\concrete\\customermanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{792BA7FD-7956-46FA-AEE2-01C4F642A70D}|Business\\Business.csproj|solutionrelative:business\\concrete\\customermanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{431F04C8-1BD7-4BC5-AD1D-AA358F94F995}|Entities\\Entities.csproj|c:\\users\\sefa_\\onedrive\\masa\u00FCst\u00FC\\cubo\\dotnetcubobackend\\entities\\concrete\\ortakisemri.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{431F04C8-1BD7-4BC5-AD1D-AA358F94F995}|Entities\\Entities.csproj|solutionrelative:entities\\concrete\\ortakisemri.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{792BA7FD-7956-46FA-AEE2-01C4F642A70D}|Business\\Business.csproj|c:\\users\\sefa_\\onedrive\\masa\u00FCst\u00FC\\cubo\\dotnetcubobackend\\business\\concrete\\isemrimanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{792BA7FD-7956-46FA-AEE2-01C4F642A70D}|Business\\Business.csproj|solutionrelative:business\\concrete\\isemrimanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{431F04C8-1BD7-4BC5-AD1D-AA358F94F995}|Entities\\Entities.csproj|c:\\users\\sefa_\\onedrive\\masa\u00FCst\u00FC\\cubo\\dotnetcubobackend\\entities\\concrete\\sevkirsaliyekalem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{431F04C8-1BD7-4BC5-AD1D-AA358F94F995}|Entities\\Entities.csproj|solutionrelative:entities\\concrete\\sevkirsaliyekalem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{792BA7FD-7956-46FA-AEE2-01C4F642A70D}|Business\\Business.csproj|c:\\users\\sefa_\\onedrive\\masa\u00FCst\u00FC\\cubo\\dotnetcubobackend\\business\\concrete\\damardizaynmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{792BA7FD-7956-46FA-AEE2-01C4F642A70D}|Business\\Business.csproj|solutionrelative:business\\concrete\\damardizaynmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{792BA7FD-7956-46FA-AEE2-01C4F642A70D}|Business\\Business.csproj|c:\\users\\sefa_\\onedrive\\masa\u00FCst\u00FC\\cubo\\dotnetcubobackend\\business\\concrete\\kullanicimanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{792BA7FD-7956-46FA-AEE2-01C4F642A70D}|Business\\Business.csproj|solutionrelative:business\\concrete\\kullanicimanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{792BA7FD-7956-46FA-AEE2-01C4F642A70D}|Business\\Business.csproj|c:\\users\\sefa_\\onedrive\\masa\u00FCst\u00FC\\cubo\\dotnetcubobackend\\business\\concrete\\kesityapisimanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{792BA7FD-7956-46FA-AEE2-01C4F642A70D}|Business\\Business.csproj|solutionrelative:business\\concrete\\kesityapisimanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{792BA7FD-7956-46FA-AEE2-01C4F642A70D}|Business\\Business.csproj|c:\\users\\sefa_\\onedrive\\masa\u00FCst\u00FC\\cubo\\dotnetcubobackend\\business\\concrete\\geneldizaynmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{792BA7FD-7956-46FA-AEE2-01C4F642A70D}|Business\\Business.csproj|solutionrelative:business\\concrete\\geneldizaynmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -45,120 +65,172 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Sarfiyat.cs",
-              "DocumentMoniker": "C:\\Users\\sefa_\\OneDrive\\Masa\u00FCst\u00FC\\CUBO\\DotNetCuboBackend\\Entities\\Concrete\\Sarfiyat.cs",
-              "RelativeDocumentMoniker": "Entities\\Concrete\\Sarfiyat.cs",
-              "ToolTip": "C:\\Users\\sefa_\\OneDrive\\Masa\u00FCst\u00FC\\CUBO\\DotNetCuboBackend\\Entities\\Concrete\\Sarfiyat.cs",
-              "RelativeToolTip": "Entities\\Concrete\\Sarfiyat.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-05T12:35:54.191Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "KabloUretimManager.cs",
-              "DocumentMoniker": "C:\\Users\\sefa_\\OneDrive\\Masa\u00FCst\u00FC\\CUBO\\DotNetCuboBackend\\Business\\Concrete\\KabloUretimManager.cs",
-              "RelativeDocumentMoniker": "Business\\Concrete\\KabloUretimManager.cs",
-              "ToolTip": "C:\\Users\\sefa_\\OneDrive\\Masa\u00FCst\u00FC\\CUBO\\DotNetCuboBackend\\Business\\Concrete\\KabloUretimManager.cs",
-              "RelativeToolTip": "Business\\Concrete\\KabloUretimManager.cs",
-              "ViewState": "AgIAABQAAAAAAAAAAAArwCQAAAAMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-05T10:55:18.028Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "KabloUretim.cs",
-              "DocumentMoniker": "C:\\Users\\sefa_\\OneDrive\\Masa\u00FCst\u00FC\\CUBO\\DotNetCuboBackend\\Entities\\Concrete\\KabloUretim.cs",
-              "RelativeDocumentMoniker": "Entities\\Concrete\\KabloUretim.cs",
-              "ToolTip": "C:\\Users\\sefa_\\OneDrive\\Masa\u00FCst\u00FC\\CUBO\\DotNetCuboBackend\\Entities\\Concrete\\KabloUretim.cs",
-              "RelativeToolTip": "Entities\\Concrete\\KabloUretim.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAA7wAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-04T13:43:17.825Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "KabloUretimController.cs",
-              "DocumentMoniker": "C:\\Users\\sefa_\\OneDrive\\Masa\u00FCst\u00FC\\CUBO\\DotNetCuboBackend\\WebApi\\Controllers\\KabloUretimController.cs",
-              "RelativeDocumentMoniker": "WebApi\\Controllers\\KabloUretimController.cs",
-              "ToolTip": "C:\\Users\\sefa_\\OneDrive\\Masa\u00FCst\u00FC\\CUBO\\DotNetCuboBackend\\WebApi\\Controllers\\KabloUretimController.cs",
-              "RelativeToolTip": "WebApi\\Controllers\\KabloUretimController.cs",
-              "ViewState": "AgIAACIAAAAAAAAAAAAUwCoAAAAMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-05T11:40:12.041Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "EfExchangeRateDal.cs",
-              "DocumentMoniker": "C:\\Users\\sefa_\\OneDrive\\Masa\u00FCst\u00FC\\CUBO\\DotNetCuboBackend\\DataAccess\\Concrete\\Entityframework\\EfExchangeRateDal.cs",
-              "RelativeDocumentMoniker": "DataAccess\\Concrete\\Entityframework\\EfExchangeRateDal.cs",
-              "ToolTip": "C:\\Users\\sefa_\\OneDrive\\Masa\u00FCst\u00FC\\CUBO\\DotNetCuboBackend\\DataAccess\\Concrete\\Entityframework\\EfExchangeRateDal.cs",
-              "RelativeToolTip": "DataAccess\\Concrete\\Entityframework\\EfExchangeRateDal.cs",
-              "ViewState": "AgIAADwAAAAAAAAAAAAAAE4AAAAgAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-05T12:19:52.819Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "dbo.Sarfiyat [Data]",
-              "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/CuboDb/True/SqlTable/dbo.Sarfiyat.sql",
-              "ToolTip": "dbo.Sarfiyat [Data]",
+              "Title": "dbo.SevkIrsaliyeKalemler.sql",
+              "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/CuboDb/True/SqlTable/dbo.SevkIrsaliyeKalemler.sql",
+              "ToolTip": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/CuboDb/True/SqlTable/dbo.SevkIrsaliyeKalemler.sql",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2025-02-05T12:30:49.453Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-11T08:26:18.454Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
-              "Title": "SarfiyatController.cs",
-              "DocumentMoniker": "C:\\Users\\sefa_\\OneDrive\\Masa\u00FCst\u00FC\\CUBO\\DotNetCuboBackend\\WebApi\\Controllers\\SarfiyatController.cs",
-              "RelativeDocumentMoniker": "WebApi\\Controllers\\SarfiyatController.cs",
-              "ToolTip": "C:\\Users\\sefa_\\OneDrive\\Masa\u00FCst\u00FC\\CUBO\\DotNetCuboBackend\\WebApi\\Controllers\\SarfiyatController.cs",
-              "RelativeToolTip": "WebApi\\Controllers\\SarfiyatController.cs",
-              "ViewState": "AgIAAC8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "SevkIrsaliye.cs",
+              "DocumentMoniker": "C:\\Users\\sefa_\\OneDrive\\Masa\u00FCst\u00FC\\CUBO\\DotNetCuboBackend\\Entities\\Concrete\\SevkIrsaliye.cs",
+              "RelativeDocumentMoniker": "Entities\\Concrete\\SevkIrsaliye.cs",
+              "ToolTip": "C:\\Users\\sefa_\\OneDrive\\Masa\u00FCst\u00FC\\CUBO\\DotNetCuboBackend\\Entities\\Concrete\\SevkIrsaliye.cs",
+              "RelativeToolTip": "Entities\\Concrete\\SevkIrsaliye.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-05T11:39:53.84Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-11T07:59:07.935Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 7,
-              "Title": "IsEmriBase.cs",
-              "DocumentMoniker": "C:\\Users\\sefa_\\OneDrive\\Masa\u00FCst\u00FC\\CUBO\\DotNetCuboBackend\\Entities\\Concrete\\Base\\IsEmriBase.cs",
-              "RelativeDocumentMoniker": "Entities\\Concrete\\Base\\IsEmriBase.cs",
-              "ToolTip": "C:\\Users\\sefa_\\OneDrive\\Masa\u00FCst\u00FC\\CUBO\\DotNetCuboBackend\\Entities\\Concrete\\Base\\IsEmriBase.cs",
-              "RelativeToolTip": "Entities\\Concrete\\Base\\IsEmriBase.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAAAzwBwAAAAAAAAAAAAAAA==",
+              "Title": "CustomerManager.cs",
+              "DocumentMoniker": "C:\\Users\\sefa_\\OneDrive\\Masa\u00FCst\u00FC\\CUBO\\DotNetCuboBackend\\Business\\Concrete\\CustomerManager.cs",
+              "RelativeDocumentMoniker": "Business\\Concrete\\CustomerManager.cs",
+              "ToolTip": "C:\\Users\\sefa_\\OneDrive\\Masa\u00FCst\u00FC\\CUBO\\DotNetCuboBackend\\Business\\Concrete\\CustomerManager.cs",
+              "RelativeToolTip": "Business\\Concrete\\CustomerManager.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-04T13:43:21.663Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-11T07:51:09.754Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "DeliveryNoteController.cs",
+              "DocumentMoniker": "C:\\Users\\sefa_\\OneDrive\\Masa\u00FCst\u00FC\\CUBO\\DotNetCuboBackend\\WebApi\\Controllers\\DeliveryNoteController.cs",
+              "RelativeDocumentMoniker": "WebApi\\Controllers\\DeliveryNoteController.cs",
+              "ToolTip": "C:\\Users\\sefa_\\OneDrive\\Masa\u00FCst\u00FC\\CUBO\\DotNetCuboBackend\\WebApi\\Controllers\\DeliveryNoteController.cs",
+              "RelativeToolTip": "WebApi\\Controllers\\DeliveryNoteController.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAABQAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-11T07:41:54.413Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "DeliveryNoteManager.cs",
+              "DocumentMoniker": "C:\\Users\\sefa_\\OneDrive\\Masa\u00FCst\u00FC\\CUBO\\DotNetCuboBackend\\Business\\Concrete\\DeliveryNoteManager.cs",
+              "RelativeDocumentMoniker": "Business\\Concrete\\DeliveryNoteManager.cs",
+              "ToolTip": "C:\\Users\\sefa_\\OneDrive\\Masa\u00FCst\u00FC\\CUBO\\DotNetCuboBackend\\Business\\Concrete\\DeliveryNoteManager.cs",
+              "RelativeToolTip": "Business\\Concrete\\DeliveryNoteManager.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAuwBkAAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-11T07:43:40.524Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "SevkIrsaliyeCreateDto.cs",
+              "DocumentMoniker": "C:\\Users\\sefa_\\OneDrive\\Masa\u00FCst\u00FC\\CUBO\\DotNetCuboBackend\\Entities\\DTO\u0027s\\SevkIrsaliyeCreateDto.cs",
+              "RelativeDocumentMoniker": "Entities\\DTO\u0027s\\SevkIrsaliyeCreateDto.cs",
+              "ToolTip": "C:\\Users\\sefa_\\OneDrive\\Masa\u00FCst\u00FC\\CUBO\\DotNetCuboBackend\\Entities\\DTO\u0027s\\SevkIrsaliyeCreateDto.cs",
+              "RelativeToolTip": "Entities\\DTO\u0027s\\SevkIrsaliyeCreateDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-11T08:14:31.186Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "MakineDto.cs",
+              "DocumentMoniker": "C:\\Users\\sefa_\\OneDrive\\Masa\u00FCst\u00FC\\CUBO\\DotNetCuboBackend\\Entities\\DTO\u0027s\\MakineDto.cs",
+              "RelativeDocumentMoniker": "Entities\\DTO\u0027s\\MakineDto.cs",
+              "ToolTip": "C:\\Users\\sefa_\\OneDrive\\Masa\u00FCst\u00FC\\CUBO\\DotNetCuboBackend\\Entities\\DTO\u0027s\\MakineDto.cs",
+              "RelativeToolTip": "Entities\\DTO\u0027s\\MakineDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-11T08:19:12.292Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "C:\\Users\\sefa_\\OneDrive\\Masa\u00FCst\u00FC\\CUBO\\DotNetCuboBackend\\WebApi\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "WebApi\\Controllers\\AuthController.cs",
+              "ToolTip": "C:\\Users\\sefa_\\OneDrive\\Masa\u00FCst\u00FC\\CUBO\\DotNetCuboBackend\\WebApi\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "WebApi\\Controllers\\AuthController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-11T08:19:14.772Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 8,
-              "Title": "OrtakIsEmri.cs",
-              "DocumentMoniker": "C:\\Users\\sefa_\\OneDrive\\Masa\u00FCst\u00FC\\CUBO\\DotNetCuboBackend\\Entities\\Concrete\\OrtakIsEmri.cs",
-              "RelativeDocumentMoniker": "Entities\\Concrete\\OrtakIsEmri.cs",
-              "ToolTip": "C:\\Users\\sefa_\\OneDrive\\Masa\u00FCst\u00FC\\CUBO\\DotNetCuboBackend\\Entities\\Concrete\\OrtakIsEmri.cs",
-              "RelativeToolTip": "Entities\\Concrete\\OrtakIsEmri.cs",
+              "Title": "IsEmriManager.cs",
+              "DocumentMoniker": "C:\\Users\\sefa_\\OneDrive\\Masa\u00FCst\u00FC\\CUBO\\DotNetCuboBackend\\Business\\Concrete\\IsEmriManager.cs",
+              "RelativeDocumentMoniker": "Business\\Concrete\\IsEmriManager.cs",
+              "ToolTip": "C:\\Users\\sefa_\\OneDrive\\Masa\u00FCst\u00FC\\CUBO\\DotNetCuboBackend\\Business\\Concrete\\IsEmriManager.cs",
+              "RelativeToolTip": "Business\\Concrete\\IsEmriManager.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-04T13:43:18.858Z"
+              "WhenOpened": "2025-02-11T07:44:39.66Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "SevkIrsaliyeKalem.cs",
+              "DocumentMoniker": "C:\\Users\\sefa_\\OneDrive\\Masa\u00FCst\u00FC\\CUBO\\DotNetCuboBackend\\Entities\\Concrete\\SevkIrsaliyeKalem.cs",
+              "RelativeDocumentMoniker": "Entities\\Concrete\\SevkIrsaliyeKalem.cs",
+              "ToolTip": "C:\\Users\\sefa_\\OneDrive\\Masa\u00FCst\u00FC\\CUBO\\DotNetCuboBackend\\Entities\\Concrete\\SevkIrsaliyeKalem.cs",
+              "RelativeToolTip": "Entities\\Concrete\\SevkIrsaliyeKalem.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-11T07:59:08.598Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "DamarDizaynManager.cs",
+              "DocumentMoniker": "C:\\Users\\sefa_\\OneDrive\\Masa\u00FCst\u00FC\\CUBO\\DotNetCuboBackend\\Business\\Concrete\\DamarDizaynManager.cs",
+              "RelativeDocumentMoniker": "Business\\Concrete\\DamarDizaynManager.cs",
+              "ToolTip": "C:\\Users\\sefa_\\OneDrive\\Masa\u00FCst\u00FC\\CUBO\\DotNetCuboBackend\\Business\\Concrete\\DamarDizaynManager.cs",
+              "RelativeToolTip": "Business\\Concrete\\DamarDizaynManager.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-11T07:44:37.763Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "GenelDizaynManager.cs",
+              "DocumentMoniker": "C:\\Users\\sefa_\\OneDrive\\Masa\u00FCst\u00FC\\CUBO\\DotNetCuboBackend\\Business\\Concrete\\GenelDizaynManager.cs",
+              "RelativeDocumentMoniker": "Business\\Concrete\\GenelDizaynManager.cs",
+              "ToolTip": "C:\\Users\\sefa_\\OneDrive\\Masa\u00FCst\u00FC\\CUBO\\DotNetCuboBackend\\Business\\Concrete\\GenelDizaynManager.cs",
+              "RelativeToolTip": "Business\\Concrete\\GenelDizaynManager.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-11T07:44:42.419Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "KullaniciManager.cs",
+              "DocumentMoniker": "C:\\Users\\sefa_\\OneDrive\\Masa\u00FCst\u00FC\\CUBO\\DotNetCuboBackend\\Business\\Concrete\\KullaniciManager.cs",
+              "RelativeDocumentMoniker": "Business\\Concrete\\KullaniciManager.cs",
+              "ToolTip": "C:\\Users\\sefa_\\OneDrive\\Masa\u00FCst\u00FC\\CUBO\\DotNetCuboBackend\\Business\\Concrete\\KullaniciManager.cs",
+              "RelativeToolTip": "Business\\Concrete\\KullaniciManager.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAABQAAABaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-11T07:44:45.11Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "KesitYapisiManager.cs",
+              "DocumentMoniker": "C:\\Users\\sefa_\\OneDrive\\Masa\u00FCst\u00FC\\CUBO\\DotNetCuboBackend\\Business\\Concrete\\KesitYapisiManager.cs",
+              "RelativeDocumentMoniker": "Business\\Concrete\\KesitYapisiManager.cs",
+              "ToolTip": "C:\\Users\\sefa_\\OneDrive\\Masa\u00FCst\u00FC\\CUBO\\DotNetCuboBackend\\Business\\Concrete\\KesitYapisiManager.cs",
+              "RelativeToolTip": "Business\\Concrete\\KesitYapisiManager.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAABBAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-11T07:45:01.613Z"
             }
           ]
         }

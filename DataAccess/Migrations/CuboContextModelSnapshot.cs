@@ -487,6 +487,34 @@ namespace DataAccess.Migrations
                     b.ToTable("MakineKesitHizTablosu");
                 });
 
+            modelBuilder.Entity("Entities.Concrete.Musteri", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Ad")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Adres")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Soyad")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Telefon")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Musteriler");
+                });
+
             modelBuilder.Entity("Entities.Concrete.Operator", b =>
                 {
                     b.Property<int>("Id")
@@ -646,6 +674,59 @@ namespace DataAccess.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("SatisPlanlama");
+                });
+
+            modelBuilder.Entity("Entities.Concrete.SevkIrsaliye", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("MusteriId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("Tarih")
+                        .HasColumnType("datetime2");
+
+                    b.Property<double>("ToplamTutar")
+                        .HasColumnType("float");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("MusteriId");
+
+                    b.ToTable("SevkIrsaliyeler");
+                });
+
+            modelBuilder.Entity("Entities.Concrete.SevkIrsaliyeKalem", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<double>("Fiyat")
+                        .HasColumnType("float");
+
+                    b.Property<int>("KabloUretimId")
+                        .HasColumnType("int");
+
+                    b.Property<double>("Miktar")
+                        .HasColumnType("float");
+
+                    b.Property<int>("SevkIrsaliyeId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("KabloUretimId");
+
+                    b.HasIndex("SevkIrsaliyeId");
+
+                    b.ToTable("SevkIrsaliyeKalemler");
                 });
 
             modelBuilder.Entity("Entities.Concrete.User", b =>
@@ -891,6 +972,36 @@ namespace DataAccess.Migrations
                     b.Navigation("IsEmri");
                 });
 
+            modelBuilder.Entity("Entities.Concrete.SevkIrsaliye", b =>
+                {
+                    b.HasOne("Entities.Concrete.Musteri", "Musteri")
+                        .WithMany()
+                        .HasForeignKey("MusteriId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Musteri");
+                });
+
+            modelBuilder.Entity("Entities.Concrete.SevkIrsaliyeKalem", b =>
+                {
+                    b.HasOne("Entities.Concrete.KabloUretim", "KabloUretim")
+                        .WithMany()
+                        .HasForeignKey("KabloUretimId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Entities.Concrete.SevkIrsaliye", "SevkIrsaliye")
+                        .WithMany("Kalemler")
+                        .HasForeignKey("SevkIrsaliyeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("KabloUretim");
+
+                    b.Navigation("SevkIrsaliye");
+                });
+
             modelBuilder.Entity("Entities.Concrete.UserRole", b =>
                 {
                     b.HasOne("Entities.Concrete.Role", "Role")
@@ -972,6 +1083,11 @@ namespace DataAccess.Migrations
             modelBuilder.Entity("Entities.Concrete.Role", b =>
                 {
                     b.Navigation("UserRoles");
+                });
+
+            modelBuilder.Entity("Entities.Concrete.SevkIrsaliye", b =>
+                {
+                    b.Navigation("Kalemler");
                 });
 
             modelBuilder.Entity("Entities.Concrete.User", b =>

@@ -61,6 +61,12 @@ namespace Business.DependencyResolvers.Autofac
 
             builder.RegisterType<AuthManager>().As<IAuthService>().SingleInstance();
 
+            builder.RegisterType<DeliveryNoteManager>().As<IDeliveryNoteService>().SingleInstance();
+            builder.RegisterType<EfDeliveryNoteDal>().As<IDeliveryNoteDal>().SingleInstance();
+
+            builder.RegisterType<CustomerManager>().As<ICustomerService>().SingleInstance();
+            builder.RegisterType<EfCustomerDal>().As<ICustomerDal>().SingleInstance();
+
             builder.AddAutoMapper(new[] { System.Reflection.Assembly.GetExecutingAssembly() });
 
             var assembly = System.Reflection.Assembly.GetExecutingAssembly();

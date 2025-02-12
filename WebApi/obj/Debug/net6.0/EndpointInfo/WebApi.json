@@ -100,6 +100,49 @@
         }
       }
     },
+    "/api/Customer/GetAll": {
+      "get": {
+        "tags": [
+          "Customer"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Customer/Add": {
+      "post": {
+        "tags": [
+          "Customer"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Musteri"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Musteri"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Musteri"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
     "/api/DamarDizayn/GetAll": {
       "get": {
         "tags": [
@@ -294,6 +337,49 @@
             }
           }
         },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/DeliveryNote/Create": {
+      "post": {
+        "tags": [
+          "DeliveryNote"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SevkIrsaliyeCreateDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SevkIrsaliyeCreateDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SevkIrsaliyeCreateDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/DeliveryNote/GetAllWithItems": {
+      "get": {
+        "tags": [
+          "DeliveryNote"
+        ],
         "responses": {
           "200": {
             "description": "Success"
@@ -2548,6 +2634,36 @@
         },
         "additionalProperties": false
       },
+      "Musteri": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ad": {
+            "type": "string",
+            "nullable": true
+          },
+          "soyad": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "telefon": {
+            "type": "string",
+            "nullable": true
+          },
+          "adres": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "Operator": {
         "type": "object",
         "properties": {
@@ -2665,6 +2781,86 @@
           "tarih": {
             "type": "string",
             "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      },
+      "SevkIrsaliye": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "musteriId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "tarih": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "toplamTutar": {
+            "type": "number",
+            "format": "double"
+          },
+          "musteri": {
+            "$ref": "#/components/schemas/Musteri"
+          },
+          "kalemler": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SevkIrsaliyeKalem"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SevkIrsaliyeCreateDto": {
+        "type": "object",
+        "properties": {
+          "deliveryNote": {
+            "$ref": "#/components/schemas/SevkIrsaliye"
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SevkIrsaliyeKalem"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SevkIrsaliyeKalem": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "sevkIrsaliyeId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "kabloUretimId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "miktar": {
+            "type": "number",
+            "format": "double"
+          },
+          "fiyat": {
+            "type": "number",
+            "format": "double"
+          },
+          "sevkIrsaliye": {
+            "$ref": "#/components/schemas/SevkIrsaliye"
+          },
+          "kabloUretim": {
+            "$ref": "#/components/schemas/KabloUretim"
           }
         },
         "additionalProperties": false

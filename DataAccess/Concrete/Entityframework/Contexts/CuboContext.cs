@@ -108,6 +108,8 @@ namespace DataAccess.Concrete.Entityframework.Contexts
         public DbSet<Barkod> Barkods { get; set; }
         public DbSet<IsEmriOperator> IsEmriOperators { get; set; }
         public DbSet<Operator> Operators { get; set; }
-
+        public DbSet<Musteri> Musteriler { get; set; }
+        public DbSet<SevkIrsaliye> SevkIrsaliyeler { get; set; }
+        public DbSet<SevkIrsaliyeKalem> SevkIrsaliyeKalemler { get; set; }
     }
 }
