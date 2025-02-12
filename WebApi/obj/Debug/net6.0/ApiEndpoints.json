@@ -84,6 +84,22 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "CustomerController",
+    "Method": "GetById",
+    "RelativePath": "api/Customer/GetById/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "WebApi.Controllers.DamarDizaynController",
     "Method": "AddAsync",
     "RelativePath": "api/DamarDizayn/Add",
@@ -249,8 +265,8 @@
   },
   {
     "ContainingType": "DeliveryNoteController",
-    "Method": "GetAllWithItems",
-    "RelativePath": "api/DeliveryNote/GetAllWithItems",
+    "Method": "GetAllWithItemsAndCustomerAsync",
+    "RelativePath": "api/DeliveryNote/GetAllWithItemsAndCustomerAsync",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,

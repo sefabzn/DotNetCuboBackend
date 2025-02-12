@@ -143,6 +143,29 @@
         }
       }
     },
+    "/api/Customer/GetById/{id}": {
+      "get": {
+        "tags": [
+          "Customer"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
     "/api/DamarDizayn/GetAll": {
       "get": {
         "tags": [
@@ -375,7 +398,7 @@
         }
       }
     },
-    "/api/DeliveryNote/GetAllWithItems": {
+    "/api/DeliveryNote/GetAllWithItemsAndCustomerAsync": {
       "get": {
         "tags": [
           "DeliveryNote"

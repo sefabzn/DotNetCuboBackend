@@ -34,5 +34,14 @@ public class CustomerController : ControllerBase
         return BadRequest(result);
     }
 
-    // Other CRUD actions...
+    [HttpGet("GetById/{id}")]
+    public async Task<IActionResult> GetById(int id)
+    {
+        var result = await _customerService.GetAsync(x => x.Id == id);
+        if (result.Success)
+        {
+            return Ok(result);
+        }
+        return BadRequest(result);
+    }
 }
